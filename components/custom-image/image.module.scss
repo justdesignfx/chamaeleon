@@ -1,0 +1,11 @@
+.image {
+  @include dims(100%);
+  object-fit: cover;
+  display: block;
+  transition: 300ms opacity ease;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+}

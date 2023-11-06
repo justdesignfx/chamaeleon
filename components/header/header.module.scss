@@ -1,0 +1,9 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  .logoC {
+    @include dims(desktop-vw(210px), auto);
+  }
+}

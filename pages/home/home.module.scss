@@ -1,0 +1,88 @@
+.intro {
+  align-items: flex-start;
+  background-color: var(--forestial);
+  display: flex;
+  height: desktop-vw(615px);
+  justify-content: flex-start;
+  position: relative;
+
+  > h1 {
+    color: var(--forested-juniper);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(140px);
+    font-weight: 700;
+  }
+}
+
+.whoWeAre {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  .coins {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .imgC {
+      margin: desktop-vw(-20px) 0;
+
+      &:nth-child(1) {
+        @include dims(desktop-vw(260px), auto);
+        margin-left: desktop-vw(100px);
+      }
+
+      &:nth-child(2) {
+        @include dims(desktop-vw(130px), auto);
+        margin-right: desktop-vw(100px);
+      }
+
+      &:nth-child(3) {
+        @include dims(desktop-vw(145px), auto);
+        margin-left: desktop-vw(100px);
+      }
+
+      &:nth-child(4) {
+        @include dims(desktop-vw(130px), auto);
+        margin-right: desktop-vw(100px);
+      }
+    }
+  }
+
+  .text {
+    padding: desktop-vw(100px) 0;
+
+    > h2 {
+      color: var(--nightly-woods);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(25px);
+      font-weight: 700;
+      margin-bottom: desktop-vw(30px);
+    }
+
+    > h3 {
+      color: var(--nightly-woods);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(70px);
+      font-weight: 700;
+      width: desktop-vw(660px);
+      margin-bottom: desktop-vw(30px);
+    }
+
+    > p {
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(17px);
+      font-weight: 400;
+      line-height: 1.6;
+      width: desktop-vw(490px);
+    }
+  }
+}
+
+.companiesMarquee {
+  .logoC {
+    @include dims(desktop-vw(115px), auto);
+    margin: 0 desktop-vw(50px);
+  }
+}

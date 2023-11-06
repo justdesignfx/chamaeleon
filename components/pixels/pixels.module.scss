@@ -1,0 +1,35 @@
+.pixels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: absolute;
+
+  &.tl {
+    top: 0;
+    left: 0;
+  }
+
+  &.tr {
+    top: 0;
+    right: 0;
+  }
+
+  &.bl {
+    bottom: 0;
+    left: 0;
+  }
+
+  &.br {
+    bottom: 0;
+    right: 0;
+  }
+
+  .pixel {
+    @include dims(desktop-vw(50px));
+    background-color: var(--bg);
+
+    &.fill {
+      background-color: var(--fill);
+    }
+  }
+}

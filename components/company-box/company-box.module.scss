@@ -1,0 +1,13 @@
+.companyBox {
+  @include dims(100%);
+  align-items: center;
+  border-radius: desktop-vw(20px);
+  display: flex;
+  justify-content: center;
+
+  border: 1px solid red;
+
+  .imgC {
+    @include dims(desktop-vw(130px), auto);
+  }
+}

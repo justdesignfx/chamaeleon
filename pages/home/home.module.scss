@@ -4,7 +4,9 @@
   display: flex;
   height: desktop-vw(615px);
   justify-content: flex-start;
+  overflow: hidden;
   position: relative;
+  z-index: 5;
 
   > h1 {
     color: var(--forested-juniper);
@@ -17,29 +19,32 @@
 .whoWeAre {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  z-index: 10;
 
   .coins {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: desktop-vw(100px);
+    margin-top: desktop-vw(-200px);
 
     .imgC {
-      margin: desktop-vw(-20px) 0;
-
       &:nth-child(1) {
         @include dims(desktop-vw(260px), auto);
         margin-left: desktop-vw(100px);
       }
 
       &:nth-child(2) {
-        @include dims(desktop-vw(130px), auto);
-        margin-right: desktop-vw(100px);
+        @include dims(desktop-vw(150px), auto);
+        margin-right: desktop-vw(200px);
       }
 
       &:nth-child(3) {
         @include dims(desktop-vw(145px), auto);
         margin-left: desktop-vw(100px);
+        margin-top: desktop-vw(-50px);
       }
 
       &:nth-child(4) {
@@ -50,7 +55,7 @@
   }
 
   .text {
-    padding: desktop-vw(100px) 0;
+    padding: desktop-vw(90px) 0;
 
     > h2 {
       color: var(--nightly-woods);
@@ -75,6 +80,7 @@
       font-size: desktop-vw(17px);
       font-weight: 400;
       line-height: 1.6;
+      margin-bottom: desktop-vw(50px);
       width: desktop-vw(490px);
     }
   }
@@ -84,5 +90,91 @@
   .logoC {
     @include dims(desktop-vw(115px), auto);
     margin: 0 desktop-vw(50px);
+  }
+}
+
+.ourPortfolio {
+  background: var(--greening);
+  margin-bottom: desktop-vw(200px);
+  padding: desktop-vw(115px) desktop-vw(70px);
+
+  > h3 {
+    color: var(--nightly-woods);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(70px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: desktop-vw(30px);
+    width: desktop-vw(1100px);
+
+    .forestial {
+      color: var(--forestial);
+    }
+
+    .imgC {
+      @include dims(desktop-vw(200px), auto);
+      display: inline-block;
+      margin-bottom: desktop-vw(-50px);
+      position: relative;
+      z-index: 100;
+    }
+  }
+
+  .imgs {
+    align-items: center;
+    display: flex;
+    margin-bottom: desktop-vw(-100px);
+    margin-top: desktop-vw(100px);
+    justify-content: space-between;
+
+    > .imgC {
+      &:nth-child(1) {
+        @include dims(desktop-vw(540px), auto);
+        margin-bottom: desktop-vw(-400px);
+      }
+
+      &:nth-child(2) {
+        @include dims(desktop-vw(670px), auto);
+      }
+    }
+  }
+}
+
+.kinCommunity {
+  padding: desktop-vw(80px);
+
+  > h4 {
+    border-bottom: 2px solid var(--nightly-woods);
+    color: var(--nightly-woods);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(45px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(30px);
+  }
+
+  > p {
+    color: var(--nightly-woods);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(40px);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(100px);
+  }
+
+  > .link {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    small {
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(25px);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: desktop-vw(10px);
+    }
   }
 }

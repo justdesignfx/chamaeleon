@@ -1,9 +1,49 @@
 .header {
   align-items: center;
   display: flex;
+  height: var(--header-height);
   justify-content: space-between;
+  padding: 0 desktop-vw(40px);
 
   .logoC {
     @include dims(desktop-vw(210px), auto);
+  }
+
+  .hamburger {
+    @include dims(desktop-vw(120px), desktop-vw(50px));
+    border-radius: desktop-vw(45px);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(35px);
+    font-weight: 700;
+    z-index: z-index("hamburger");
+  }
+
+  .menu {
+    @include position(fixed, 0, 0, auto, 0);
+    background-color: var(--electric-energy);
+    height: desktop-vw(540px);
+    z-index: z-index("menu");
+    padding: desktop-vw(50px) desktop-vw(30px);
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: auto;
+      margin-right: auto;
+
+      .navItem {
+        color: var(--nightly-woods);
+        font-family: var(--font-first-aid-kit-f);
+        font-size: desktop-vw(70px);
+        margin-bottom: desktop-vw(10px);
+      }
+    }
+  }
+
+  .menuBg {
+    @include position(fixed, 0, 0, 0, 0);
+    background-color: var(--black);
+    opacity: 0.9;
+    z-index: z-index("menu-bg");
   }
 }

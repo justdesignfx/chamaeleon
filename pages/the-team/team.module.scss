@@ -1,0 +1,17 @@
+.intro {
+  align-items: flex-start;
+  background-color: var(--forestial);
+  display: flex;
+  height: desktop-vw(615px);
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+
+  > h1 {
+    color: var(--forested-juniper);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(150px);
+    font-weight: 700;
+  }
+}

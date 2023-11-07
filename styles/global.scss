@@ -9,7 +9,7 @@
 @import "./_scroll.scss";
 
 :root {
-  --header-height: #{desktop-vw(90px)};
+  --header-height: #{desktop-vw(150px)};
   --upcoming-accordion-height: #{desktop-vw(30px)};
   --nav-height: #{desktop-vw(50px)};
   --font-first-aid-kit-f: FirstAidKitF;
@@ -138,15 +138,6 @@ sup {
   }
 }
 
-.next-item-c {
-  margin: desktop-vw(50px) 0;
-  padding: 0 desktop-vw(60px);
-
-  @include mobile {
-    padding: 0 mobile-vw(6px);
-  }
-}
-
 .input-required {
   // box-shadow: var(--error) 0px 0px 0px 1px;
   color: var(--error) !important;
@@ -158,8 +149,7 @@ sup {
   }
 }
 
-.island-margin {
+.island {
   border-radius: desktop-vw(20px);
   margin: desktop-vw(20px);
-  overflow: hidden;
 }

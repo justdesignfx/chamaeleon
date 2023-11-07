@@ -1,0 +1,19 @@
+.button {
+  border-bottom: 5px solid var(--nightly-woods);
+  color: var(--nightly-woods);
+  display: inline-block;
+  font-family: var(--font-first-aid-kit-f);
+  font-weight: 700;
+
+  &.sm {
+    font-size: desktop-vw(30px);
+  }
+
+  &.md {
+    font-size: desktop-vw(45px);
+  }
+
+  &.lg {
+    font-size: desktop-vw(90px);
+  }
+}

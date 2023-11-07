@@ -1,0 +1,26 @@
+.wr {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+
+  .hi {
+    flex-grow: 1;
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    // > div {
+    //   @include desktop {
+    //     padding-bottom: desktop-vh(18px);
+    //   }
+    // }
+  }
+}

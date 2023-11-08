@@ -15,7 +15,8 @@ export const companyBox: ICompanyBox = {
 export interface ICardPerson {
   img: string
   name: string
-  social: ISocial[]
+  role: string
+  social: ISocial
 }
 
 export interface ISocial {
@@ -23,10 +24,20 @@ export interface ISocial {
   url: string
 }
 
+export const cardPerson: ICardPerson = {
+  img: "/img/nonu.png",
+  name: "NUNO GONÇALVES PEDRO",
+  role: "Managing Partner",
+  social: {
+    icon: "/img/icon-linkedin.svg",
+    url: "#",
+  },
+}
+
 export const routes = {
   home: {
     name: "home",
-    path: "/",
+    path: "",
     ui: "HOME",
   },
   theTeam: {

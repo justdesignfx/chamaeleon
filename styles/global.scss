@@ -9,7 +9,8 @@
 @import "./_scroll.scss";
 
 :root {
-  --header-height: #{desktop-vw(150px)};
+  --header-height: #{desktop-vw(90px)};
+  --page-padding-top: #{desktop-vw(50px)};
   --upcoming-accordion-height: #{desktop-vw(30px)};
   --nav-height: #{desktop-vw(50px)};
   --font-first-aid-kit-f: FirstAidKitF;
@@ -151,5 +152,5 @@ sup {
 
 .island {
   border-radius: desktop-vw(20px);
-  margin: desktop-vw(20px);
+  margin: 0 desktop-vw(20px);
 }

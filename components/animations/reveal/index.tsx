@@ -1,7 +1,6 @@
-import React, { ReactNode, useEffect, useRef } from "react"
+import { ReactNode, useRef } from "react"
 
 import gsap from "gsap"
-import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -12,8 +11,6 @@ const Reveal = ({ children }: Props) => {
   const ref = useRef(null)
 
   useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
     const ctx = gsap.context(() => {
       gsap.set(ref.current, {
         autoAlpha: 0,

@@ -1,13 +1,12 @@
-import React from "react"
 import s from "./portfolio.module.scss"
-import DefaultLayout from "@/layouts/default"
-import CompanyBox from "@/components/company-box"
-import { ICompanyBox, companyBox } from "@/global"
 
 import cn from "clsx"
+
 import Button from "@/components/button"
+import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
-import Header from "@/components/header"
+import { ICompanyBox, companyBox } from "@/global"
+import DefaultLayout from "@/layouts/default"
 
 type Props = {}
 
@@ -29,7 +28,7 @@ const Portfolio = (props: Props) => {
 
   return (
     <DefaultLayout>
-      <Header />
+      {/* <Header /> */}
 
       <section className={s.intro}>
         <h1>

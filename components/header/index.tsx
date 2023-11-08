@@ -1,47 +1,63 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import s from "./header.module.scss"
-import CustomImage from "@/components/custom-image"
-import { CustomLink } from "@/components/custom-link"
-import { routes } from "@/global"
 
 import cn from "clsx"
 import gsap from "gsap"
-import LogoChamaeleon from "../icons/logo-chamaeleon"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-type Props = {}
+import { CustomLink } from "@/components/custom-link"
+import { routes } from "@/global"
 
-const Header = (props: Props) => {
+import LogoChamaeleon from "@/components/icons/logo-chamaeleon"
+
+const Header = () => {
   const ref = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev)
-  }
-
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ paused: true, reversed: true })
-
-      // gsap.set(".hamburger", {
-      //   backgroundColor: "var(--nightly-woods)",
-      //   color: "var(--forested-juniper)",
-      // })
-
-      // gsap.to(".hamburger", {
-      //   color: "var(--nightly-woods)",
-      //   backgroundColor: "var(--forested-juniper)",
-      // })
-
-      tl.from(".menu-bg", {
-        duration: 0.3,
+      gsap.set(".menu-bg", {
         opacity: 0,
         pointerEvents: "none",
-      }).from(".menu", {
-        duration: 0.3,
-        yPercent: -100,
       })
 
-      isOpen ? tl.play() : tl.reverse(1)
+      gsap.set(".menu", {
+        yPercent: -100,
+      })
+    }, ref)
+
+    return () => {
+      ctx.revert()
+    }
+  }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      if (isOpen) {
+        gsap.to(".menu-bg", {
+          duration: 0.3,
+          autoAlpha: 0.9,
+          pointerEvents: "auto",
+        })
+
+        gsap.to(".menu", {
+          autoAlpha: 0.9,
+          duration: 0.3,
+          yPercent: 0,
+        })
+      } else {
+        gsap.to(".menu-bg", {
+          autoAlpha: 0,
+          duration: 0.3,
+          pointerEvents: "none",
+        })
+
+        gsap.to(".menu", {
+          autoAlpha: 0,
+          duration: 0.3,
+          yPercent: -100,
+        })
+      }
     }, ref)
 
     return () => {
@@ -49,13 +65,17 @@ const Header = (props: Props) => {
     }
   }, [isOpen])
 
+  function handleMenu() {
+    setIsOpen((prev) => !prev)
+  }
+
   return (
     <header className={s.header} ref={ref}>
-      <CustomLink href={routes.home.path} className={cn(s.logoC, "cursor-pointer")}>
+      <CustomLink href={`/${routes.home.path}`} className={cn(s.logoC, "cursor-pointer")}>
         <LogoChamaeleon fill="var(--forestial)" />
       </CustomLink>
 
-      <div className={cn(s.hamburger, ".hamburger", "flex-center", "cursor-pointer")} onClick={toggleMenu}>
+      <div className={cn(s.hamburger, ".hamburger", "flex-center", "cursor-pointer")} onClick={handleMenu}>
         {isOpen ? "CLOSE" : "MENU"}
       </div>
 
@@ -71,7 +91,7 @@ const Header = (props: Props) => {
         </nav>
       </div>
 
-      <div className={cn(s.menuBg, "menu-bg")} onClick={toggleMenu}></div>
+      <div className={cn(s.menuBg, "menu-bg")} onClick={handleMenu}></div>
     </header>
   )
 }

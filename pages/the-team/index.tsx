@@ -3,9 +3,8 @@ import s from "./team.module.scss"
 import Button from "@/components/button"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
-import Header from "@/components/header"
-import Parallax from "@/components/parallax"
-import Reveal from "@/components/reveal"
+import Parallax from "@/components/animations/parallax"
+import Reveal from "@/components/animations/reveal"
 import { cardPerson } from "@/global"
 import DefaultLayout from "@/layouts/default"
 
@@ -39,7 +38,8 @@ const TheTeam = () => {
 
   return (
     <DefaultLayout>
-      <Header />
+      {/* <Header /> */}
+
       <section className={s.intro}>
         <h1>THE TEAM</h1>
       </section>

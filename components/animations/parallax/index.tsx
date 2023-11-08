@@ -1,7 +1,6 @@
 import { ReactNode, useEffect, useRef } from "react"
 
 import gsap from "gsap"
-import ScrollTrigger from "gsap/dist/ScrollTrigger"
 
 type Props = {
   children: ReactNode
@@ -15,8 +14,6 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
   const ref = useRef(null)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
     const ctx = gsap.context(() => {
       gsap.to(ref.current, {
         xPercent: () => 100 * speedX * directionX,

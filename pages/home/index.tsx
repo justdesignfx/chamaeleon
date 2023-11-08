@@ -1,18 +1,19 @@
-import Header from "@/components/header"
 import s from "./home.module.scss"
+
+import cn from "clsx"
 
 import Button from "@/components/button"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
+import Parallax from "@/components/animations/parallax"
 import Pixels from "@/components/pixels"
+import { routes } from "@/global"
 import DefaultLayout from "@/layouts/default"
-import cn from "clsx"
-import Parallax from "@/components/parallax"
 
 export default function Home() {
   return (
     <DefaultLayout>
-      <Header />
+      {/* <Header /> */}
 
       <section className={cn(s.intro, "island")}>
         <h1>
@@ -126,7 +127,7 @@ export default function Home() {
           </span>
           , WE&apos;RE HERE TO BOOST YOUR BRAND.
         </h3>
-        <Button text="OUR PORTFOLIO" path="/our-portfolio" size="md" />
+        <Button text="OUR PORTFOLIO" path={`/${routes.portfolio.path}`} size="md" />
 
         <div className={s.imgs}>
           <div className={s.imgC}>

@@ -1,12 +1,12 @@
-// @ts-ignore
-import { useFrame } from "@studio-freight/hamo"
 import Lenis from "@studio-freight/lenis"
 import cn from "clsx"
-import { ReactNode, useEffect, useRef, useState } from "react"
+import { ReactNode, useRef } from "react"
 import s from "./scrollable-box.module.scss"
-import gsap from "gsap"
 
+import { useUiStore } from "@/lib/store"
+import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 gsap.registerPlugin(ScrollTrigger)
 
 type Props = {
@@ -17,11 +17,11 @@ type Props = {
 }
 
 export default function ScrollableBox({ children, className, infinite, reset }: Props) {
-  const [lenis, setLenis] = useState<any>()
+  const { lenis, setLenis } = useUiStore()
   const wrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!wrapperRef.current) return
     if (!contentRef.current) return
 
@@ -35,26 +35,39 @@ export default function ScrollableBox({ children, className, infinite, reset }: 
       smoothWheel: true,
       infinite,
     })
-    lenis.start()
     setLenis(lenis)
-
-    // GSAP SCROLLTRIGGER INTEGRATION
-    // lenis.on("scroll", ScrollTrigger.update)
-    // gsap.ticker.add((time) => {
-    //   lenis.raf(time * 1000)
-    // })
-    // gsap.ticker.lagSmoothing(0)
 
     return () => {
       lenis.destroy()
     }
   }, [])
 
-  useFrame((time: number) => {
-    lenis?.raf(time)
-  }, [])
+  useIsomorphicLayoutEffect(() => {
+    // GSAP SCROLLTRIGGER INTEGRATION
+    lenis?.on("scroll", () => {
+      ScrollTrigger.update()
+    })
 
-  useEffect(() => {
+    gsap.ticker.add((time) => {
+      lenis?.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
+  }, [lenis])
+
+  // useFrame((time: number) => {
+  //   lenis?.raf(time)
+  // }, [])
+
+  // useIsomorphicLayoutEffect(() => {
+  //   function update(time: number) {
+  //     lenis?.raf(time * 1000)
+  //   }
+
+  //   gsap.ticker.add(update)
+  // }, [lenis])
+
+  useIsomorphicLayoutEffect(() => {
     if (reset) {
       lenis?.scrollTo(0, { immediate: true })
     }

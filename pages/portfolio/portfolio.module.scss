@@ -9,6 +9,8 @@
 }
 
 .intro {
+  padding-top: var(--page-padding-top);
+
   > h1 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);

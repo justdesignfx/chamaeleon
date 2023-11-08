@@ -1,14 +1,41 @@
-import React from "react"
 import s from "./team.module.scss"
-import DefaultLayout from "@/layouts/default"
-import Header from "@/components/header"
-import { cardPerson } from "@/global"
+
+import Button from "@/components/button"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
-import Button from "@/components/button"
+import Header from "@/components/header"
+import Parallax from "@/components/parallax"
+import Reveal from "@/components/reveal"
+import { cardPerson } from "@/global"
+import DefaultLayout from "@/layouts/default"
 
 const TheTeam = () => {
-  const members = [cardPerson, cardPerson, cardPerson, cardPerson, cardPerson, cardPerson]
+  const members = [
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+    cardPerson,
+  ]
 
   return (
     <DefaultLayout>
@@ -18,7 +45,11 @@ const TheTeam = () => {
       </section>
       <section className={s.members}>
         {members.map((item, i) => {
-          return <CardPerson key={i} {...item} />
+          return (
+            <Reveal key={i}>
+              <CardPerson {...item} />
+            </Reveal>
+          )
         })}
       </section>
       <section className={s.achievements}>
@@ -44,9 +75,11 @@ const TheTeam = () => {
         </div>
 
         <div className={s.imgC}>
-          <div>
-            <CustomImage src="/img/bale.png" alt="Dollar Bale" height="500" width="500" />
-          </div>
+          <Parallax speedX={0} directionY={-1} speedY={0.25}>
+            <div>
+              <CustomImage src="/img/bale.png" alt="Dollar Bale" height="500" width="500" />
+            </div>
+          </Parallax>
         </div>
       </section>
       <section className={s.link}>

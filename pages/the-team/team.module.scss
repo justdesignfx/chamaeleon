@@ -2,8 +2,9 @@
   align-items: flex-start;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: desktop-vw(100px);
+  margin-bottom: desktop-vw(75px);
   overflow: hidden;
+  padding-top: var(--page-padding-top);
   position: relative;
   z-index: 5;
 
@@ -24,6 +25,12 @@
   gap: desktop-vw(50px) desktop-vw(25px);
   justify-content: center;
   margin-bottom: desktop-vw(100px);
+
+  // > div {
+  //   &:nth-of-type(2n) {
+  //     margin-top: 100px;
+  //   }
+  // }
 }
 
 .achievements {

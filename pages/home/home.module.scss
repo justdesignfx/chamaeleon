@@ -1,5 +1,5 @@
 .intro {
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--forestial);
   display: flex;
   height: desktop-vw(615px);
@@ -7,18 +7,27 @@
   overflow: hidden;
   position: relative;
   z-index: 5;
+  padding: desktop-vw(30px);
 
   > h1 {
     color: var(--forested-juniper);
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(140px);
     font-weight: 700;
+    margin-bottom: desktop-vw(100px);
+  }
+
+  > .imgC {
+    @include dims(desktop-vw(320px));
+    margin-left: desktop-vw(150px);
+    margin-top: desktop-vw(200px);
   }
 }
 
 .whoWeAre {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-bottom: desktop-vw(100px);
   position: relative;
   z-index: 10;
 
@@ -28,7 +37,7 @@
     flex-direction: column;
     justify-content: center;
     margin-left: desktop-vw(100px);
-    margin-top: desktop-vw(-200px);
+    margin-top: desktop-vw(-100px);
 
     .imgC {
       &:nth-child(1) {
@@ -39,6 +48,7 @@
       &:nth-child(2) {
         @include dims(desktop-vw(150px), auto);
         margin-right: desktop-vw(200px);
+        margin-top: desktop-vw(-50px);
       }
 
       &:nth-child(3) {
@@ -50,6 +60,7 @@
       &:nth-child(4) {
         @include dims(desktop-vw(130px), auto);
         margin-right: desktop-vw(100px);
+        margin-top: desktop-vw(-50px);
       }
     }
   }
@@ -87,6 +98,8 @@
 }
 
 .companiesMarquee {
+  margin: desktop-vw(50px) 0;
+
   .logoC {
     @include dims(desktop-vw(115px), auto);
     margin: 0 desktop-vw(50px);
@@ -95,39 +108,66 @@
 
 .ourPortfolio {
   background: var(--greening);
-  margin-bottom: desktop-vw(200px);
+  margin-bottom: desktop-vw(300px);
   padding: desktop-vw(115px) desktop-vw(70px);
 
   > h3 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
-    font-size: desktop-vw(70px);
+    font-size: desktop-vw(100px);
     font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: desktop-vw(30px);
-    width: desktop-vw(1100px);
+    line-height: 1.1;
+    margin-bottom: desktop-vw(100px);
+    width: desktop-vw(1150px);
 
     .forestial {
       color: var(--forestial);
     }
 
-    .imgC {
-      @include dims(desktop-vw(200px), auto);
+    .a,
+    .b {
       display: inline-block;
-      margin-bottom: desktop-vw(-50px);
       position: relative;
-      z-index: 100;
+
+      .imgC {
+        z-index: 100;
+      }
+    }
+
+    .a {
+      $width: desktop-vw(200px);
+      width: $width;
+
+      .imgC {
+        @include position(absolute, 50%, auto, auto, 0);
+        @include dims($width, auto);
+        transform: translate(0%, -60%);
+      }
+    }
+
+    .b {
+      $width: desktop-vw(240px);
+      width: $width;
+
+      .imgC {
+        @include position(absolute, 50%, 0, auto, auto);
+        @include dims($width, auto);
+        transform: translate(0%, -55%);
+      }
     }
   }
 
   .imgs {
     align-items: center;
     display: flex;
-    margin-bottom: desktop-vw(-100px);
-    margin-top: desktop-vw(100px);
+    margin-bottom: desktop-vw(-150px);
+    margin-top: desktop-vw(50px);
     justify-content: space-between;
 
     > .imgC {
+      overflow: hidden;
+      border-radius: desktop-vw(9px);
+
       &:nth-child(1) {
         @include dims(desktop-vw(540px), auto);
         margin-bottom: desktop-vw(-400px);

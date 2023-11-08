@@ -7,6 +7,7 @@ import { Marquee } from "@/components/marquee"
 import Pixels from "@/components/pixels"
 import DefaultLayout from "@/layouts/default"
 import cn from "clsx"
+import Parallax from "@/components/parallax"
 
 export default function Home() {
   return (
@@ -17,6 +18,15 @@ export default function Home() {
         <h1>
           WHOLISTIC <br /> INVESTMENTS.
         </h1>
+        <div className={s.imgC}>
+          <CustomImage
+            src="/img/chamaeleon-c.png"
+            alt="Chamaeleon C Logo"
+            height="500"
+            width="500"
+            style={{ objectFit: "contain" }}
+          />
+        </div>
         <Pixels
           bg="var(--forestial)"
           fill="var(--forested-juniper)"
@@ -38,20 +48,31 @@ export default function Home() {
           ]}
         />
       </section>
+
       <section className={s.whoWeAre}>
         <div className={s.coins}>
           <div className={s.imgC}>
-            <CustomImage src="/img/coin-dollar.png" alt="Company Logo" width="300" height="300" />
+            <Parallax speedX={0} directionY={-1} speedY={0.4}>
+              <CustomImage src="/img/coin-dollar.png" alt="Company Logo" width="300" height="300" />
+            </Parallax>
           </div>
 
           <div className={s.imgC}>
-            <CustomImage src="/img/coin-pound.png" alt="Company Logo" width="300" height="300" />
+            <Parallax speedX={0} directionY={-1} speedY={0.4}>
+              <CustomImage src="/img/coin-pound.png" alt="Company Logo" width="300" height="300" />
+            </Parallax>
           </div>
+
           <div className={s.imgC}>
-            <CustomImage src="/img/coin-yen.png" alt="Company Logo" width="300" height="300" />
+            <Parallax speedX={0} directionY={-1} speedY={0.4}>
+              <CustomImage src="/img/coin-yen.png" alt="Company Logo" width="300" height="300" />
+            </Parallax>
           </div>
+
           <div className={s.imgC}>
-            <CustomImage src="/img/coin-euro.png" alt="Company Logo" width="300" height="300" />
+            <Parallax speedX={0} directionY={-1} speedY={0.4}>
+              <CustomImage src="/img/coin-euro.png" alt="Company Logo" width="300" height="300" />
+            </Parallax>
           </div>
         </div>
         <div className={s.text}>
@@ -65,6 +86,7 @@ export default function Home() {
           <Button text="SEE MORE" path="/manifesto-and-values" size="md" />
         </div>
       </section>
+
       <section className={s.companiesMarquee}>
         <Marquee>
           <>
@@ -86,16 +108,21 @@ export default function Home() {
           </>
         </Marquee>
       </section>
+
       <section className={cn(s.ourPortfolio, "island")}>
         <h3>
-          WHETHER YOU&apos;RE
-          <span className={s.imgC}>
-            <CustomImage src="/img/moneybox.png" alt="Company Logo" width="200" height="200" />
+          WHETHER YOU&apos;RE{" "}
+          <span className={s.a}>
+            <span className={s.imgC}>
+              <CustomImage src="/img/moneybox.png" alt="Company Logo" width="200" height="200" />
+            </span>
           </span>
-          <span className={s.forestial}>A HUMBLE STARTUP</span> OR{" "}
-          <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
-          <span className={s.imgC}>
-            <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" width="200" height="200" />
+          <span className={s.forestial}>A HUMBLE STARTUP </span>
+          OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
+          <span className={s.b}>
+            <span className={s.imgC}>
+              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" width="200" height="200" />
+            </span>
           </span>
           , WE&apos;RE HERE TO BOOST YOUR BRAND.
         </h3>
@@ -103,14 +130,23 @@ export default function Home() {
 
         <div className={s.imgs}>
           <div className={s.imgC}>
-            <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" width="1000" height="1000" />
+            <Parallax speedX={0} directionY={-1} speedY={0.2}>
+              <div style={{ transform: "scale(1.3) translateY(10%)" }}>
+                <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" width="1000" height="1000" />
+              </div>
+            </Parallax>
           </div>
 
           <div className={s.imgC}>
-            <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" width="1000" height="1000" />
+            <Parallax speedX={0} directionY={-1} speedY={0.2}>
+              <div style={{ transform: "scale(1.3) translateY(10%)" }}>
+                <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" width="1000" height="1000" />
+              </div>
+            </Parallax>
           </div>
         </div>
       </section>
+
       <div className={s.kinCommunity}>
         <h4>KIN COMMUNITY</h4>
         <p>

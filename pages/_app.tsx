@@ -1,11 +1,8 @@
 import type { AppProps } from "next/app"
 import "../styles/global.scss"
-import Header from "@/components/header"
+import useSmoothScroll from "@/hooks/useSmoothScroll"
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Component {...pageProps} />
-    </>
-  )
+  useSmoothScroll()
+  return <Component {...pageProps} />
 }

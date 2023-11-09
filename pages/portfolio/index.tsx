@@ -5,12 +5,11 @@ import cn from "clsx"
 import Button from "@/components/button"
 import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
+import { CustomLink } from "@/components/custom-link"
 import { ICompanyBox, companyBox } from "@/global"
 import DefaultLayout from "@/layouts/default"
 
-type Props = {}
-
-const Portfolio = (props: Props) => {
+const Portfolio = () => {
   const companies: ICompanyBox[] = [
     companyBox,
     companyBox,
@@ -34,12 +33,16 @@ const Portfolio = (props: Props) => {
         <h1>
           OUR LATEST ANNOUNCED INVESTMENTS.
           <span>
-            <CustomImage src="/img/megaphone.png" alt="Chamaeleon Face" height="500" width="500" objectFit="contain" />
+            <CustomImage src="/img/megaphone.png" alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
           </span>
         </h1>
         <div className={s.companies}>
           {companies.map((item, i) => {
-            return <CompanyBox key={i} {...item} />
+            return (
+              <CustomLink href={item.url} className={s.boxC} key={i}>
+                <CompanyBox {...item} />
+              </CustomLink>
+            )
           })}
         </div>
       </section>
@@ -47,33 +50,25 @@ const Portfolio = (props: Props) => {
         <h2>
           OUR PRIOR INVESTMENTS.
           <span>
-            <CustomImage src="/img/up.png" alt="Chamaeleon Face" height="500" width="500" objectFit="contain" />
+            <CustomImage src="/img/up.png" alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
           </span>
         </h2>
         <div className={s.companies}>
           {companies.map((item, i) => {
-            return <CompanyBox key={i} {...item} />
+            return (
+              <CustomLink href={item.url} className={s.boxC} key={i}>
+                <CompanyBox key={i} {...item} />
+              </CustomLink>
+            )
           })}
         </div>
       </section>
       <section className={s.toTheTeam}>
         <div className={cn(s.imgC, s.left)}>
-          <CustomImage
-            src="/img/cactus.png"
-            alt="Cactus Doodle"
-            height="500"
-            width="500"
-            style={{ objectFit: "contain" }}
-          />
+          <CustomImage src="/img/cactus.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
         </div>
         <div className={cn(s.imgC, s.right)}>
-          <CustomImage
-            src="/img/chamaeleon-face.png"
-            alt="Chamaeleon Face"
-            height="500"
-            width="500"
-            style={{ objectFit: "contain" }}
-          />
+          <CustomImage src="/img/chamaeleon-face.png" alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
         </div>
         <div className={s.link}>
           <small>Get to know about us</small>

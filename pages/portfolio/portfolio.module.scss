@@ -6,6 +6,12 @@
   grid-template-rows: repeat(2, desktop-vw(130px));
   gap: desktop-vw(12px);
   margin-bottom: desktop-vw(100px);
+
+  .boxC {
+    @include dims(100%);
+    background-color: var(--bgColor);
+    border-radius: desktop-vw(20px);
+  }
 }
 
 .intro {
@@ -27,6 +33,10 @@
       @include dims(desktop-vw(230px), auto);
       display: inline-block;
     }
+  }
+
+  .boxC {
+    background-color: var(--greening);
   }
 }
 
@@ -65,7 +75,7 @@
 
     &.right {
       @include position(absolute, 50%, desktop-vw(160px), auto, auto);
-      @include dims(desktop-vw(300px));
+      @include dims(desktop-vw(260px));
       transform: translateY(-50%);
     }
   }

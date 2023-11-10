@@ -22,7 +22,7 @@ const Footer = () => {
 
       tl.current
         .to(
-          ".wrapper",
+          ref.current,
           {
             yPercent: 0,
           },

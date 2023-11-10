@@ -1,8 +1,0 @@
-.box {
-  @include dims(100vw, 100vh);
-  background: green;
-
-  &:nth-of-type(2n + 1) {
-    background: red;
-  }
-}

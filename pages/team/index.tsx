@@ -8,7 +8,7 @@ import Reveal from "@/components/animations/reveal"
 import { cardPerson } from "@/global"
 import DefaultLayout from "@/layouts/default"
 
-const TheTeam = () => {
+const Team = () => {
   const members = [
     cardPerson,
     cardPerson,
@@ -90,4 +90,4 @@ const TheTeam = () => {
   )
 }
 
-export default TheTeam
+export default Team

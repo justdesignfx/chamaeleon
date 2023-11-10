@@ -2,12 +2,16 @@
 
 // Each color filled here will create a css variable exposed globally
 $colors: (
+  "clarity": rgb(234, 240, 223),
   "electric-energy": rgb(211, 226, 30),
   "dartmouth-green": rgb(0, 115, 62),
   "forestial": rgb(0, 117, 56),
   "forested-juniper": rgb(241, 245, 235),
   "nightly-woods": rgb(0, 53, 26),
   "greening": rgb(223, 229, 212),
+  "pine-grove": rgb(36, 60, 56),
+  "austrian-ice": rgb(221, 231, 232),
+  "cold-white": rgb(237, 249, 250),
   "white": rgb(255, 255, 255),
   "black": rgb(33, 35, 36),
 );

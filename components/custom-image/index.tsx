@@ -25,6 +25,8 @@ const CustomImage = ({ src = "", className, style, loading = "eager", quality = 
       className={cn(s.image, className, {
         [s.visible]: loaded,
       })}
+      height={1000}
+      width={1000}
       style={{ ...style }}
       loading={loading}
       quality={quality}

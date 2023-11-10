@@ -20,13 +20,7 @@ export default function Home() {
           WHOLISTIC <br /> INVESTMENTS.
         </h1>
         <div className={s.imgC}>
-          <CustomImage
-            src="/img/chamaeleon-c.png"
-            alt="Chamaeleon C Logo"
-            height="500"
-            width="500"
-            style={{ objectFit: "contain" }}
-          />
+          <CustomImage src="/img/chamaeleon-c.png" alt="Chamaeleon C Logo" style={{ objectFit: "contain" }} />
         </div>
         <Pixels
           bg="var(--forestial)"
@@ -54,25 +48,25 @@ export default function Home() {
         <div className={s.coins}>
           <div className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-dollar.png" alt="Company Logo" width="300" height="300" />
+              <CustomImage src="/img/coin-dollar.png" alt="Company Logo" />
             </Parallax>
           </div>
 
           <div className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-pound.png" alt="Company Logo" width="300" height="300" />
+              <CustomImage src="/img/coin-pound.png" alt="Company Logo" />
             </Parallax>
           </div>
 
           <div className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-yen.png" alt="Company Logo" width="300" height="300" />
+              <CustomImage src="/img/coin-yen.png" alt="Company Logo" />
             </Parallax>
           </div>
 
           <div className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-euro.png" alt="Company Logo" width="300" height="300" />
+              <CustomImage src="/img/coin-euro.png" alt="Company Logo" />
             </Parallax>
           </div>
         </div>
@@ -92,19 +86,19 @@ export default function Home() {
         <Marquee>
           <>
             <div className={s.logoC}>
-              <CustomImage src="/img/beepro.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/beepro.png" alt="Company Logo" />
             </div>
             <div className={s.logoC}>
-              <CustomImage src="/img/beepro.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/beepro.png" alt="Company Logo" />
             </div>
             <div className={s.logoC}>
-              <CustomImage src="/img/beepro.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/beepro.png" alt="Company Logo" />
             </div>
             <div className={s.logoC}>
-              <CustomImage src="/img/beepro.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/beepro.png" alt="Company Logo" />
             </div>
             <div className={s.logoC}>
-              <CustomImage src="/img/beepro.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/beepro.png" alt="Company Logo" />
             </div>
           </>
         </Marquee>
@@ -115,14 +109,14 @@ export default function Home() {
           WHETHER YOU&apos;RE{" "}
           <span className={s.a}>
             <span className={s.imgC}>
-              <CustomImage src="/img/moneybox.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/moneybox.png" alt="Company Logo" />
             </span>
           </span>
           <span className={s.forestial}>A HUMBLE STARTUP </span>
           OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
           <span className={s.b}>
             <span className={s.imgC}>
-              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" width="200" height="200" />
+              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" />
             </span>
           </span>
           , WE&apos;RE HERE TO BOOST YOUR BRAND.
@@ -133,7 +127,7 @@ export default function Home() {
           <div className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.2}>
               <div style={{ transform: "scale(1.3) translateY(10%)" }}>
-                <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" width="1000" height="1000" />
+                <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" loading="lazy" />
               </div>
             </Parallax>
           </div>
@@ -141,7 +135,7 @@ export default function Home() {
           <div className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.2}>
               <div style={{ transform: "scale(1.3) translateY(10%)" }}>
-                <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" width="1000" height="1000" />
+                <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" loading="lazy" />
               </div>
             </Parallax>
           </div>
@@ -153,7 +147,7 @@ export default function Home() {
         <p>
           We partner with exceptional people who are aligned with us on values, have worked or have done business with
           us, and believe that entrepreneurship can create massive opportunities and impact for everyone. They are part
-          of our family… they are #KIN.
+          of our family… they are <span>#KIN</span>.
         </p>
         <div className={s.link}>
           <small>Meet our partners</small>

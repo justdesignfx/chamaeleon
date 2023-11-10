@@ -30,6 +30,7 @@
     transform: translateY(-100%);
 
     nav {
+      column-gap: desktop-vw(130px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       margin-top: auto;

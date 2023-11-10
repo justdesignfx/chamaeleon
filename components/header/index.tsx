@@ -61,6 +61,9 @@ const Header = () => {
       <div className={cn(s.menu, "menu", "flex-center")}>
         <nav>
           {Object.values(routes).map((value) => {
+            if (value.name === "home") {
+              return
+            }
             return (
               <CustomLink className={cn(s.navItem, "cursor-pointer")} key={value.name} href={`/${value.path}`}>
                 <span className={s.circle}></span>

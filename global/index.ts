@@ -36,20 +36,35 @@ export const routes = {
     path: "",
     ui: "HOME",
   },
-  theTeam: {
-    name: "the-team",
-    path: "the-team",
-    ui: "THE TEAM",
-  },
-  kinCommunity: {
-    name: "kin-community",
-    path: "kin-community",
-    ui: "KIN COMMUNITY",
-  },
   manifestoAndValues: {
     name: "manifesto-and-values",
     path: "manifesto-and-values",
     ui: "MANIFESTO & VALUES",
+  },
+  superpower: {
+    name: "superpower",
+    path: "superpower",
+    ui: "SUPERPOWER",
+  },
+  team: {
+    name: "team",
+    path: "team",
+    ui: "THE TEAM",
+  },
+  community: {
+    name: "community",
+    path: "community",
+    ui: "COMMUNITY",
+  },
+  portfolio: {
+    name: "portfolio",
+    path: "portfolio",
+    ui: "PORTFOLIO",
+  },
+  newsAndEvents: {
+    name: "news-and-events",
+    path: "news-and-events",
+    ui: "NEWS & EVENTS",
   },
   approach: {
     name: "approach",
@@ -60,15 +75,5 @@ export const routes = {
     name: "contact-us",
     path: "contact-us",
     ui: "CONTACT US",
-  },
-  newsAndEvents: {
-    name: "news-and-events",
-    path: "news-and-events",
-    ui: "NEWS & EVENTS",
-  },
-  portfolio: {
-    name: "portfolio",
-    path: "portfolio",
-    ui: "PORTFOLIO",
   },
 }

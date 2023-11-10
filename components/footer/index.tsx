@@ -31,7 +31,7 @@ const Footer = () => {
         .to(
           ".overlay",
           {
-            opacity: 1,
+            opacity: 0,
           },
           "s"
         )
@@ -67,6 +67,9 @@ const Footer = () => {
       <div className={cn(s.wrapper, "wrapper")}>
         <nav>
           {Object.values(routes).map((value) => {
+            if (value.name === "home") {
+              return
+            }
             return (
               <CustomLink className={cn(s.navItem, "cursor-pointer")} key={value.name} href={`/${value.path}`}>
                 {value.ui}
@@ -75,7 +78,10 @@ const Footer = () => {
           })}
         </nav>
         <div className={s.copyright}>
-          <small>Headquarters in Bay Area (US)</small>
+          <small>
+            Headquarters in Bay Area (US) <br />
+            Offices in Europe
+          </small>
           <small>Terms & Conditions</small>
           <small>All rights reserved © Chamaeleon LLC 2021</small>
         </div>

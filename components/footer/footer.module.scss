@@ -12,10 +12,11 @@
       @include position(absolute, 0, 0, 0, 0);
       background: var(--black);
       pointer-events: none;
-      opacity: 0;
+      opacity: 1;
     }
 
     nav {
+      column-gap: desktop-vw(100px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       margin-top: auto;
@@ -31,7 +32,7 @@
     }
 
     .copyright {
-      align-items: center;
+      align-items: flex-end;
       display: flex;
       justify-content: space-between;
       padding: desktop-vw(100px) desktop-vw(40px);
@@ -40,6 +41,7 @@
         color: var(--forested-juniper);
         font-family: var(--font-helvetica-neue);
         font-size: desktop-vw(15px);
+        line-height: 1.5;
         margin-bottom: desktop-vw(10px);
       }
     }

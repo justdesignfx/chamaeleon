@@ -15,11 +15,6 @@ export interface ICardPerson {
   social: ISocial
 }
 
-export interface ISocial {
-  icon: string
-  url: string
-}
-
 export const cardPerson: ICardPerson = {
   img: "/img/nonu.png",
   name: "NUNO GONÇALVES PEDRO",
@@ -28,6 +23,11 @@ export const cardPerson: ICardPerson = {
     icon: "/img/icon-linkedin.svg",
     url: "#",
   },
+}
+
+export interface ISocial {
+  icon: string
+  url: string
 }
 
 export const routes = {
@@ -71,9 +71,9 @@ export const routes = {
     path: "approach",
     ui: "APPROACH",
   },
-  contactUs: {
-    name: "contact-us",
-    path: "contact-us",
+  contact: {
+    name: "contact",
+    path: "contact",
     ui: "CONTACT US",
   },
 }

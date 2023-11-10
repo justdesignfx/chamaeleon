@@ -81,64 +81,6 @@ sup {
   z-index: z-index("gsap-markers") !important;
 }
 
-.content-box {
-  &-sm {
-    background: var(--white);
-    border-radius: desktop-vw(30px);
-    flex: 1;
-    margin: 0 desktop-vw(8px) desktop-vw(20px) desktop-vw(8px);
-    padding: var(--header-height) 0;
-
-    @include mobile {
-      border-radius: mobile-vw(20px);
-      margin: 0;
-      margin-bottom: mobile-vw(20px);
-      padding-bottom: mobile-vw(50px);
-    }
-  }
-
-  &-md {
-    background: var(--white);
-    border-radius: desktop-vw(30px);
-    flex: 1;
-    margin: desktop-vw(20px) desktop-vw(8px);
-    padding: desktop-vw(70px) 0;
-
-    @include mobile {
-      border-radius: mobile-vw(20px);
-      margin: mobile-vw(20px) 0;
-      padding: mobile-vw(50px) 0;
-    }
-  }
-
-  &-lg {
-    background: var(--white);
-    border-radius: desktop-vw(30px);
-    flex: 1;
-    margin: desktop-vw(20px) desktop-vw(60px);
-    padding: desktop-vw(80px) 0;
-
-    @include mobile {
-      border-radius: mobile-vw(20px);
-      margin: mobile-vw(20px) 0;
-      padding: mobile-vw(60px) 0;
-    }
-  }
-}
-
-.trial-c {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: desktop-vw(50px);
-  padding: 0 desktop-vw(60px);
-
-  @include mobile {
-    margin: 0;
-    padding: 0 mobile-vw(6px);
-  }
-}
-
 .input-required {
   // box-shadow: var(--error) 0px 0px 0px 1px;
   color: var(--error) !important;
@@ -153,4 +95,5 @@ sup {
 .island {
   border-radius: desktop-vw(20px);
   margin: 0 desktop-vw(20px);
+  // box-shadow: 0 0 2px 0px white inset, 0 0 2px 0px white;
 }

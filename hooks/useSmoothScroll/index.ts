@@ -1,16 +1,18 @@
+import { useLenisStore } from "@/lib/store"
 import Lenis from "@studio-freight/lenis"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { useEffect, useLayoutEffect, useRef, useState } from "react"
-
+import { useRef, useState } from "react"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 gsap.registerPlugin(ScrollTrigger)
 
 const useSmoothScroll = () => {
   const [lenis, setLenis] = useState<Lenis | null>()
+  const lenisStore = useLenisStore()
 
   const reqIdRef = useRef<ReturnType<typeof requestAnimationFrame>>()
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const animate = (time: DOMHighResTimeStamp) => {
       lenis?.raf(time)
       lenis?.on("scroll", () => ScrollTrigger.update())
@@ -20,7 +22,7 @@ const useSmoothScroll = () => {
     return () => cancelAnimationFrame(reqIdRef.current as number)
   }, [lenis])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const lenis = new Lenis({
       // duration: 2, //change scroll speed
       // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -44,6 +46,14 @@ const useSmoothScroll = () => {
       setLenis(null)
     }
   }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    if (lenisStore.isStopped) {
+      lenis?.stop()
+    } else {
+      lenis?.start()
+    }
+  }, [lenisStore.isStopped])
 }
 
 export default useSmoothScroll

@@ -12,17 +12,20 @@ const Reveal = ({ children }: Props) => {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set(ref.current, {
+      gsap.set(".transform", {
         autoAlpha: 0,
+        transformStyle: "preserve-3d",
+        transformPerspective: 800,
+        rotateX: 12,
       })
 
-      gsap.to(ref.current, {
+      gsap.to(".transform", {
         autoAlpha: 1,
+        rotateX: 0,
         scrollTrigger: {
           id: "reveal",
           markers: true,
           trigger: ref.current,
-          start: "center center+=25%",
         },
       })
     }, ref)
@@ -34,7 +37,7 @@ const Reveal = ({ children }: Props) => {
 
   return (
     <div ref={ref} style={{ width: "inherit", height: "inherit" }}>
-      {children}
+      <div className="transform">{children}</div>
     </div>
   )
 }

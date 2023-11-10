@@ -1,13 +1,9 @@
 export interface ICompanyBox {
-  bgColor: string
-  fontColor: string
   img: string
   url: string
 }
 
 export const companyBox: ICompanyBox = {
-  bgColor: "var(--forested-juniper)",
-  fontColor: "var(--greening)",
   img: "/img/beepro.png",
   url: "#",
 }

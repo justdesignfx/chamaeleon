@@ -1,0 +1,50 @@
+.form {
+  @include dims(100%, calc(100vh - var(--header-height)));
+  position: relative;
+
+  .start {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > h1 {
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(24px);
+      margin-bottom: desktop-vw(10px);
+    }
+
+    > .buttonC {
+      margin-bottom: desktop-vw(20px);
+    }
+
+    > small {
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(16px);
+      margin-bottom: desktop-vw(50px);
+    }
+  }
+
+  .end {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > small {
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(24px);
+      margin-bottom: desktop-vw(10px);
+    }
+
+    > p {
+      color: var(--nightly-woods);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(90px);
+      margin-bottom: desktop-vw(20px);
+    }
+  }
+}

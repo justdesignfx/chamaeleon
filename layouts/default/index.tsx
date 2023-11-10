@@ -7,12 +7,13 @@ import Footer from "@/components/footer"
 
 type Props = {
   children: ReactNode
+  theme?: "main" | "mantis"
 }
 
-const DefaultLayout = ({ children }: Props) => {
+const DefaultLayout = ({ children, theme = "main" }: Props) => {
   return (
     <>
-      <div className={cn(s.default, "theme-main")}>
+      <div className={cn(s.default, `theme-${theme}`)}>
         <Header />
         <main>{children}</main>
       </div>

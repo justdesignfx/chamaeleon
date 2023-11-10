@@ -7,6 +7,7 @@
 
   .logoC {
     @include dims(desktop-vw(210px), auto);
+    z-index: z-index("hamburger");
   }
 
   .hamburger {
@@ -23,8 +24,10 @@
     background-color: var(--electric-energy);
     height: desktop-vw(540px);
     padding: desktop-vw(50px) desktop-vw(30px);
-    visibility: hidden;
     z-index: z-index("menu");
+
+    opacity: 0;
+    transform: translateY(-100%);
 
     nav {
       display: grid;
@@ -33,10 +36,19 @@
       margin-right: auto;
 
       .navItem {
+        align-items: center;
         color: var(--nightly-woods);
+        display: flex;
         font-family: var(--font-first-aid-kit-f);
         font-size: desktop-vw(70px);
         margin-bottom: desktop-vw(10px);
+
+        .circle {
+          @include dims(desktop-vw(12px));
+          background-color: var(--nightly-woods);
+          border-radius: 50%;
+          margin: 0 desktop-vw(8px);
+        }
       }
     }
   }
@@ -45,6 +57,8 @@
     @include position(fixed, 0, 0, 0, 0);
     background-color: var(--black);
     z-index: z-index("menu-bg");
-    visibility: hidden;
+
+    opacity: 0;
+    pointer-events: none;
   }
 }

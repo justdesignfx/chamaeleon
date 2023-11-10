@@ -6,24 +6,31 @@ import gsap from "gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomLink } from "@/components/custom-link"
-import { routes } from "@/global"
-
 import LogoChamaeleon from "@/components/icons/logo-chamaeleon"
+import { routes } from "@/global"
+import { useLenisStore } from "@/lib/store"
 
 const Header = () => {
   const ref = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
+  const tl = useRef<gsap.core.Timeline | null>(null)
+  const uiStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set(".menu-bg", {
-        opacity: 0,
-        pointerEvents: "none",
-      })
+      tl.current = gsap.timeline({ paused: true })
 
-      gsap.set(".menu", {
-        yPercent: -100,
-      })
+      tl.current
+        .to(".menu-bg", {
+          duration: 0.3,
+          opacity: 0.9,
+          pointerEvents: "auto",
+        })
+        .to(".menu", {
+          duration: 0.3,
+          opacity: 1,
+          y: 0,
+        })
     }, ref)
 
     return () => {
@@ -32,37 +39,9 @@ const Header = () => {
   }, [])
 
   useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      if (isOpen) {
-        gsap.to(".menu-bg", {
-          duration: 0.3,
-          autoAlpha: 0.9,
-          pointerEvents: "auto",
-        })
-
-        gsap.to(".menu", {
-          autoAlpha: 0.9,
-          duration: 0.3,
-          yPercent: 0,
-        })
-      } else {
-        gsap.to(".menu-bg", {
-          autoAlpha: 0,
-          duration: 0.3,
-          pointerEvents: "none",
-        })
-
-        gsap.to(".menu", {
-          autoAlpha: 0,
-          duration: 0.3,
-          yPercent: -100,
-        })
-      }
-    }, ref)
-
-    return () => {
-      ctx.revert()
-    }
+    if (!tl.current) return
+    isOpen ? tl.current.play() : tl.current.reverse()
+    uiStore.setIsStopped(isOpen)
   }, [isOpen])
 
   function handleMenu() {
@@ -84,6 +63,7 @@ const Header = () => {
           {Object.values(routes).map((value) => {
             return (
               <CustomLink className={cn(s.navItem, "cursor-pointer")} key={value.name} href={`/${value.path}`}>
+                <span className={s.circle}></span>
                 {value.ui}
               </CustomLink>
             )

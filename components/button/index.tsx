@@ -6,13 +6,18 @@ import cn from "clsx"
 
 type Props = {
   text: string
-  path: string
+  path?: string
   size: "sm" | "md" | "lg"
+  onClick?: () => void
 }
 
 const Button = (props: Props) => {
   return (
-    <CustomLink className={cn(s.button, [s[props.size]])} href={props.path}>
+    <CustomLink
+      className={cn(s.button, [s[props.size]])}
+      {...(props.path && { href: props.path })}
+      {...(props.onClick && { onClick: props.onClick })}
+    >
       {props.text}
     </CustomLink>
   )

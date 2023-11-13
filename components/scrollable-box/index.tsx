@@ -1,9 +1,8 @@
 import Lenis from "@studio-freight/lenis"
 import cn from "clsx"
-import { ReactNode, useRef } from "react"
+import { ReactNode, useRef, useState } from "react"
 import s from "./scrollable-box.module.scss"
 
-import { useUiStore } from "@/lib/store"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
@@ -17,7 +16,7 @@ type Props = {
 }
 
 export default function ScrollableBox({ children, className, infinite, reset }: Props) {
-  const { lenis, setLenis } = useUiStore()
+  const [lenis, setLenis] = useState<Lenis | null>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -43,29 +42,12 @@ export default function ScrollableBox({ children, className, infinite, reset }: 
   }, [])
 
   useIsomorphicLayoutEffect(() => {
-    // GSAP SCROLLTRIGGER INTEGRATION
-    lenis?.on("scroll", () => {
-      ScrollTrigger.update()
-    })
-
-    gsap.ticker.add((time) => {
+    function update(time: number) {
       lenis?.raf(time * 1000)
-    })
+    }
 
-    gsap.ticker.lagSmoothing(0)
+    gsap.ticker.add(update)
   }, [lenis])
-
-  // useFrame((time: number) => {
-  //   lenis?.raf(time)
-  // }, [])
-
-  // useIsomorphicLayoutEffect(() => {
-  //   function update(time: number) {
-  //     lenis?.raf(time * 1000)
-  //   }
-
-  //   gsap.ticker.add(update)
-  // }, [lenis])
 
   useIsomorphicLayoutEffect(() => {
     if (reset) {
@@ -74,10 +56,8 @@ export default function ScrollableBox({ children, className, infinite, reset }: 
   }, [reset])
 
   return (
-    <div className={s.wr}>
-      <div className={cn(s.hi, className)} ref={wrapperRef}>
-        <div ref={contentRef}>{children}</div>
-      </div>
+    <div className={cn(s.hi, className)} ref={wrapperRef}>
+      <div ref={contentRef}>{children}</div>
     </div>
   )
 }

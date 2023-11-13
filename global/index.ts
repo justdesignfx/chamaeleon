@@ -9,6 +9,7 @@ export const companyBox: ICompanyBox = {
 }
 
 export interface ICardPerson {
+  desc: string
   img: string
   name: string
   role: string
@@ -16,8 +17,31 @@ export interface ICardPerson {
 }
 
 export const cardPerson: ICardPerson = {
+  desc: "Entrepreneur, operator, investor… nerd. Over 25 years experience in Silicon Valley, US, Europe and Asia-Pacific. Formerly, founder and managing partner at Strive Capital, first ever early-stage VC quant firm and fund in the Bay area and in the US, and senior expert and member of Asia-Pacific TMT leadership team at McKinsey & Co. Focuses on Consumer Software, Consumer Hardware and Horizontal SaaS, e.g. Gusto, Rubrik, App Annie, Enish (IPO), Virta Health, DraftKings (IPO), RobinHood (IPO), among others. Co-founder and co-host of decipheredshow.com and the creator of the “Rejection & Adversity as a path to Growth” methodology (bit.ly/3badkvb). Nuno has served as a board member, advisor and coach to various start-ups, large enterprises and non-profits in the US, Europe and Asia.",
   img: "/img/nonu.png",
   name: "NUNO GONÇALVES PEDRO",
+  role: "Managing Partner",
+  social: {
+    icon: "/img/icon-linkedin.svg",
+    url: "#",
+  },
+}
+
+export const cardPerson2: ICardPerson = {
+  desc: "Entrepreneur, operator, investor… nerd. Over 25 years experience in Silicon Valley, US, Europe and Asia-Pacific. Formerly, founder and managing partner at Strive Capital, first ever early-stage VC quant firm and fund in the Bay area and in the US, and senior expert and member of Asia-Pacific TMT leadership team at McKinsey & Co. Focuses on Consumer Software, Consumer Hardware and Horizontal SaaS, e.g. Gusto, Rubrik, App Annie, Enish (IPO), Virta Health, DraftKings (IPO), RobinHood (IPO), among others. Co-founder and co-host of decipheredshow.com and the creator of the “Rejection & Adversity as a path to Growth” methodology (bit.ly/3badkvb). Nuno has served as a board member, advisor and coach to various start-ups, large enterprises and non-profits in the US, Europe and Asia.",
+  img: "/img/nonu.png",
+  name: "NUNO GONÇALVES PEDRO 2",
+  role: "Managing Partner",
+  social: {
+    icon: "/img/icon-linkedin.svg",
+    url: "#",
+  },
+}
+
+export const cardPerson3: ICardPerson = {
+  desc: "Entrepreneur, operator, investor… nerd. Over 25 years experience in Silicon Valley, US, Europe and Asia-Pacific. Formerly, founder and managing partner at Strive Capital, first ever early-stage VC quant firm and fund in the Bay area and in the US, and senior expert and member of Asia-Pacific TMT leadership team at McKinsey & Co. Focuses on Consumer Software, Consumer Hardware and Horizontal SaaS, e.g. Gusto, Rubrik, App Annie, Enish (IPO), Virta Health, DraftKings (IPO), RobinHood (IPO), among others. Co-founder and co-host of decipheredshow.com and the creator of the “Rejection & Adversity as a path to Growth” methodology (bit.ly/3badkvb). Nuno has served as a board member, advisor and coach to various start-ups, large enterprises and non-profits in the US, Europe and Asia.",
+  img: "/img/nonu.png",
+  name: "NUNO GONÇALVES PEDRO 3",
   role: "Managing Partner",
   social: {
     icon: "/img/icon-linkedin.svg",
@@ -28,6 +52,15 @@ export const cardPerson: ICardPerson = {
 export interface ISocial {
   icon: string
   url: string
+}
+
+export interface Media {
+  src: {
+    desktop: string
+    mobile: string
+  }
+  height: string
+  width: string
 }
 
 export const routes = {

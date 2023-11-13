@@ -1,0 +1,14 @@
+.modal {
+  @include position(fixed, 0, 0, 0, 0);
+  background: var(--black);
+  z-index: z-index("modal");
+
+  opacity: 0;
+  visibility: hidden;
+
+  .close {
+    @include position(absolute, desktop-vw(50px), desktop-vw(50px), auto, auto);
+    @include dims(desktop-vw(50px));
+    background: red;
+  }
+}

@@ -1,0 +1,11 @@
+.detailSlider {
+  @include position(absolute, 0, 0, 0, 0);
+  align-items: center;
+  display: flex;
+  background-color: var(--nightly-woods);
+  justify-content: center;
+
+  .btn {
+    @include dims(desktop-vw(50px));
+  }
+}

@@ -107,3 +107,7 @@
     margin-bottom: desktop-vw(10px);
   }
 }
+
+.slide {
+  @include dims(100vw, 100vh);
+}

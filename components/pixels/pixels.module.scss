@@ -28,6 +28,10 @@
     @include dims(desktop-vw(50px));
     background-color: var(--bg);
 
+    @include mobile {
+      @include dims(mobile-vw(35px));
+    }
+
     &.fill {
       background-color: var(--fill);
     }

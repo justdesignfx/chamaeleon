@@ -1,4 +1,4 @@
-import { useLenisStore } from "@/lib/store"
+import { useLenisStore } from "@/lib/store/lenis"
 import Lenis from "@studio-freight/lenis"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"

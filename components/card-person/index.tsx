@@ -1,8 +1,7 @@
 import { ICardPerson } from "@/global"
-import React from "react"
-import s from "./card-person.module.scss"
 import CustomImage from "../custom-image"
 import { CustomLink } from "../custom-link"
+import s from "./card-person.module.scss"
 
 import cn from "clsx"
 

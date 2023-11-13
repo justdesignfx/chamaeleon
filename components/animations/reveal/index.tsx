@@ -16,16 +16,19 @@ const Reveal = ({ children }: Props) => {
         autoAlpha: 0,
         transformStyle: "preserve-3d",
         transformPerspective: 800,
-        rotateX: 12,
+        rotateX: 20,
       })
 
       gsap.to(".transform", {
+        duration: 1,
+        ease: "back.out",
         autoAlpha: 1,
         rotateX: 0,
         scrollTrigger: {
           id: "reveal",
           markers: true,
           trigger: ref.current,
+          start: "top center+=35%",
         },
       })
     }, ref)

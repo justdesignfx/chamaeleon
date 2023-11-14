@@ -1,0 +1,186 @@
+.intro {
+  padding-top: var(--page-padding-top);
+
+  > h1 {
+    @include dims(desktop-vw(1270px), auto);
+    color: var(--nightly-woods);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(40px);
+    font-weight: 400;
+    line-height: 1.35;
+    margin-left: desktop-vw(40px);
+    margin-bottom: desktop-vw(100px);
+
+    span {
+      display: block;
+      margin-bottom: desktop-vw(50px);
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  > .imgC {
+    @include dims(desktop-vw(1400px), desktop-vw(615px));
+    border-radius: desktop-vw(90px);
+    margin: 0 auto;
+    margin-bottom: desktop-vw(20px);
+    overflow: hidden;
+  }
+
+  > .manifestoMarquee {
+    margin-bottom: desktop-vw(130px);
+
+    h5 {
+      color: var(--nightly-woods);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(150px);
+      font-weight: 700;
+      margin: 0 desktop-vw(60px);
+    }
+  }
+}
+
+.manifesto {
+  align-items: center;
+  color: var(--nightly-woods);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  > .date {
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(25px);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: desktop-vw(30px);
+  }
+
+  > h3 {
+    @include dims(desktop-vw(800px), auto);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(40px);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(70px);
+  }
+
+  > p {
+    @include dims(desktop-vw(900px), auto);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(20px);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(50px);
+  }
+
+  > .punch {
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(30px);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
+
+.chamaeleonPop {
+  > .imgC {
+    @include dims(desktop-vw(700px));
+    margin: 0 auto;
+    margin-bottom: desktop-vw(-300px);
+  }
+}
+
+.ourValues {
+  background: var(--greening);
+  margin-bottom: desktop-vw(225px);
+  overflow: hidden;
+  padding: desktop-vw(120px) 0;
+
+  > h2 {
+    color: var(--nightly-woods);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(150px);
+    font-weight: 700;
+    margin: 0 auto;
+    margin-bottom: desktop-vw(100px);
+  }
+
+  > .values {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: desktop-vw(100px);
+    position: relative;
+    z-index: 10;
+
+    .progressLine {
+      @include position(absolute, 0, auto, auto, 50%);
+      @include dims(1px, 100%);
+      background-color: var(--nightly-woods);
+      transform: translateX(-50%);
+      transform: scaleY(0);
+      transform-origin: top center;
+    }
+
+    .item {
+      @include dims(desktop-vw(340px), auto);
+      margin: 0 desktop-vw(80px);
+
+      &:nth-child(2n + 1) {
+        margin-top: desktop-vw(100px);
+      }
+
+      h5 {
+        color: var(--nightly-woods);
+        font-family: var(--font-first-aid-kit-f);
+        font-size: desktop-vw(30px);
+        font-weight: 700;
+        margin: 0 auto;
+        margin-bottom: desktop-vw(20px);
+        text-transform: uppercase;
+      }
+
+      p {
+        color: var(--nightly-woods);
+        font-family: var(--font-helvetica-neue);
+        font-size: desktop-vw(17px);
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0 auto;
+        margin-bottom: desktop-vw(70px);
+      }
+    }
+  }
+
+  > .cactusC {
+    @include dims(100%, desktop-vw(500px));
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-start;
+    margin: desktop-vw(-200px) 0;
+    padding: 0 desktop-vw(100px);
+
+    .imgC {
+      &:nth-child(1) {
+        @include dims(desktop-vw(500px));
+        margin-bottom: desktop-vw(-50px);
+      }
+
+      &:nth-child(2) {
+        @include dims(desktop-vw(300px));
+        margin-bottom: desktop-vw(20px);
+      }
+
+      &:nth-child(3) {
+        @include dims(desktop-vw(200px));
+        margin-bottom: desktop-vw(30px);
+      }
+    }
+  }
+
+  > .imgC {
+    @include position(absolute, auto, 0, desktop-vw(25px), auto);
+    @include dims(desktop-vw(420px));
+  }
+}

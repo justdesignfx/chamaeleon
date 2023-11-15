@@ -1,28 +1,35 @@
-import { useRef } from "react"
+import { useCallback, useRef, useState } from "react"
 import s from "./footer.module.scss"
 
 import cn from "clsx"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import { useMeasure } from "@uidotdev/usehooks"
-import gsap from "gsap"
-import ScrollTrigger from "gsap/dist/ScrollTrigger"
 
-import { CustomLink } from "@/components/custom-link"
-import { routes } from "@/global"
 import CustomImage from "@/components/custom-image"
+import { CustomLink } from "@/components/custom-link"
+import { routes } from "@/constants"
 
 const Footer = () => {
   const ref = useRef<any>(null)
-  const [footerMeasureRef, { height: footerHeight }] = useMeasure()
   const tl = useRef<gsap.core.Timeline | null>(null)
+  const [height, setHeight] = useState(0)
+
+  const refElement = useCallback((node: HTMLElement | null) => {
+    if (node !== null) {
+      setHeight(node.getBoundingClientRect().height)
+    }
+  }, [])
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       tl.current = gsap.timeline({ paused: true })
 
       tl.current
-        .to(
+        .fromTo(
           ref.current,
+          {
+            yPercent: -50,
+          },
           {
             yPercent: 0,
           },
@@ -41,7 +48,7 @@ const Footer = () => {
         id: "footer",
         trigger: ref.current,
         start: "center bottom",
-        end: () => `center bottom-=${footerHeight}`,
+        end: () => `center bottom-=${height}`,
         scrub: true,
         markers: true,
       })
@@ -50,7 +57,7 @@ const Footer = () => {
     return () => {
       ctx.revert()
     }
-  }, [footerHeight])
+  }, [height])
 
   //   useIsomorphicLayoutEffect(() => {
   //     ScrollTrigger.refresh()
@@ -61,7 +68,7 @@ const Footer = () => {
       className={s.footer}
       ref={(node) => {
         ref.current = node
-        footerMeasureRef(node)
+        refElement(node)
       }}
     >
       <div className={cn(s.wrapper, "wrapper")}>

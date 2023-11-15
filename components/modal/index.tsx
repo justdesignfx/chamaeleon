@@ -3,7 +3,7 @@ import { useRef } from "react"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import s from "./modal.module.scss"
 import { useLenisStore } from "@/lib/store/lenis"
-import gsap from "gsap"
+import { gsap } from "@/lib/gsap"
 
 const Modal = () => {
   const ref = useRef(null)

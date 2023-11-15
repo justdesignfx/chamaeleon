@@ -2,13 +2,13 @@ import { useRef, useState } from "react"
 import s from "./header.module.scss"
 
 import cn from "clsx"
-import gsap from "gsap"
+import { gsap } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomLink } from "@/components/custom-link"
 import LogoChamaeleon from "@/components/icons/logo-chamaeleon"
-import { routes } from "@/global"
 import { useLenisStore } from "@/lib/store/lenis"
+import { routes } from "@/constants"
 
 const Header = () => {
   const ref = useRef(null)

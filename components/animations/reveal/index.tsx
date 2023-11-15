@@ -1,6 +1,6 @@
 import { ReactNode, useRef } from "react"
 
-import gsap from "gsap"
+import { gsap } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -26,7 +26,7 @@ const Reveal = ({ children }: Props) => {
         rotateX: 0,
         scrollTrigger: {
           id: "reveal",
-          markers: true,
+          markers: false,
           trigger: ref.current,
           start: "top center+=35%",
         },

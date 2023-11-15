@@ -3,10 +3,8 @@ import cn from "clsx"
 import { ReactNode, useRef, useState } from "react"
 import s from "./scrollable-box.module.scss"
 
-import gsap from "gsap"
-import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import { gsap } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-gsap.registerPlugin(ScrollTrigger)
 
 type Props = {
   children: ReactNode

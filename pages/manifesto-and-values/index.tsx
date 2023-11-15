@@ -1,19 +1,20 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import s from "./manifesto-and-values.module.scss"
 
 import cn from "clsx"
-import gsap from "gsap"
-import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import Reveal from "@/components/animations/reveal"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 import DefaultLayout from "@/layouts/default"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 const ManifestoAndValues = () => {
+  const manifestoRef = useRef(null)
   const ourValuesRef = useRef(null)
   const tl = useRef<gsap.core.Timeline | null>(null)
+  const [manifestoView, setManifestoView] = useState<"long" | "tldr">("long")
 
   const gridItems = [
     {
@@ -111,6 +112,50 @@ const ManifestoAndValues = () => {
     }
   }, [])
 
+  useIsomorphicLayoutEffect(() => {
+    if (!manifestoRef.current) return
+
+    const duration = 0.2
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        id: "manifesto",
+        markers: true,
+        trigger: manifestoRef.current,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+          gsap.to(".sticky-btn", {
+            autoAlpha: 1,
+            duration,
+          })
+        },
+        onLeave: () => {
+          gsap.to(".sticky-btn", {
+            autoAlpha: 0,
+            duration,
+          })
+        },
+        onEnterBack: () => {
+          gsap.to(".sticky-btn", {
+            autoAlpha: 1,
+            duration,
+          })
+        },
+        onLeaveBack: () => {
+          gsap.to(".sticky-btn", {
+            autoAlpha: 0,
+            duration,
+          })
+        },
+      })
+    }, manifestoRef)
+
+    return () => {
+      ctx.revert()
+    }
+  }, [])
+
   return (
     <DefaultLayout>
       <section className={s.intro}>
@@ -128,6 +173,9 @@ const ManifestoAndValues = () => {
         <div className={s.imgC}>
           <CustomImage alt="Manifest" src="/img/our-portfolio-2.jpg" style={{ objectFit: "cover" }} />
         </div>
+      </section>
+
+      <section className={s.manifesto} ref={manifestoRef}>
         <div className={s.manifestoMarquee}>
           <Marquee duration={30}>
             <>
@@ -138,51 +186,69 @@ const ManifestoAndValues = () => {
             </>
           </Marquee>
         </div>
-      </section>
-      <div className={s.manifesto}>
         <small className={s.date}>June 29th, 2021</small>
         <h3>Today, we announce the creation of Chamaeleon and the launch of its first fund.</h3>
-        <p>
-          For an industry that is fueled by technology, its innovations and the sometimes stratospheric returns on its
-          investments, venture capital - in particular in early-stage - is an industry surprisingly lacking in
-          technology, at its core. Although the operating models and playbooks used to source and do due diligence on
-          start-ups - in our opinion, the two most core activities in VC - have evolved over time, there are very few
-          impactful innovations around the core technology stacks that VC firms actually develop or bring together.
-          Therefore, we are bringing a full-stack approach to VC investing with our own early-stage investing technology
-          stack at the center of everything we do. We will also use these platforms to create value to portfolio
-          companies and our own investors/LPs.
-        </p>
-        <p>
-          This partnership has invested in companies like App Annie, DraftKings, Gusto, Kakao, Outsystems, Robinhood,
-          Rubrik, Virta Health, Cloudflare, Ometria, among many other “household” names. We have led and managed 5 VC
-          funds between us with enviable returns, including top 2 to 5 percentile funds. We have created verifiable
-          impact at-scale as operators in such household names as NCSOFT, McKinsey & Co, GSM Association, SK Telecom,
-          Sonae. We have jumped off a cliff before and started our own companies… and we are doing it all over again,
-          because we don’t rest on our laurels, because we have a fundamental new way of looking and executing in this
-          space, because we love and feel blessed by being in venture capital… and because, deep down, we just want to
-          do this, together.
-        </p>
-        <p>
-          Last, but most certainly not the least, we are big believers that as much as technology will augment us… as
-          much as our insights and instincts will support our decisions, people are still at the center of all of this.
-          We have built unique networks of truly astonishing and generous people, not just in the geographies where we
-          will have our offices, but around the world, where we will operate. All of us have worked in at least 3
-          different continents and will continue bringing to entrepreneurs all the resources that we have access to as
-          individuals, as a firm, but also from our broader ecosystem of investors/LPs, advisors, friends. We will
-          continue bringing a humanistic values-based approach to this profession (we don’t call it a job, around here):
-          we will continue treating entrepreneurs’ start-ups as their babies… because they are; when we are tough, we
-          will continue being thoughtful, fair and charitable.
-        </p>
-        <span className={s.punch}>
-          ANNOUNCING CHAMAELEON <br /> GREAT PEOPLE + GREAT TECH <br /> SONGYEE, NUNO AND ALEX
-        </span>
-      </div>
-      <div className={s.chamaeleonPop}>
+
+        {manifestoView === "long" ? (
+          <div className={s.long}>
+            <p>
+              For an industry that is fueled by technology, its innovations and the sometimes stratospheric returns on
+              its investments, venture capital - in particular in early-stage - is an industry surprisingly lacking in
+              technology, at its core. Although the operating models and playbooks used to source and do due diligence
+              on start-ups - in our opinion, the two most core activities in VC - have evolved over time, there are very
+              few impactful innovations around the core technology stacks that VC firms actually develop or bring
+              together. Therefore, we are bringing a full-stack approach to VC investing with our own early-stage
+              investing technology stack at the center of everything we do. We will also use these platforms to create
+              value to portfolio companies and our own investors/LPs.
+            </p>
+            <p>
+              This partnership has invested in companies like App Annie, DraftKings, Gusto, Kakao, Outsystems,
+              Robinhood, Rubrik, Virta Health, Cloudflare, Ometria, among many other “household” names. We have led and
+              managed 5 VC funds between us with enviable returns, including top 2 to 5 percentile funds. We have
+              created verifiable impact at-scale as operators in such household names as NCSOFT, McKinsey & Co, GSM
+              Association, SK Telecom, Sonae. We have jumped off a cliff before and started our own companies… and we
+              are doing it all over again, because we don’t rest on our laurels, because we have a fundamental new way
+              of looking and executing in this space, because we love and feel blessed by being in venture capital… and
+              because, deep down, we just want to do this, together.
+            </p>
+            <p>
+              Last, but most certainly not the least, we are big believers that as much as technology will augment us…
+              as much as our insights and instincts will support our decisions, people are still at the center of all of
+              this. We have built unique networks of truly astonishing and generous people, not just in the geographies
+              where we will have our offices, but around the world, where we will operate. All of us have worked in at
+              least 3 different continents and will continue bringing to entrepreneurs all the resources that we have
+              access to as individuals, as a firm, but also from our broader ecosystem of investors/LPs, advisors,
+              friends. We will continue bringing a humanistic values-based approach to this profession (we don’t call it
+              a job, around here): we will continue treating entrepreneurs’ start-ups as their babies… because they are;
+              when we are tough, we will continue being thoughtful, fair and charitable.
+            </p>
+            <span className={s.punch}>
+              ANNOUNCING CHAMAELEON <br /> GREAT PEOPLE + GREAT TECH <br /> SONGYEE, NUNO AND ALEX
+            </span>
+          </div>
+        ) : (
+          <div className={s.tldr}>
+            <p>Typically Coming In At Series Seed Or Series A</p>
+            <p>Prefer To Lead Or Co-Lead, But We Play Nice With Others :)</p>
+            <p>
+              First Checks Between <strong>1-5 Million USD</strong>
+            </p>
+            <p>Primarily, Focused On US And Europe, But Will Invest Globally</p>
+            <p>Broad Vertical Focus, But Key Principles Are:</p>
+            <p>Product-Led Companies, Not “Just” Core-Technology Or IP</p>
+            <p>Clear End-User Flows That We As Users Could Test, Even In B2B</p>
+            <p>Preference For Technology Differentiated</p>
+          </div>
+        )}
+      </section>
+
+      <section className={s.chamaeleonPop}>
         <div className={s.imgC}>
           <CustomImage src="/img/chamaeleon-hole.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
         </div>
-      </div>
-      <div className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
+      </section>
+
+      <section className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
         <h2>OUR VALUES</h2>
         <div className={s.values}>
           <div className={cn(s.progressLine, "progress-line")}></div>
@@ -210,6 +276,21 @@ const ManifestoAndValues = () => {
         </div>
         <div className={cn(s.imgC, "papa-chamaeleon")}>
           <CustomImage src="/img/papa-chamaeleon.png" alt="Papa Chamaeleon" style={{ objectFit: "contain" }} />
+        </div>
+      </section>
+
+      <div className={cn(s.stickyBtn, "sticky-btn", [s[manifestoView]])}>
+        <div
+          className={cn("flex-center", "cursor-pointer", { [s.active]: manifestoView === "tldr" })}
+          onClick={() => setManifestoView("tldr")}
+        >
+          TL;DR
+        </div>
+        <div
+          className={cn("flex-center", "cursor-pointer", { [s.active]: manifestoView === "long" })}
+          onClick={() => setManifestoView("long")}
+        >
+          LONG
         </div>
       </div>
     </DefaultLayout>

@@ -1,10 +1,8 @@
 import { useLenisStore } from "@/lib/store/lenis"
 import Lenis from "@studio-freight/lenis"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 import { useRef, useState } from "react"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-gsap.registerPlugin(ScrollTrigger)
 
 const useSmoothScroll = () => {
   const [lenis, setLenis] = useState<Lenis | null>()

@@ -2,7 +2,7 @@ import s from "./company-box.module.scss"
 
 import cn from "clsx"
 
-import { ICompanyBox } from "@/global"
+import { ICompanyBox } from "@/constants"
 import CustomImage from "@/components/custom-image"
 
 type Props = ICompanyBox

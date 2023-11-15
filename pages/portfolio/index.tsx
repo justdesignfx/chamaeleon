@@ -6,7 +6,7 @@ import Button from "@/components/button"
 import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
-import { ICompanyBox, companyBox } from "@/global"
+import { ICompanyBox, companyBox } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 
 const Portfolio = () => {

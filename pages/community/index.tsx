@@ -4,7 +4,7 @@ import cn from "clsx"
 
 import Reveal from "@/components/animations/reveal"
 import CardPerson from "@/components/card-person"
-import { cardPerson } from "@/global"
+import { cardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { Marquee } from "@/components/marquee"
 import CustomImage from "@/components/custom-image"

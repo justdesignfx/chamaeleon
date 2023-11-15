@@ -1,4 +1,4 @@
-import { ICardPerson } from "@/global"
+import { ICardPerson } from "@/constants"
 import CustomImage from "../custom-image"
 import { CustomLink } from "../custom-link"
 import s from "./card-person.module.scss"

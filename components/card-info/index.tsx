@@ -5,7 +5,7 @@ import cn from "clsx"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 import Pixels from "@/components/pixels"
-import { ICardPerson } from "@/global"
+import { ICardPerson } from "@/constants"
 import { useModalStore } from "@/lib/store/modal"
 import ScrollableBox from "../scrollable-box"
 

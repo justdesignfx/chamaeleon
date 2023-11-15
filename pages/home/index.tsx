@@ -7,7 +7,7 @@ import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 import Parallax from "@/components/animations/parallax"
 import Pixels from "@/components/pixels"
-import { routes } from "@/global"
+import { routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 
 export default function Home() {
@@ -78,7 +78,7 @@ export default function Home() {
             collaborated as investors, operators and entrepreneurs that will focus on investing in truly transformative
             companies.
           </p>
-          <Button text="SEE MORE" path="/manifesto-and-values" size="md" />
+          <Button text="SEE MORE" path={`/${routes.manifestoAndValues.path}`} size="md" />
         </div>
       </section>
 
@@ -151,7 +151,7 @@ export default function Home() {
         </p>
         <div className={s.link}>
           <small>Meet our partners</small>
-          <Button text="KIN COMMUNITY" path="/kin-community" size="lg" />
+          <Button text="KIN COMMUNITY" path={`/${routes.community.path}`} size="lg" />
         </div>
       </div>
     </DefaultLayout>

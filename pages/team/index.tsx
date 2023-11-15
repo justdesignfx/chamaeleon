@@ -10,7 +10,7 @@ import CardInfo from "@/components/card-info"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
 import DetailSlider from "@/components/detail-slider"
-import { cardPerson, cardPerson2, cardPerson3 } from "@/global"
+import { cardPerson, cardPerson2, cardPerson3 } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 

@@ -7,9 +7,8 @@ import DefaultLayout from "@/layouts/default"
 import CustomImage from "@/components/custom-image"
 import Button from "@/components/button"
 import ContactForm from "./contact-form"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import gsap from "gsap"
-import { routes } from "@/global"
+import { gsap } from "@/lib/gsap"
+import { routes } from "@/constants"
 
 enum Screen {
   start = "start",
@@ -19,7 +18,6 @@ enum Screen {
 
 const Contact = () => {
   const ref = useRef(null)
-
   const [currentScreen, setCurrentScreen] = useState<Screen>(Screen.start)
 
   function start() {

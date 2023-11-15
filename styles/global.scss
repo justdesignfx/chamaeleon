@@ -8,6 +8,10 @@
 @import "./_themes.scss";
 @import "./_scroll.scss";
 
+// * {
+//   @include outline(red);
+// }
+
 :root {
   --header-height: #{desktop-vw(90px)};
   --page-padding-top: #{desktop-vw(50px)};
@@ -84,11 +88,11 @@ sup {
 .input-required {
   // box-shadow: var(--error) 0px 0px 0px 1px;
   color: var(--error) !important;
-  transition: 400ms all ease;
+  transition: 200ms all ease;
 
   * {
     color: var(--error) !important;
-    transition: 400ms all ease;
+    transition: 200ms all ease;
   }
 }
 

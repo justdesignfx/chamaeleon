@@ -49,6 +49,7 @@
         display: block;
         font-family: var(--font-first-aid-kit-f);
         font-size: desktop-vw(30px);
+        line-height: 1.15;
         margin-bottom: desktop-vw(10px);
         width: 100%;
       }
@@ -59,7 +60,7 @@
         font-family: var(--font-helvetica-neue);
         font-size: desktop-vw(17px);
         line-height: 1.5;
-        margin-bottom: desktop-vw(10px);
+        margin-bottom: desktop-vw(30px);
       }
 
       .action {
@@ -67,6 +68,98 @@
         column-gap: desktop-vw(20px);
         margin-top: desktop-vw(30px);
       }
+    }
+  }
+
+  .errorMessage {
+    @include position(absolute, auto, auto, desktop-vw(100px), 50%);
+    transform: translateX(-50%);
+    color: var(--error);
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.field {
+  --input-padding: #{desktop-vw(0px)};
+  border-bottom: 1px solid var(--nightly-woods);
+  column-gap: desktop-vw(8px);
+  display: flex;
+  width: 100%;
+
+  @include mobile {
+    --input-padding: #{mobile-vw(16px)};
+    column-gap: mobile-vw(8px);
+  }
+
+  .inputC {
+    border-radius: desktop-vw(11px);
+    flex: 1;
+    position: relative;
+
+    @include mobile {
+      border-radius: mobile-vw(11px);
+      margin-bottom: mobile-vw(14px);
+    }
+
+    .label {
+      @include position(absolute, 0, 0, 0, 0);
+      @include dims(100%);
+    }
+
+    .input {
+      @include dims(100%);
+      border-radius: desktop-vw(11px);
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(17px);
+      font-weight: 400;
+      padding: desktop-vw(10px) var(--input-padding);
+
+      @include mobile {
+        border-radius: mobile-vw(11px);
+        font-size: mobile-vw(14px);
+        padding: mobile-vw(17px) var(--input-padding);
+      }
+
+      &::placeholder {
+        opacity: 0.5;
+        transition: 0.4s all ease;
+      }
+
+      &:focus {
+        &::placeholder {
+          opacity: 0.3;
+        }
+      }
+
+      &[type="file"] {
+        visibility: hidden;
+      }
+    }
+
+    &.textarea {
+      height: desktop-vh(100px);
+      line-height: 1.5;
+      resize: none;
+      word-break: break-all;
+    }
+
+    .resetBtn {
+      @include position(absolute, 50%, 0, auto, auto);
+      transform: translateY(-50%);
+      color: var(--error);
+    }
+
+    &.required {
+      box-shadow: red 0px 0px 0px 1px;
+    }
+
+    &.disabled {
+      opacity: 0.1;
+      pointer-events: none;
     }
   }
 }

@@ -19,6 +19,10 @@
       &[disabled] {
         opacity: 0.5;
       }
+
+      > span {
+        @include dims(8px);
+      }
     }
   }
 
@@ -84,7 +88,6 @@
 
 .field {
   --input-padding: #{desktop-vw(0px)};
-  border-bottom: 1px solid var(--nightly-woods);
   column-gap: desktop-vw(8px);
   display: flex;
   width: 100%;
@@ -107,11 +110,21 @@
     .label {
       @include position(absolute, 0, 0, 0, 0);
       @include dims(100%);
+      align-items: center;
+      background: var(--greening);
+      border-radius: desktop-vw(45px);
+      color: var(--nightly-woods);
+      display: flex;
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(20px);
+      font-weight: 700;
+      overflow: hidden;
+      padding: 0 desktop-vw(16px);
     }
 
     .input {
       @include dims(100%);
-      border-radius: desktop-vw(11px);
+      border-bottom: 1px solid var(--nightly-woods);
       color: var(--nightly-woods);
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(17px);
@@ -141,16 +154,9 @@
     }
 
     &.textarea {
-      height: desktop-vh(100px);
       line-height: 1.5;
       resize: none;
       word-break: break-all;
-    }
-
-    .resetBtn {
-      @include position(absolute, 50%, 0, auto, auto);
-      transform: translateY(-50%);
-      color: var(--error);
     }
 
     &.required {
@@ -160,6 +166,23 @@
     &.disabled {
       opacity: 0.1;
       pointer-events: none;
+    }
+
+    .resetBtn {
+      @include position(absolute, 50%, desktop-vw(16px), auto, auto);
+      color: var(--error);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(20px);
+      font-weight: 700;
+      opacity: 1;
+      transition: 300ms all ease;
+      transform: translateY(-50%);
+      visibility: visible;
+
+      &[disabled] {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
   }
 }

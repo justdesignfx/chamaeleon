@@ -7,30 +7,34 @@ import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import Button from "@/components/button"
+import IconArrowForm from "@/components/icons/icon-form-arrow"
 import { formModel, formSchema, initialValues } from "@/constants/form-contact"
+import { useContactForm } from "@/api/mutations"
 
 type Props = {
   onEnd: () => void
 }
 
 const ContactForm = (props: Props) => {
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: formSchema,
+    onSubmit: (values) => {
+      mutate(values)
+    },
+  })
+
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
   const tl = useRef(gsap.timeline({ paused: true }))
   const [currentScreen, setCurrentScreen] = useState(0)
   const [errorMessage, setErrorMessage] = useState("")
-
-  const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: formSchema,
-    onSubmit: (values, helpers) => {
-      console.log(values, helpers)
-    },
-  })
+  const { mutate } = useContactForm()
 
   function next() {
     if (currentScreen === screens.length - 1) {
       props.onEnd()
+      formik.submitForm()
     }
 
     const field = Object.values(formModel)[currentScreen]
@@ -122,7 +126,9 @@ const ContactForm = (props: Props) => {
             ["input-required"]: formik?.errors.deck && formik?.touched.deck,
           })}
         >
-          <div className={s.label}>CHOOSE FILE</div>
+          <label className={s.label} htmlFor={formModel.deck.name}>
+            {formik.values.deck ? formik.values.deck.name : "CHOOSE FILE"}
+          </label>
           <input
             accept=".pdf"
             className={s.input}
@@ -135,16 +141,18 @@ const ContactForm = (props: Props) => {
             placeholder={formModel.deck.placeholder}
             type={formModel.deck.type}
           />
-          <div
+
+          <button
             className={cn(s.resetBtn, "cursor-pointer")}
+            disabled={!formik.values.deck}
             onClick={() => {
               console.log("lol")
 
               formik.setFieldValue("deck", null)
             }}
           >
-            RESET
-          </div>
+            DELETE
+          </button>
         </div>
       </div>
     </>,
@@ -250,11 +258,14 @@ const ContactForm = (props: Props) => {
             onChange={formik?.handleChange}
             placeholder={formModel.linkedin.placeholder}
             type={formModel.linkedin.type}
-            value={formik?.values.name}
+            value={formik?.values.linkedin}
           />
         </div>
       </div>
-      <Button text="SUBMIT" onClick={props.onEnd} size="sm" />
+      {/* <Button text="SUBMIT" type="submit" onClick={props.onEnd} size="sm" /> */}
+      <button type="submit" onClick={props.onEnd}>
+        SUBMIT
+      </button>
     </>,
   ]
 
@@ -264,10 +275,10 @@ const ContactForm = (props: Props) => {
         .to(".error-message", {
           autoAlpha: 0,
         })
-        .current.to(".error-message", {
+        .to(".error-message", {
           autoAlpha: 1,
           onStart: () => {
-            setErrorMessage(Object.values(formik.errors)[currentScreen])
+            setErrorMessage(Object.keys(formik.errors)[currentScreen])
           },
         })
 
@@ -279,18 +290,26 @@ const ContactForm = (props: Props) => {
     }
   }, [formik.errors])
 
+  useIsomorphicLayoutEffect(() => {
+    console.log("form values", formik.values)
+  }, [formik.values])
+
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>
       <div className={s.buttons}>
         <button className={cn(s.button, s.up, "flex-center")} onClick={prev} disabled={currentScreen === 0}>
-          u
+          <span>
+            <IconArrowForm />
+          </span>
         </button>
         <button
           className={cn(s.button, s.down, "flex-center")}
           onClick={next}
           disabled={currentScreen === screens.length - 1}
         >
-          d
+          <span>
+            <IconArrowForm rotate={180} />
+          </span>
         </button>
       </div>
       <form className={cn(s.form, "form")} onSubmit={formik.handleSubmit}>

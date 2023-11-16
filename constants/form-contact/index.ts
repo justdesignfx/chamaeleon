@@ -1,4 +1,15 @@
+import { File } from "buffer"
 import * as yup from "yup"
+
+export interface Values {
+  description: string
+  deck: File | null
+  name: string
+  email: string
+  companyName: string
+  website: string
+  linkedin: string
+}
 
 export const formModel = {
   description: {
@@ -31,7 +42,7 @@ export const formModel = {
   },
   companyName: {
     placeholder: "Company Name*",
-    name: "company",
+    name: "companyName",
     default: "",
     required: true,
     type: "text",
@@ -82,11 +93,11 @@ export const formSchema = yup.object().shape({
   linkedin: yup.string(),
 })
 
-export const initialValues =
+export const initialValues: Values =
   process.env.NEXT_PUBLIC_NODE_ENV === "development"
     ? {
         description: "test",
-        deck: "Deck",
+        deck: null,
         name: "test testoglu",
         email: "test@test.com",
         companyName: "test",

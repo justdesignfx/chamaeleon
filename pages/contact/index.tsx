@@ -9,6 +9,7 @@ import Button from "@/components/button"
 import ContactForm from "./contact-form"
 import { gsap } from "@/lib/gsap"
 import { routes } from "@/constants"
+import { useContactForm } from "@/api/mutations"
 
 enum Screen {
   start = "start",
@@ -19,6 +20,7 @@ enum Screen {
 const Contact = () => {
   const ref = useRef(null)
   const [currentScreen, setCurrentScreen] = useState<Screen>(Screen.start)
+  const { isLoading } = useContactForm()
 
   function start() {
     gsap.to(ref.current, {
@@ -57,17 +59,25 @@ const Contact = () => {
             src="/img/chamaeleon-hole.png"
             alt="Chamaeleon Coming Out From Hole"
             style={{ objectFit: "contain" }}
+            height="257"
+            width="447"
           />
         </div>
       </div>
     ),
     form: <ContactForm onEnd={end} />,
     end: (
-      <div className={s.end}>
-        <small>We will reach out you soon!</small>
-        <p>THANK YOU.</p>
-        <Button text="MAIN PAGE" size="sm" path={`/${routes.home.path}`} />
-      </div>
+      <>
+        {isLoading ? (
+          <div>LOADING...</div>
+        ) : (
+          <div className={s.end}>
+            <small>We will reach out you soon!</small>
+            <p>THANK YOU.</p>
+            <Button text="MAIN PAGE" size="sm" path={`/${routes.home.path}`} />
+          </div>
+        )}
+      </>
     ),
   }
 

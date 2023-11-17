@@ -1,10 +1,10 @@
-import api from "@/api"
 import { Values } from "@/constants/form-contact"
 import { useMutation } from "react-query"
+import { apiClient } from ".."
 
 // POST form
 async function submitContactForm(values: Values) {
-  const res = await api.post("/contactForm.php", {
+  const res = await apiClient.post("/contactForm.php", {
     params: {
       values,
     },

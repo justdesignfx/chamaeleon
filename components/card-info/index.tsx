@@ -7,6 +7,7 @@ import { CustomLink } from "@/components/custom-link"
 import Pixels from "@/components/pixels"
 import { ICardPerson } from "@/constants"
 import { useModalStore } from "@/lib/store/modal"
+import IconLinkedin from "../icons/icon-linkedin"
 import ScrollableBox from "../scrollable-box"
 
 type Props = ICardPerson
@@ -21,24 +22,24 @@ const CardInfo = (props: Props) => {
         X
       </div>
       <div className={s.imgC}>
-        <CustomImage src={props.img} alt="Photo" style={{ objectFit: "cover" }} />
+        <CustomImage
+          alt="Profile Photo of a Team Member"
+          style={{ objectFit: "cover" }}
+          src={props.media.desktop.src}
+          height={props.media.desktop.height}
+          width={props.media.desktop.width}
+        />
       </div>
       <div className={s.info}>
         <p className={s.title}>{props.name}</p>
         <p className={s.role}>{props.role}</p>
         <div className={s.desc}>
           <ScrollableBox>
-            <p>{props.desc}</p>
+            <p>{props.description}</p>
           </ScrollableBox>
         </div>
-        <CustomLink href={props.social.url} className={cn(s.iconC, "flex-center")}>
-          <CustomImage
-            src={props.social.icon}
-            alt="Profile Photo of a Team Member"
-            height="500"
-            width="500"
-            style={{ objectFit: "contain" }}
-          />
+        <CustomLink href={props.linkedin} className={cn(s.iconC, "flex-center")}>
+          <IconLinkedin fill="var(--nightly-woods)" />
         </CustomLink>
       </div>
       <Pixels

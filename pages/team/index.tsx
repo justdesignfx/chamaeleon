@@ -3,6 +3,7 @@ import s from "./team.module.scss"
 
 import cn from "clsx"
 
+import { all } from "@/api/queries/team"
 import Parallax from "@/components/animations/parallax"
 import Reveal from "@/components/animations/reveal"
 import Button from "@/components/button"
@@ -10,41 +11,19 @@ import CardInfo from "@/components/card-info"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
 import DetailSlider from "@/components/detail-slider"
-import { cardPerson, cardPerson2, cardPerson3 } from "@/constants"
+import { ICardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 
-const Team = () => {
+type Props = {
+  team: ICardPerson[]
+}
+
+const Team = ({ team }: Props) => {
   const modalStore = useModalStore()
   const [selected, setSelected] = useState<number | null>(null)
-  const members = [
-    cardPerson,
-    cardPerson2,
-    cardPerson3,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson2,
-    cardPerson3,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson2,
-    cardPerson3,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson2,
-    cardPerson3,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson2,
-    cardPerson3,
-    cardPerson,
-    cardPerson,
-  ]
+
+  console.log("team", team)
 
   const handleModal = (index: number) => {
     setSelected(index)
@@ -56,7 +35,7 @@ const Team = () => {
     modalStore.setContent(
       <DetailSlider
         currentSlide={selected}
-        slides={members.map((member, i) => {
+        slides={team.map((member, i) => {
           return (
             <div className={cn(s.slide, "flex-center")} key={i}>
               <CardInfo {...member} />
@@ -70,13 +49,12 @@ const Team = () => {
 
   return (
     <DefaultLayout>
-      {/* <Header /> */}
-
       <section className={s.intro}>
         <h1>THE TEAM</h1>
       </section>
+
       <section className={s.members}>
-        {members.map((item, i) => {
+        {team.map((item, i) => {
           return (
             <div key={i} onClick={() => handleModal(i)}>
               <Reveal>
@@ -86,6 +64,7 @@ const Team = () => {
           )
         })}
       </section>
+
       <section className={s.achievements}>
         <div className={s.boxes}>
           <div>
@@ -116,6 +95,7 @@ const Team = () => {
           </Parallax>
         </div>
       </section>
+
       <section className={s.link}>
         <small>Discover our investment style</small>
         <Button text="APPROACH" path="/approach" size="lg" />
@@ -125,3 +105,8 @@ const Team = () => {
 }
 
 export default Team
+
+export async function getStaticProps() {
+  const team = await all()
+  return { props: { team } }
+}

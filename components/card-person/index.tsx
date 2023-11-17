@@ -4,6 +4,7 @@ import { CustomLink } from "../custom-link"
 import s from "./card-person.module.scss"
 
 import cn from "clsx"
+import IconLinkedin from "../icons/icon-linkedin"
 
 type Props = ICardPerson
 
@@ -12,19 +13,18 @@ const CardPerson = (props: Props) => {
     <div className={cn(s.cardPerson, "cursor-pointer")}>
       <div className={s.imgC}>
         <div>
-          <CustomImage src={props.img} alt="Profile Photo of a Team Member" height="500" width="500" />
+          <CustomImage
+            src={props.media.desktop.src}
+            alt="Profile Photo of a Team Member"
+            height={props.media.desktop.height}
+            width={props.media.desktop.width}
+          />
         </div>
       </div>
       <p>{props.name}</p>
       <small>{props.role}</small>
-      <CustomLink href={props.social.url} className={cn(s.iconC, "flex-center")}>
-        <CustomImage
-          src={props.social.icon}
-          alt="Profile Photo of a Team Member"
-          height="500"
-          width="500"
-          style={{ objectFit: "contain" }}
-        />
+      <CustomLink href={props.linkedin} className={cn(s.iconC, "flex-center")}>
+        <IconLinkedin fill="var(--nightly-woods)" />
       </CustomLink>
     </div>
   )

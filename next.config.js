@@ -3,6 +3,9 @@ const path = require("path")
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ["chamaeleon.justdesignfx.com"],
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
     prependData: `@import 'styles/_functions';`,

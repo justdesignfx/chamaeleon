@@ -11,7 +11,7 @@ import { routes } from "@/constants"
 
 const Footer = () => {
   const ref = useRef<any>(null)
-  const tl = useRef<gsap.core.Timeline | null>(null)
+  const tl = useRef(gsap.timeline({ paused: true }))
   const [height, setHeight] = useState(0)
 
   const refElement = useCallback((node: HTMLElement | null) => {
@@ -21,16 +21,14 @@ const Footer = () => {
   }, [])
 
   useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      tl.current = gsap.timeline({ paused: true })
+    const ctx = gsap.context((self) => {
+      console.log(self)
 
       tl.current
-        .fromTo(
+        .to(
           ref.current,
           {
-            yPercent: -50,
-          },
-          {
+            ease: "none",
             yPercent: 0,
           },
           "s"
@@ -38,6 +36,7 @@ const Footer = () => {
         .to(
           ".overlay",
           {
+            ease: "none",
             opacity: 0,
           },
           "s"
@@ -59,9 +58,9 @@ const Footer = () => {
     }
   }, [height])
 
-  //   useIsomorphicLayoutEffect(() => {
-  //     ScrollTrigger.refresh()
-  //   }, [footerHeight])
+  useIsomorphicLayoutEffect(() => {
+    ScrollTrigger.refresh()
+  })
 
   return (
     <footer

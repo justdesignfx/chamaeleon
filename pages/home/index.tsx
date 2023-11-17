@@ -14,8 +14,6 @@ import MaskedScale from "@/components/animations/masked-scale"
 export default function Home() {
   return (
     <DefaultLayout>
-      {/* <Header /> */}
-
       <section className={cn(s.intro, "island")}>
         <h1>
           WHOLISTIC <br /> INVESTMENTS.
@@ -148,7 +146,7 @@ export default function Home() {
         </p>
         <div className={s.link}>
           <small>Meet our partners</small>
-          <Button text="KIN COMMUNITY" path={`/${routes.community.path}`} size="lg" />
+          <Button text="KIN" path={`/${routes.kin.path}`} size="lg" />
         </div>
       </div>
     </DefaultLayout>

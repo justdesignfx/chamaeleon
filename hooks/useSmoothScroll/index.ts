@@ -1,19 +1,20 @@
+import { ScrollTrigger } from "@/lib/gsap"
 import { useLenisStore } from "@/lib/store/lenis"
 import Lenis from "@studio-freight/lenis"
-import { gsap, ScrollTrigger } from "@/lib/gsap"
 import { useRef, useState } from "react"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 const useSmoothScroll = () => {
   const [lenis, setLenis] = useState<Lenis | null>()
   const lenisStore = useLenisStore()
-
   const reqIdRef = useRef<ReturnType<typeof requestAnimationFrame>>()
 
   useIsomorphicLayoutEffect(() => {
     const animate = (time: DOMHighResTimeStamp) => {
       lenis?.raf(time)
-      lenis?.on("scroll", () => ScrollTrigger.update())
+      lenis?.on("scroll", () => {
+        ScrollTrigger.update()
+      })
       reqIdRef.current = requestAnimationFrame(animate)
     }
     reqIdRef.current = requestAnimationFrame(animate)
@@ -22,13 +23,6 @@ const useSmoothScroll = () => {
 
   useIsomorphicLayoutEffect(() => {
     const lenis = new Lenis({
-      // duration: 2, //change scroll speed
-      // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      // orientation: "vertical",
-      // gestureOrientation: "vertical",
-      // smoothWheel: true,
-      // smoothTouch: false,
-      // touchMultiplier: 2,
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
       orientation: "vertical",
@@ -36,8 +30,6 @@ const useSmoothScroll = () => {
       smoothWheel: true,
     })
     setLenis(lenis)
-
-    // lenis.on('scroll', () => ScrollTrigger.update())
 
     return () => {
       lenis.destroy()

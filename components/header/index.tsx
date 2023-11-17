@@ -21,16 +21,33 @@ const Header = () => {
       tl.current = gsap.timeline({ paused: true })
 
       tl.current
-        .to(".menu-bg", {
-          duration: 0.3,
-          opacity: 0.9,
-          pointerEvents: "auto",
-        })
-        .to(".menu", {
-          duration: 0.3,
-          opacity: 1,
-          y: 0,
-        })
+        .to(
+          ".hamburger",
+          {
+            backgroundColor: "var(--forested-juniper)",
+            color: "var(--nightly-woods)",
+            duration: 0,
+          },
+          "s"
+        )
+        .to(
+          ".menu-bg",
+          {
+            duration: 0.4,
+            opacity: 0.9,
+            pointerEvents: "auto",
+          },
+          "s"
+        )
+        .to(
+          ".menu",
+          {
+            duration: 0.4,
+            opacity: 1,
+            y: 0,
+          },
+          "s"
+        )
     }, ref)
 
     return () => {
@@ -54,7 +71,7 @@ const Header = () => {
         <LogoChamaeleon fill="var(--forestial)" />
       </CustomLink>
 
-      <div className={cn(s.hamburger, ".hamburger", "flex-center", "cursor-pointer")} onClick={handleMenu}>
+      <div className={cn(s.hamburger, "hamburger", "flex-center", "cursor-pointer")} onClick={handleMenu}>
         {isOpen ? "CLOSE" : "MENU"}
       </div>
 

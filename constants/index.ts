@@ -12,7 +12,7 @@ export interface ICardPerson {
   description: string
   media: Media
   name: string
-  role: string
+  title: string
   linkedin: string
 }
 

@@ -22,7 +22,7 @@ const CardPerson = (props: Props) => {
         </div>
       </div>
       <p>{props.name}</p>
-      <small>{props.role}</small>
+      <small>{props.title}</small>
       <CustomLink href={props.linkedin} className={cn(s.iconC, "flex-center")}>
         <IconLinkedin fill="var(--nightly-woods)" />
       </CustomLink>

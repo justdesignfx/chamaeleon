@@ -32,7 +32,7 @@ const CardInfo = (props: Props) => {
       </div>
       <div className={s.info}>
         <p className={s.title}>{props.name}</p>
-        <p className={s.role}>{props.role}</p>
+        <p className={s.role}>{props.title}</p>
         <div className={s.desc}>
           <ScrollableBox>
             <p>{props.description}</p>

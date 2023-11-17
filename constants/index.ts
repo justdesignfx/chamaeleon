@@ -91,10 +91,10 @@ export const routes = {
     path: "team",
     ui: "THE TEAM",
   },
-  community: {
-    name: "community",
-    path: "community",
-    ui: "COMMUNITY",
+  kin: {
+    name: "kin",
+    path: "kin",
+    ui: "KIN",
   },
   portfolio: {
     name: "portfolio",

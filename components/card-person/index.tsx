@@ -18,6 +18,7 @@ const CardPerson = (props: Props) => {
             alt="Profile Photo of a Team Member"
             height={props.media.desktop.height}
             width={props.media.desktop.width}
+            loading="lazy"
           />
         </div>
       </div>

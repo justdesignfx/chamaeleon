@@ -1,42 +1,20 @@
-import s from "./community.module.scss"
+import s from "./kin.module.scss"
 
 import cn from "clsx"
 
 import Reveal from "@/components/animations/reveal"
 import CardPerson from "@/components/card-person"
-import { cardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { Marquee } from "@/components/marquee"
 import CustomImage from "@/components/custom-image"
+import { all } from "@/api/queries/kin"
+import { ICardPerson } from "@/constants"
 
-const Community = () => {
-  const members = [
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-    cardPerson,
-  ]
+type Props = {
+  members: ICardPerson[]
+}
 
+const Community = ({ members }: Props) => {
   return (
     <DefaultLayout>
       <section className={s.intro}>
@@ -86,3 +64,8 @@ const Community = () => {
 }
 
 export default Community
+
+export async function getStaticProps() {
+  const members = await all()
+  return { props: { members } }
+}

@@ -4,23 +4,18 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
   children: ReactNode
-  directionX?: 1 | -1
-  directionY?: 1 | -1
-  speedX?: number
-  speedY?: number
 }
 
-const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY = 1 }: Props) => {
+const MaskedScale = ({ children }: Props) => {
   const ref = useRef(null)
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(ref.current, {
-        xPercent: () => 100 * speedX * directionX,
-        yPercent: () => 100 * speedY * directionY,
+        scale: 1.1,
         scrollTrigger: {
-          id: "parallax",
-          markers: false,
+          id: "masked-scale",
+          markers: true,
           scrub: true,
           trigger: ref.current,
         },
@@ -30,13 +25,13 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
     return () => {
       ctx.revert()
     }
-  }, [directionX, directionY, speedX, speedY])
+  }, [])
 
   return (
-    <div ref={ref} style={{ width: "inherit", height: "inherit" }}>
+    <div ref={ref} style={{ width: "100%", height: "100%" }}>
       {children}
     </div>
   )
 }
 
-export default Parallax
+export default MaskedScale

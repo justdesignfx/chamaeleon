@@ -1,6 +1,5 @@
-import { ReactNode, useRef } from "react"
-
 import { gsap } from "@/lib/gsap"
+import { ReactNode, useRef } from "react"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {

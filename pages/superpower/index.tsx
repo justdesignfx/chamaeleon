@@ -9,6 +9,7 @@ import { Marquee } from "@/components/marquee"
 import Button from "@/components/button"
 import Pixels from "@/components/pixels"
 import Parallax from "@/components/animations/parallax"
+import MaskedScale from "@/components/animations/masked-scale"
 
 const Superpower = () => {
   return (
@@ -19,17 +20,27 @@ const Superpower = () => {
           millions of companies across thousands of data points.
         </h1>
         <div className={s.imgC}>
-          <CustomImage src="/img/logo-mantis.png" alt="Chamaeleon Face" style={{ objectFit: "cover" }} />
+          <CustomImage
+            src="/img/logo-mantis.png"
+            alt="Chamaeleon Face"
+            style={{ objectFit: "cover" }}
+            height="356"
+            width="848"
+          />
         </div>
       </section>
 
       <section className={s.mantis}>
         <div className={s.imgC}>
-          <Parallax speedX={0} speedY={0.25} directionY={-1}>
-            <div style={{ transform: "translateY(10%) scale(1.1)" }}>
-              <CustomImage src="/img/our-portfolio-2.jpg" alt="Chamaeleon Face" style={{ objectFit: "cover" }} />
-            </div>
-          </Parallax>
+          <MaskedScale>
+            <CustomImage
+              src="/img/our-portfolio-2.jpg"
+              alt="Chamaeleon Face"
+              style={{ objectFit: "cover" }}
+              width="1002"
+              height="528"
+            />
+          </MaskedScale>
         </div>
         <p>
           Our human-in-the-loop approach combines world-class investment and data science expertise with cutting-edge

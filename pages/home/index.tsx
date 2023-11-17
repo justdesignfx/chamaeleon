@@ -9,6 +9,7 @@ import Parallax from "@/components/animations/parallax"
 import Pixels from "@/components/pixels"
 import { routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
+import MaskedScale from "@/components/animations/masked-scale"
 
 export default function Home() {
   return (
@@ -125,19 +126,15 @@ export default function Home() {
 
         <div className={s.imgs}>
           <div className={s.imgC}>
-            <Parallax speedX={0} directionY={-1} speedY={0.2}>
-              <div style={{ transform: "scale(1.3) translateY(10%)" }}>
-                <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" loading="lazy" />
-              </div>
-            </Parallax>
+            <MaskedScale>
+              <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" loading="lazy" width="540" height="414" />
+            </MaskedScale>
           </div>
 
           <div className={s.imgC}>
-            <Parallax speedX={0} directionY={-1} speedY={0.2}>
-              <div style={{ transform: "scale(1.3) translateY(10%)" }}>
-                <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" loading="lazy" />
-              </div>
-            </Parallax>
+            <MaskedScale>
+              <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" loading="lazy" width="1002" height="528" />
+            </MaskedScale>
           </div>
         </div>
       </section>

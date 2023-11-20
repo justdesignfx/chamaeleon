@@ -4,6 +4,8 @@ import s from "./footer-reveal.module.scss"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { useWindowSize } from "@uidotdev/usehooks"
+import { breakpoints } from "@/lib/utils"
 
 type Props = {
   children: ReactNode
@@ -22,6 +24,14 @@ const FooterReveal = ({ children }: Props) => {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.set(".wrapper", {
+        yPercent: -50,
+      })
+
+      gsap.set(".overlay", {
+        opacity: 1,
+      })
+
       tl.current
         .to(
           ".wrapper",
@@ -56,7 +66,7 @@ const FooterReveal = ({ children }: Props) => {
 
   return (
     <div className={s.footerReveal} ref={ref}>
-      <div className={cn(s.wrapper, "wrapper")} ref={(node) => refElement(node)}>
+      <div className="wrapper" ref={(node) => refElement(node)}>
         {children}
       </div>
       <div className={cn(s.overlay, "overlay")}></div>

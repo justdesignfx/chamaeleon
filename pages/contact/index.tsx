@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react"
 import s from "./contact.module.scss"
 
 import cn from "clsx"
+import { gsap } from "@/lib/gsap"
 
 import DefaultLayout from "@/layouts/default"
 import CustomImage from "@/components/custom-image"
 import Button from "@/components/button"
-import ContactForm from "./contact-form"
-import { gsap } from "@/lib/gsap"
+import ContactForm from "@/components/contact-form"
 import { routes } from "@/constants"
 import { useContactForm } from "@/api/mutations"
 

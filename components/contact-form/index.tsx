@@ -6,10 +6,12 @@ import cn from "clsx"
 import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-import { useContactForm } from "@/api/mutations"
 import Button from "@/components/button"
 import IconArrowForm from "@/components/icons/icon-form-arrow"
+
+import { useContactForm } from "@/api/mutations"
 import { formModel, formSchema, initialValues } from "@/constants/form-contact"
+import { truncateString } from "@/lib/utils"
 
 type Props = {
   onEnd: () => void
@@ -39,7 +41,6 @@ const ContactForm = (props: Props) => {
     }
 
     const field = Object.values(formModel)[currentScreen]
-    console.log("field", field)
 
     formik?.validateForm(formik.values).then((errors) => {
       formik.setFieldTouched(field.name)
@@ -128,7 +129,7 @@ const ContactForm = (props: Props) => {
           })}
         >
           <label className={s.label} htmlFor={formModel.deck.name}>
-            {formik.values.deck ? formik.values.deck.name : "CHOOSE FILE"}
+            {formik.values.deck ? truncateString(formik.values.deck.name, 32) : "CHOOSE FILE"}
           </label>
           <input
             accept=".pdf"
@@ -142,7 +143,6 @@ const ContactForm = (props: Props) => {
             placeholder={formModel.deck.placeholder}
             type={formModel.deck.type}
           />
-
           <button
             className={cn(s.resetBtn, "cursor-pointer")}
             disabled={!formik.values.deck}
@@ -264,7 +264,7 @@ const ContactForm = (props: Props) => {
         </div>
       </div>
       {/* <Button text="SUBMIT" type="submit" onClick={props.onEnd} size="sm" /> */}
-      <button type="submit" onClick={props.onEnd}>
+      <button className={s.submitBtn} type="submit" onClick={props.onEnd}>
         SUBMIT
       </button>
     </>,
@@ -290,10 +290,6 @@ const ContactForm = (props: Props) => {
       ctx.revert()
     }
   }, [formik.errors])
-
-  // useIsomorphicLayoutEffect(() => {
-  //   console.log("form values", formik.values)
-  // }, [formik.values])
 
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>

@@ -8,13 +8,25 @@
   &.sm {
     font-size: desktop-vw(30px);
     border-bottom: 3px solid var(--nightly-woods);
+
+    @include mobile {
+      font-size: mobile-vw(30px);
+    }
   }
 
   &.md {
     font-size: desktop-vw(45px);
+
+    @include mobile {
+      font-size: mobile-vw(45px);
+    }
   }
 
   &.lg {
     font-size: desktop-vw(90px);
+
+    @include mobile {
+      font-size: mobile-vw(50px);
+    }
   }
 }

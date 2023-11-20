@@ -13,10 +13,19 @@
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(24px);
       margin-bottom: desktop-vw(10px);
+
+      @include mobile {
+        font-size: mobile-vw(24px);
+        margin-bottom: mobile-vw(10px);
+      }
     }
 
     > .buttonC {
       margin-bottom: desktop-vw(20px);
+
+      @include mobile {
+        margin-bottom: mobile-vw(20px);
+      }
     }
 
     > small {
@@ -24,6 +33,19 @@
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(16px);
       margin-bottom: desktop-vw(50px);
+
+      @include mobile {
+        font-size: mobile-vw(16px);
+        margin-bottom: mobile-vw(50px);
+      }
+    }
+
+    > .imgC {
+      @include dims(desktop-vw(300px), auto);
+
+      @include mobile {
+        @include dims(mobile-vw(250px), auto);
+      }
     }
   }
 

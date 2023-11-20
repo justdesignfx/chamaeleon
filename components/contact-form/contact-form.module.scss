@@ -9,15 +9,29 @@
     display: flex;
     flex-direction: column;
     row-gap: desktop-vw(3px);
+    z-index: 10;
+
+    @include mobile {
+      @include position(absolute, desktop-vw(200px), auto, auto, 50%);
+      flex-direction: row;
+      column-gap: mobile-vw(3px);
+      transform: translateX(-50%);
+    }
 
     .button {
       @include dims(desktop-vw(32px));
       background-color: var(--nightly-woods);
       border-radius: desktop-vw(5px);
       color: var(--forested-juniper);
+      transition: 300ms opacity ease;
+
+      @include mobile {
+        @include dims(mobile-vw(32px));
+        border-radius: mobile-vw(5px);
+      }
 
       &[disabled] {
-        opacity: 0.5;
+        opacity: 0.3;
       }
 
       > span {
@@ -27,18 +41,27 @@
   }
 
   .form {
-    @include dims(desktop-vw(600px));
+    @include dims(desktop-vw(560px));
     position: relative;
     align-items: stretch;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: desktop-vw(100px);
+
+    @include mobile {
+      @include dims(mobile-vw(340px), 100%);
+    }
 
     .screen {
       @include position(absolute, 50%, auto, auto, 50%);
       @include dims(100%, auto);
       transform: translate(-50%, -50%);
+
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
       .indicator {
         color: var(--nightly-woods);
@@ -46,6 +69,12 @@
         font-family: var(--font-first-aid-kit-f);
         font-size: desktop-vw(15px);
         margin-bottom: desktop-vw(10px);
+
+        @include mobile {
+          font-size: mobile-vw(15px);
+          margin-bottom: mobile-vw(10px);
+          text-align: center;
+        }
       }
 
       .question {
@@ -56,6 +85,12 @@
         line-height: 1.15;
         margin-bottom: desktop-vw(10px);
         width: 100%;
+
+        @include mobile {
+          font-size: mobile-vw(30px);
+          margin-bottom: mobile-vw(10px);
+          text-align: center;
+        }
       }
 
       .description {
@@ -65,12 +100,22 @@
         font-size: desktop-vw(17px);
         line-height: 1.5;
         margin-bottom: desktop-vw(30px);
+
+        @include mobile {
+          font-size: mobile-vw(17px);
+          margin-bottom: mobile-vw(30px);
+          text-align: center;
+        }
       }
 
       .action {
-        display: flex;
         column-gap: desktop-vw(20px);
+        display: flex;
         margin-top: desktop-vw(30px);
+
+        @include mobile {
+          justify-content: center;
+        }
       }
     }
   }
@@ -87,9 +132,8 @@
 }
 
 .field {
-  --input-padding: #{desktop-vw(0px)};
+  --input-padding: #{desktop-vw(16px)};
   column-gap: desktop-vw(8px);
-  display: flex;
   width: 100%;
 
   @include mobile {
@@ -98,8 +142,8 @@
   }
 
   .inputC {
-    border-radius: desktop-vw(11px);
-    flex: 1;
+    @include dims(100%, desktop-vw(45px));
+    display: flex;
     position: relative;
 
     @include mobile {
@@ -109,32 +153,34 @@
 
     .label {
       @include position(absolute, 0, 0, 0, 0);
-      @include dims(100%);
       align-items: center;
       background: var(--greening);
       border-radius: desktop-vw(45px);
       color: var(--nightly-woods);
       display: flex;
+      flex: 1;
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(20px);
       font-weight: 700;
       overflow: hidden;
       padding: 0 desktop-vw(16px);
+
+      @include mobile {
+        font-size: mobile-vw(20px);
+        padding: 0 mobile-vw(16px);
+      }
     }
 
     .input {
-      @include dims(100%);
       border-bottom: 1px solid var(--nightly-woods);
       color: var(--nightly-woods);
+      flex: 1;
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(17px);
       font-weight: 400;
-      padding: desktop-vw(10px) var(--input-padding);
 
       @include mobile {
-        border-radius: mobile-vw(11px);
         font-size: mobile-vw(14px);
-        padding: mobile-vw(17px) var(--input-padding);
       }
 
       &::placeholder {
@@ -154,6 +200,7 @@
     }
 
     &.textarea {
+      flex: 1;
       line-height: 1.5;
       resize: none;
       word-break: break-all;
@@ -179,10 +226,28 @@
       transform: translateY(-50%);
       visibility: visible;
 
+      @include mobile {
+        @include position(absolute, 50%, mobile-vw(16px), auto, auto);
+        font-size: mobile-vw(20px);
+      }
+
       &[disabled] {
         opacity: 0;
         visibility: hidden;
       }
     }
+  }
+}
+
+.submitBtn {
+  color: var(--nightly-woods);
+  font-family: var(--font-first-aid-kit-f);
+  font-size: desktop-vw(30px);
+  font-weight: 700;
+  margin-top: desktop-vw(30px);
+
+  @include mobile {
+    font-size: mobile-vw(30px);
+    margin-top: mobile-vw(30px);
   }
 }

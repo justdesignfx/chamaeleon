@@ -93,10 +93,6 @@ export default function Home({ companies }: Props) {
       <section className={s.companiesMarquee}>
         <Marquee>
           <>
-            {/* <div className={s.logoC}>
-              <CustomImage src="/img/beepro.png" alt="Company Logo" />
-            </div> */}
-
             {companies.map((item, i) => {
               return (
                 <CustomLink href={item.url} className={s.logoC} key={i}>

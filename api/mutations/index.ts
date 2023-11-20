@@ -4,7 +4,7 @@ import { apiClient } from ".."
 
 // POST form
 async function submitContactForm(values: Values) {
-  const res = await apiClient.post("/contactForm.php", {
+  const res = await apiClient.post("/contact.php", {
     params: {
       values,
     },

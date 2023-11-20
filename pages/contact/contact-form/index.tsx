@@ -8,8 +8,9 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import Button from "@/components/button"
 import IconArrowForm from "@/components/icons/icon-form-arrow"
-import { formModel, formSchema, initialValues } from "@/constants/form-contact"
+import { Values, formModel, formSchema, initialValues } from "@/constants/form-contact"
 import { useContactForm } from "@/api/mutations"
+import axios from "axios"
 
 type Props = {
   onEnd: () => void
@@ -20,9 +21,30 @@ const ContactForm = (props: Props) => {
     initialValues: initialValues,
     validationSchema: formSchema,
     onSubmit: (values) => {
-      mutate(values)
+      console.log("values", values)
+      // mutate(values)
+      send(values)
     },
   })
+
+  const send = async (values: Values) => {
+    const formData = new FormData()
+
+    Object.entries(values).forEach(([key, value]) => {
+      formData.append(`${key}`, value)
+    })
+
+    try {
+      await axios.post("https://chamaeleon.justdesignfx.com/jd-admin/services/contact.php", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      console.log("File uploaded successfully.")
+    } catch (error) {
+      console.error("Error uploading file:", error)
+    }
+  }
 
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)

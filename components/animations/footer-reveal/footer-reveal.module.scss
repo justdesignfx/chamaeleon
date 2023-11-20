@@ -1,0 +1,18 @@
+.footerReveal {
+  position: relative;
+  @include outline(red);
+
+  .wrapper {
+    position: relative;
+    transform: translateY(-50%);
+    @include outline(blue);
+  }
+
+  .overlay {
+    @include position(absolute, 0, 0, 0, 0);
+    background: var(--black);
+    pointer-events: none;
+    opacity: 1;
+    @include outline(green);
+  }
+}

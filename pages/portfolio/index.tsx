@@ -6,24 +6,34 @@ import Button from "@/components/button"
 import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
-import { ICompanyBox, companyBox } from "@/constants"
+import { ICompanyBox } from "@/constants"
 import DefaultLayout from "@/layouts/default"
+import { all } from "@/api/queries/portfolio"
 
-const Portfolio = () => {
-  const companies: ICompanyBox[] = [
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-    companyBox,
-  ]
+type Props = {
+  companies: {
+    latest: ICompanyBox[]
+    prior: ICompanyBox[]
+  }
+}
+
+const Portfolio = ({ companies }: Props) => {
+  console.log(companies)
+
+  // const companies: ICompanyBox[] = [
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  //   companyBox,
+  // ]
 
   return (
     <DefaultLayout>
@@ -37,7 +47,7 @@ const Portfolio = () => {
           </span>
         </h1>
         <div className={s.companies}>
-          {companies.map((item, i) => {
+          {companies.latest.map((item, i) => {
             return (
               <CustomLink href={item.url} className={s.boxC} key={i}>
                 <CompanyBox {...item} />
@@ -54,7 +64,7 @@ const Portfolio = () => {
           </span>
         </h2>
         <div className={s.companies}>
-          {companies.map((item, i) => {
+          {companies.prior.map((item, i) => {
             return (
               <CustomLink href={item.url} className={s.boxC} key={i}>
                 <CompanyBox key={i} {...item} />
@@ -80,3 +90,8 @@ const Portfolio = () => {
 }
 
 export default Portfolio
+
+export async function getStaticProps() {
+  const companies = await all()
+  return { props: { companies } }
+}

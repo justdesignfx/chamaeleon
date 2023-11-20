@@ -1,12 +1,15 @@
 export interface ICompanyBox {
-  img: string
-  url: string
+  description?: string
+  id: string
+  name: string
+  logo: string
+  url?: string
 }
 
-export const companyBox: ICompanyBox = {
-  img: "/img/beepro.png",
-  url: "#",
-}
+// export const companyBox: ICompanyBox = {
+//   img: "/img/beepro.png",
+//   url: "#",
+// }
 
 export interface ICardPerson {
   description: string

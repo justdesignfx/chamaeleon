@@ -2,11 +2,17 @@ import { Values } from "@/constants/form-contact"
 import { useMutation } from "react-query"
 import { apiClient } from ".."
 
-// POST form
+// POST contact form
 async function submitContactForm(values: Values) {
-  const res = await apiClient.post("/contact.php", {
-    params: {
-      values,
+  const formData = new FormData()
+
+  Object.entries(values).forEach(([key, value]) => {
+    formData.append(`${key}`, value)
+  })
+
+  const res = await apiClient.post("/contact.php", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
     },
   })
   return res.data

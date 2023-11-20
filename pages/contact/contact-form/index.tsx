@@ -6,52 +6,31 @@ import cn from "clsx"
 import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
+import { useContactForm } from "@/api/mutations"
 import Button from "@/components/button"
 import IconArrowForm from "@/components/icons/icon-form-arrow"
-import { Values, formModel, formSchema, initialValues } from "@/constants/form-contact"
-import { useContactForm } from "@/api/mutations"
-import axios from "axios"
+import { formModel, formSchema, initialValues } from "@/constants/form-contact"
 
 type Props = {
   onEnd: () => void
 }
 
 const ContactForm = (props: Props) => {
-  const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: formSchema,
-    onSubmit: (values) => {
-      console.log("values", values)
-      // mutate(values)
-      send(values)
-    },
-  })
-
-  const send = async (values: Values) => {
-    const formData = new FormData()
-
-    Object.entries(values).forEach(([key, value]) => {
-      formData.append(`${key}`, value)
-    })
-
-    try {
-      await axios.post("https://chamaeleon.justdesignfx.com/jd-admin/services/contact.php", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      console.log("File uploaded successfully.")
-    } catch (error) {
-      console.error("Error uploading file:", error)
-    }
-  }
-
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
   const tl = useRef(gsap.timeline({ paused: true }))
   const [currentScreen, setCurrentScreen] = useState(0)
   const [errorMessage, setErrorMessage] = useState("")
   const { mutate } = useContactForm()
+
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: formSchema,
+    onSubmit: (values) => {
+      console.log("values", values)
+      mutate(values)
+    },
+  })
 
   function next() {
     if (currentScreen === screens.length - 1) {
@@ -312,9 +291,9 @@ const ContactForm = (props: Props) => {
     }
   }, [formik.errors])
 
-  useIsomorphicLayoutEffect(() => {
-    console.log("form values", formik.values)
-  }, [formik.values])
+  // useIsomorphicLayoutEffect(() => {
+  //   console.log("form values", formik.values)
+  // }, [formik.values])
 
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>
@@ -334,6 +313,7 @@ const ContactForm = (props: Props) => {
           </span>
         </button>
       </div>
+
       <form className={cn(s.form, "form")} onSubmit={formik.handleSubmit}>
         <div className="transform-c" style={{ height: "inherit", width: "inherit" }}>
           {screens.map((screen, i) => {
@@ -362,6 +342,7 @@ const ContactForm = (props: Props) => {
           })}
         </div>
       </form>
+
       {errorMessage && <div className={cn(s.errorMessage, "error-message")}>{errorMessage}</div>}
     </div>
   )

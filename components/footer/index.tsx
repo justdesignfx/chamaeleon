@@ -2,11 +2,12 @@ import s from "./footer.module.scss"
 
 import cn from "clsx"
 
-import { useAll } from "@/api/queries/social-media"
+import FooterReveal from "@/components/animations/footer-reveal"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
+
+import { useAll } from "@/api/queries/social-media"
 import { routes } from "@/constants"
-import FooterReveal from "../animations/footer-reveal"
 
 const Footer = () => {
   const { data: social } = useAll()

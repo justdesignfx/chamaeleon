@@ -1,5 +1,6 @@
-import { gsap } from "@/lib/gsap"
 import { ReactNode, useRef } from "react"
+
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
 
 const Reveal = ({ children }: Props) => {
   const ref = useRef(null)
+  const tl = useRef(gsap.timeline({ paused: true }))
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -18,17 +20,20 @@ const Reveal = ({ children }: Props) => {
         rotateX: 20,
       })
 
-      gsap.to(".transform", {
+      tl.current.to(".transform", {
         duration: 1,
         ease: "back.out",
         autoAlpha: 1,
         rotateX: 0,
-        scrollTrigger: {
-          id: "reveal",
-          markers: false,
-          trigger: ref.current,
-          start: "top center+=35%",
-        },
+      })
+
+      ScrollTrigger.create({
+        once: true,
+        animation: tl.current,
+        id: "reveal",
+        markers: false,
+        trigger: ref.current,
+        start: "top center+=35%",
       })
     }, ref)
 

@@ -2,13 +2,13 @@ import { ReactNode } from "react"
 import s from "./default-layout.module.scss"
 
 import cn from "clsx"
+import { useMediaQuery } from "usehooks-ts"
 
 import FooterReveal from "@/components/animations/footer-reveal"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 
 import { breakpoints } from "@/lib/utils"
-import { useMediaQuery } from "usehooks-ts"
 
 type Props = {
   children: ReactNode

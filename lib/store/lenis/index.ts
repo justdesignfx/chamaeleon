@@ -2,17 +2,17 @@ import Lenis from "@studio-freight/lenis"
 import { create } from "zustand"
 
 interface State {
-  lenis?: Lenis
-  setLenis: (instance: Lenis) => void
+  lenis?: Lenis | null
+  setLenis: (instance: Lenis | null) => void
   isStopped: boolean
   setIsStopped: (status: boolean) => void
 }
 
 export const useStore = create<State>((set) => ({
-  lenis: undefined,
+  lenis: null,
   isStopped: false,
-  setLenis: (instance: Lenis) => set({ lenis: instance }),
-  setIsStopped: (status: boolean) => set({ isStopped: status }),
+  setLenis: (instance) => set({ lenis: instance }),
+  setIsStopped: (status) => set({ isStopped: status }),
 }))
 
 export const useLenisStore = useStore

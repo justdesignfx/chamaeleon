@@ -10,14 +10,17 @@ import Reveal from "@/components/animations/reveal"
 import CardFloat from "@/components/card-float"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
+
 import { ICardFloat } from "@/constants"
 import DefaultLayout from "@/layouts/default"
+import { useLenisStore } from "@/lib/store/lenis"
 
 const ManifestoAndValues = () => {
   const manifestoRef = useRef(null)
   const ourValuesRef = useRef(null)
   const tl = useRef<gsap.core.Timeline | null>(null)
   const [manifestoView, setManifestoView] = useState<"long" | "tldr">("tldr")
+  const { lenis } = useLenisStore()
 
   const manifestoItems: ICardFloat[] = [
     {
@@ -232,12 +235,18 @@ const ManifestoAndValues = () => {
     return () => ctx.revert()
   }, [])
 
+  useIsomorphicLayoutEffect(() => {
+    lenis?.scrollTo(".manifesto", {
+      duration: 1,
+    })
+  }, [manifestoView])
+
   return (
     <DefaultLayout>
       <section className={s.intro}>
         <h1>
           <span>
-            <strong>Chamaeleon</strong> is a new early-stage venture capital firm that brings together 3 partners that
+            <strong>Chamaeleon</strong> is a new early-stage venture capital firm that brings together partners that
             have long collaborated as investors, operators and entrepreneurs that will focus on investing in truly
             transformative companies.
           </span>
@@ -259,7 +268,7 @@ const ManifestoAndValues = () => {
         </div>
       </section>
 
-      <section className={s.manifesto} ref={manifestoRef}>
+      <section className={cn(s.manifesto, "manifesto")} ref={manifestoRef}>
         <div className={s.manifestoMarquee}>
           <Marquee duration={30}>
             <>
@@ -270,7 +279,6 @@ const ManifestoAndValues = () => {
             </>
           </Marquee>
         </div>
-        <small className={s.date}>June 29th, 2021</small>
         <h3>Today, we announce the creation of Chamaeleon and the launch of its first fund.</h3>
 
         {manifestoView === "long" ? (
@@ -306,9 +314,7 @@ const ManifestoAndValues = () => {
               a job, around here): we will continue treating entrepreneurs’ start-ups as their babies… because they are;
               when we are tough, we will continue being thoughtful, fair and charitable.
             </p>
-            <span className={s.punch}>
-              ANNOUNCING CHAMAELEON <br /> GREAT PEOPLE + GREAT TECH <br /> SONGYEE, NUNO AND ALEX
-            </span>
+            <span className={s.punch}>GREAT PEOPLE + GREAT TECH</span>
           </div>
         ) : (
           <div className={s.tldr}>

@@ -5,7 +5,8 @@ import { useRef, useState } from "react"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 const useSmoothScroll = () => {
-  const [lenis, setLenis] = useState<Lenis | null>()
+  // const [lenis, setLenis] = useState<Lenis | null>()
+  const { lenis, setLenis } = useLenisStore()
   const lenisStore = useLenisStore()
   const reqIdRef = useRef<ReturnType<typeof requestAnimationFrame>>()
 

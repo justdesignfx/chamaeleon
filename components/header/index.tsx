@@ -14,7 +14,7 @@ const Header = () => {
   const ref = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const tl = useRef<gsap.core.Timeline | null>(null)
-  const uiStore = useLenisStore()
+  const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -58,7 +58,7 @@ const Header = () => {
   useIsomorphicLayoutEffect(() => {
     if (!tl.current) return
     isOpen ? tl.current.play() : tl.current.reverse()
-    uiStore.setIsStopped(isOpen)
+    lenisStore.setIsStopped(isOpen)
   }, [isOpen])
 
   function handleMenu() {

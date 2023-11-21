@@ -2,8 +2,13 @@ import { ReactNode } from "react"
 import s from "./default-layout.module.scss"
 
 import cn from "clsx"
-import Header from "@/components/header"
+
+import FooterReveal from "@/components/animations/footer-reveal"
 import Footer from "@/components/footer"
+import Header from "@/components/header"
+
+import { breakpoints } from "@/lib/utils"
+import { useMediaQuery } from "usehooks-ts"
 
 type Props = {
   children: ReactNode
@@ -11,13 +16,22 @@ type Props = {
 }
 
 const DefaultLayout = ({ children, theme = "main" }: Props) => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+
   return (
     <>
       <div className={cn(s.default, `theme-${theme}`)}>
         <Header />
         <main>{children}</main>
       </div>
-      <Footer />
+
+      {isMobile ? (
+        <Footer />
+      ) : (
+        <FooterReveal>
+          <Footer />
+        </FooterReveal>
+      )}
     </>
   )
 }

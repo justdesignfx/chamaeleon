@@ -77,7 +77,7 @@
   }
 }
 
-.companiesMarquee {
+.investments {
   margin: desktop-vw(50px) 0;
 
   .logoC {
@@ -86,7 +86,7 @@
   }
 }
 
-.ourPortfolio {
+.portfolio {
   align-items: center;
   background: var(--greening);
   display: flex;
@@ -173,7 +173,7 @@
   z-index: 10;
 
   .chamaeleon {
-    margin-left: desktop-vw(90px);
+    margin-left: desktop-vw(80px);
     margin-top: desktop-vw(100px);
     position: relative;
 
@@ -185,11 +185,11 @@
       }
 
       &:nth-child(2) {
-        @include position(absolute, desktop-vw(-80px), desktop-vw(40px), auto, auto);
+        @include position(absolute, desktop-vw(-90px), desktop-vw(50px), auto, auto);
         @include dims(desktop-vw(380px), auto);
         border-radius: desktop-vw(20px);
         overflow: hidden;
-        transform: rotate(20deg);
+        transform: rotate(16deg);
       }
     }
   }
@@ -229,7 +229,7 @@
 
 .kin {
   margin-bottom: desktop-vw(50px);
-  padding: desktop-vw(100px);
+  padding: desktop-vw(80px);
 
   > h4 {
     color: var(--nightly-woods);

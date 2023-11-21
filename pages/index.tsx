@@ -76,7 +76,7 @@ export default function Home({ companies }: Props) {
         </div>
       </section>
 
-      <section className={s.companiesMarquee}>
+      <section className={s.investments}>
         <Marquee duration={40}>
           <>
             {companies.map((item, i) => {
@@ -90,7 +90,7 @@ export default function Home({ companies }: Props) {
         </Marquee>
       </section>
 
-      <section className={cn(s.ourPortfolio, "island")}>
+      <section className={cn(s.portfolio, "island")}>
         <h3>
           WHETHER YOU&apos;RE{" "}
           <span className={s.a}>

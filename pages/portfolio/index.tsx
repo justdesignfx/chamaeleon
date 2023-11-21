@@ -49,24 +49,19 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.latest.map((item, i) => {
             return (
-              <CustomLink href={item.url} className={s.boxC} key={i}>
+              <CustomLink href={item.url} className={cn(s.boxC, "cursor-pointer")} key={i}>
                 <CompanyBox {...item} />
               </CustomLink>
             )
           })}
         </div>
       </section>
-      <section className={cn(s.priorInvestments, "island")}>
-        <h2>
-          OUR PRIOR INVESTMENTS.
-          <span>
-            <CustomImage src="/img/up.png" alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
-          </span>
-        </h2>
+      <section className={s.priorInvestments}>
+        <h2>SOME OF OUR PRIOR INVESTMENTS.</h2>
         <div className={s.companies}>
           {companies.prior.map((item, i) => {
             return (
-              <CustomLink href={item.url} className={s.boxC} key={i}>
+              <CustomLink href={item.url} className={cn(s.boxC, "cursor-pointer")} key={i}>
                 <CompanyBox key={i} {...item} />
               </CustomLink>
             )

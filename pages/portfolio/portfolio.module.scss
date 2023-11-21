@@ -15,6 +15,7 @@
 }
 
 .intro {
+  margin-bottom: desktop-vw(150px);
   padding-top: var(--page-padding-top);
 
   > h1 {
@@ -22,6 +23,7 @@
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(80px);
     font-weight: 700;
+    line-height: 1.15;
     margin: 0 auto;
     margin-bottom: desktop-vw(100px);
     position: relative;
@@ -36,18 +38,15 @@
   }
 
   .boxC {
-    background-color: var(--greening);
+    background-color: var(--alaskan-mist);
   }
 }
 
 .priorInvestments {
-  background: var(--nightly-woods);
-  padding: desktop-vw(80px);
-
   > h2 {
-    color: var(--greening);
+    color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
-    font-size: desktop-vw(80px);
+    font-size: desktop-vw(60px);
     font-weight: 700;
     margin: 0 auto;
     margin-bottom: desktop-vw(100px);
@@ -59,6 +58,10 @@
       @include dims(desktop-vw(190px), auto);
       display: inline-block;
     }
+  }
+
+  .boxC {
+    background-color: var(--greening);
   }
 }
 

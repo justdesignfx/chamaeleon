@@ -1,39 +1,49 @@
 .footer {
   background-color: var(--nightly-woods);
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: z-index("footer");
 
-  display: flex;
-  flex-direction: column;
-
-  nav {
-    column-gap: desktop-vw(100px);
+  .top {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: auto;
-    margin-left: auto;
-    padding: desktop-vw(40px);
+    grid-template-columns: 2fr 1.5fr;
+    margin-bottom: desktop-vw(100px);
+    padding: 0 desktop-vw(40px);
 
-    .navItem {
-      color: var(--forested-juniper);
-      font-family: var(--font-helvetica-neue);
-      font-size: desktop-vw(15px);
-      margin-bottom: desktop-vw(10px);
+    > div {
+      &:nth-child(1) {
+        margin-top: auto;
+      }
+
+      &:nth-child(2) {
+        .copyright {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
     }
-  }
 
-  .copyright {
-    align-items: flex-end;
-    display: flex;
-    justify-content: space-between;
-    padding: desktop-vw(80px) desktop-vw(40px);
-
-    > small {
+    small {
       color: var(--forested-juniper);
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(15px);
       line-height: 1.5;
       margin-bottom: desktop-vw(10px);
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: desktop-vw(150px);
+      margin-top: desktop-vw(50px);
+
+      .navItem {
+        color: var(--forested-juniper);
+        font-family: var(--font-helvetica-neue);
+        font-size: desktop-vw(15px);
+        margin-bottom: desktop-vw(15px);
+      }
     }
   }
 
@@ -42,6 +52,7 @@
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(150px);
     font-weight: 700;
+    margin-bottom: desktop-vw(30px);
     text-align: center;
 
     span {
@@ -50,19 +61,19 @@
   }
 
   .social {
-    align-items: flex-start;
+    align-items: center;
     column-gap: desktop-vw(20px);
     display: flex;
-    padding: desktop-vw(150px) desktop-vw(40px) desktop-vw(50px) desktop-vw(40px);
+    padding: desktop-vw(50px) desktop-vw(40px);
 
     .iconC {
-      @include dims(desktop-vw(15px));
+      @include dims(desktop-vw(20px), desktop-vw(15px));
       display: block;
     }
   }
 
   .imgC {
-    @include position(absolute, auto, desktop-vw(100px), 0, auto);
+    @include position(absolute, auto, desktop-vw(50px), 0, auto);
     @include dims(desktop-vw(720px), desktop-vw(215px));
   }
 }

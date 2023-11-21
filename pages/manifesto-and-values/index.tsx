@@ -1,20 +1,102 @@
 import { useRef, useState } from "react"
 import s from "./manifesto-and-values.module.scss"
 
-import cn from "clsx"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
+import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
+import MaskedScale from "@/components/animations/masked-scale"
 import Reveal from "@/components/animations/reveal"
+import CardFloat from "@/components/card-float"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
+import { ICardFloat } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 
 const ManifestoAndValues = () => {
   const manifestoRef = useRef(null)
   const ourValuesRef = useRef(null)
   const tl = useRef<gsap.core.Timeline | null>(null)
-  const [manifestoView, setManifestoView] = useState<"long" | "tldr">("long")
+  const [manifestoView, setManifestoView] = useState<"long" | "tldr">("tldr")
+
+  const manifestoItems: ICardFloat[] = [
+    {
+      backgroundColor: "var(--greening)",
+      color: "var(-nightly-woods)",
+      text: "Typically Coming In At Series Seed Or Series A",
+      icon: {
+        alignment: "tl",
+        src: "/img/drops.png",
+      },
+      rotate: -6,
+    },
+    {
+      backgroundColor: "var(--nightly-woods)",
+      color: "var(--greening)",
+      text: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
+      icon: {
+        alignment: "tr",
+        src: "/img/rock.png",
+      },
+      rotate: 14,
+    },
+    {
+      backgroundColor: "var(--electric-energy)",
+      color: "var(-nightly-woods)",
+      text: "First Checks Between 1-5 Million USD",
+      icon: {
+        alignment: "bl",
+        src: "/img/bale.png",
+      },
+      rotate: 13,
+    },
+    {
+      backgroundColor: "var(--greening)",
+      color: "var(--nightly-woods)",
+      text: "Primarily, Focused On US And Europe, But Will Invest Globally",
+      icon: {
+        alignment: "br",
+        src: "/img/earth.png",
+      },
+      rotate: -6,
+    },
+    {
+      backgroundColor: "var(--nightly-woods)",
+      color: "var(--greening)",
+      text: "Broad Vertical Focus, But Key Principles Are:",
+      rotate: 13,
+    },
+    {
+      backgroundColor: "var(--electric-energy)",
+      color: "var(--nightly-woods)",
+      text: "Product-Led Companies, Not “Just” Core-Technology Or IP",
+      icon: {
+        alignment: "br",
+        src: "/img/steampunk-chamaeleon-face.png",
+      },
+      rotate: 0,
+    },
+    {
+      backgroundColor: "var(--greening)",
+      color: "var(--nightly-woods)",
+      text: "Clear End-User Flows That We As Users Could Test, Even In B2B",
+      icon: {
+        alignment: "tl",
+        src: "/img/doc.png",
+      },
+      rotate: -7,
+    },
+    {
+      backgroundColor: "var(--nightly-woods)",
+      color: "var(--greening)",
+      text: "Preference For Technology Differentiated",
+      icon: {
+        alignment: "br",
+        src: "/img/steampunk-chamaeleon.png",
+      },
+      rotate: 13,
+    },
+  ]
 
   const gridItems = [
     {
@@ -49,6 +131,7 @@ const ManifestoAndValues = () => {
       title: "People Centric",
       desc: "…but also and always, love for people.",
     },
+
     {
       title: "High Standards",
       desc: "High integrity, respect and authenticity in relations with our core stakeholders - LPs, potential investees, portfolio companies, alums, extended network and ecosystem.",
@@ -90,26 +173,21 @@ const ManifestoAndValues = () => {
           },
           "s"
         )
-        .to(
-          ".papa-chamaeleon",
-          {
-            xPercent: -350,
-          },
-          "s"
-        )
+        .to(".papa-chamaeleon", {
+          xPercent: -350,
+        })
 
       ScrollTrigger.create({
         id: "our-values",
         animation: tl.current,
         trigger: ourValuesRef.current,
         scrub: true,
-        start: "center bottom",
+        start: `center bottom`,
+        markers: true,
       })
     }, ourValuesRef)
 
-    return () => {
-      ctx.revert()
-    }
+    return () => ctx.revert()
   }, [])
 
   useIsomorphicLayoutEffect(() => {
@@ -120,7 +198,7 @@ const ManifestoAndValues = () => {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         id: "manifesto",
-        markers: true,
+        // markers: true,
         trigger: manifestoRef.current,
         start: "top center",
         end: "bottom center",
@@ -151,9 +229,7 @@ const ManifestoAndValues = () => {
       })
     }, manifestoRef)
 
-    return () => {
-      ctx.revert()
-    }
+    return () => ctx.revert()
   }, [])
 
   return (
@@ -171,7 +247,15 @@ const ManifestoAndValues = () => {
           </span>
         </h1>
         <div className={s.imgC}>
-          <CustomImage alt="Manifest" src="/img/our-portfolio-2.jpg" style={{ objectFit: "cover" }} />
+          <MaskedScale>
+            <CustomImage
+              alt="Manifest"
+              src="/img/manifest-lunch.jpg"
+              style={{ objectFit: "cover" }}
+              height="1067"
+              width="1600"
+            />
+          </MaskedScale>
         </div>
       </section>
 
@@ -228,23 +312,28 @@ const ManifestoAndValues = () => {
           </div>
         ) : (
           <div className={s.tldr}>
-            <p>Typically Coming In At Series Seed Or Series A</p>
-            <p>Prefer To Lead Or Co-Lead, But We Play Nice With Others :)</p>
-            <p>
-              First Checks Between <strong>1-5 Million USD</strong>
-            </p>
-            <p>Primarily, Focused On US And Europe, But Will Invest Globally</p>
-            <p>Broad Vertical Focus, But Key Principles Are:</p>
-            <p>Product-Led Companies, Not “Just” Core-Technology Or IP</p>
-            <p>Clear End-User Flows That We As Users Could Test, Even In B2B</p>
-            <p>Preference For Technology Differentiated</p>
+            {manifestoItems.map((item, i) => {
+              return (
+                <div key={i}>
+                  <Reveal>
+                    <CardFloat {...item} />
+                  </Reveal>
+                </div>
+              )
+            })}
           </div>
         )}
       </section>
 
       <section className={s.chamaeleonPop}>
         <div className={s.imgC}>
-          <CustomImage src="/img/chamaeleon-hole.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
+          <CustomImage
+            src="/img/chamaeleon-hole.png"
+            alt="Cactus Doodle"
+            style={{ objectFit: "contain" }}
+            height="257"
+            width="447"
+          />
         </div>
       </section>
 
@@ -265,17 +354,41 @@ const ManifestoAndValues = () => {
         </div>
         <div className={s.cactusC}>
           <div className={cn(s.imgC, "cactus-1")}>
-            <CustomImage src="/img/manifesto-c-1.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
+            <CustomImage
+              src="/img/manifesto-c-1.png"
+              alt="Cactus Doodle"
+              style={{ objectFit: "contain" }}
+              height="835"
+              width="738"
+            />
           </div>
           <div className={cn(s.imgC, "cactus-2")}>
-            <CustomImage src="/img/manifesto-c-2.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
+            <CustomImage
+              src="/img/manifesto-c-2.png"
+              alt="Cactus Doodle"
+              style={{ objectFit: "contain" }}
+              height="449"
+              width="259"
+            />
           </div>
           <div className={cn(s.imgC, "cactus-3")}>
-            <CustomImage src="/img/manifesto-c-3.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
+            <CustomImage
+              src="/img/manifesto-c-3.png"
+              alt="Cactus Doodle"
+              style={{ objectFit: "contain" }}
+              height="299"
+              width="266"
+            />
           </div>
         </div>
         <div className={cn(s.imgC, "papa-chamaeleon")}>
-          <CustomImage src="/img/papa-chamaeleon.png" alt="Papa Chamaeleon" style={{ objectFit: "contain" }} />
+          <CustomImage
+            src="/img/papa-chamaeleon.png"
+            alt="Papa Chamaeleon"
+            style={{ objectFit: "contain" }}
+            height="596"
+            width="629"
+          />
         </div>
       </section>
 

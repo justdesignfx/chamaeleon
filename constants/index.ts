@@ -120,3 +120,18 @@ export const routes = {
     ui: "CONTACT US",
   },
 }
+
+export interface ICardFloat {
+  backgroundColor: string
+  color: string
+  icon?: {
+    alignment: "tl" | "tr" | "bl" | "br"
+    src: string
+  }
+  rotate: number
+  text: string
+}
+
+export interface Alignment {
+  alignment: "tl" | "tr" | "bl" | "br"
+}

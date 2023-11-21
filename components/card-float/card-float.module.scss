@@ -1,0 +1,41 @@
+.cardFloat {
+  @include dims(desktop-vw(350px));
+  border-radius: desktop-vw(20px);
+  padding: desktop-vw(50px) desktop-vw(40px);
+  position: relative;
+
+  > p {
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(40px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: desktop-vw(50px);
+    text-align: start;
+    text-transform: uppercase;
+  }
+
+  > .iconC {
+    @include dims(desktop-vw(200px));
+    position: absolute;
+
+    &.tl {
+      top: desktop-vw(-100px);
+      left: desktop-vw(-100px);
+    }
+
+    &.tr {
+      top: desktop-vw(-100px);
+      right: desktop-vw(-100px);
+    }
+
+    &.bl {
+      bottom: desktop-vw(-100px);
+      left: desktop-vw(-100px);
+    }
+
+    &.br {
+      bottom: desktop-vw(-100px);
+      right: desktop-vw(-100px);
+    }
+  }
+}

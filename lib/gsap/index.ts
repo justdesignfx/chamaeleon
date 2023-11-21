@@ -14,7 +14,7 @@ gsap.config({
 
 gsap.defaults({
   duration: DURATION,
-  ease: EASE,
+  ease: "none",
 })
 
 ScrollTrigger.defaults({ markers: process.env.NEXT_PUBLIC_NODE_ENV === "development" })

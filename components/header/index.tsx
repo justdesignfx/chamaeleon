@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import s from "./header.module.scss"
 
 import cn from "clsx"
-import { gsap } from "@/lib/gsap"
+import { EASE, gsap } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomLink } from "@/components/custom-link"
@@ -24,6 +24,7 @@ const Header = () => {
         .to(
           ".hamburger",
           {
+            ease: EASE,
             backgroundColor: "var(--forested-juniper)",
             color: "var(--nightly-woods)",
             duration: 0,
@@ -33,6 +34,7 @@ const Header = () => {
         .to(
           ".menu-bg",
           {
+            ease: EASE,
             duration: 0.4,
             opacity: 0.9,
             pointerEvents: "auto",
@@ -42,6 +44,7 @@ const Header = () => {
         .to(
           ".menu",
           {
+            ease: EASE,
             duration: 0.4,
             opacity: 1,
             y: 0,

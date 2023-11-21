@@ -57,8 +57,8 @@ export default function Home({ companies }: Props) {
               <CustomImage
                 src="/img/rocket.png"
                 alt="Rocket Illustration"
-                height="1176"
-                width="682"
+                height="1568"
+                width="909"
                 style={{ objectFit: "contain" }}
               />
             </div>
@@ -140,6 +140,7 @@ export default function Home({ companies }: Props) {
               <CustomImage
                 src="/img/chamaeleon-on-hill.jpg"
                 alt="Chamaeleon On Hill"
+                loading="lazy"
                 height="750"
                 width="750"
                 style={{ objectFit: "contain" }}
@@ -150,6 +151,7 @@ export default function Home({ companies }: Props) {
             <CustomImage
               src="/img/logo-mantis.png"
               alt="Mantis Logo"
+              loading="lazy"
               height="1176"
               width="682"
               style={{ objectFit: "contain" }}
@@ -189,6 +191,7 @@ export default function Home({ companies }: Props) {
                 <CustomImage
                   src="/img/kin-1.png"
                   alt="Team at Event"
+                  loading="lazy"
                   height="823"
                   width="1854"
                   style={{ objectFit: "cover" }}
@@ -200,6 +203,7 @@ export default function Home({ companies }: Props) {
                 <CustomImage
                   src="/img/kin-2.png"
                   alt="Team at Event"
+                  loading="lazy"
                   height="667"
                   width="998"
                   style={{ objectFit: "cover" }}
@@ -210,6 +214,7 @@ export default function Home({ companies }: Props) {
               <CustomImage
                 src="/img/logo-kin-community.png"
                 alt="Kin Logo"
+                loading="lazy"
                 height="491"
                 width="904"
                 style={{ objectFit: "contain" }}

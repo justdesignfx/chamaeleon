@@ -19,8 +19,6 @@ type Props = {
 }
 
 export default function Home({ companies }: Props) {
-  console.log(companies)
-
   return (
     <DefaultLayout>
       <section className={cn(s.intro, "island")}>
@@ -52,34 +50,22 @@ export default function Home({ companies }: Props) {
         />
       </section>
 
-      <section className={s.whoWeAre}>
-        <div className={s.coins}>
-          <div className={s.imgC}>
-            <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-dollar.png" alt="Company Logo" />
-            </Parallax>
-          </div>
-
-          <div className={s.imgC}>
-            <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-pound.png" alt="Company Logo" />
-            </Parallax>
-          </div>
-
-          <div className={s.imgC}>
-            <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-yen.png" alt="Company Logo" />
-            </Parallax>
-          </div>
-
-          <div className={s.imgC}>
-            <Parallax speedX={0} directionY={-1} speedY={0.4}>
-              <CustomImage src="/img/coin-euro.png" alt="Company Logo" />
-            </Parallax>
-          </div>
+      <section className={s.manifesto}>
+        <div className={s.rocket}>
+          <Parallax speedX={0} directionY={-1} speedY={0.2}>
+            <div className={s.imgC}>
+              <CustomImage
+                src="/img/rocket.png"
+                alt="Rocket Illustration"
+                height="1176"
+                width="682"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </Parallax>
         </div>
         <div className={s.text}>
-          <h2>WHO WE ARE</h2>
+          <h2>MANIFESTO & VALUES</h2>
           <h3>WE ARE AN EARLY-STAGE VC FIRM BASED IN SILICON VALLEY, INVESTING GLOBALLY.</h3>
           <p>
             Chamaeleon is a new early-stage venture capital firm that brings together 3 partners that have long
@@ -91,7 +77,7 @@ export default function Home({ companies }: Props) {
       </section>
 
       <section className={s.companiesMarquee}>
-        <Marquee>
+        <Marquee duration={40}>
           <>
             {companies.map((item, i) => {
               return (
@@ -119,37 +105,119 @@ export default function Home({ companies }: Props) {
               <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" />
             </span>
           </span>
-          , WE&apos;RE HERE TO BOOST YOUR BRAND.
+          WE&apos;RE HERE TO BOOST YOU.
         </h3>
         <Button text="OUR PORTFOLIO" path={`/${routes.portfolio.path}`} size="md" />
 
-        <div className={s.imgs}>
-          <div className={s.imgC}>
-            <MaskedScale>
-              <CustomImage src="/img/our-portfolio-1.jpg" alt="Company Logo" loading="lazy" width="540" height="414" />
-            </MaskedScale>
-          </div>
+        <div className={s.imgC}>
+          <MaskedScale>
+            <CustomImage
+              src="/img/team-at-trip.jpg"
+              alt="People in a nature trip"
+              loading="lazy"
+              width="2000"
+              height="1334"
+            />
+          </MaskedScale>
+        </div>
 
-          <div className={s.imgC}>
-            <MaskedScale>
-              <CustomImage src="/img/our-portfolio-2.jpg" alt="Company Logo" loading="lazy" width="1002" height="528" />
-            </MaskedScale>
-          </div>
+        <div className={s.marquee}>
+          <Marquee duration={40}>
+            <>
+              <h5>A UNIQUE SUPERPOWER</h5>
+              <h5>A UNIQUE SUPERPOWER</h5>
+              <h5>A UNIQUE SUPERPOWER</h5>
+              <h5>A UNIQUE SUPERPOWER</h5>
+            </>
+          </Marquee>
         </div>
       </section>
 
-      <div className={s.kinCommunity}>
-        <h4>KIN COMMUNITY</h4>
-        <p>
-          We partner with exceptional people who are aligned with us on values, have worked or have done business with
-          us, and believe that entrepreneurship can create massive opportunities and impact for everyone. They are part
-          of our family… they are <span>#KIN</span>.
-        </p>
-        <div className={s.link}>
-          <small>Meet our partners</small>
-          <Button text="KIN" path={`/${routes.kin.path}`} size="lg" />
+      <section className={s.mantis}>
+        <div className={s.chamaeleon}>
+          <div className={s.imgC}>
+            <MaskedScale>
+              <CustomImage
+                src="/img/chamaeleon-on-hill.jpg"
+                alt="Chamaeleon On Hill"
+                height="750"
+                width="750"
+                style={{ objectFit: "contain" }}
+              />
+            </MaskedScale>
+          </div>
+          <div className={s.imgC}>
+            <CustomImage
+              src="/img/logo-mantis.png"
+              alt="Mantis Logo"
+              height="1176"
+              width="682"
+              style={{ objectFit: "contain" }}
+            />
+          </div>
         </div>
-      </div>
+
+        <div className={s.text}>
+          <h2>MANTIS - OUR SUPERPOWER</h2>
+          <h3>CHAMAELEON’S AI-DRIVEN INVESTMENT STRATEGY.</h3>
+          <p>
+            Chamaeleon&apos;s investment strategy is powered by our proprietary AI and quantitative engine, which
+            analyzes millions of companies across thousands of data points per company.
+          </p>
+          <Button text="SEE MORE" path={`/${routes.superpower.path}`} size="md" />
+        </div>
+      </section>
+
+      <section className={s.kin}>
+        <h4>
+          <span>CHAMAELEON&apos;S VISION</span>
+          <span>FOR VALUE-ADD GROWTH.</span>
+        </h4>
+        <div>
+          <div className={s.text}>
+            <p>
+              We partner with exceptional people who are aligned with us on values, have worked or have done business
+              with us, and believe that entrepreneurship can create massive opportunities and impact for everyone. They
+              are part of our family… they are <strong>KIN</strong>.
+            </p>
+            <Button text="MEET OUR COMMUNITY" path={`/${routes.kin.path}`} size="md" />
+          </div>
+
+          <div className={s.imgs}>
+            <div className={s.imgC}>
+              <MaskedScale>
+                <CustomImage
+                  src="/img/kin-1.png"
+                  alt="Team at Event"
+                  height="823"
+                  width="1854"
+                  style={{ objectFit: "cover" }}
+                />
+              </MaskedScale>
+            </div>
+            <div className={s.imgC}>
+              <MaskedScale>
+                <CustomImage
+                  src="/img/kin-2.png"
+                  alt="Team at Event"
+                  height="667"
+                  width="998"
+                  style={{ objectFit: "cover" }}
+                />
+              </MaskedScale>
+            </div>
+            <div className={s.imgC}>
+              <CustomImage
+                src="/img/logo-kin-community.png"
+                alt="Kin Logo"
+                height="491"
+                width="904"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </DefaultLayout>
   )
 }

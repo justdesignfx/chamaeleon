@@ -1,6 +1,6 @@
-import React from "react"
-import { CustomLink } from "@/components/custom-link"
 import s from "./button.module.scss"
+
+import { CustomLink } from "@/components/custom-link"
 
 import cn from "clsx"
 

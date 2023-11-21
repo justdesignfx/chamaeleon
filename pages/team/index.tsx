@@ -23,8 +23,6 @@ const Team = ({ team }: Props) => {
   const modalStore = useModalStore()
   const [selected, setSelected] = useState<number | null>(null)
 
-  console.log("team", team)
-
   const handleModal = (index: number) => {
     setSelected(index)
   }

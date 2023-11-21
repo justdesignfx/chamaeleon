@@ -23,9 +23,10 @@ const Superpower = () => {
           <CustomImage
             src="/img/logo-mantis.png"
             alt="Chamaeleon Face"
-            style={{ objectFit: "cover" }}
-            height="356"
-            width="848"
+            style={{ objectFit: "contain" }}
+            height={356}
+            width={848}
+            priority="high"
           />
         </div>
       </section>
@@ -34,11 +35,12 @@ const Superpower = () => {
         <div className={s.imgC}>
           <MaskedScale>
             <CustomImage
-              src="/img/our-portfolio-2.jpg"
+              src="/img/mantis-banner.jpg"
               alt="Chamaeleon Face"
               style={{ objectFit: "cover" }}
-              width="1002"
-              height="528"
+              width={1500}
+              height={538}
+              priority="high"
             />
           </MaskedScale>
         </div>
@@ -62,13 +64,27 @@ const Superpower = () => {
         <div className={s.imgs}>
           <Parallax speedX={0} speedY={0.15} directionY={-1}>
             <div className={cn(s.imgC, s.a)}>
-              <CustomImage src="/img/our-portfolio-2.jpg" alt="Chamaeleon Face" style={{ objectFit: "cover" }} />
+              <CustomImage
+                src="/img/mantis-1.jpg"
+                alt="Chamaeleon Face"
+                style={{ objectFit: "cover" }}
+                height={2000}
+                width={1334}
+                loading="lazy"
+              />
             </div>
           </Parallax>
 
           <Parallax speedX={0} speedY={0.25} directionY={-1}>
             <div className={cn(s.imgC, s.b)}>
-              <CustomImage src="/img/our-portfolio-2.jpg" alt="Chamaeleon Face" style={{ objectFit: "cover" }} />
+              <CustomImage
+                src="/img/mantis-2.jpg"
+                alt="Chamaeleon Face"
+                style={{ objectFit: "cover" }}
+                height={2000}
+                width={1334}
+                loading="lazy"
+              />
             </div>
           </Parallax>
         </div>

@@ -16,7 +16,6 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(ref.current, {
-        ease: "none",
         xPercent: () => 100 * speedX * directionX,
         yPercent: () => 100 * speedY * directionY,
         scrollTrigger: {

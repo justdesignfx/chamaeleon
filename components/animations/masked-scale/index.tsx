@@ -12,7 +12,6 @@ const MaskedScale = ({ children }: Props) => {
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(ref.current, {
-        ease: "none",
         scale: 1.1,
         scrollTrigger: {
           id: "masked-scale",

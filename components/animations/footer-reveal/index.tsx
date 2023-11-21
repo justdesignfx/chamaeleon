@@ -36,7 +36,6 @@ const FooterReveal = ({ children }: Props) => {
         .to(
           ".wrapper",
           {
-            ease: "none",
             yPercent: 0,
           },
           "s"
@@ -44,7 +43,6 @@ const FooterReveal = ({ children }: Props) => {
         .to(
           ".overlay",
           {
-            ease: "none",
             opacity: 0,
           },
           "s"

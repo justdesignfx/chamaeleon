@@ -15,7 +15,7 @@ const CardFloat = (props: Props) => {
       <p>{props.text}</p>
       {props.icon && (
         <div className={cn(s.iconC, [s[props.icon.alignment]])}>
-          <CustomImage src={props.icon.src} style={{ objectFit: "contain" }} alt="Icon" />
+          <CustomImage src={props.icon.src} style={{ objectFit: "contain" }} alt="Icon" height={200} width={200} />
         </div>
       )}
     </div>

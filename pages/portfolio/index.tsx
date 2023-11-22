@@ -6,9 +6,10 @@ import Button from "@/components/button"
 import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
+
+import { all } from "@/api/queries/portfolio"
 import { ICompanyBox } from "@/constants"
 import DefaultLayout from "@/layouts/default"
-import { all } from "@/api/queries/portfolio"
 
 type Props = {
   companies: {
@@ -18,32 +19,19 @@ type Props = {
 }
 
 const Portfolio = ({ companies }: Props) => {
-  console.log(companies)
-
-  // const companies: ICompanyBox[] = [
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  //   companyBox,
-  // ]
-
   return (
     <DefaultLayout>
-      {/* <Header /> */}
-
       <section className={s.intro}>
         <h1>
           OUR LATEST ANNOUNCED INVESTMENTS.
           <span>
-            <CustomImage src="/img/megaphone.png" alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
+            <CustomImage
+              src="/img/megaphone.png"
+              alt="Chamaeleon Face"
+              style={{ objectFit: "contain" }}
+              height={278}
+              width={347}
+            />
           </span>
         </h1>
         <div className={s.companies}>
@@ -70,10 +58,22 @@ const Portfolio = ({ companies }: Props) => {
       </section>
       <section className={s.toTheTeam}>
         <div className={cn(s.imgC, s.left)}>
-          <CustomImage src="/img/cactus.png" alt="Cactus Doodle" style={{ objectFit: "contain" }} />
+          <CustomImage
+            src="/img/cactus.png"
+            alt="Cactus Doodle"
+            style={{ objectFit: "contain" }}
+            height={659}
+            width={544}
+          />
         </div>
         <div className={cn(s.imgC, s.right)}>
-          <CustomImage src="/img/chamaeleon-face.png" alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
+          <CustomImage
+            src="/img/chamaeleon-face.png"
+            alt="Chamaeleon Face"
+            style={{ objectFit: "contain" }}
+            height={340}
+            width={363}
+          />
         </div>
         <div className={s.link}>
           <small>Get to know about us</small>

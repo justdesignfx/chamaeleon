@@ -1,13 +1,15 @@
-import { useModalStore } from "@/lib/store/modal"
 import { useRef } from "react"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import s from "./modal.module.scss"
-import { useLenisStore } from "@/lib/store/lenis"
+
 import { gsap } from "@/lib/gsap"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
+
+import { useLenisStore } from "@/lib/store/lenis"
+import { useModalStore } from "@/lib/store/modal"
 
 const Modal = () => {
   const ref = useRef(null)
-  const tl = useRef<gsap.core.Timeline | null>(null)
+  const tl = useRef(gsap.timeline({ paused: true }))
   const { isOpen, setIsOpen, content } = useModalStore()
   const lenisStore = useLenisStore()
 
@@ -15,8 +17,6 @@ const Modal = () => {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      tl.current = gsap.timeline({ paused: true })
-
       tl.current.to(ref.current, {
         duration: 0.3,
         autoAlpha: 1,

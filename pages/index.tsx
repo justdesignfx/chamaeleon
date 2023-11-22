@@ -191,7 +191,7 @@ export default function Home({ companies }: Props) {
             <div className={s.imgC}>
               <MaskedScale>
                 <CustomImage
-                  src="/img/kin-1.png"
+                  src="/img/kin-curtain.png"
                   alt="Team at Event"
                   loading="lazy"
                   height={823}
@@ -203,7 +203,7 @@ export default function Home({ companies }: Props) {
             <div className={s.imgC}>
               <MaskedScale>
                 <CustomImage
-                  src="/img/kin-2.png"
+                  src="/img/kin-lunch.png"
                   alt="Team at Event"
                   loading="lazy"
                   height={667}

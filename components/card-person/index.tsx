@@ -1,10 +1,12 @@
-import { ICardPerson } from "@/constants"
-import CustomImage from "../custom-image"
-import { CustomLink } from "../custom-link"
 import s from "./card-person.module.scss"
 
 import cn from "clsx"
-import IconLinkedin from "../icons/icon-linkedin"
+
+import CustomImage from "@/components/custom-image"
+import { CustomLink } from "@/components/custom-link"
+import IconLinkedin from "@/components/icons/icon-linkedin"
+
+import { ICardPerson } from "@/constants"
 
 type Props = ICardPerson
 
@@ -16,8 +18,8 @@ const CardPerson = (props: Props) => {
           <CustomImage
             src={props.media.desktop.src}
             alt="Profile Photo of a Team Member"
-            height={props.media.desktop.height}
-            width={props.media.desktop.width}
+            height={parseFloat(props.media.desktop.height)}
+            width={parseFloat(props.media.desktop.width)}
             loading="lazy"
           />
         </div>

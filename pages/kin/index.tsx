@@ -28,6 +28,28 @@ const Community = ({ members }: Props) => {
   const q = gsap.utils.selector(layeredImagesRef)
   const tl = useRef<gsap.core.Timeline | null>(null)
 
+  function handleModal(index: number) {
+    setSelected(index)
+  }
+
+  useIsomorphicLayoutEffect(() => {
+    if (selected === null) return
+
+    modalStore.setContent(
+      <DetailSlider
+        currentSlide={selected}
+        slides={members.map((member, i) => {
+          return (
+            <div className={cn(s.slide, "flex-center")} key={i}>
+              <CardInfo {...member} />
+            </div>
+          )
+        })}
+      />
+    )
+    modalStore.setIsOpen(true)
+  }, [selected])
+
   useIsomorphicLayoutEffect(() => {
     if (!layeredImagesRef.current) return
 
@@ -35,8 +57,8 @@ const Community = ({ members }: Props) => {
       q(".layer").map((item, i) => {
         if (i === 0) return
         gsap.set(item, {
-          yPercent: 100 + i * 10,
-          scale: 1 + i * 0.01,
+          yPercent: 150 + i * 10,
+          scale: 1 + i * 0.025,
         })
       })
 
@@ -94,28 +116,6 @@ const Community = ({ members }: Props) => {
 
     return () => ctx.revert()
   }, [])
-
-  function handleModal(index: number) {
-    setSelected(index)
-  }
-
-  useIsomorphicLayoutEffect(() => {
-    if (selected === null) return
-
-    modalStore.setContent(
-      <DetailSlider
-        currentSlide={selected}
-        slides={members.map((member, i) => {
-          return (
-            <div className={cn(s.slide, "flex-center")} key={i}>
-              <CardInfo {...member} />
-            </div>
-          )
-        })}
-      />
-    )
-    modalStore.setIsOpen(true)
-  }, [selected])
 
   return (
     <DefaultLayout>

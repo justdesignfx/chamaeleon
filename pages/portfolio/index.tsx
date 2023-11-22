@@ -3,13 +3,15 @@ import s from "./portfolio.module.scss"
 import cn from "clsx"
 
 import Button from "@/components/button"
+import CardCompanyDetail from "@/components/card-company-detail"
 import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
-import { CustomLink } from "@/components/custom-link"
+import SliderCompanyDetail from "@/components/slider-company-detail"
 
 import { all } from "@/api/queries/portfolio"
 import { ICompanyBox } from "@/constants"
 import DefaultLayout from "@/layouts/default"
+import { useModalStore } from "@/lib/store/modal"
 
 type Props = {
   companies: {
@@ -19,6 +21,28 @@ type Props = {
 }
 
 const Portfolio = ({ companies }: Props) => {
+  const modalStore = useModalStore()
+
+  function handleModal(id: ICompanyBox["id"]) {
+    const allCompanies = [...companies.latest, ...companies.prior]
+    const index = allCompanies.findIndex((value) => {
+      return value.id === id
+    })
+
+    modalStore.setContent(
+      <SliderCompanyDetail
+        currentSlide={index}
+        slides={allCompanies.map((item, i) => {
+          return (
+            <div className={s.slide} key={i}>
+              <CardCompanyDetail {...item} />
+            </div>
+          )
+        })}
+      />
+    )
+  }
+
   return (
     <DefaultLayout>
       <section className={s.intro}>
@@ -27,7 +51,7 @@ const Portfolio = ({ companies }: Props) => {
           <span>
             <CustomImage
               src="/img/megaphone.png"
-              alt="Chamaeleon Face"
+              alt="Megaphone Illustration"
               style={{ objectFit: "contain" }}
               height={278}
               width={347}
@@ -37,21 +61,29 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.latest.map((item, i) => {
             return (
-              <CustomLink href={item.url} className={cn(s.boxC, "cursor-pointer")} key={i}>
-                <CompanyBox {...item} />
-              </CustomLink>
+              <div className={cn(s.boxC, "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+                <div>
+                  <CompanyBox {...item} />
+                </div>
+              </div>
             )
           })}
         </div>
       </section>
-      <section className={s.priorInvestments}>
+      <section className={s.prior}>
         <h2>SOME OF OUR PRIOR INVESTMENTS.</h2>
         <div className={s.companies}>
           {companies.prior.map((item, i) => {
             return (
-              <CustomLink href={item.url} className={cn(s.boxC, "cursor-pointer")} key={i}>
-                <CompanyBox key={i} {...item} />
-              </CustomLink>
+              <>
+                {i % 6 === 0 && i > 0 ? (
+                  <div className={s.line}></div>
+                ) : (
+                  <div className={cn(s.boxC, "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+                    <CompanyBox key={i} {...item} />
+                  </div>
+                )}
+              </>
             )
           })}
         </div>

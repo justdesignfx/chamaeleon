@@ -3,14 +3,39 @@
   justify-content: center;
   display: grid;
   grid-template-columns: repeat(6, desktop-vw(200px));
-  grid-template-rows: repeat(2, desktop-vw(130px));
   gap: desktop-vw(12px);
   margin-bottom: desktop-vw(100px);
 
+  .line {
+    @include dims(100%, 1px);
+    background: var(--black);
+    grid-column: 1 / -1;
+  }
+
   .boxC {
-    @include dims(100%);
+    $ease: 200ms transform var(--ease-out-quart);
+    @include dims(100%, desktop-vw(130px));
+    align-items: center;
     background-color: var(--bgColor);
-    border-radius: desktop-vw(20px);
+    border-radius: desktop-vw(10px);
+    display: flex;
+    justify-content: center;
+    transition: $ease;
+
+    > div {
+      transition: $ease;
+    }
+
+    @include hover {
+      &:hover {
+        border: 1px solid var(--austrian-ice);
+        transform: scale(0.9);
+
+        > div {
+          transform: scale(1.1);
+        }
+      }
+    }
   }
 }
 
@@ -42,14 +67,16 @@
   }
 }
 
-.priorInvestments {
+.prior {
+  margin-bottom: desktop-vw(200px);
+
   > h2 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(60px);
     font-weight: 700;
     margin: 0 auto;
-    margin-bottom: desktop-vw(100px);
+    margin-bottom: desktop-vw(75px);
     position: relative;
     text-align: center;
 
@@ -58,10 +85,6 @@
       @include dims(desktop-vw(190px), auto);
       display: inline-block;
     }
-  }
-
-  .boxC {
-    background-color: var(--greening);
   }
 }
 
@@ -98,4 +121,11 @@
       margin-bottom: desktop-vw(10px);
     }
   }
+}
+
+.slide {
+  @include dims(100vw, 100vh);
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }

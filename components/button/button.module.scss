@@ -5,6 +5,15 @@
   font-family: var(--font-first-aid-kit-f);
   font-weight: 700;
 
+  &.xs {
+    font-size: desktop-vw(20px);
+    border-bottom: 1px solid var(--nightly-woods);
+
+    @include mobile {
+      font-size: mobile-vw(30px);
+    }
+  }
+
   &.sm {
     font-size: desktop-vw(30px);
     border-bottom: 3px solid var(--nightly-woods);

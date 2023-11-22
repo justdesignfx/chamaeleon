@@ -16,7 +16,6 @@ const Modal = () => {
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       tl.current.to(ref.current, {
-        ease: EASE,
         duration: 0.3,
         autoAlpha: 1,
       })

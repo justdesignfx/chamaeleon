@@ -28,11 +28,11 @@ export default function Home({ companies }: Props) {
         </h1>
         <div className={s.imgC}>
           <CustomImage
-            src="/img/chamaeleon-c.png"
-            alt="Chamaeleon C Logo"
+            src="/img/chamaeleon-c.gif"
+            alt="Chamaeleon Logomark"
             style={{ objectFit: "contain" }}
-            height={1000}
-            width={1000}
+            height={400}
+            width={460}
           />
         </div>
         <Pixels
@@ -102,14 +102,14 @@ export default function Home({ companies }: Props) {
           WHETHER YOU&apos;RE{" "}
           <span className={s.a}>
             <span className={s.imgC}>
-              <CustomImage src="/img/moneybox.png" alt="Company Logo" height={1000} width={1000} />
+              <CustomImage src="/img/moneybox.gif" alt="Company Logo" height={400} width={420} />
             </span>
           </span>
           <span className={s.forestial}>A HUMBLE STARTUP </span>
           OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
           <span className={s.b}>
             <span className={s.imgC}>
-              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" height={1000} width={1000} />
+              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" height={196} width={303} />
             </span>
           </span>
           WE&apos;RE HERE TO BOOST YOU.
@@ -154,8 +154,8 @@ export default function Home({ companies }: Props) {
               src="/img/logo-mantis.png"
               alt="Mantis Logo"
               loading="lazy"
-              height={1176}
-              width={682}
+              height={315}
+              width={750}
               style={{ objectFit: "contain" }}
             />
           </div>

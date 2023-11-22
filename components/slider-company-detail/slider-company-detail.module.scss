@@ -1,8 +1,8 @@
-.sliderDetailedInfo {
+.sliderCompanyDetail {
   @include position(absolute, 0, 0, 0, 0);
   align-items: center;
   display: flex;
-  background-color: var(--nightly-woods);
+  background-color: var(--white-transparent);
   justify-content: center;
   pointer-events: none;
 

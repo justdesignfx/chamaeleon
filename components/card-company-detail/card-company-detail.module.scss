@@ -1,8 +1,8 @@
-.cardInfo {
-  @include dims(desktop-vw(1000px), auto);
-  background-color: var(--greening);
+.cardCompanyDetail {
+  @include dims(desktop-vw(720px), auto);
+  background-color: var(--nightly-woods);
   border-radius: desktop-vw(20px);
-  column-gap: desktop-vw(40px);
+  column-gap: desktop-vw(20px);
   display: flex;
   justify-items: flex-start;
   padding: desktop-vw(20px);
@@ -19,15 +19,17 @@
 
   .close {
     @include position(absolute, desktop-vw(20px), desktop-vw(20px), auto, auto);
-    @include dims(desktop-vw(20px));
+    @include dims(desktop-vw(15px));
 
     @include mobile {
       @include position(absolute, mobile-vw(15px), mobile-vw(15px), auto, auto);
+      font-size: mobile-vw(25px);
     }
   }
 
-  > .imgC {
-    @include dims(desktop-vw(390px), desktop-vw(500px));
+  > .imgCC {
+    @include dims(desktop-vw(300px), desktop-vw(300px));
+    background: var(--greening);
     border-radius: desktop-vw(10px);
     flex-shrink: 0;
     overflow: hidden;
@@ -37,25 +39,34 @@
       border-radius: mobile-vw(10px);
       display: none;
     }
+
+    .imgC {
+      @include dims(desktop-vw(160px), auto);
+
+      @include mobile {
+        @include dims(100%, mobile-vw(300px));
+        display: none;
+      }
+    }
   }
 
   > .info {
     @include dims(desktop-vw(435px), auto);
-    padding-top: desktop-vw(30px);
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    z-index: 10;
+    justify-content: center;
 
     @include mobile {
       @include dims(100%);
     }
 
     .title {
-      color: var(--nightly-woods);
+      color: var(--greening);
       font-family: var(--font-first-aid-kit-f);
-      font-size: desktop-vw(30px);
+      font-size: desktop-vw(40px);
       font-weight: 700;
-      margin-bottom: desktop-vw(10px);
+      margin-bottom: desktop-vw(20px);
       text-transform: uppercase;
 
       @include mobile {
@@ -64,28 +75,15 @@
       }
     }
 
-    .role {
-      color: var(--nightly-woods);
-      font-family: var(--font-helvetica-neue);
-      font-size: desktop-vw(20px);
-      font-weight: 400;
-      margin-bottom: desktop-vw(30px);
-
-      @include mobile {
-        font-size: mobile-vw(16px);
-        margin-bottom: mobile-vw(40px);
-      }
-    }
-
     .desc {
-      @include dims(auto, desktop-vw(300px));
-      color: var(--nightly-woods);
+      @include dims(desktop-vw(350px), desktop-vw(150px));
+      color: var(--greening);
       display: flex;
       font-family: var(--font-helvetica-neue);
-      font-size: desktop-vw(14px);
+      font-size: desktop-vw(16px);
       font-weight: 400;
-      line-height: 1.75;
-      margin-bottom: auto;
+      line-height: 1.5;
+      margin-bottom: desktop-vw(20px);
       overflow-y: scroll;
 
       span {

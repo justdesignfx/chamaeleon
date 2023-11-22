@@ -1,6 +1,6 @@
 .modal {
   @include position(fixed, 0, 0, 0, 0);
-  background: var(--black);
+  background: rgba(0, 0, 0, 0.7);
   z-index: z-index("modal");
 
   opacity: 0;

@@ -99,6 +99,7 @@ const Kin = ({ members }: Props) => {
       ScrollTrigger.create({
         id: "layered-images",
         animation: tl.current,
+        end: "bottom+=2000px top",
         trigger: layeredImagesRef.current,
         scrub: true,
         pin: true,

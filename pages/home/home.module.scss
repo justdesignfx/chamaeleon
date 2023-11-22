@@ -31,7 +31,7 @@
   position: relative;
   z-index: 10;
 
-  .rocket {
+  > .rocket {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
     }
   }
 
-  .text {
+  > .text {
     padding-top: desktop-vw(100px);
 
     > h2 {

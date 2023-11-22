@@ -28,7 +28,7 @@ const CustomImage = ({
   ...props
 }: Props) => {
   // const [loaded, setLoaded] = useState(loading !== 'lazy')
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(true)
 
   return (
     <NextImage

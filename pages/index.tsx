@@ -2,17 +2,18 @@ import s from "./home/home.module.scss"
 
 import cn from "clsx"
 
-import Button from "@/components/button"
-import CustomImage from "@/components/custom-image"
-import { Marquee } from "@/components/marquee"
+import MaskedScale from "@/components/animations/masked-scale"
 import Parallax from "@/components/animations/parallax"
+import Button from "@/components/button"
+import CompanyBox from "@/components/company-box"
+import CustomImage from "@/components/custom-image"
+import { CustomLink } from "@/components/custom-link"
+import { Marquee } from "@/components/marquee"
 import Pixels from "@/components/pixels"
+
+import { all } from "@/api/queries/home-portfolio"
 import { ICompanyBox, routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
-import MaskedScale from "@/components/animations/masked-scale"
-import { all } from "@/api/queries/home-portfolio"
-import { CustomLink } from "@/components/custom-link"
-import CompanyBox from "@/components/company-box"
 
 type Props = {
   companies: ICompanyBox[]

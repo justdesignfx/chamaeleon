@@ -8,6 +8,7 @@ import DefaultLayout from "@/layouts/default"
 import CustomImage from "@/components/custom-image"
 import Button from "@/components/button"
 import ContactForm from "@/components/contact-form"
+
 import { routes } from "@/constants"
 import { useContactForm } from "@/api/mutations"
 
@@ -57,10 +58,10 @@ const Contact = () => {
         <div className={s.imgC}>
           <CustomImage
             src="/img/chamaeleon-hole.png"
-            alt="Chamaeleon Coming Out From Hole"
+            alt="Chamaeleon Coming Out of Hole"
             style={{ objectFit: "contain" }}
-            height="257"
-            width="447"
+            height={257}
+            width={447}
           />
         </div>
       </div>

@@ -4,11 +4,13 @@ import cn from "clsx"
 
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
+import IconClose from "@/components/icons/icon-close"
+import IconLinkedin from "@/components/icons/icon-linkedin"
 import Pixels from "@/components/pixels"
+import ScrollableBox from "@/components/scrollable-box"
+
 import { ICardPerson } from "@/constants"
 import { useModalStore } from "@/lib/store/modal"
-import IconLinkedin from "../icons/icon-linkedin"
-import ScrollableBox from "../scrollable-box"
 
 type Props = ICardPerson
 
@@ -19,15 +21,15 @@ const CardInfo = (props: Props) => {
   return (
     <div className={s.cardInfo}>
       <div className={cn(s.close, "cursor-pointer")} onClick={closeModal}>
-        X
+        <IconClose fill="var(--nightly-woods)" />
       </div>
       <div className={s.imgC}>
         <CustomImage
           alt="Profile Photo of a Team Member"
           style={{ objectFit: "cover" }}
           src={props.media.desktop.src}
-          height={props.media.desktop.height}
-          width={props.media.desktop.width}
+          height={parseFloat(props.media.desktop.height)}
+          width={parseFloat(props.media.desktop.width)}
         />
       </div>
       <div className={s.info}>
@@ -38,7 +40,7 @@ const CardInfo = (props: Props) => {
             <p>{props.description}</p>
           </ScrollableBox>
         </div>
-        <CustomLink href={props.linkedin} className={cn(s.iconC, "flex-center")}>
+        <CustomLink href={props.linkedin} className={cn(s.iconC, "cursor-pointer", "flex-center")}>
           <IconLinkedin fill="var(--nightly-woods)" />
         </CustomLink>
       </div>

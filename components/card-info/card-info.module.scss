@@ -18,6 +18,7 @@
 
   .close {
     @include position(absolute, desktop-vw(20px), desktop-vw(20px), auto, auto);
+    @include dims(desktop-vw(20px));
     color: var(--nightly-woods);
     font-family: var(--font-helvetica-neue);
     font-size: desktop-vw(30px);

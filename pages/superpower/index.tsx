@@ -54,7 +54,6 @@ const Superpower = () => {
               <h5>MANTIS</h5>
               <h5>MANTIS</h5>
               <h5>MANTIS</h5>
-              <h5>MANTIS</h5>
             </>
           </Marquee>
         </div>

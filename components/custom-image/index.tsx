@@ -11,10 +11,22 @@ type Props = {
   loading?: "eager" | "lazy"
   quality?: number
   alt: string
+  height: number
+  width: number
   [x: string]: any
 }
 
-const CustomImage = ({ src = "", className, style, loading = "eager", quality = 100, alt = "", ...props }: Props) => {
+const CustomImage = ({
+  src = "",
+  className,
+  height = 1000,
+  width = 1000,
+  style,
+  loading = "eager",
+  quality = 100,
+  alt = "",
+  ...props
+}: Props) => {
   // const [loaded, setLoaded] = useState(loading !== 'lazy')
   const [loaded, setLoaded] = useState(false)
 
@@ -25,8 +37,8 @@ const CustomImage = ({ src = "", className, style, loading = "eager", quality = 
       className={cn(s.image, className, {
         [s.visible]: loaded,
       })}
-      height={1000}
-      width={1000}
+      height={height}
+      width={width}
       style={{ ...style }}
       loading={loading}
       quality={quality}

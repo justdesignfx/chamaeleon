@@ -261,8 +261,9 @@ const ManifestoAndValues = () => {
               alt="Manifest"
               src="/img/manifest-lunch.jpg"
               style={{ objectFit: "cover" }}
-              height="1067"
-              width="1600"
+              height={1067}
+              width={1600}
+              priority="high"
             />
           </MaskedScale>
         </div>
@@ -337,8 +338,8 @@ const ManifestoAndValues = () => {
             src="/img/chamaeleon-hole.png"
             alt="Cactus Doodle"
             style={{ objectFit: "contain" }}
-            height="257"
-            width="447"
+            height={257}
+            width={447}
           />
         </div>
       </section>
@@ -364,8 +365,8 @@ const ManifestoAndValues = () => {
               src="/img/manifesto-c-1.png"
               alt="Cactus Doodle"
               style={{ objectFit: "contain" }}
-              height="835"
-              width="738"
+              height={835}
+              width={738}
             />
           </div>
           <div className={cn(s.imgC, "cactus-2")}>
@@ -373,8 +374,8 @@ const ManifestoAndValues = () => {
               src="/img/manifesto-c-2.png"
               alt="Cactus Doodle"
               style={{ objectFit: "contain" }}
-              height="449"
-              width="259"
+              height={449}
+              width={259}
             />
           </div>
           <div className={cn(s.imgC, "cactus-3")}>
@@ -382,8 +383,8 @@ const ManifestoAndValues = () => {
               src="/img/manifesto-c-3.png"
               alt="Cactus Doodle"
               style={{ objectFit: "contain" }}
-              height="299"
-              width="266"
+              height={299}
+              width={266}
             />
           </div>
         </div>
@@ -392,8 +393,8 @@ const ManifestoAndValues = () => {
             src="/img/papa-chamaeleon.png"
             alt="Papa Chamaeleon"
             style={{ objectFit: "contain" }}
-            height="596"
-            width="629"
+            height={596}
+            width={629}
           />
         </div>
       </section>

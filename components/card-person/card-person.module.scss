@@ -13,7 +13,7 @@
         border-radius: desktop-vw(30px);
 
         div {
-          transform: scale(1.2);
+          transform: scale(1.1);
         }
       }
     }
@@ -37,6 +37,7 @@
     font-size: desktop-vw(30px);
     font-weight: 700;
     margin-bottom: desktop-vw(10px);
+    text-transform: uppercase;
   }
 
   > small {

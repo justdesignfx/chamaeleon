@@ -41,11 +41,11 @@
 }
 
 .mantisMarquee {
-  margin-bottom: desktop-vw(300px);
+  margin-bottom: desktop-vw(200px);
   z-index: -1;
 
   &.rotated {
-    transform: rotate(-9deg) translateX(-50vw);
+    transform: rotate(-6deg) translateX(-50vw);
     width: 200vw;
   }
 

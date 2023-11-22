@@ -26,7 +26,13 @@ export default function Home({ companies }: Props) {
           WHOLISTIC <br /> INVESTMENTS.
         </h1>
         <div className={s.imgC}>
-          <CustomImage src="/img/chamaeleon-c.png" alt="Chamaeleon C Logo" style={{ objectFit: "contain" }} />
+          <CustomImage
+            src="/img/chamaeleon-c.png"
+            alt="Chamaeleon C Logo"
+            style={{ objectFit: "contain" }}
+            height={1000}
+            width={1000}
+          />
         </div>
         <Pixels
           bg="var(--forestial)"
@@ -57,8 +63,8 @@ export default function Home({ companies }: Props) {
               <CustomImage
                 src="/img/rocket.png"
                 alt="Rocket Illustration"
-                height="1568"
-                width="909"
+                height={1568}
+                width={909}
                 style={{ objectFit: "contain" }}
               />
             </div>
@@ -95,14 +101,14 @@ export default function Home({ companies }: Props) {
           WHETHER YOU&apos;RE{" "}
           <span className={s.a}>
             <span className={s.imgC}>
-              <CustomImage src="/img/moneybox.png" alt="Company Logo" />
+              <CustomImage src="/img/moneybox.png" alt="Company Logo" height={1000} width={1000} />
             </span>
           </span>
           <span className={s.forestial}>A HUMBLE STARTUP </span>
           OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
           <span className={s.b}>
             <span className={s.imgC}>
-              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" />
+              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" height={1000} width={1000} />
             </span>
           </span>
           WE&apos;RE HERE TO BOOST YOU.
@@ -111,13 +117,7 @@ export default function Home({ companies }: Props) {
 
         <div className={s.imgC}>
           <MaskedScale>
-            <CustomImage
-              src="/img/team-at-trip.jpg"
-              alt="People in a nature trip"
-              loading="lazy"
-              width="2000"
-              height="1334"
-            />
+            <CustomImage src="/img/team-at-trip.jpg" alt="People in nature" loading="lazy" width={2000} height={1125} />
           </MaskedScale>
         </div>
 
@@ -141,8 +141,8 @@ export default function Home({ companies }: Props) {
                 src="/img/chamaeleon-on-hill.jpg"
                 alt="Chamaeleon On Hill"
                 loading="lazy"
-                height="750"
-                width="750"
+                height={750}
+                width={750}
                 style={{ objectFit: "contain" }}
               />
             </MaskedScale>
@@ -152,8 +152,8 @@ export default function Home({ companies }: Props) {
               src="/img/logo-mantis.png"
               alt="Mantis Logo"
               loading="lazy"
-              height="1176"
-              width="682"
+              height={1176}
+              width={682}
               style={{ objectFit: "contain" }}
             />
           </div>
@@ -192,8 +192,8 @@ export default function Home({ companies }: Props) {
                   src="/img/kin-1.png"
                   alt="Team at Event"
                   loading="lazy"
-                  height="823"
-                  width="1854"
+                  height={823}
+                  width={1854}
                   style={{ objectFit: "cover" }}
                 />
               </MaskedScale>
@@ -204,8 +204,8 @@ export default function Home({ companies }: Props) {
                   src="/img/kin-2.png"
                   alt="Team at Event"
                   loading="lazy"
-                  height="667"
-                  width="998"
+                  height={667}
+                  width={998}
                   style={{ objectFit: "cover" }}
                 />
               </MaskedScale>
@@ -215,8 +215,8 @@ export default function Home({ companies }: Props) {
                 src="/img/logo-kin-community.png"
                 alt="Kin Logo"
                 loading="lazy"
-                height="491"
-                width="904"
+                height={491}
+                width={904}
                 style={{ objectFit: "contain" }}
               />
             </div>

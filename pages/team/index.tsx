@@ -88,7 +88,7 @@ const Team = ({ team }: Props) => {
         <div className={s.imgC}>
           <Parallax speedX={0} directionY={-1} speedY={0.25}>
             <div>
-              <CustomImage src="/img/bale.png" alt="Dollar Bale" height="500" width="500" />
+              <CustomImage src="/img/bale.png" alt="Dollar Bale" height={533} width={628} />
             </div>
           </Parallax>
         </div>

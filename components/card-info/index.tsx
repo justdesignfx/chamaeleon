@@ -16,11 +16,10 @@ type Props = ICardPerson
 
 const CardInfo = (props: Props) => {
   const modalStore = useModalStore()
-  const closeModal = () => modalStore.setIsOpen(false)
 
   return (
     <div className={s.cardInfo}>
-      <div className={cn(s.close, "cursor-pointer")} onClick={closeModal}>
+      <div className={cn(s.close, "cursor-pointer")} onClick={modalStore.close}>
         <IconClose fill="var(--nightly-woods)" />
       </div>
       <div className={s.imgC}>
@@ -37,7 +36,9 @@ const CardInfo = (props: Props) => {
         <p className={s.role}>{props.title}</p>
         <div className={s.desc}>
           <ScrollableBox>
-            <p>{props.description}</p>
+            <p>
+              <span>{props.description}</span>
+            </p>
           </ScrollableBox>
         </div>
         <CustomLink href={props.linkedin} className={cn(s.iconC, "cursor-pointer", "flex-center")}>

@@ -48,6 +48,7 @@
     padding-top: desktop-vw(30px);
     display: flex;
     flex-direction: column;
+    z-index: 10;
 
     @include mobile {
       @include dims(100%);
@@ -86,9 +87,14 @@
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(14px);
       font-weight: 400;
-      margin-bottom: auto;
       line-height: 1.5;
+      margin-bottom: auto;
       overflow-y: scroll;
+
+      span {
+        display: block;
+        padding-right: desktop-vw(20px);
+      }
 
       @include mobile {
         @include dims(auto, mobile-vw(450px));

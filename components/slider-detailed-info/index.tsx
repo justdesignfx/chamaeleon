@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import s from "./detail-slider.module.scss"
+import s from "./slider-detailed-info.module.scss"
 
 import EmblaCarousel from "@/components/embla-carousel"
 import IconArrow from "@/components/icons/icon-arrow"
@@ -9,9 +9,9 @@ type Props = {
   slides: ReactNode[]
 }
 
-const DetailSlider = (props: Props) => {
+const SliderDetailedInfo = (props: Props) => {
   return (
-    <div className={s.detailSlider}>
+    <div className={s.sliderDetailedInfo}>
       <EmblaCarousel
         options={{
           startIndex: props.currentSlide ?? 0,
@@ -33,4 +33,4 @@ const DetailSlider = (props: Props) => {
   )
 }
 
-export default DetailSlider
+export default SliderDetailedInfo

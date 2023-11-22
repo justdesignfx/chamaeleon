@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import s from "./kin.module.scss"
 
 import { gsap, ScrollTrigger } from "@/lib/gsap"
@@ -10,8 +10,9 @@ import Reveal from "@/components/animations/reveal"
 import CardInfo from "@/components/card-info"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
-import DetailSlider from "@/components/detail-slider"
 import { Marquee } from "@/components/marquee"
+import SliderDetailedInfo from "@/components/slider-detailed-info"
+
 import { ICardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
@@ -20,35 +21,26 @@ type Props = {
   members: ICardPerson[]
 }
 
-const Community = ({ members }: Props) => {
+const Kin = ({ members }: Props) => {
   const modalStore = useModalStore()
-  const [selected, setSelected] = useState<number | null>(null)
-
   const layeredImagesRef = useRef(null)
   const q = gsap.utils.selector(layeredImagesRef)
   const tl = useRef<gsap.core.Timeline | null>(null)
 
   function handleModal(index: number) {
-    setSelected(index)
-  }
-
-  useIsomorphicLayoutEffect(() => {
-    if (selected === null) return
-
     modalStore.setContent(
-      <DetailSlider
-        currentSlide={selected}
+      <SliderDetailedInfo
+        currentSlide={index}
         slides={members.map((member, i) => {
           return (
-            <div className={cn(s.slide, "flex-center")} key={i}>
+            <div className={s.slide} key={i}>
               <CardInfo {...member} />
             </div>
           )
         })}
       />
     )
-    modalStore.setIsOpen(true)
-  }, [selected])
+  }
 
   useIsomorphicLayoutEffect(() => {
     if (!layeredImagesRef.current) return
@@ -131,6 +123,7 @@ const Community = ({ members }: Props) => {
         <div className={cn(s.marquee, s.rotated)}>
           <Marquee duration={30}>
             <>
+              <h5>KIN COMMUNITY</h5>
               <h5>KIN COMMUNITY</h5>
               <h5>KIN COMMUNITY</h5>
             </>
@@ -218,7 +211,7 @@ const Community = ({ members }: Props) => {
   )
 }
 
-export default Community
+export default Kin
 
 export async function getStaticProps() {
   const members = await all()

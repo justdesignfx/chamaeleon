@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import s from "./team.module.scss"
 
 import cn from "clsx"
@@ -10,7 +9,7 @@ import Button from "@/components/button"
 import CardInfo from "@/components/card-info"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
-import DetailSlider from "@/components/detail-slider"
+import SliderDetailedInfo from "@/components/slider-detailed-info"
 import { ICardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
@@ -21,29 +20,21 @@ type Props = {
 
 const Team = ({ team }: Props) => {
   const modalStore = useModalStore()
-  const [selected, setSelected] = useState<number | null>(null)
 
   const handleModal = (index: number) => {
-    setSelected(index)
-  }
-
-  useEffect(() => {
-    if (selected === null) return
-
     modalStore.setContent(
-      <DetailSlider
-        currentSlide={selected}
+      <SliderDetailedInfo
+        currentSlide={index}
         slides={team.map((member, i) => {
           return (
-            <div className={cn(s.slide, "flex-center")} key={i}>
+            <div className={s.slide} key={i}>
               <CardInfo {...member} />
             </div>
           )
         })}
       />
     )
-    modalStore.setIsOpen(true)
-  }, [selected])
+  }
 
   return (
     <DefaultLayout>

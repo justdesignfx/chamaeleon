@@ -8,7 +8,6 @@
 
   .close {
     @include position(absolute, desktop-vw(50px), desktop-vw(50px), auto, auto);
-    @include dims(desktop-vw(50px));
-    background: red;
+    @include dims(desktop-vw(25px));
   }
 }

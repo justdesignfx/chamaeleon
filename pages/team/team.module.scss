@@ -110,4 +110,7 @@
 
 .slide {
   @include dims(100vw, 100vh);
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }

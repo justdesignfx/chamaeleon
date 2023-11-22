@@ -13,7 +13,10 @@ export const useStore = create<State>((set) => ({
   content: null,
   isOpen: false,
   setIsOpen: (status) => set({ isOpen: status }),
-  setContent: (node) => set({ content: node }),
+  setContent: (node) => {
+    set({ content: node })
+    set({ isOpen: true })
+  },
   close: () => {
     set({ isOpen: false })
     set({ content: null })

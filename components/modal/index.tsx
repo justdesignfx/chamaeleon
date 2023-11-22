@@ -36,9 +36,9 @@ const Modal = () => {
 
   return (
     <div className={s.modal} onClick={close} ref={ref}>
-      <div className={s.close} onClick={close}>
-        X
-      </div>
+      {/* <div className={s.close} onClick={close}>
+        <IconClose fill="var(--greening)" />
+      </div> */}
       <div onClick={(e) => e.stopPropagation()}>{content}</div>
     </div>
   )

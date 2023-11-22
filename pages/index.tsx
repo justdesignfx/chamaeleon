@@ -114,11 +114,12 @@ export default function Home({ companies }: Props) {
           </span>
           WE&apos;RE HERE TO BOOST YOU.
         </h3>
+
         <Button text="OUR PORTFOLIO" path={`/${routes.portfolio.path}`} size="md" />
 
         <div className={s.imgC}>
           <MaskedScale>
-            <CustomImage src="/img/team-at-trip.jpg" alt="People in nature" loading="lazy" width={2000} height={1125} />
+            <CustomImage src="/img/kin-trip.jpg" alt="People in nature" loading="lazy" width={2000} height={1125} />
           </MaskedScale>
         </div>
 

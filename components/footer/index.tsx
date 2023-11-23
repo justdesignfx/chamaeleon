@@ -35,7 +35,7 @@ const Footer = () => {
             })}
           </nav>
           <div className={s.copyright}>
-            <small>Terms & Conditions</small>
+            <CustomLink href="/terms-and-conditions">Terms & Conditions</CustomLink>
             <small>All rights reserved © Chamaeleon LLC 2024</small>
           </div>
         </div>

@@ -1,42 +1,48 @@
 import React from "react"
-import cn from "clsx"
 import s from "./approach.module.scss"
-import DefaultLayout from "@/layouts/default"
+
+import cn from "clsx"
+
 import CustomImage from "@/components/custom-image"
 import CardFloat from "@/components/card-float"
 import { ICardFloat } from "@/constants"
 import Reveal from "@/components/animations/reveal"
 
+import DefaultLayout from "@/layouts/default"
+
 const manifestoItems: ICardFloat[] = [
   {
     backgroundColor: "var(--greening)",
     color: "var(-nightly-woods)",
-    text: "Typically Coming In At Series Seed Or Series A",
+    title: "PRODUCT DRIVEN",
+    desc: "Product-led, not just “core-tech”",
     icon: {
       alignment: "tl",
-      src: "/img/drops.png",
+      src: "/img/dart.png",
     },
     rotate: -6,
   },
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",
-    text: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
+    title: "EARLY STAGE",
+    desc: "$1 to 5 million first check.",
     icon: {
       alignment: "tr",
-      src: "/img/rock.png",
+      src: "/img/newborn.png",
     },
-    rotate: 14,
+    rotate: 5,
   },
   {
     backgroundColor: "var(--electric-energy)",
     color: "var(-nightly-woods)",
-    text: "First Checks Between 1-5 Million USD",
+    title: "MULTI- GEOGRAPHY",
+    desc: "Innovation happens everywhere.",
     icon: {
-      alignment: "bl",
-      src: "/img/bale.png",
+      alignment: "br",
+      src: "/img/map.png",
     },
-    rotate: 13,
+    rotate: -8,
   },
 ]
 
@@ -44,42 +50,46 @@ const lookForItems: ICardFloat[] = [
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",
-    text: "Typically Coming In At Series Seed Or Series A",
+    title: "AWARE",
+    desc: "Sharp & 360-degree vision, ability to see in all directions.",
     icon: {
       alignment: "tl",
-      src: "/img/drops.png",
+      src: "/img/steampunk-chamaeleon-face.png",
     },
-    rotate: -6,
+    rotate: -7,
   },
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",
-    text: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
+    title: "FLEXIBLE",
+    desc: "Ability to rapidly and organically change.",
     icon: {
       alignment: "tr",
-      src: "/img/rock.png",
+      src: "/img/papa-chamaeleon.png",
     },
-    rotate: 14,
+    rotate: 8,
   },
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",
-    text: "First Checks Between 1-5 Million USD",
+    title: "BALANCED",
+    desc: "Value aligned, IQ + EQ, not just one or the other.",
     icon: {
-      alignment: "bl",
-      src: "/img/bale.png",
+      alignment: "tl",
+      src: "/img/brain.png",
     },
-    rotate: 13,
+    rotate: -16,
   },
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",
-    text: "First Checks Between 1-5 Million USD",
+    title: "OBSESSED",
+    desc: "Execution and delivery at the center.",
     icon: {
-      alignment: "bl",
-      src: "/img/bale.png",
+      alignment: "tr",
+      src: "/img/trap.png",
     },
-    rotate: 13,
+    rotate: 5,
   },
 ]
 

@@ -129,7 +129,8 @@ export interface ICardFloat {
     src: string
   }
   rotate: number
-  text: string
+  title: string
+  desc?: string
 }
 
 export interface Alignment {

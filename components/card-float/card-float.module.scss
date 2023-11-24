@@ -1,10 +1,9 @@
 .cardFloat {
-  @include dims(desktop-vw(350px));
   border-radius: desktop-vw(20px);
   padding: desktop-vw(50px) desktop-vw(40px);
   position: relative;
 
-  > p {
+  > h5 {
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(40px);
     font-weight: 700;
@@ -12,6 +11,21 @@
     margin-bottom: desktop-vw(50px);
     text-align: start;
     text-transform: uppercase;
+    width: desktop-vw(300px);
+
+    &.lg {
+      font-size: desktop-vw(90px);
+    }
+  }
+
+  > p {
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(25px);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(50px);
+    text-align: start;
+    width: desktop-vw(300px);
   }
 
   > .iconC {

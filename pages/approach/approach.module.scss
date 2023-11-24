@@ -117,11 +117,10 @@
   }
 
   > .cards {
-    align-items: center;
-    justify-items: center;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: desktop-vw(1000px);
   }
 }
 
@@ -224,7 +223,13 @@
 
   > .cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, desktop-vw(430px));
+    grid-template-rows: repeat(2, desktop-vw(460px));
+
+    > div {
+      &:nth-child(2n) {
+        margin-bottom: desktop-vw(-100px);
+      }
+    }
   }
 }

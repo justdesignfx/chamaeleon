@@ -1,0 +1,66 @@
+.popupC {
+  @include dims(100vw, 100vh);
+}
+
+.cookiePopup {
+  @include dims(desktop-vw(380px), auto);
+  background: var(--nightly-woods);
+  border-radius: desktop-vw(20px);
+  padding: desktop-vw(50px) desktop-vw(30px);
+  position: relative;
+
+  @include mobile {
+    @include dims(mobile-vw(360px), auto);
+    border-radius: mobile-vw(20px);
+    padding: mobile-vw(50px) mobile-vw(30px);
+  }
+
+  h5 {
+    color: var(--forested-juniper);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(45px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(20px);
+
+    @include mobile {
+      font-size: mobile-vw(45px);
+      margin-bottom: mobile-vw(20px);
+    }
+  }
+
+  p {
+    color: var(--forested-juniper);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(14px);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(50px);
+    width: desktop-vw(290px);
+
+    @include mobile {
+      font-size: mobile-vw(14px);
+      line-height: 1.7;
+      margin-bottom: mobile-vw(50px);
+      width: mobile-vw(290px);
+    }
+  }
+
+  .imgC {
+    @include position(absolute, desktop-vw(-50px), desktop-vw(-50px), auto, auto);
+    @include dims(desktop-vw(160px));
+
+    @include mobile {
+      @include position(absolute, mobile-vw(-50px), 0, auto, auto);
+      @include dims(mobile-vw(160px));
+    }
+  }
+
+  .buttons {
+    display: flex;
+    column-gap: desktop-vw(50px);
+
+    @include mobile {
+      column-gap: mobile-vw(50px);
+    }
+  }
+}

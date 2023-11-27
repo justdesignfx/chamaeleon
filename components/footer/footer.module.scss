@@ -5,6 +5,13 @@
   position: relative;
   z-index: z-index("footer");
 
+  .navItem {
+    color: var(--forested-juniper);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(15px);
+    line-height: 1.6;
+  }
+
   .top {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
@@ -24,26 +31,12 @@
       }
     }
 
-    small {
-      color: var(--forested-juniper);
-      font-family: var(--font-helvetica-neue);
-      font-size: desktop-vw(15px);
-      line-height: 1.5;
-      margin-bottom: desktop-vw(10px);
-    }
-
     nav {
+      row-gap: desktop-vw(5px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       margin-bottom: desktop-vw(150px);
       margin-top: desktop-vw(50px);
-
-      .navItem {
-        color: var(--forested-juniper);
-        font-family: var(--font-helvetica-neue);
-        font-size: desktop-vw(15px);
-        margin-bottom: desktop-vw(15px);
-      }
     }
   }
 

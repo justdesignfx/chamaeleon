@@ -16,7 +16,7 @@ const Footer = () => {
     <footer className={s.footer}>
       <div className={s.top}>
         <div>
-          <small>
+          <small className={s.navItem}>
             Headquarters in San Francisco + Silicon Valley <br />
             Offices in Europe
           </small>
@@ -35,8 +35,10 @@ const Footer = () => {
             })}
           </nav>
           <div className={s.copyright}>
-            <CustomLink href="/terms-and-conditions">Terms & Conditions</CustomLink>
-            <small>All rights reserved © Chamaeleon LLC 2024</small>
+            <CustomLink className={s.navItem} href="/terms-and-conditions">
+              Terms & Conditions
+            </CustomLink>
+            <small className={s.navItem}>All rights reserved © Chamaeleon LLC 2024</small>
           </div>
         </div>
       </div>

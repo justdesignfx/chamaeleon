@@ -42,6 +42,7 @@ const Kin = ({ members }: Props) => {
     )
   }
 
+  // layered images animations
   useIsomorphicLayoutEffect(() => {
     if (!layeredImagesRef.current) return
 
@@ -58,7 +59,7 @@ const Kin = ({ members }: Props) => {
         if (i === 0) return
 
         gsap.set(item, {
-          scale: 1.5,
+          scale: 2,
         })
       })
 

@@ -26,7 +26,7 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--greening)",
       color: "var(-nightly-woods)",
-      text: "Typically Coming In At Series Seed Or Series A",
+      title: "Typically Coming In At Series Seed Or Series A",
       icon: {
         alignment: "tl",
         src: "/img/drops.png",
@@ -36,7 +36,7 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--nightly-woods)",
       color: "var(--greening)",
-      text: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
+      title: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
       icon: {
         alignment: "tr",
         src: "/img/rock.png",
@@ -46,7 +46,7 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--electric-energy)",
       color: "var(-nightly-woods)",
-      text: "First Checks Between 1-5 Million USD",
+      title: "First Checks Between 1-5 Million USD",
       icon: {
         alignment: "bl",
         src: "/img/bale.png",
@@ -56,7 +56,7 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--greening)",
       color: "var(--nightly-woods)",
-      text: "Primarily, Focused On US And Europe, But Will Invest Globally",
+      title: "Primarily, Focused On US And Europe, But Will Invest Globally",
       icon: {
         alignment: "br",
         src: "/img/earth.png",
@@ -66,13 +66,13 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--nightly-woods)",
       color: "var(--greening)",
-      text: "Broad Vertical Focus, But Key Principles Are:",
+      title: "Broad Vertical Focus, But Key Principles Are:",
       rotate: 13,
     },
     {
       backgroundColor: "var(--electric-energy)",
       color: "var(--nightly-woods)",
-      text: "Product-Led Companies, Not “Just” Core-Technology Or IP",
+      title: "Product-Led Companies, Not “Just” Core-Technology Or IP",
       icon: {
         alignment: "br",
         src: "/img/steampunk-chamaeleon-face.png",
@@ -82,7 +82,7 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--greening)",
       color: "var(--nightly-woods)",
-      text: "Clear End-User Flows That We As Users Could Test, Even In B2B",
+      title: "Clear End-User Flows That We As Users Could Test, Even In B2B",
       icon: {
         alignment: "tl",
         src: "/img/doc.png",
@@ -92,7 +92,7 @@ const ManifestoAndValues = () => {
     {
       backgroundColor: "var(--nightly-woods)",
       color: "var(--greening)",
-      text: "Preference For Technology Differentiated",
+      title: "Preference For Technology Differentiated",
       icon: {
         alignment: "br",
         src: "/img/steampunk-chamaeleon.png",
@@ -145,6 +145,7 @@ const ManifestoAndValues = () => {
     },
   ]
 
+  // our values animations
   useIsomorphicLayoutEffect(() => {
     if (!ourValuesRef.current) return
 
@@ -193,6 +194,7 @@ const ManifestoAndValues = () => {
     return () => ctx.revert()
   }, [])
 
+  // manifesto dual view animations
   useIsomorphicLayoutEffect(() => {
     if (!manifestoRef.current) return
 

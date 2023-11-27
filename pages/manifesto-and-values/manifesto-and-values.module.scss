@@ -97,13 +97,13 @@
   }
 }
 
-.chamaeleonPop {
-  > .imgC {
-    @include dims(desktop-vw(700px));
-    margin: 0 auto;
-    margin-bottom: desktop-vw(-300px);
-  }
-}
+// .chamaeleonPop {
+//   > .imgC {
+//     @include dims(desktop-vw(700px));
+//     margin: 0 auto;
+//     margin-bottom: desktop-vw(-300px);
+//   }
+// }
 
 .ourValues {
   background: var(--greening);

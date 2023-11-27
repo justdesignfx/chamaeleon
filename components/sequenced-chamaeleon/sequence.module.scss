@@ -1,0 +1,32 @@
+.sequence {
+  @include dims(100vw, 0vh);
+  position: relative;
+  pointer-events: none;
+  z-index: 10;
+
+  @include outline(red);
+
+  .container {
+    @include position(absolute, 50%, auto, auto, 50%);
+    @include dims(desktop-vw(800px));
+    transform: translate(-50%, -50%);
+
+    @include outline(blue);
+
+    @include mobile {
+      @include dims(mobile-vw(300px));
+    }
+
+    .item {
+      @include position(absolute, 50%, auto, auto, 50%);
+      @include dims(100%);
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -14,6 +14,7 @@ import { Marquee } from "@/components/marquee"
 import { ICardFloat } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useLenisStore } from "@/lib/store/lenis"
+import SequencedChamaeleon from "@/components/sequenced-chamaeleon"
 
 const manifestoItems: ICardFloat[] = [
   {
@@ -339,7 +340,7 @@ const ManifestoAndValues = () => {
         {manifestoView[currentManifestoView]}
       </section>
 
-      <section className={s.chamaeleonPop}>
+      {/* <section className={s.chamaeleonPop}>
         <div className={s.imgC}>
           <CustomImage
             src="/img/chamaeleon-hole.png"
@@ -349,7 +350,9 @@ const ManifestoAndValues = () => {
             width={447}
           />
         </div>
-      </section>
+      </section> */}
+
+      {<SequencedChamaeleon />}
 
       <section className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
         <h2>OUR VALUES</h2>

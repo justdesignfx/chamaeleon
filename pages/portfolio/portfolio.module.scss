@@ -6,17 +6,11 @@
   gap: desktop-vw(12px);
   margin-bottom: desktop-vw(100px);
 
-  .line {
-    @include dims(100%, 1px);
-    background: var(--black);
-    grid-column: 1 / -1;
-  }
-
   .boxC {
     $ease: 200ms transform var(--ease-out-quart);
     @include dims(100%, desktop-vw(130px));
     align-items: center;
-    background-color: var(--bgColor);
+    background-color: var(--alaskan-mist);
     border-radius: desktop-vw(10px);
     display: flex;
     justify-content: center;
@@ -61,14 +55,10 @@
       display: inline-block;
     }
   }
-
-  .boxC {
-    background-color: var(--alaskan-mist);
-  }
 }
 
 .prior {
-  margin-bottom: desktop-vw(200px);
+  margin-bottom: desktop-vw(150px);
 
   > h2 {
     color: var(--nightly-woods);
@@ -89,8 +79,8 @@
 }
 
 .toTheTeam {
-  padding: desktop-vw(100px) 0;
   overflow: hidden;
+  padding: desktop-vw(100px) 0;
   position: relative;
 
   > .imgC {

@@ -75,15 +75,11 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.prior.map((item, i) => {
             return (
-              <>
-                {i % 6 === 0 && i > 0 ? (
-                  <div className={s.line}></div>
-                ) : (
-                  <div className={cn(s.boxC, "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
-                    <CompanyBox key={i} {...item} />
-                  </div>
-                )}
-              </>
+              <div className={cn(s.boxC, "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+                <div>
+                  <CompanyBox key={i} {...item} />
+                </div>
+              </div>
             )
           })}
         </div>

@@ -1,5 +1,5 @@
 .sequence {
-  @include dims(100vw, 0vh);
+  @include dims(100vw, 100vh);
   position: relative;
   pointer-events: none;
   z-index: 10;

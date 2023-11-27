@@ -33,13 +33,9 @@
 }
 
 .manifesto {
-  align-items: center;
   color: var(--nightly-woods);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
 
-  > .manifestoMarquee {
+  > .marquee {
     margin-bottom: desktop-vw(150px);
 
     h5 {
@@ -51,14 +47,6 @@
     }
   }
 
-  > .date {
-    font-family: var(--font-helvetica-neue);
-    font-size: desktop-vw(25px);
-    font-style: italic;
-    font-weight: 700;
-    margin-bottom: desktop-vw(20px);
-  }
-
   > h3 {
     @include dims(desktop-vw(800px), auto);
     font-family: var(--font-helvetica-neue);
@@ -66,6 +54,7 @@
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: desktop-vw(100px);
+    text-align: center;
   }
 
   > .long {
@@ -88,24 +77,22 @@
 
   > .tldr {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, desktop-vw(360px));
+    grid-template-rows: repeat(4, desktop-vw(360px));
+    padding-bottom: desktop-vw(100px);
 
     > div {
+      @include dims(100%);
+
       &:nth-child(2n) {
-        margin-bottom: desktop-vw(-50px);
-        margin-top: desktop-vw(100px);
-        margin-left: desktop-vw(-30px);
+        transform: translateY(100px);
       }
 
-      &:nth-child(2n + 1) {
-        margin-right: desktop-vw(-30px);
+      @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+          margin-top: 1.2 * pow($i, 2) + px;
+        }
       }
-
-      // @for $i from 1 through 8 {
-      //   &:nth-child(#{$i}) {
-      //     margin-bottom: desktop-vw(-250px + (50px * $i));
-      //   }
-      // }
     }
   }
 }
@@ -217,9 +204,9 @@
   @include dims(desktop-vw(260px), calc(desktop-vw(60px) - $distance));
   border-radius: desktop-vw(45px);
   color: var(--nightly-woods);
+  display: grid;
   font-family: var(--font-first-aid-kit-f);
   font-size: desktop-vw(30px);
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   transform: translateX(-50%);
   z-index: z-index("sticky");

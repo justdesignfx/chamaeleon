@@ -15,135 +15,186 @@ import { ICardFloat } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useLenisStore } from "@/lib/store/lenis"
 
+const manifestoItems: ICardFloat[] = [
+  {
+    backgroundColor: "var(--greening)",
+    color: "var(-nightly-woods)",
+    title: "Typically Coming In At Series Seed Or Series A",
+    icon: {
+      alignment: "tl",
+      src: "/img/drops.png",
+    },
+    rotate: -6,
+  },
+  {
+    backgroundColor: "var(--nightly-woods)",
+    color: "var(--greening)",
+    title: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
+    icon: {
+      alignment: "tr",
+      src: "/img/rock.png",
+    },
+    rotate: 14,
+  },
+  {
+    backgroundColor: "var(--electric-energy)",
+    color: "var(-nightly-woods)",
+    title: "First Checks Between 1-5 Million USD",
+    icon: {
+      alignment: "bl",
+      src: "/img/bale.png",
+    },
+    rotate: 13,
+  },
+  {
+    backgroundColor: "var(--greening)",
+    color: "var(--nightly-woods)",
+    title: "Primarily, Focused On US And Europe, But Will Invest Globally",
+    icon: {
+      alignment: "br",
+      src: "/img/earth.png",
+    },
+    rotate: -6,
+  },
+  {
+    backgroundColor: "var(--nightly-woods)",
+    color: "var(--greening)",
+    title: "Broad Vertical Focus, But Key Principles Are:",
+    rotate: 13,
+  },
+  {
+    backgroundColor: "var(--electric-energy)",
+    color: "var(--nightly-woods)",
+    title: "Product-Led Companies, Not “Just” Core-Technology Or IP",
+    icon: {
+      alignment: "br",
+      src: "/img/steampunk-chamaeleon-face.png",
+    },
+    rotate: 0,
+  },
+  {
+    backgroundColor: "var(--greening)",
+    color: "var(--nightly-woods)",
+    title: "Clear End-User Flows That We As Users Could Test, Even In B2B",
+    icon: {
+      alignment: "tl",
+      src: "/img/doc.png",
+    },
+    rotate: -7,
+  },
+  {
+    backgroundColor: "var(--nightly-woods)",
+    color: "var(--greening)",
+    title: "Preference For Technology Differentiated",
+    icon: {
+      alignment: "br",
+      src: "/img/steampunk-chamaeleon.png",
+    },
+    rotate: 13,
+  },
+]
+
+const gridItems = [
+  {
+    title: "Intellectual Honesty",
+    desc: "Stand by one’s beliefs and opinions, debate, but open to change one’s mind, when given strong argumentation and/or facts; admit when you are wrong.",
+  },
+  {
+    title: "LOW EGO & GET STUFF DONE ATTITUDE",
+    desc: "Whatever needs to get done will get done, by whoever has the capability and bandwidth to do it; all-hands on deck means “all hands”.",
+  },
+  {
+    title: '"Falling Upwards"',
+    desc: "Belief that adversity makes us stronger.",
+  },
+  {
+    title: "Obligation to Dissent",
+    desc: "If you see something wrong, you need to call it.",
+  },
+  {
+    title: "Dissent & Commit",
+    desc: "Strategic discussion, but once decision is made, even those who disagree, commit to successful execution.",
+  },
+  {
+    title: "Feed on Healthy Obsessions",
+    desc: "Obsession with our entrepreneurs, their products and markets, always with an eye on product-market fit.",
+  },
+  {
+    title: "Fact & Data Based",
+    desc: "Love for the truth and in creating a level playing field for all entrepreneurs, in particular through data, analyses and facts.",
+  },
+  {
+    title: "People Centric",
+    desc: "…but also and always, love for people.",
+  },
+
+  {
+    title: "High Standards",
+    desc: "High integrity, respect and authenticity in relations with our core stakeholders - LPs, potential investees, portfolio companies, alums, extended network and ecosystem.",
+  },
+  {
+    title: "HAVE FUN",
+    desc: "Be serious about the work, but don’t take yourself too seriously. Have fun in the process.",
+  },
+]
+
+const manifestoView = {
+  long: (
+    <div className={s.long}>
+      <p>
+        For an industry that is fueled by technology, its innovations and the sometimes stratospheric returns on its
+        investments, venture capital - in particular in early-stage - is an industry surprisingly lacking in technology,
+        at its core. Although the operating models and playbooks used to source and do due diligence on start-ups - in
+        our opinion, the two most core activities in VC - have evolved over time, there are very few impactful
+        innovations around the core technology stacks that VC firms actually develop or bring together. Therefore, we
+        are bringing a full-stack approach to VC investing with our own early-stage investing technology stack at the
+        center of everything we do. We will also use these platforms to create value to portfolio companies and our own
+        investors/LPs.
+      </p>
+      <p>
+        This partnership has invested in companies like App Annie, DraftKings, Gusto, Kakao, Outsystems, Robinhood,
+        Rubrik, Virta Health, Cloudflare, Ometria, among many other “household” names. We have led and managed 5 VC
+        funds between us with enviable returns, including top 2 to 5 percentile funds. We have created verifiable impact
+        at-scale as operators in such household names as NCSOFT, McKinsey & Co, GSM Association, SK Telecom, Sonae. We
+        have jumped off a cliff before and started our own companies… and we are doing it all over again, because we
+        don’t rest on our laurels, because we have a fundamental new way of looking and executing in this space, because
+        we love and feel blessed by being in venture capital… and because, deep down, we just want to do this, together.
+      </p>
+      <p>
+        Last, but most certainly not the least, we are big believers that as much as technology will augment us… as much
+        as our insights and instincts will support our decisions, people are still at the center of all of this. We have
+        built unique networks of truly astonishing and generous people, not just in the geographies where we will have
+        our offices, but around the world, where we will operate. All of us have worked in at least 3 different
+        continents and will continue bringing to entrepreneurs all the resources that we have access to as individuals,
+        as a firm, but also from our broader ecosystem of investors/LPs, advisors, friends. We will continue bringing a
+        humanistic values-based approach to this profession (we don’t call it a job, around here): we will continue
+        treating entrepreneurs’ start-ups as their babies… because they are; when we are tough, we will continue being
+        thoughtful, fair and charitable.
+      </p>
+      <span className={s.punch}>GREAT PEOPLE + GREAT TECH</span>
+    </div>
+  ),
+  tldr: (
+    <div className={s.tldr}>
+      {manifestoItems.map((item, i) => {
+        return (
+          <div key={i}>
+            <Reveal>
+              <CardFloat {...item} />
+            </Reveal>
+          </div>
+        )
+      })}
+    </div>
+  ),
+}
+
 const ManifestoAndValues = () => {
   const manifestoRef = useRef(null)
   const ourValuesRef = useRef(null)
-  const tl = useRef<gsap.core.Timeline | null>(null)
-  const [manifestoView, setManifestoView] = useState<"long" | "tldr">("tldr")
+  const tl = useRef(gsap.timeline({ paused: true }))
+  const [currentManifestoView, setCurrentManifestoView] = useState<"long" | "tldr">("tldr")
   const { lenis } = useLenisStore()
-
-  const manifestoItems: ICardFloat[] = [
-    {
-      backgroundColor: "var(--greening)",
-      color: "var(-nightly-woods)",
-      title: "Typically Coming In At Series Seed Or Series A",
-      icon: {
-        alignment: "tl",
-        src: "/img/drops.png",
-      },
-      rotate: -6,
-    },
-    {
-      backgroundColor: "var(--nightly-woods)",
-      color: "var(--greening)",
-      title: "Prefer To Lead Or Co-Lead, But We Play Nice With Others :)",
-      icon: {
-        alignment: "tr",
-        src: "/img/rock.png",
-      },
-      rotate: 14,
-    },
-    {
-      backgroundColor: "var(--electric-energy)",
-      color: "var(-nightly-woods)",
-      title: "First Checks Between 1-5 Million USD",
-      icon: {
-        alignment: "bl",
-        src: "/img/bale.png",
-      },
-      rotate: 13,
-    },
-    {
-      backgroundColor: "var(--greening)",
-      color: "var(--nightly-woods)",
-      title: "Primarily, Focused On US And Europe, But Will Invest Globally",
-      icon: {
-        alignment: "br",
-        src: "/img/earth.png",
-      },
-      rotate: -6,
-    },
-    {
-      backgroundColor: "var(--nightly-woods)",
-      color: "var(--greening)",
-      title: "Broad Vertical Focus, But Key Principles Are:",
-      rotate: 13,
-    },
-    {
-      backgroundColor: "var(--electric-energy)",
-      color: "var(--nightly-woods)",
-      title: "Product-Led Companies, Not “Just” Core-Technology Or IP",
-      icon: {
-        alignment: "br",
-        src: "/img/steampunk-chamaeleon-face.png",
-      },
-      rotate: 0,
-    },
-    {
-      backgroundColor: "var(--greening)",
-      color: "var(--nightly-woods)",
-      title: "Clear End-User Flows That We As Users Could Test, Even In B2B",
-      icon: {
-        alignment: "tl",
-        src: "/img/doc.png",
-      },
-      rotate: -7,
-    },
-    {
-      backgroundColor: "var(--nightly-woods)",
-      color: "var(--greening)",
-      title: "Preference For Technology Differentiated",
-      icon: {
-        alignment: "br",
-        src: "/img/steampunk-chamaeleon.png",
-      },
-      rotate: 13,
-    },
-  ]
-
-  const gridItems = [
-    {
-      title: "Intellectual Honesty",
-      desc: "Stand by one’s beliefs and opinions, debate, but open to change one’s mind, when given strong argumentation and/or facts; admit when you are wrong.",
-    },
-    {
-      title: "LOW EGO & GET STUFF DONE ATTITUDE",
-      desc: "Whatever needs to get done will get done, by whoever has the capability and bandwidth to do it; all-hands on deck means “all hands”.",
-    },
-    {
-      title: '"Falling Upwards"',
-      desc: "Belief that adversity makes us stronger.",
-    },
-    {
-      title: "Obligation to Dissent",
-      desc: "If you see something wrong, you need to call it.",
-    },
-    {
-      title: "Dissent & Commit",
-      desc: "Strategic discussion, but once decision is made, even those who disagree, commit to successful execution.",
-    },
-    {
-      title: "Feed on Healthy Obsessions",
-      desc: "Obsession with our entrepreneurs, their products and markets, always with an eye on product-market fit.",
-    },
-    {
-      title: "Fact & Data Based",
-      desc: "Love for the truth and in creating a level playing field for all entrepreneurs, in particular through data, analyses and facts.",
-    },
-    {
-      title: "People Centric",
-      desc: "…but also and always, love for people.",
-    },
-
-    {
-      title: "High Standards",
-      desc: "High integrity, respect and authenticity in relations with our core stakeholders - LPs, potential investees, portfolio companies, alums, extended network and ecosystem.",
-    },
-    {
-      title: "HAVE FUN",
-      desc: "Be serious about the work, but don’t take yourself too seriously. Have fun in the process.",
-    },
-  ]
 
   // our values animations
   useIsomorphicLayoutEffect(() => {
@@ -237,11 +288,12 @@ const ManifestoAndValues = () => {
     return () => ctx.revert()
   }, [])
 
-  useIsomorphicLayoutEffect(() => {
+  function handleManifestoView(view: typeof currentManifestoView) {
+    setCurrentManifestoView(view)
     lenis?.scrollTo(".manifesto", {
       duration: 1,
     })
-  }, [manifestoView])
+  }
 
   return (
     <DefaultLayout>
@@ -271,8 +323,8 @@ const ManifestoAndValues = () => {
         </div>
       </section>
 
-      <section className={cn(s.manifesto, "manifesto")} ref={manifestoRef}>
-        <div className={s.manifestoMarquee}>
+      <section className={cn(s.manifesto, "manifesto", "flex-center-y")} ref={manifestoRef}>
+        <div className={s.marquee}>
           <Marquee duration={30}>
             <>
               <h5>MANIFESTO</h5>
@@ -284,54 +336,7 @@ const ManifestoAndValues = () => {
         </div>
         <h3>Today, we announce the creation of Chamaeleon and the launch of its first fund.</h3>
 
-        {manifestoView === "long" ? (
-          <div className={s.long}>
-            <p>
-              For an industry that is fueled by technology, its innovations and the sometimes stratospheric returns on
-              its investments, venture capital - in particular in early-stage - is an industry surprisingly lacking in
-              technology, at its core. Although the operating models and playbooks used to source and do due diligence
-              on start-ups - in our opinion, the two most core activities in VC - have evolved over time, there are very
-              few impactful innovations around the core technology stacks that VC firms actually develop or bring
-              together. Therefore, we are bringing a full-stack approach to VC investing with our own early-stage
-              investing technology stack at the center of everything we do. We will also use these platforms to create
-              value to portfolio companies and our own investors/LPs.
-            </p>
-            <p>
-              This partnership has invested in companies like App Annie, DraftKings, Gusto, Kakao, Outsystems,
-              Robinhood, Rubrik, Virta Health, Cloudflare, Ometria, among many other “household” names. We have led and
-              managed 5 VC funds between us with enviable returns, including top 2 to 5 percentile funds. We have
-              created verifiable impact at-scale as operators in such household names as NCSOFT, McKinsey & Co, GSM
-              Association, SK Telecom, Sonae. We have jumped off a cliff before and started our own companies… and we
-              are doing it all over again, because we don’t rest on our laurels, because we have a fundamental new way
-              of looking and executing in this space, because we love and feel blessed by being in venture capital… and
-              because, deep down, we just want to do this, together.
-            </p>
-            <p>
-              Last, but most certainly not the least, we are big believers that as much as technology will augment us…
-              as much as our insights and instincts will support our decisions, people are still at the center of all of
-              this. We have built unique networks of truly astonishing and generous people, not just in the geographies
-              where we will have our offices, but around the world, where we will operate. All of us have worked in at
-              least 3 different continents and will continue bringing to entrepreneurs all the resources that we have
-              access to as individuals, as a firm, but also from our broader ecosystem of investors/LPs, advisors,
-              friends. We will continue bringing a humanistic values-based approach to this profession (we don’t call it
-              a job, around here): we will continue treating entrepreneurs’ start-ups as their babies… because they are;
-              when we are tough, we will continue being thoughtful, fair and charitable.
-            </p>
-            <span className={s.punch}>GREAT PEOPLE + GREAT TECH</span>
-          </div>
-        ) : (
-          <div className={s.tldr}>
-            {manifestoItems.map((item, i) => {
-              return (
-                <div key={i}>
-                  <Reveal>
-                    <CardFloat {...item} />
-                  </Reveal>
-                </div>
-              )
-            })}
-          </div>
-        )}
+        {manifestoView[currentManifestoView]}
       </section>
 
       <section className={s.chamaeleonPop}>
@@ -401,16 +406,16 @@ const ManifestoAndValues = () => {
         </div>
       </section>
 
-      <div className={cn(s.stickyBtn, "sticky-btn", [s[manifestoView]])}>
+      <div className={cn(s.stickyBtn, "sticky-btn", [s[currentManifestoView]])}>
         <div
-          className={cn("flex-center", "cursor-pointer", { [s.active]: manifestoView === "tldr" })}
-          onClick={() => setManifestoView("tldr")}
+          className={cn("flex-center", "cursor-pointer", { [s.active]: currentManifestoView === "tldr" })}
+          onClick={() => handleManifestoView("tldr")}
         >
           TL;DR
         </div>
         <div
-          className={cn("flex-center", "cursor-pointer", { [s.active]: manifestoView === "long" })}
-          onClick={() => setManifestoView("long")}
+          className={cn("flex-center", "cursor-pointer", { [s.active]: currentManifestoView === "long" })}
+          onClick={() => handleManifestoView("long")}
         >
           LONG
         </div>

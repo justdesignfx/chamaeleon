@@ -4,7 +4,7 @@ const path = require("path")
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["chamaeleon.justdesignfx.com"],
+    domains: ["jd-admin.chamaeleon.vc"],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],

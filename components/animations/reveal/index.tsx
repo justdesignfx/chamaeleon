@@ -1,6 +1,5 @@
+import { ScrollTrigger, gsap } from "@/lib/gsap"
 import { ReactNode, useRef } from "react"
-
-import { gsap, ScrollTrigger } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -37,14 +36,12 @@ const Reveal = ({ children }: Props) => {
       })
     }, ref)
 
-    return () => {
-      ctx.revert()
-    }
+    return () => ctx.revert()
   }, [])
 
   return (
-    <div ref={ref} style={{ width: "inherit", height: "inherit" }}>
-      <div className="transform">{children}</div>
+    <div ref={ref} className="inherit-dims">
+      <div className="transform inherit-dims">{children}</div>
     </div>
   )
 }

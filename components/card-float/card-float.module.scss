@@ -1,4 +1,5 @@
 .cardFloat {
+  @include dims(100%);
   border-radius: desktop-vw(20px);
   padding: desktop-vw(50px) desktop-vw(40px);
   position: relative;
@@ -11,10 +12,13 @@
     margin-bottom: desktop-vw(50px);
     text-align: start;
     text-transform: uppercase;
-    width: desktop-vw(300px);
+    width: desktop-vw(250px);
 
     &.lg {
       font-size: desktop-vw(90px);
+      line-height: 1;
+      margin-bottom: desktop-vw(30px);
+      margin-top: desktop-vw(30px);
     }
   }
 
@@ -29,27 +33,29 @@
   }
 
   > .iconC {
-    @include dims(desktop-vw(200px));
+    $distance: desktop-vw(-90px);
+    @include dims(desktop-vw(180px));
     position: absolute;
+    z-index: 100;
 
     &.tl {
-      top: desktop-vw(-100px);
-      left: desktop-vw(-100px);
+      top: $distance;
+      left: $distance;
     }
 
     &.tr {
-      top: desktop-vw(-100px);
-      right: desktop-vw(-100px);
+      top: $distance;
+      right: $distance;
     }
 
     &.bl {
-      bottom: desktop-vw(-100px);
-      left: desktop-vw(-100px);
+      bottom: $distance;
+      left: $distance;
     }
 
     &.br {
-      bottom: desktop-vw(-100px);
-      right: desktop-vw(-100px);
+      bottom: $distance;
+      right: $distance;
     }
   }
 }

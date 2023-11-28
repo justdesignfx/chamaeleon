@@ -33,8 +33,8 @@
   }
 
   > .iconC {
-    $distance: desktop-vw(-90px);
-    @include dims(desktop-vw(180px));
+    $distance: desktop-vw(-100px);
+    @include dims(desktop-vw(200px));
     position: absolute;
     z-index: 100;
 
@@ -56,6 +56,21 @@
     &.br {
       bottom: $distance;
       right: $distance;
+    }
+
+    &.sm {
+      // @include dims(desktop-vw(140px));
+      transform: scale(0.9);
+    }
+
+    &.md {
+      // @include dims(desktop-vw(180px));
+      transform: scale(1);
+    }
+
+    &.lg {
+      // @include dims(desktop-vw(220px));
+      transform: scale(1.8);
     }
   }
 }

@@ -7,11 +7,7 @@
 
   @include hover {
     &:hover {
-      transform: scale(0.95);
-
       > .imgC {
-        border-radius: desktop-vw(30px);
-
         div {
           transform: scale(1.1);
         }
@@ -50,5 +46,13 @@
 
   > .iconC {
     @include dims(desktop-vw(15px));
+
+    &:hover {
+      * {
+        path {
+          fill: var(--forestial);
+        }
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@ type Props = ICardPerson
 const CardPerson = (props: Props) => {
   return (
     <div className={cn(s.cardPerson, "cursor-pointer")}>
-      <div className={s.imgC}>
+      <div className={s.imgC} onClick={props.toggleDetail}>
         <div>
           <CustomImage
             src={props.media.desktop.src}

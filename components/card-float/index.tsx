@@ -17,8 +17,8 @@ const CardFloat = (props: Props) => {
       <h5 className={cn({ [s.lg]: props.desc })}>{props.title}</h5>
       {props.desc && <p>{props.desc}</p>}
       {props.icon && (
-        <div className={cn(s.iconC, [s[props.icon.alignment]])}>
-          <CustomImage src={props.icon.src} style={{ objectFit: "contain" }} alt="Icon" height={200} width={200} />
+        <div className={cn(s.iconC, [s[props.icon.alignment]], [s[props.icon.size]])}>
+          <CustomImage src={props.icon.src} style={{ objectFit: "contain" }} alt="Icon" height={400} width={400} />
         </div>
       )}
     </div>

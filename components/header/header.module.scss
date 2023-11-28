@@ -31,20 +31,21 @@
     .open {
       background: var(--nightly-woods);
       color: var(--forested-juniper);
+      position: relative;
+
+      &::after {
+        content: "";
+        @include position(absolute, 0, 0, 0, auto);
+        @include dims(200%, 100%);
+        background-color: var(--nightly-woods);
+        z-index: -1;
+      }
     }
 
     .close {
       background-color: var(--forested-juniper);
       color: var(--nightly-woods);
-      position: relative;
-
-      &::after {
-        content: "";
-        @include position(absolute, 0, auto, 0, 0);
-        @include dims(200%, 100%);
-        background-color: var(--forested-juniper);
-        z-index: -1;
-      }
+      z-index: 10;
     }
   }
 

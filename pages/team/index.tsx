@@ -13,6 +13,7 @@ import SliderDetailedInfo from "@/components/slider-detailed-info"
 import { ICardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
+import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
 
 type Props = {
   team: ICardPerson[]
@@ -45,9 +46,9 @@ const Team = ({ team }: Props) => {
       <section className={s.members}>
         {team.map((item, i) => {
           return (
-            <div key={i} onClick={() => handleModal(i)}>
+            <div key={i}>
               <Reveal>
-                <CardPerson {...item} />
+                <CardPerson {...item} toggleDetail={() => handleModal(i)} />
               </Reveal>
             </div>
           )
@@ -71,7 +72,9 @@ const Team = ({ team }: Props) => {
             </p>
           </div>
           <div>
-            <h5>TOP 2 TO 5</h5>
+            <h5>
+              TOP 2 <span>TO</span> 5
+            </h5>
             <p>Percentile returns as VC investors.</p>
           </div>
         </div>
@@ -86,7 +89,12 @@ const Team = ({ team }: Props) => {
       </section>
 
       <section className={s.link}>
-        <small>Discover our investment style</small>
+        <small>
+          Discover our investment style{" "}
+          <span className={s.iconC}>
+            <IconCurvedArrow fill="var(--nightly-woods)" />
+          </span>
+        </small>
         <Button text="APPROACH" path="/approach" size="lg" />
       </section>
     </DefaultLayout>

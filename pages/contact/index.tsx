@@ -1,16 +1,16 @@
-import React, { useRef, useState } from "react"
+import { useRef, useState } from "react"
 import s from "./contact.module.scss"
 
-import cn from "clsx"
 import { gsap } from "@/lib/gsap"
+import cn from "clsx"
 
-import DefaultLayout from "@/layouts/default"
-import CustomImage from "@/components/custom-image"
 import Button from "@/components/button"
 import ContactForm from "@/components/contact-form"
+import CustomImage from "@/components/custom-image"
 
-import { routes } from "@/constants"
 import { useContactForm } from "@/api/mutations"
+import { routes } from "@/constants"
+import NonFooter from "@/layouts/non-footer"
 
 enum Screen {
   start = "start",
@@ -83,11 +83,11 @@ const Contact = () => {
   }
 
   return (
-    <DefaultLayout>
+    <NonFooter>
       <div className={cn(s.form, "flex-center")} ref={ref}>
         {screens[currentScreen]}
       </div>
-    </DefaultLayout>
+    </NonFooter>
   )
 }
 

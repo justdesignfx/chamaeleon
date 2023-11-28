@@ -1,5 +1,4 @@
 import { ReactNode } from "react"
-import s from "./default-layout.module.scss"
 
 import cn from "clsx"
 import { useMediaQuery } from "usehooks-ts"
@@ -20,7 +19,7 @@ const DefaultLayout = ({ children, theme = "main" }: Props) => {
 
   return (
     <>
-      <div className={cn(s.default, `theme-${theme}`)}>
+      <div className={cn("layout", `theme-${theme}`)}>
         <Header />
         <main>{children}</main>
       </div>

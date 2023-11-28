@@ -12,7 +12,7 @@ type Props = {
 const NonFooter = ({ children, theme = "main" }: Props) => {
   return (
     <>
-      <div className={cn(`theme-${theme}`)}>
+      <div className={cn("layout", `theme-${theme}`)}>
         <Header />
         <main>{children}</main>
       </div>

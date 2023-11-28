@@ -60,11 +60,11 @@ select {
   color: var(--kuretake-black-manga);
 }
 
-main {
-  overflow: hidden;
-  position: relative;
-  z-index: z-index("main");
-}
+// main {
+//   overflow: hidden;
+//   position: relative;
+//   z-index: z-index("main");
+// }
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -105,4 +105,11 @@ sup {
 .inherit-dims {
   height: inherit;
   width: inherit;
+}
+
+.layout {
+  overflow: hidden;
+  z-index: z-index("main");
+  position: relative;
+  background-color: var(--theme-primary);
 }

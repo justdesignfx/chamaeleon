@@ -17,6 +17,7 @@ export interface ICardPerson {
   name: string
   title: string
   linkedin: string
+  toggleDetail: () => void
 }
 
 // export const cardPerson: ICardPerson = {
@@ -127,6 +128,7 @@ export interface ICardFloat {
   icon?: {
     alignment: "tl" | "tr" | "bl" | "br"
     src: string
+    size: "sm" | "md" | "lg"
   }
   rotate: number
   title: string

@@ -1,0 +1,16 @@
+.notFound {
+  @include dims(100vw, calc(100vh - var(--header-height)));
+
+  > h1 {
+    color: var(--nightly-woods);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(110px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(50px);
+
+    @include mobile {
+      font-size: mobile-vw(60px);
+      margin-bottom: mobile-vw(20px);
+    }
+  }
+}

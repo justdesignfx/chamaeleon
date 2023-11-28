@@ -1,11 +1,9 @@
-import { ReactNode, useCallback, useRef, useState } from "react"
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import s from "./footer-reveal.module.scss"
 
 import { gsap, ScrollTrigger } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import { useWindowSize } from "@uidotdev/usehooks"
-import { breakpoints } from "@/lib/utils"
 
 type Props = {
   children: ReactNode
@@ -13,7 +11,6 @@ type Props = {
 
 const FooterReveal = ({ children }: Props) => {
   const ref = useRef(null)
-  const q = gsap.utils.selector(ref)
   const tl = useRef(gsap.timeline({ paused: true }))
   const [height, setHeight] = useState(0)
 
@@ -23,7 +20,10 @@ const FooterReveal = ({ children }: Props) => {
   }, [])
 
   useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+    const ctx = gsap.context((self) => {
+      const selector = self.selector
+      if (!selector) return
+
       gsap.set(".wrapper", {
         yPercent: -50,
       })
@@ -60,7 +60,12 @@ const FooterReveal = ({ children }: Props) => {
     }, ref)
 
     return () => ctx.revert()
-  }, [height, q])
+  }, [height])
+
+  // TEST - DELETE OR KEEP BEFORE PROD
+  useEffect(() => {
+    ScrollTrigger.refresh()
+  }, [height])
 
   return (
     <div className={s.footerReveal} ref={ref}>

@@ -15,7 +15,7 @@
   .top {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
-    margin-bottom: desktop-vw(100px);
+    margin-bottom: desktop-vw(10px);
     padding: 0 desktop-vw(40px);
 
     > div {
@@ -35,7 +35,7 @@
       row-gap: desktop-vw(5px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      margin-bottom: desktop-vw(150px);
+      margin-bottom: desktop-vw(75px);
       margin-top: desktop-vw(50px);
     }
   }

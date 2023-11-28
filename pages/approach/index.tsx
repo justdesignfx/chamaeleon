@@ -61,6 +61,7 @@ const lookForItems: ICardFloat[] = [
     icon: {
       alignment: "tl",
       src: "/img/steampunk-chamaeleon-face.png",
+      size: "md",
     },
     rotate: -7,
   },
@@ -72,6 +73,7 @@ const lookForItems: ICardFloat[] = [
     icon: {
       alignment: "tr",
       src: "/img/papa-chamaeleon.png",
+      size: "md",
     },
     rotate: 8,
   },
@@ -83,6 +85,7 @@ const lookForItems: ICardFloat[] = [
     icon: {
       alignment: "tl",
       src: "/img/brain.png",
+      size: "md",
     },
     rotate: -16,
   },
@@ -94,6 +97,7 @@ const lookForItems: ICardFloat[] = [
     icon: {
       alignment: "tr",
       src: "/img/trap.png",
+      size: "md",
     },
     rotate: 5,
   },

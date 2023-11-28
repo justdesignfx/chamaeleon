@@ -1,33 +1,36 @@
 import { useRef, useState } from "react"
 import s from "./header.module.scss"
 
-import cn from "clsx"
 import { EASE, gsap } from "@/lib/gsap"
+import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomLink } from "@/components/custom-link"
 import LogoChamaeleon from "@/components/icons/logo-chamaeleon"
-import { useLenisStore } from "@/lib/store/lenis"
 import { routes } from "@/constants"
+import { useLenisStore } from "@/lib/store/lenis"
 
 const Header = () => {
   const ref = useRef(null)
-  const [isOpen, setIsOpen] = useState(false)
-  const tl = useRef<gsap.core.Timeline | null>(null)
+  const tl = useRef(gsap.timeline({ paused: true }))
   const lenisStore = useLenisStore()
+  const [isOpen, setIsOpen] = useState(false)
 
+  function toggleMenu() {
+    setIsOpen((prev) => !prev)
+  }
+
+  // gsap timeline
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       tl.current = gsap.timeline({ paused: true })
 
       tl.current
         .to(
-          ".hamburger",
+          ".btn",
           {
             ease: EASE,
-            backgroundColor: "var(--forested-juniper)",
-            color: "var(--nightly-woods)",
-            duration: 0,
+            xPercent: 100,
           },
           "s"
         )
@@ -58,15 +61,39 @@ const Header = () => {
     }
   }, [])
 
+  // toggle logic
   useIsomorphicLayoutEffect(() => {
     if (!tl.current) return
     isOpen ? tl.current.play() : tl.current.reverse()
     lenisStore.setIsStopped(isOpen)
   }, [isOpen])
 
-  function handleMenu() {
-    setIsOpen((prev) => !prev)
-  }
+  // hide on scroll
+  useIsomorphicLayoutEffect(() => {
+    if (!lenisStore.lenis) return
+
+    const ctx = gsap.context(() => {
+      lenisStore.lenis?.on("scroll", (e: any) => {
+        if (e.direction === 1) {
+          if (gsap.getProperty(".hamburger", "opacity") === 1) {
+            gsap.to(".hamburger", {
+              opacity: 0,
+              duration: 0.2,
+            })
+          }
+        } else {
+          if (gsap.getProperty(".hamburger", "opacity") === 0) {
+            gsap.to(".hamburger", {
+              opacity: 1,
+              duration: 0.2,
+            })
+          }
+        }
+      })
+    }, ref)
+
+    return () => ctx.revert()
+  }, [lenisStore])
 
   return (
     <header className={s.header} ref={ref}>
@@ -74,8 +101,9 @@ const Header = () => {
         <LogoChamaeleon fill="var(--forestial)" />
       </CustomLink>
 
-      <div className={cn(s.hamburger, "hamburger", "flex-center", "cursor-pointer")} onClick={handleMenu}>
-        {isOpen ? "CLOSE" : "MENU"}
+      <div className={cn(s.hamburger, "hamburger", "cursor-pointer")} onClick={toggleMenu}>
+        <div className={cn(s.btn, s.close, "flex-center", "btn")}>CLOSE</div>
+        <div className={cn(s.btn, s.open, "flex-center", "btn")}>MENU</div>
       </div>
 
       <div className={cn(s.menu, "menu", "flex-center")}>
@@ -94,7 +122,7 @@ const Header = () => {
         </nav>
       </div>
 
-      <div className={cn(s.menuBg, "menu-bg")} onClick={handleMenu}></div>
+      <div className={cn(s.menuBg, "menu-bg")} onClick={toggleMenu}></div>
     </header>
   )
 }

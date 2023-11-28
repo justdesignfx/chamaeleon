@@ -11,14 +11,41 @@
   }
 
   .hamburger {
+    @include position(fixed, calc(var(--header-height / 2)), desktop-vw(40px), auto, auto);
     @include dims(desktop-vw(120px), desktop-vw(50px));
-    background-color: var(--nightly-woods);
-    color: var(--forested-juniper);
+    display: flex;
+    justify-content: flex-end;
     border-radius: desktop-vw(45px);
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(35px);
     font-weight: 700;
+    overflow: hidden;
     z-index: z-index("hamburger");
+
+    .btn {
+      @include dims(100%);
+      border-radius: desktop-vw(45px);
+      flex-shrink: 0;
+    }
+
+    .open {
+      background: var(--nightly-woods);
+      color: var(--forested-juniper);
+    }
+
+    .close {
+      background-color: var(--forested-juniper);
+      color: var(--nightly-woods);
+      position: relative;
+
+      &::after {
+        content: "";
+        @include position(absolute, 0, auto, 0, 0);
+        @include dims(200%, 100%);
+        background-color: var(--forested-juniper);
+        z-index: -1;
+      }
+    }
   }
 
   .menu {
@@ -45,6 +72,12 @@
         font-family: var(--font-first-aid-kit-f);
         font-size: desktop-vw(70px);
         margin-bottom: desktop-vw(10px);
+
+        @include hover {
+          &:hover {
+            color: var(--forestial);
+          }
+        }
 
         .circle {
           @include dims(desktop-vw(12px));

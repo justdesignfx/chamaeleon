@@ -122,21 +122,4 @@
     text-align: center;
     width: desktop-vw(1200px);
   }
-
-  > .link {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: desktop-vw(120px) 0;
-
-    small {
-      color: var(--nightly-woods);
-      font-family: var(--font-helvetica-neue);
-      font-size: desktop-vw(25px);
-      font-weight: 400;
-      line-height: 1.5;
-      margin-bottom: desktop-vw(10px);
-    }
-  }
 }

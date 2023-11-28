@@ -1,19 +1,17 @@
 import s from "./team.module.scss"
 
-import cn from "clsx"
-
-import { all } from "@/api/queries/team"
 import Parallax from "@/components/animations/parallax"
 import Reveal from "@/components/animations/reveal"
-import Button from "@/components/button"
 import CardInfo from "@/components/card-info"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
 import SliderDetailedInfo from "@/components/slider-detailed-info"
-import { ICardPerson } from "@/constants"
+
+import { all } from "@/api/queries/team"
+import CallToPage from "@/components/call-to-page"
+import { ICardPerson, routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
-import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
 
 type Props = {
   team: ICardPerson[]
@@ -40,7 +38,7 @@ const Team = ({ team }: Props) => {
   return (
     <DefaultLayout>
       <section className={s.intro}>
-        <h1>THE TEAM</h1>
+        <h1>TEAM</h1>
       </section>
 
       <section className={s.members}>
@@ -88,15 +86,7 @@ const Team = ({ team }: Props) => {
         </div>
       </section>
 
-      <section className={s.link}>
-        <small>
-          Discover our investment style{" "}
-          <span className={s.iconC}>
-            <IconCurvedArrow fill="var(--nightly-woods)" />
-          </span>
-        </small>
-        <Button text="APPROACH" path="/approach" size="lg" />
-      </section>
+      <CallToPage text="Discover our investment style" btnText="APPROACH" href={routes.approach.path} />
     </DefaultLayout>
   )
 }

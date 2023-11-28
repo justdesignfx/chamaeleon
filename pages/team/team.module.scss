@@ -95,32 +95,6 @@
   }
 }
 
-.link {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: desktop-vw(100px) 0;
-
-  small {
-    align-items: center;
-    color: var(--nightly-woods);
-    column-gap: desktop-vw(8px);
-    display: flex;
-    font-family: var(--font-helvetica-neue);
-    font-size: desktop-vw(25px);
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: desktop-vw(10px);
-
-    > .iconC {
-      @include dims(desktop-vw(10px));
-      display: block;
-      flex-shrink: 0;
-    }
-  }
-}
-
 .slide {
   @include dims(100vw, 100vh);
   align-items: center;

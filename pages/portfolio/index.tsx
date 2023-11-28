@@ -2,14 +2,14 @@ import s from "./portfolio.module.scss"
 
 import cn from "clsx"
 
-import Button from "@/components/button"
 import CardCompanyDetail from "@/components/card-company-detail"
 import CompanyBox from "@/components/company-box"
 import CustomImage from "@/components/custom-image"
 import SliderCompanyDetail from "@/components/slider-company-detail"
 
 import { all } from "@/api/queries/portfolio"
-import { ICompanyBox } from "@/constants"
+import CallToPage from "@/components/call-to-page"
+import { ICompanyBox, routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 
@@ -103,10 +103,7 @@ const Portfolio = ({ companies }: Props) => {
             width={363}
           />
         </div>
-        <div className={s.link}>
-          <small>Get to know about us</small>
-          <Button text="THE TEAM" path="/the-team" size="lg" />
-        </div>
+        <CallToPage text="Get to know about us" btnText="TEAM" href={routes.team.path} />
       </section>
     </DefaultLayout>
   )

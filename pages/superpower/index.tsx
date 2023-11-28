@@ -1,15 +1,15 @@
-import React from "react"
 import s from "./superpower.module.scss"
 
 import cn from "clsx"
 
-import DefaultLayout from "@/layouts/default"
+import MaskedScale from "@/components/animations/masked-scale"
+import Parallax from "@/components/animations/parallax"
+import CallToPage from "@/components/call-to-page"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
-import Button from "@/components/button"
 import Pixels from "@/components/pixels"
-import Parallax from "@/components/animations/parallax"
-import MaskedScale from "@/components/animations/masked-scale"
+import DefaultLayout from "@/layouts/default"
+import { routes } from "@/constants"
 
 const Superpower = () => {
   return (
@@ -125,10 +125,7 @@ const Superpower = () => {
           sourcing to portfolio management, as well as sharing those advantages with our portfolio companies and
           investors.
         </p>
-        <div className={s.link}>
-          <small>Learn about our approach</small>
-          <Button text="APPROACH" path="/approach" size="lg" />
-        </div>
+        <CallToPage text="Learn about our approach" btnText="APPROACH" href={routes.approach.path} />
       </section>
     </DefaultLayout>
   )

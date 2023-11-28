@@ -93,7 +93,7 @@ export const routes = {
   team: {
     name: "team",
     path: "team",
-    ui: "THE TEAM",
+    ui: "TEAM",
   },
   kin: {
     name: "kin",

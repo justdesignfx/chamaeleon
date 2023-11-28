@@ -50,14 +50,17 @@
   > h3 {
     @include dims(desktop-vw(800px), auto);
     font-family: var(--font-helvetica-neue);
-    font-size: desktop-vw(40px);
+    font-size: desktop-vw(30px);
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: desktop-vw(100px);
     text-align: center;
+    width: desktop-vw(600px);
   }
 
   > .long {
+    text-align: center;
+
     p {
       @include dims(desktop-vw(900px), auto);
       font-family: var(--font-helvetica-neue);
@@ -67,7 +70,7 @@
       margin-bottom: desktop-vw(50px);
     }
 
-    .punch {
+    small {
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(30px);
       font-weight: 400;
@@ -84,34 +87,54 @@
     > div {
       @include dims(100%);
 
-      &:nth-child(2n) {
-        transform: translateY(100px);
+      &:nth-child(1) {
+        margin-top: desktop-vw(0px);
       }
 
-      @for $i from 1 through 8 {
-        &:nth-child(#{$i}) {
-          margin-top: 1.2 * pow($i, 2) + px;
-        }
+      &:nth-child(2) {
+        margin-top: desktop-vw(100px);
+        margin-left: desktop-vw(-40px);
+      }
+
+      &:nth-child(3) {
+        margin-top: desktop-vw(-50px);
+        margin-left: desktop-vw(-40px);
+      }
+
+      &:nth-child(4) {
+        margin-top: desktop-vw(30px);
+        margin-left: desktop-vw(-120px);
+      }
+
+      &:nth-child(5) {
+        margin-top: desktop-vw(-10px);
+      }
+
+      &:nth-child(6) {
+        margin-top: desktop-vw(150px);
+        margin-left: desktop-vw(-90px);
+      }
+
+      &:nth-child(7) {
+        margin-top: desktop-vw(40px);
+        margin-left: desktop-vw(-40px);
+      }
+
+      &:nth-child(8) {
+        margin-top: desktop-vw(250px);
+        margin-left: desktop-vw(-100px);
       }
     }
   }
 }
 
-// .chamaeleonPop {
-//   > .imgC {
-//     @include dims(desktop-vw(700px));
-//     margin: 0 auto;
-//     margin-bottom: desktop-vw(-300px);
-//   }
-// }
-
 .ourValues {
   background: var(--greening);
   margin-bottom: desktop-vw(225px);
   overflow: hidden;
-  padding: desktop-vw(120px) 0;
+  padding: desktop-vw(100px) 0;
 
-  > h2 {
+  h2 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(150px);

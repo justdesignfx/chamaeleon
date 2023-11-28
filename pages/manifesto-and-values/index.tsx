@@ -24,6 +24,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "tl",
       src: "/img/drops.png",
+      size: "sm",
     },
     rotate: -6,
   },
@@ -34,6 +35,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "tr",
       src: "/img/rock.png",
+      size: "md",
     },
     rotate: 14,
   },
@@ -44,8 +46,9 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "bl",
       src: "/img/bale.png",
+      size: "md",
     },
-    rotate: 13,
+    rotate: 7,
   },
   {
     backgroundColor: "var(--greening)",
@@ -54,6 +57,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "br",
       src: "/img/earth.png",
+      size: "sm",
     },
     rotate: -6,
   },
@@ -70,6 +74,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "br",
       src: "/img/steampunk-chamaeleon-face.png",
+      size: "md",
     },
     rotate: 0,
   },
@@ -80,6 +85,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "tl",
       src: "/img/doc.png",
+      size: "md",
     },
     rotate: -7,
   },
@@ -90,6 +96,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "br",
       src: "/img/steampunk-chamaeleon.png",
+      size: "lg",
     },
     rotate: 13,
   },
@@ -172,7 +179,7 @@ const manifestoView = {
         treating entrepreneurs’ start-ups as their babies… because they are; when we are tough, we will continue being
         thoughtful, fair and charitable.
       </p>
-      <span className={s.punch}>GREAT PEOPLE + GREAT TECH</span>
+      <small>GREAT PEOPLE + GREAT TECH</small>
     </div>
   ),
   tldr: (
@@ -336,26 +343,15 @@ const ManifestoAndValues = () => {
           </Marquee>
         </div>
         <h3>Today, we announce the creation of Chamaeleon and the launch of its first fund.</h3>
-
         {manifestoView[currentManifestoView]}
       </section>
-
-      {/* <section className={s.chamaeleonPop}>
-        <div className={s.imgC}>
-          <CustomImage
-            src="/img/chamaeleon-hole.png"
-            alt="Cactus Doodle"
-            style={{ objectFit: "contain" }}
-            height={257}
-            width={447}
-          />
-        </div>
-      </section> */}
 
       {<SequencedChamaeleon />}
 
       <section className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
-        <h2>OUR VALUES</h2>
+        <Reveal>
+          <h2>OUR VALUES</h2>
+        </Reveal>
         <div className={s.values}>
           <div className={cn(s.progressLine, "progress-line")}></div>
           {gridItems.map((item, i) => {

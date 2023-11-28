@@ -22,10 +22,33 @@ type Props = {
 export default function Home({ companies }: Props) {
   return (
     <DefaultLayout>
-      <section className={cn(s.intro, "island")}>
-        <h1>
-          WHOLISTIC <br /> INVESTMENTS.
-        </h1>
+      <section className={s.intro}>
+        <div className={cn(s.content, "island")}>
+          <h1>
+            WHOLISTIC <br /> INVESTMENTS
+          </h1>
+
+          <Pixels
+            bg="var(--forestial)"
+            fill="var(--forested-juniper)"
+            alignment="br"
+            shape={[
+              ["o", "x", "o"],
+              ["x", "o", "x"],
+              ["o", "x", "x"],
+            ]}
+          />
+          <Pixels
+            bg="var(--forestial)"
+            fill="var(--forested-juniper)"
+            alignment="bl"
+            shape={[
+              ["o", "o", "o"],
+              ["x", "o", "o"],
+              ["x", "o", "x"],
+            ]}
+          />
+        </div>
         <div className={s.imgC}>
           <CustomImage
             src="/img/chamaeleon-c.gif"
@@ -35,26 +58,6 @@ export default function Home({ companies }: Props) {
             width={460}
           />
         </div>
-        <Pixels
-          bg="var(--forestial)"
-          fill="var(--forested-juniper)"
-          alignment="br"
-          shape={[
-            ["o", "x", "o"],
-            ["x", "o", "x"],
-            ["o", "x", "x"],
-          ]}
-        />
-        <Pixels
-          bg="var(--forestial)"
-          fill="var(--forested-juniper)"
-          alignment="bl"
-          shape={[
-            ["o", "o", "o"],
-            ["x", "o", "o"],
-            ["x", "o", "x"],
-          ]}
-        />
       </section>
 
       <section className={s.manifesto}>
@@ -99,7 +102,7 @@ export default function Home({ companies }: Props) {
 
       <section className={cn(s.portfolio, "island")}>
         <h3>
-          WHETHER YOU&apos;RE{" "}
+          WHETHER YOU'RE{" "}
           <span className={s.a}>
             <span className={s.imgC}>
               <CustomImage src="/img/moneybox.gif" alt="Company Logo" height={400} width={420} />
@@ -112,7 +115,7 @@ export default function Home({ companies }: Props) {
               <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" height={196} width={303} />
             </span>
           </span>
-          WE&apos;RE HERE TO BOOST YOU.
+          WE'RE HERE TO BOOST YOU.
         </h3>
 
         <Button text="OUR PORTFOLIO" path={`/${routes.portfolio.path}`} size="md" />
@@ -163,10 +166,10 @@ export default function Home({ companies }: Props) {
 
         <div className={s.text}>
           <h2>MANTIS - OUR SUPERPOWER</h2>
-          <h3>CHAMAELEON’S AI-DRIVEN INVESTMENT STRATEGY.</h3>
+          <h3>CHAMAELEON'S AI-DRIVEN INVESTMENT STRATEGY.</h3>
           <p>
-            Chamaeleon&apos;s investment strategy is powered by our proprietary AI and quantitative engine, which
-            analyzes millions of companies across thousands of data points per company.
+            Chamaeleon's investment strategy is powered by our proprietary AI and quantitative engine, which analyzes
+            millions of companies across thousands of data points per company.
           </p>
           <Button text="SEE MORE" path={`/${routes.superpower.path}`} size="md" />
         </div>
@@ -174,7 +177,7 @@ export default function Home({ companies }: Props) {
 
       <section className={s.kin}>
         <h4>
-          <span>CHAMAELEON&apos;S VISION</span>
+          <span>CHAMAELEON'S VISION</span>
           <span>FOR VALUE-ADD GROWTH.</span>
         </h4>
         <div>

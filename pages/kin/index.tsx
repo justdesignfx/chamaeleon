@@ -114,7 +114,7 @@ const Kin = ({ members }: Props) => {
   return (
     <DefaultLayout>
       <section className={s.intro}>
-        <h1>CHAMAELEON&apos;S VISION FOR VALUE-ADD GROWTH.</h1>
+        <h1>CHAMAELEON'S VISION FOR VALUE-ADD GROWTH.</h1>
 
         <p>
           We partner with exceptional individuals who share our values, have worked with us, or have done business
@@ -202,8 +202,8 @@ const Kin = ({ members }: Props) => {
         {members.map((item, i) => {
           return (
             <Reveal key={i}>
-              <div onClick={() => handleModal(i)}>
-                <CardPerson {...item} />
+              <div>
+                <CardPerson {...item} toggleDetail={() => handleModal(i)} />
               </div>
             </Reveal>
           )

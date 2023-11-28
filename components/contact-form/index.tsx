@@ -159,7 +159,7 @@ const ContactForm = (props: Props) => {
     </>,
     <>
       <p className={s.question}>
-        NOW... LET&apos;S GRAB YOUR CONTACT DETAILS SO WE CAN GET BACK TO YOU. FIRST OFF, WHAT&apos;S YOUR NAME?*
+        NOW... LET'S GRAB YOUR CONTACT DETAILS SO WE CAN GET BACK TO YOU. FIRST OFF, WHAT'S YOUR NAME?*
       </p>
       <p className={s.description}>First and last name, please</p>
       <div className={s.field}>
@@ -182,7 +182,7 @@ const ContactForm = (props: Props) => {
     </>,
     <>
       <p className={s.question}>COULD YOU LET ME KNOW YOUR EMAIL ADDRESS?*</p>
-      <p className={s.description}>We&apos;ll be in touch within the next couple of days with an answer for you.</p>
+      <p className={s.description}>We'll be in touch within the next couple of days with an answer for you.</p>
       <div className={s.field}>
         <div
           className={cn(s.inputC, {
@@ -244,7 +244,7 @@ const ContactForm = (props: Props) => {
     <>
       <p className={s.question}>FINALLY, IT WOULD BE GREAT TO HAVE YOUR LINKEDIN URL!</p>
       <p className={s.description}>
-        Thanks for the extra info! (if you don&apos;t Linkedin, please feel free to share any other relevant url)
+        Thanks for the extra info! (if you don't Linkedin, please feel free to share any other relevant url)
       </p>
       <div className={s.field}>
         <div

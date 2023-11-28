@@ -16,7 +16,7 @@ const Superpower = () => {
     <DefaultLayout theme="mantis">
       <section className={s.intro}>
         <h1>
-          Chamaeleon&apos;s investment strategy is powered by our proprietary AI and quantitative engine, which analyzes
+          Chamaeleon's investment strategy is powered by our proprietary AI and quantitative engine, which analyzes
           millions of companies across thousands of data points.
         </h1>
         <div className={s.imgC}>

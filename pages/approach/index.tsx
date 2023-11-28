@@ -22,6 +22,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "tl",
       src: "/img/dart.png",
+      size: "sm",
     },
     rotate: -6,
   },
@@ -33,6 +34,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "tr",
       src: "/img/newborn.png",
+      size: "md",
     },
     rotate: 5,
   },
@@ -44,6 +46,7 @@ const manifestoItems: ICardFloat[] = [
     icon: {
       alignment: "br",
       src: "/img/map.png",
+      size: "md",
     },
     rotate: -8,
   },
@@ -163,7 +166,7 @@ const Approach = () => {
   return (
     <DefaultLayout>
       <section className={s.intro}>
-        <h1>START-UPS ARE CHANGING. IT&apos;S TIME FOR VENTURE CAPITALS TO CHANGE.</h1>
+        <h1>START-UPS ARE CHANGING. IT'S TIME FOR VENTURE CAPITALS TO CHANGE.</h1>
       </section>
 
       <section className={cn(s.earth, "island")}>
@@ -276,9 +279,11 @@ const Approach = () => {
         <div className={s.cards}>
           {lookForItems.map((item, i) => {
             return (
-              <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1} key={i}>
-                <CardFloat {...item} />
-              </Parallax>
+              <div key={i}>
+                <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1}>
+                  <CardFloat {...item} />
+                </Parallax>
+              </div>
             )
           })}
         </div>

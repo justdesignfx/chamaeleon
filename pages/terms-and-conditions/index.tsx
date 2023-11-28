@@ -51,15 +51,15 @@ const TermsAndConditions = () => {
           code. You are responsible for virus checking and taking any other protective steps. The site was developed,
           and is hosted, by a third-party for whose acts and omissions we accept no responsibility. There may be links
           from the site to external Internet sites. In addition, third-party sites may be linked to this site, with or
-          without Chamaeleon LLC&apos;s consent. Accordingly, we expressly disclaim any responsibility for the content,
-          the accuracy of the information, the quality of services provided by or advertised on and/or software
-          downloaded from any such third-party sites. Moreover, any link from the site to a third-party site does not
-          constitute an endorsement by Chamaeleon LLC of any third-party site or the products or services provided by
-          any third party, and Chamaeleon LLC takes no responsibility therefore. Chamaeleon LLC&apos;s liability is
-          limited to the maximum extent permitted by law and is limited even if Chamaeleon LLC has been advised of the
-          possibility of the damages, liability or injury that you suffer, including any damages, liabilities or injury
-          caused by any failure of performance, error, omission, defect, interruption, delay in operation, computer
-          virus, line failure or other computer malfunction.
+          without Chamaeleon LLC's consent. Accordingly, we expressly disclaim any responsibility for the content, the
+          accuracy of the information, the quality of services provided by or advertised on and/or software downloaded
+          from any such third-party sites. Moreover, any link from the site to a third-party site does not constitute an
+          endorsement by Chamaeleon LLC of any third-party site or the products or services provided by any third party,
+          and Chamaeleon LLC takes no responsibility therefore. Chamaeleon LLC's liability is limited to the maximum
+          extent permitted by law and is limited even if Chamaeleon LLC has been advised of the possibility of the
+          damages, liability or injury that you suffer, including any damages, liabilities or injury caused by any
+          failure of performance, error, omission, defect, interruption, delay in operation, computer virus, line
+          failure or other computer malfunction.
         </p>
         <h2>Governing Law and Arbitration</h2>
         <p>
@@ -67,8 +67,8 @@ const TermsAndConditions = () => {
           governed solely by the laws of the United States, without regards to conflicts of law rules, and shall be
           settled by arbitration in accordance with the Rules of Arbitration of the International Chamber of Commerce in
           effect at the time of the arbitration. The seat of the arbitration shall be Delaware, United States. At
-          Chamaeleon LLC&apos;s discretion, hearings may for convenience take place at an alternative location. The
-          language of the arbitration shall be English. The arbitration award shall be final and binding on the parties.
+          Chamaeleon LLC's discretion, hearings may for convenience take place at an alternative location. The language
+          of the arbitration shall be English. The arbitration award shall be final and binding on the parties.
         </p>
       </div>
     </DefaultLayout>

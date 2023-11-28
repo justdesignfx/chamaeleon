@@ -1,17 +1,19 @@
 .sequence {
-  @include dims(100vw, 100vh);
+  @include dims(auto, 800px);
   position: relative;
   pointer-events: none;
   z-index: 10;
+  margin-bottom: desktop-vw(-200px);
+  margin-top: desktop-vw(100px);
 
-  @include outline(red);
+  // @include outline(red);
 
   .container {
     @include position(absolute, 50%, auto, auto, 50%);
     @include dims(desktop-vw(800px));
     transform: translate(-50%, -50%);
 
-    @include outline(blue);
+    // @include outline(blue);
 
     @include mobile {
       @include dims(mobile-vw(300px));

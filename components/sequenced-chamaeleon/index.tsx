@@ -34,30 +34,31 @@ const SequencedChamaeleon = () => {
   const [phase, setPhase] = useState(0)
 
   useLayoutEffect(() => {
+    function setImgRecursively(progress: number, items: HTMLElement[], currentIndex: number) {
+      const part = 1 / items.length
+
+      if (currentIndex === items.length) {
+        return
+      }
+
+      if (progress < part * (currentIndex + 1)) {
+        setPhase(currentIndex)
+      } else {
+        setImgRecursively(progress, items, currentIndex + 1)
+      }
+    }
+
     const ctx = gsap.context((self) => {
       const selector = self.selector
       if (!selector) return
 
-      function setImgRecursively(progress: number, items: HTMLElement[], currentIndex: number) {
-        const part = 1 / items.length
-
-        if (currentIndex === items.length) {
-          return
-        }
-
-        if (progress < part * (currentIndex + 1)) {
-          setPhase(currentIndex)
-        } else {
-          setImgRecursively(progress, items, currentIndex + 1)
-        }
-      }
-
       ScrollTrigger.create({
+        // once: true,
         id: "sequence",
         markers: true,
         scrub: true,
-        pin: true,
-        end: `bottom+=${window.innerHeight} top`,
+        start: `top+=25% center`,
+        end: `bottom-=25% center`,
         trigger: ref.current,
         onUpdate: ({ progress }) => {
           setImgRecursively(progress, selector(".item"), phase)
@@ -69,8 +70,8 @@ const SequencedChamaeleon = () => {
   }, [])
 
   return (
-    <section className={cn(s.sequence, "boom", "flex-center")} ref={ref}>
-      <div className={cn(s.container, "flex-center", "container")}>
+    <section className={cn(s.sequence, "boom")} ref={ref}>
+      <div className={cn(s.container, "flex-center")}>
         {bs.map((item, i) => {
           return (
             <div className={cn(s.item, "item", { [s.active]: phase === i })} key={i}>

@@ -1,0 +1,58 @@
+.cardPerson {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: 600ms all cubic-bezier(0.175, 0.885, 0.32, 1);
+
+  @include hover {
+    &:hover {
+      > .imgC {
+        div {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  > .imgC {
+    @include dims(100%, desktop-vw(500px));
+    border-radius: desktop-vw(10px);
+    margin-bottom: desktop-vw(15px);
+    overflow: hidden;
+    transition: 600ms all cubic-bezier(0.175, 0.885, 0.32, 1);
+
+    > div {
+      transition: 600ms all cubic-bezier(0.175, 0.885, 0.32, 1);
+    }
+  }
+
+  > p {
+    color: var(--nightly-woods);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(30px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(10px);
+    text-transform: uppercase;
+  }
+
+  > small {
+    color: var(--nightly-woods);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(20px);
+    font-weight: 400;
+    margin-bottom: desktop-vw(7px);
+  }
+
+  > .iconC {
+    @include dims(desktop-vw(15px));
+
+    &:hover {
+      * {
+        path {
+          fill: var(--forestial);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+.sort {
+  @include dims(desktop-vw(160px), auto);
+  align-items: center;
+  background: var(--forested-juniper);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+
+  @include mobile {
+    @include dims(100%, mobile-vw(45px));
+    border-radius: mobile-vw(8px);
+  }
+
+  .label {
+    @include dims(100%);
+    align-items: center;
+    color: var(--nightly-woods);
+    display: flex;
+    justify-content: flex-start;
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(20px);
+    font-weight: 600;
+    position: relative;
+    transform: translateY(desktop-vw(1px));
+    text-transform: uppercase;
+
+    @include mobile {
+      @include dims(100%, mobile-vw(45px));
+      font-size: mobile-vw(16px);
+      padding: 0 var(--input-padding);
+    }
+
+    .iconC {
+      @include position(absolute, 50%, desktop-vw(16px), auto, auto);
+      @include dims(desktop-vw(8px));
+      transform: translateY(-60%);
+
+      @include mobile {
+        @include position(absolute, 50%, mobile-vw(16px), auto, auto);
+        @include dims(mobile-vw(14px), mobile-vw(8px));
+      }
+    }
+  }
+
+  .items {
+    @include position(absolute, 150%, auto, auto, 0);
+    @include dims(200%, auto);
+    align-items: center;
+    border: 1px solid var(--nightly-woods);
+    border-radius: desktop-vw(4px);
+    background: var(--forested-juniper);
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    row-gap: desktop-vw(10px);
+    overflow: hidden;
+    padding: desktop-vw(6px) 0;
+
+    @include mobile {
+      padding: mobile-vw(10px) mobile-vw(15px) mobile-vw(25px) mobile-vw(15px);
+      row-gap: mobile-vw(10px);
+    }
+
+    &.open {
+      display: flex;
+    }
+
+    .option {
+      @include dims(100%);
+      color: var(--nightly-woods);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(14px);
+      font-weight: 400;
+      padding: desktop-vw(10px);
+
+      @include hover {
+        &:hover {
+          background-color: var(--cloudy-day);
+        }
+      }
+
+      @include mobile {
+        border-radius: mobile-vw(8px);
+        font-size: mobile-vw(14px);
+        padding: mobile-vw(10px) mobile-vw(10px) mobile-vw(7px) mobile-vw(10px);
+      }
+    }
+  }
+}

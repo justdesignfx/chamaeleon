@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import s from "./manifesto-and-values.module.scss"
 
 import { gsap, ScrollTrigger } from "@/lib/gsap"
@@ -302,6 +302,10 @@ const ManifestoAndValues = () => {
       duration: 1,
     })
   }
+
+  useEffect(() => {
+    ScrollTrigger.refresh()
+  }, [currentManifestoView])
 
   return (
     <DefaultLayout>

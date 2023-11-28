@@ -56,6 +56,7 @@ export default function Home({ companies }: Props) {
             style={{ objectFit: "contain" }}
             height={400}
             width={460}
+            priority="high"
           />
         </div>
       </section>

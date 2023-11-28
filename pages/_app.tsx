@@ -1,11 +1,14 @@
-import CookiePopup from "@/components/cookie-popup"
-import Modal from "@/components/modal"
-import useSmoothScroll from "@/hooks/useSmoothScroll"
-import { useModalStore } from "@/lib/store/modal"
 import type { AppProps } from "next/app"
+import "../styles/global.scss"
+
 import { QueryClient, QueryClientProvider } from "react-query"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import "../styles/global.scss"
+
+import useSmoothScroll from "@/hooks/useSmoothScroll"
+import { useModalStore } from "@/lib/store/modal"
+
+import CookiePopup from "@/components/cookie-popup"
+import Modal from "@/components/modal"
 
 const queryClient = new QueryClient()
 
@@ -20,8 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
   useSmoothScroll()
 
   useIsomorphicLayoutEffect(() => {
-    console.log(localStorage.getItem("cookieAccepted"))
-
     if (localStorage.getItem("cookieAccepted")) return
     modalStore.setContent(<CookiePopup />)
   }, [])

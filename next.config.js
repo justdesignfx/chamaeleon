@@ -4,7 +4,13 @@ const path = require("path")
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["jd-admin.chamaeleon.vc"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "jd-admin.chamaeleon.vc",
+        pathname: "**",
+      },
+    ],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],

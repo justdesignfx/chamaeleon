@@ -130,7 +130,7 @@
     width: desktop-vw(1000px);
 
     > div {
-      @include dims(desktop-vw(450px), desktop-vw(460px));
+      @include dims(desktop-vw(440px), desktop-vw(500px));
 
       &:nth-child(1) {
         z-index: 1;
@@ -276,9 +276,17 @@
 
   > .cards {
     display: grid;
-    grid-template-columns: repeat(2, desktop-vw(430px));
-    grid-template-rows: repeat(2, desktop-vw(460px));
-    margin-bottom: desktop-vw(-100px);
+    grid-template-columns: repeat(2, desktop-vw(420px));
+    grid-template-rows: repeat(2, desktop-vw(470px));
+    margin-bottom: desktop-vw(100px);
     row-gap: desktop-vw(50px);
+
+    > div {
+      @include dims(100%);
+
+      &:nth-child(2n) {
+        margin-top: desktop-vw(160px);
+      }
+    }
   }
 }

@@ -1,26 +1,32 @@
 .intro {
-  align-items: center;
-  background-color: var(--forestial);
-  display: flex;
-  height: desktop-vw(615px);
-  justify-content: flex-start;
-  overflow: hidden;
+  margin-bottom: desktop-vw(20px);
   position: relative;
   z-index: 5;
-  padding: desktop-vw(30px);
 
-  > h1 {
-    color: var(--forested-juniper);
-    font-family: var(--font-first-aid-kit-f);
-    font-size: desktop-vw(140px);
-    font-weight: 700;
-    margin-bottom: desktop-vw(100px);
+  > .content {
+    align-items: center;
+    background-color: var(--forestial);
+    display: flex;
+    height: desktop-vw(615px);
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: desktop-vw(30px);
+    position: relative;
+
+    h1 {
+      color: var(--forested-juniper);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(160px);
+      font-weight: 700;
+      line-height: 0.9;
+      margin-bottom: desktop-vw(50px);
+    }
   }
 
   > .imgC {
-    @include dims(desktop-vw(320px));
-    margin-left: desktop-vw(150px);
-    margin-top: desktop-vw(200px);
+    @include position(absolute, auto, desktop-vw(110px), desktop-vw(-140px), auto);
+    @include dims(desktop-vw(490px));
+    transform: rotate(-12deg);
   }
 }
 
@@ -173,6 +179,14 @@
   margin-bottom: desktop-vw(50px);
   position: relative;
   z-index: 10;
+
+  &::after {
+    content: "";
+    @include position(absolute, auto, auto, desktop-vw(-75px), 50%);
+    @include dims(85%, 1px);
+    background: var(--cloudy-day);
+    transform: translateX(-50%);
+  }
 
   .chamaeleon {
     margin-left: desktop-vw(80px);

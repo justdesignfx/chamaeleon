@@ -93,7 +93,7 @@ const Team = ({ team }: Props) => {
 
 export default Team
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const team = await all()
   return { props: { team } }
 }

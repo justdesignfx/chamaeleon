@@ -62,11 +62,6 @@ const FooterReveal = ({ children }: Props) => {
     return () => ctx.revert()
   }, [height])
 
-  // TEST - DELETE OR KEEP BEFORE PROD
-  useEffect(() => {
-    ScrollTrigger.refresh()
-  }, [height])
-
   return (
     <div className={s.footerReveal} ref={ref}>
       <div className="wrapper" ref={(node) => refElement(node)}>

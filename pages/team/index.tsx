@@ -20,6 +20,8 @@ type Props = {
 const Team = ({ team }: Props) => {
   const modalStore = useModalStore()
 
+  console.log("team", team)
+
   const handleModal = (index: number) => {
     modalStore.setContent(
       <SliderDetailedInfo

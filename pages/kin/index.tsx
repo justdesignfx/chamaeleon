@@ -27,6 +27,8 @@ const Kin = ({ members }: Props) => {
   const q = gsap.utils.selector(layeredImagesRef)
   const tl = useRef<gsap.core.Timeline | null>(null)
 
+  console.log("members", members)
+
   function handleModal(index: number) {
     modalStore.setContent(
       <SliderDetailedInfo
@@ -215,7 +217,7 @@ const Kin = ({ members }: Props) => {
 
 export default Kin
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const members = await all()
   return { props: { members } }
 }

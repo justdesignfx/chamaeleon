@@ -111,7 +111,7 @@ const Portfolio = ({ companies }: Props) => {
 
 export default Portfolio
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const companies = await all()
   return { props: { companies } }
 }

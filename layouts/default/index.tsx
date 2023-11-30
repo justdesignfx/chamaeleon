@@ -8,6 +8,7 @@ import Footer from "@/components/footer"
 import Header from "@/components/header"
 
 import { breakpoints } from "@/lib/utils"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 type Props = {
   children: ReactNode
@@ -15,7 +16,9 @@ type Props = {
 }
 
 const DefaultLayout = ({ children, theme = "main" }: Props) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
+
+  console.log(isMobile)
 
   return (
     <>
@@ -24,13 +27,15 @@ const DefaultLayout = ({ children, theme = "main" }: Props) => {
         <main>{children}</main>
       </div>
 
-      {isMobile ? (
-        <Footer />
-      ) : (
-        <FooterReveal>
+      <ClientOnly>
+        {isMobile ? (
           <Footer />
-        </FooterReveal>
-      )}
+        ) : (
+          <FooterReveal>
+            <Footer />
+          </FooterReveal>
+        )}
+      </ClientOnly>
     </>
   )
 }

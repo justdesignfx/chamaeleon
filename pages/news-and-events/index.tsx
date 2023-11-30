@@ -1,26 +1,44 @@
-import React, { useRef, useState } from "react"
+import { useRef, useState } from "react"
 import s from "./news-and-events.module.scss"
 
-import cn from "clsx"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { ScrollTrigger, gsap } from "@/lib/gsap"
+import cn from "clsx"
+import { GetServerSideProps } from "next"
+import { useRouter } from "next/router"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-import DefaultLayout from "@/layouts/default"
+import { apiClient } from "@/api"
 import Searchbox from "@/components/searchbox"
 import Sort from "@/components/sort"
-import { IOption } from "@/constants"
-import { useAll } from "@/api/queries/news-and-events"
+import { ICardBlog, IOption } from "@/constants"
+import DefaultLayout from "@/layouts/default"
 
 const LIMIT = 10
 
-type Props = {}
+type Props = {
+  posts: ICardBlog[]
+}
 
-const NewsAndEvents = (props: Props) => {
+const NewsAndEvents = ({ posts }: Props) => {
+  const router = useRouter()
   const ref = useRef(null)
   const [limit, setLimit] = useState(LIMIT)
   const [keyword, setKeyword] = useState("")
   const [sort, setSort] = useState<IOption | null>(null)
-  const { data } = useAll(limit, keyword, sort)
+
+  useIsomorphicLayoutEffect(() => {
+    router.push(
+      {
+        pathname: "/news-and-events",
+        query: {
+          ...(limit && { limit }),
+          ...(keyword && { keyword }),
+          ...(sort && { sort: sort?.value }),
+        },
+      },
+      "/news-and-events"
+    )
+  }, [keyword, limit, sort])
 
   // infinite fetch
   useIsomorphicLayoutEffect(() => {
@@ -67,10 +85,10 @@ const NewsAndEvents = (props: Props) => {
             </div>
           </div>
           <div className={cn(s.list, "list")}>
-            {data &&
-              data.map((item) => {
-                return <div>item</div>
-              })}
+            {/* {posts.length &&
+              posts.map((item) => {
+                return <div>{item.title}</div>
+              })} */}
           </div>
         </div>
       </div>
@@ -79,3 +97,19 @@ const NewsAndEvents = (props: Props) => {
 }
 
 export default NewsAndEvents
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await apiClient.get("/newsAndEvents.php", {
+    params: {
+      ...context.query,
+    },
+  })
+
+  const posts = await res.data
+
+  return {
+    props: {
+      posts,
+    },
+  }
+}

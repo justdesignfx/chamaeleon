@@ -19,3 +19,32 @@ export function capitalize(sentence: string): string {
   const result: string = capitalizedWords.join(" ")
   return result
 }
+
+export function shareOnSocialMedia() {
+  const title = document.title
+  const text = "Check this out!"
+  const url = window.location.href
+
+  const copyContent = async () => {
+    try {
+      await navigator.clipboard.writeText(`https://producture.justdesignfx.com${location.pathname}`)
+      console.log("Content copied to clipboard", `https://producture.justdesignfx.com${location.pathname}`)
+    } catch (err) {
+      console.error("Failed to copy: ", err)
+    }
+  }
+
+  if (navigator.share !== undefined) {
+    navigator
+      .share({
+        title,
+        text,
+        url,
+      })
+      .then(() => console.log("Shared!"))
+      .catch((err) => console.error(err))
+  } else {
+    // window.location.href = `mailto:?subject=${title}&body=${text}%0A${url}`
+    copyContent()
+  }
+}

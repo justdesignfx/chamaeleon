@@ -109,3 +109,13 @@ export interface IOption {
   label: string
   value: string
 }
+
+export interface IPost {
+  date: string
+  title: string
+  readingTime: string
+  cover: Media
+  text: HTMLElement
+  image: Media[]
+  nexPost: string
+}

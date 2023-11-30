@@ -1,0 +1,251 @@
+.text {
+  color: var(--cloud-break);
+  font-family: PrdExtended;
+  z-index: 10;
+
+  @include mobile {
+    margin-bottom: mobile-vw(60px);
+    text-align: center;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pre {
+    display: block;
+    font-size: desktop-vw(15px);
+    margin-bottom: desktop-vw(10px);
+    font-weight: 100;
+
+    @include mobile {
+      font-size: mobile-vw(14px);
+      margin-bottom: mobile-vw(16px);
+      order: 2;
+    }
+
+    .category {
+      font-weight: 300;
+    }
+
+    .date {
+      font-weight: 100;
+    }
+  }
+
+  .title {
+    font-size: desktop-vw(35px);
+    font-weight: 300;
+    margin-bottom: desktop-vw(70px);
+
+    @include mobile {
+      font-size: mobile-vw(24px);
+      line-height: 1.5;
+      margin-bottom: mobile-vw(20px);
+      order: 1;
+    }
+  }
+}
+
+.blogDetail {
+  padding-bottom: desktop-vw(120px);
+
+  @include mobile {
+    padding-bottom: mobile-vw(0px);
+  }
+}
+
+.item {
+  margin-bottom: desktop-vw(16px);
+
+  &:first-child {
+    margin-top: desktop-vw(-90px);
+  }
+}
+
+.intro {
+  padding: var(--padding-l);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include mobile {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .btn {
+    border: 1px solid var(--blue-zodiac);
+    border-radius: desktop-vw(32px);
+    color: var(--cloud-break);
+    font-family: PrdExtended;
+    font-size: desktop-vw(16px);
+    font-weight: 100;
+    padding: desktop-vw(6px) desktop-vw(16px);
+
+    @include mobile {
+      border-radius: mobile-vw(32px);
+      font-size: mobile-vw(12px);
+      margin-bottom: mobile-vw(80px);
+      margin-right: auto;
+      padding: mobile-vw(6px) mobile-vw(16px);
+    }
+  }
+
+  .info {
+    width: desktop-vw(600px);
+
+    @include mobile {
+      width: 100%;
+    }
+
+    .actions {
+      width: 100%;
+
+      display: flex;
+      flex-shrink: 0;
+      justify-content: space-between;
+      align-items: center;
+
+      .readingTime {
+        color: var(--cloud-break);
+        font-family: PrdExtended;
+        font-size: desktop-vw(14px);
+        font-weight: 100;
+
+        display: flex;
+
+        @include mobile {
+          font-size: mobile-vw(12px);
+        }
+
+        .iconC {
+          @include dims(desktop-vw(22px));
+          margin-right: desktop-vw(12px);
+
+          @include mobile {
+            @include dims(mobile-vw(18px));
+            margin-right: mobile-vw(12px);
+          }
+        }
+      }
+
+      .social {
+        display: flex;
+        column-gap: desktop-vw(16px);
+        flex-shrink: 0;
+        margin-left: auto;
+
+        @include mobile {
+          column-gap: mobile-vw(16px);
+        }
+
+        .iconC {
+          @include dims(desktop-vw(12px));
+          position: relative;
+          pointer-events: auto;
+
+          @include mobile {
+            @include dims(mobile-vw(12px));
+          }
+
+          &.show {
+            pointer-events: none;
+          }
+
+          .popover {
+            @include position(absolute, auto, auto, 120%, 100%);
+            background: #000;
+            border-radius: desktop-vw(4px);
+            color: var(--cloud-break);
+            font-size: desktop-vw(10px);
+            opacity: 0;
+            padding: desktop-vw(4px) desktop-vw(8px);
+            pointer-events: none;
+            transition: 0.3s all ease;
+            text-align: center;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.show {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.marqueeC {
+  position: relative;
+  margin: desktop-vw(80px) 0;
+
+  .imgC {
+    @include position(absolute, desktop-vw(25px), auto, auto, desktop-vw(110px));
+    width: desktop-vw(310px);
+
+    @include mobile {
+      @include position(absolute, mobile-vw(25px), auto, auto mobile-vw(110px));
+      width: mobile-vw(150px);
+    }
+  }
+
+  .sceneryC {
+    @include position(absolute, desktop-vw(85px), auto, auto, desktop-vw(300px));
+    width: desktop-vw(55px);
+
+    @include mobile {
+      @include position(absolute, mobile-vw(50px), auto, auto, mobile-vw(90px));
+      width: mobile-vw(25px);
+    }
+  }
+
+  .marqueeText {
+    color: var(--liliac);
+    font-family: PrdCompressed;
+    font-size: desktop-vw(230px);
+    margin-right: desktop-vw(80px);
+
+    @include mobile {
+      font-size: mobile-vw(114px);
+      margin-right: mobile-vw(30px);
+    }
+  }
+
+  .buttonC {
+    @include position(absolute, desktop-vw(170px), auto, auto, desktop-vw(425px));
+    box-shadow: 10px 10px 0px #00000098;
+    transform: rotate(-6deg);
+    border-radius: desktop-vw(64px);
+
+    .button {
+      background: var(--cloud-break);
+      border: 4px solid var(--kuretake-black-manga);
+      border-radius: desktop-vw(64px);
+      color: var(--cloud-break);
+      font-size: desktop-vw(41px);
+      font-family: PrdExtended;
+      font-weight: 100;
+      height: desktop-vw(calc(100px - 8px));
+      width: desktop-vw(460px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        --fill-color: var(--kuretake-black-manga);
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+}

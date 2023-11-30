@@ -4,6 +4,12 @@
   justify-content: space-around;
   padding-top: var(--page-padding-top);
 
+  @include mobile {
+    flex-direction: column;
+    margin: 0 var(--mobile-padding-x);
+    margin-bottom: mobile-vw(50px);
+  }
+
   > h1 {
     color: var(--pine-grove);
     font-family: var(--font-helvetica-neue);
@@ -11,21 +17,42 @@
     font-weight: 400;
     line-height: 2;
     width: desktop-vw(430px);
+
+    @include mobile {
+      font-size: mobile-vw(20px);
+      text-align: center;
+      width: auto;
+    }
   }
 
   > .imgC {
     @include dims(desktop-vw(550px), auto);
     margin-bottom: desktop-vw(150px);
+
+    @include mobile {
+      @include dims(mobile-vw(350px), auto);
+      margin-bottom: unset;
+    }
   }
 }
 
 .mantis {
+  @include mobile {
+    margin: 0 var(--mobile-padding-x);
+  }
+
   > .imgC {
     @include dims(desktop-vw(1380px), desktop-vw(450px));
     border-radius: desktop-vw(25px);
     margin: 0 auto;
     margin-bottom: desktop-vw(75px);
     overflow: hidden;
+
+    @include mobile {
+      @include dims(auto, mobile-vw(150px));
+      border-radius: mobile-vw(12px);
+      margin-bottom: mobile-vw(30px);
+    }
   }
 
   > p {
@@ -35,26 +62,37 @@
     font-weight: 400;
     line-height: 1.5;
     margin: 0 auto;
-    width: desktop-vw(1000px);
     text-align: center;
-  }
-}
+    width: desktop-vw(1000px);
 
-.mantisMarquee {
-  margin-bottom: desktop-vw(200px);
-  z-index: -1;
-
-  &.rotated {
-    transform: rotate(-6deg) translateX(-50vw);
-    width: 200vw;
+    @include mobile {
+      font-size: mobile-vw(24px);
+      line-height: 1.75;
+      width: auto;
+    }
   }
 
-  h5 {
-    color: var(--maui-mist);
-    font-family: var(--font-first-aid-kit-f);
-    font-size: desktop-vw(250px);
-    font-weight: 700;
-    margin: 0 desktop-vw(60px);
+  > .marquee {
+    margin-bottom: desktop-vw(200px);
+    z-index: -1;
+
+    &.rotated {
+      transform: rotate(-6deg) translateX(-50vw);
+      width: 200vw;
+    }
+
+    h5 {
+      color: var(--maui-mist);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(250px);
+      font-weight: 700;
+      margin: 0 desktop-vw(60px);
+
+      @include mobile {
+        font-size: mobile-vw(125px);
+        margin: 0 mobile-vw(30px);
+      }
+    }
   }
 }
 
@@ -67,24 +105,51 @@
   position: relative;
   z-index: 10;
 
+  @include mobile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    margin-bottom: mobile-vw(50px);
+    padding: mobile-vw(50px) mobile-vw(16px);
+  }
+
   > .imgs {
     align-items: flex-start;
     column-gap: desktop-vw(25px);
     display: flex;
     justify-content: space-around;
 
+    @include mobile {
+      margin-bottom: mobile-vw(50px);
+    }
+
     .imgC {
       border-radius: desktop-vw(10px);
       overflow: hidden;
 
+      @include mobile {
+        border-radius: mobile-vw(10px);
+      }
+
       &.a {
         @include dims(desktop-vw(250px), desktop-vw(600px));
         margin-top: desktop-vw(-10px);
+
+        @include mobile {
+          @include dims(mobile-vw(155px), mobile-vw(300px));
+          margin-top: mobile-vw(-30px);
+        }
       }
 
       &.b {
         @include dims(desktop-vw(300px), desktop-vw(660px));
         margin-top: desktop-vw(-200px);
+
+        @include mobile {
+          @include dims(mobile-vw(155px), mobile-vw(330px));
+          margin-top: mobile-vw(-100px);
+        }
       }
     }
   }
@@ -95,6 +160,10 @@
     display: flex;
     flex-direction: column;
 
+    @include mobile {
+      margin: mobile-vw(50px) 0;
+    }
+
     p {
       color: var(--pine-grove);
       font-family: var(--font-helvetica-neue);
@@ -104,6 +173,13 @@
       margin-bottom: desktop-vw(50px);
       width: desktop-vw(400px);
 
+      @include mobile {
+        font-size: mobile-vw(18px);
+        margin-bottom: mobile-vw(20px);
+        text-align: center;
+        width: auto;
+      }
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -112,6 +188,8 @@
 }
 
 .approach {
+  margin: 0 var(--mobile-padding-x);
+
   > p {
     color: var(--pine-grove);
     font-family: var(--font-helvetica-neue);
@@ -121,5 +199,11 @@
     margin: 0 auto;
     text-align: center;
     width: desktop-vw(1200px);
+
+    @include mobile {
+      font-size: mobile-vw(24px);
+      line-height: 1.75;
+      width: auto;
+    }
   }
 }

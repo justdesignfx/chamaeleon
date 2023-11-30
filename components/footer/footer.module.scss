@@ -102,16 +102,18 @@
   }
 
   .social {
+    @include dims(auto, desktop-vw(120px));
     align-items: center;
     column-gap: desktop-vw(20px);
     display: flex;
-    padding: desktop-vw(50px) desktop-vw(40px);
+    padding: 0 desktop-vw(40px);
 
     @include mobile {
+      @include dims(auto, mobile-vw(120px));
       column-gap: mobile-vw(20px);
       justify-content: space-between;
       order: 2;
-      padding: mobile-vw(50px) mobile-vw(40px);
+      padding: 0 mobile-vw(40px);
     }
 
     .iconC {

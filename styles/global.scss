@@ -22,9 +22,10 @@
 
   @include mobile {
     --header-height: #{mobile-vw(60px)};
+    --page-padding-top: #{mobile-vw(50px)};
     --upcoming-accordion-height: #{mobile-vw(30px)};
     --nav-height: #{mobile-vw(30px)};
-    --mobile-padding-x: #{mobile-vw(20px)};
+    --mobile-padding-x: #{mobile-vw(10px)};
   }
 }
 

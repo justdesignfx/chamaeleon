@@ -2,6 +2,10 @@
   margin: 0 auto;
   padding: desktop-vw(100px) 0;
 
+  @include mobile {
+    padding: mobile-vw(100px) 0;
+  }
+
   > small {
     color: var(--nightly-woods);
     column-gap: desktop-vw(8px);
@@ -11,9 +15,19 @@
     line-height: 1.5;
     margin-bottom: desktop-vw(10px);
 
+    @include mobile {
+      column-gap: mobile-vw(8px);
+      font-size: mobile-vw(18px);
+      margin-bottom: mobile-vw(10px);
+    }
+
     .iconC {
       @include dims(desktop-vw(10px));
       flex-shrink: 0;
+
+      @include mobile {
+        @include dims(mobile-vw(10px));
+      }
     }
   }
 }

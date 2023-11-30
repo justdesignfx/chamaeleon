@@ -78,14 +78,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-// export async function getServerSideProps(context) => {
-//   // Fetch additional data for the component
-//   const componentData = await fetchComponentData();
-
-//   return {
-//     props: {
-//       componentData,
-//     },
-//   };
-// };

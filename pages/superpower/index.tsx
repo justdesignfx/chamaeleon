@@ -48,7 +48,7 @@ const Superpower = () => {
           Our human-in-the-loop approach combines world-class investment and data science expertise with cutting-edge
           models, data and in-house technology to generate superior investment outcomes.
         </p>
-        <div className={cn(s.mantisMarquee, s.rotated)}>
+        <div className={cn(s.marquee, s.rotated)}>
           <Marquee duration={30}>
             <>
               <h5>MANTIS</h5>
@@ -61,7 +61,7 @@ const Superpower = () => {
 
       <section className={cn(s.details, "island")}>
         <div className={s.imgs}>
-          <Parallax speedX={0} speedY={0.15} directionY={-1}>
+          <Parallax speedX={0} speedY={0.15} directionY={1}>
             <div className={cn(s.imgC, s.a)}>
               <CustomImage
                 src="/img/mantis-1.jpg"

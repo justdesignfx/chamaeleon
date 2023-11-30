@@ -1,6 +1,7 @@
 import React from "react"
 import s from "./terms-and-conditions.module.scss"
 import DefaultLayout from "@/layouts/default"
+import { CustomLink } from "@/components/custom-link"
 
 const TermsAndConditions = () => {
   return (
@@ -25,8 +26,8 @@ const TermsAndConditions = () => {
         <p>
           You may download and print materials from this site solely for your personal use, but you may not use or copy
           them for commercial purposes, make more than a few copies of a given page or item or copy a substantial
-          proportion of the site, except with our prior written permission. Requests for permission should be sent to
-          helloworld@chamaeleon.vc
+          proportion of the site, except with our prior written permission. Requests for permission should be sent to{" "}
+          <CustomLink href="mailto:helloworld@chamaeleon.vc">helloworld@chamaeleon.vc</CustomLink>
         </p>
         <p>
           Copies must not alter the original content and must reproduce our copyright notices. Except as otherwise
@@ -45,21 +46,21 @@ const TermsAndConditions = () => {
           make no commitment regarding the availability, performance or functions of the site and give no warranty that
           your access to the site or use of the materials on the site will be lawful in any particular jurisdiction -
           you are responsible for compliance with local law and regulation. You acknowledge that we provide the contents
-          of this site on an &quot;as is&quot; basis with no warranties of any kind. The use of this site and use or
-          reliance upon any materials or information on it is solely at your own risk. Chamaeleon LLC does not guarantee
-          that material on this site will be free from infection, viruses, worms, trojan horses and/or other similar
-          code. You are responsible for virus checking and taking any other protective steps. The site was developed,
-          and is hosted, by a third-party for whose acts and omissions we accept no responsibility. There may be links
-          from the site to external Internet sites. In addition, third-party sites may be linked to this site, with or
-          without Chamaeleon LLC's consent. Accordingly, we expressly disclaim any responsibility for the content, the
-          accuracy of the information, the quality of services provided by or advertised on and/or software downloaded
-          from any such third-party sites. Moreover, any link from the site to a third-party site does not constitute an
-          endorsement by Chamaeleon LLC of any third-party site or the products or services provided by any third party,
-          and Chamaeleon LLC takes no responsibility therefore. Chamaeleon LLC's liability is limited to the maximum
-          extent permitted by law and is limited even if Chamaeleon LLC has been advised of the possibility of the
-          damages, liability or injury that you suffer, including any damages, liabilities or injury caused by any
-          failure of performance, error, omission, defect, interruption, delay in operation, computer virus, line
-          failure or other computer malfunction.
+          of this site on an "as is" basis with no warranties of any kind. The use of this site and use or reliance upon
+          any materials or information on it is solely at your own risk. Chamaeleon LLC does not guarantee that material
+          on this site will be free from infection, viruses, worms, trojan horses and/or other similar code. You are
+          responsible for virus checking and taking any other protective steps. The site was developed, and is hosted,
+          by a third-party for whose acts and omissions we accept no responsibility. There may be links from the site to
+          external Internet sites. In addition, third-party sites may be linked to this site, with or without Chamaeleon
+          LLC's consent. Accordingly, we expressly disclaim any responsibility for the content, the accuracy of the
+          information, the quality of services provided by or advertised on and/or software downloaded from any such
+          third-party sites. Moreover, any link from the site to a third-party site does not constitute an endorsement
+          by Chamaeleon LLC of any third-party site or the products or services provided by any third party, and
+          Chamaeleon LLC takes no responsibility therefore. Chamaeleon LLC's liability is limited to the maximum extent
+          permitted by law and is limited even if Chamaeleon LLC has been advised of the possibility of the damages,
+          liability or injury that you suffer, including any damages, liabilities or injury caused by any failure of
+          performance, error, omission, defect, interruption, delay in operation, computer virus, line failure or other
+          computer malfunction.
         </p>
         <h2>Governing Law and Arbitration</h2>
         <p>

@@ -3,6 +3,10 @@
   position: relative;
   z-index: 5;
 
+  @include mobile {
+    margin-bottom: mobile-vw(20px);
+  }
+
   > .content {
     align-items: center;
     background-color: var(--forestial);
@@ -13,6 +17,12 @@
     padding: desktop-vw(30px);
     position: relative;
 
+    @include mobile {
+      height: mobile-vw(460px);
+      justify-content: center;
+      padding: mobile-vw(30px);
+    }
+
     h1 {
       color: var(--forested-juniper);
       font-family: var(--font-first-aid-kit-f);
@@ -20,6 +30,12 @@
       font-weight: 700;
       line-height: 0.9;
       margin-bottom: desktop-vw(50px);
+
+      @include mobile {
+        font-size: mobile-vw(70px);
+        margin-bottom: mobile-vw(50px);
+        text-align: center;
+      }
     }
   }
 
@@ -27,6 +43,12 @@
     @include position(absolute, auto, desktop-vw(110px), desktop-vw(-140px), auto);
     @include dims(desktop-vw(490px));
     transform: rotate(-12deg);
+
+    @include mobile {
+      @include position(absolute, auto, auto, mobile-vw(10px), 50%);
+      @include dims(mobile-vw(150px));
+      transform: translateX(-50%) rotate(-12deg);
+    }
   }
 }
 
@@ -37,22 +59,43 @@
   position: relative;
   z-index: 10;
 
-  > .rocket {
-    align-items: center;
+  @include mobile {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    grid-template-columns: unset;
+    margin-bottom: mobile-vw(100px);
+  }
+
+  > .rocket {
     margin-left: desktop-vw(100px);
     margin-top: desktop-vw(100px);
+
+    @include mobile {
+      margin: 0 auto;
+      margin-top: mobile-vw(100px);
+
+      display: none;
+    }
 
     .imgC {
       @include dims(desktop-vw(420px), auto);
       margin-left: desktop-vw(100px);
+
+      @include mobile {
+        @include dims(mobile-vw(320px), auto);
+        margin: 0 auto;
+      }
     }
   }
 
   > .text {
     padding-top: desktop-vw(100px);
+
+    @include mobile {
+      margin: 0 mobile-vw(16px);
+      padding-top: mobile-vw(50px);
+      text-align: center;
+    }
 
     > h2 {
       color: var(--nightly-woods);
@@ -60,6 +103,11 @@
       font-size: desktop-vw(25px);
       font-weight: 700;
       margin-bottom: desktop-vw(25px);
+
+      @include mobile {
+        font-size: mobile-vw(25px);
+        margin-bottom: mobile-vw(25px);
+      }
     }
 
     > h3 {
@@ -67,8 +115,14 @@
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(70px);
       font-weight: 700;
-      width: desktop-vw(670px);
       margin-bottom: desktop-vw(40px);
+      width: desktop-vw(670px);
+
+      @include mobile {
+        font-size: mobile-vw(40px);
+        margin-bottom: mobile-vw(40px);
+        width: auto;
+      }
     }
 
     > p {
@@ -79,6 +133,12 @@
       line-height: 1.6;
       margin-bottom: desktop-vw(50px);
       width: desktop-vw(490px);
+
+      @include mobile {
+        font-size: mobile-vw(16px);
+        margin-bottom: mobile-vw(50px);
+        width: auto;
+      }
     }
   }
 }
@@ -86,9 +146,18 @@
 .investments {
   margin: desktop-vw(50px) 0;
 
+  @include mobile {
+    margin: mobile-vw(30px) 0;
+  }
+
   .logoC {
     @include dims(desktop-vw(115px), desktop-vw(50px));
     margin: 0 desktop-vw(50px);
+
+    @include mobile {
+      @include dims(mobile-vw(115px), mobile-vw(50px));
+      margin: 0 mobile-vw(50px);
+    }
   }
 }
 
@@ -101,6 +170,11 @@
   padding: desktop-vw(115px) desktop-vw(70px);
   position: relative;
 
+  @include mobile {
+    margin-bottom: mobile-vw(150px);
+    padding: mobile-vw(50px) mobile-vw(12px) mobile-vw(12px) mobile-vw(12px);
+  }
+
   > h3 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
@@ -111,6 +185,12 @@
     margin-bottom: desktop-vw(75px);
     text-align: center;
     width: desktop-vw(1150px);
+
+    @include mobile {
+      font-size: mobile-vw(45px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
 
     .forestial {
       color: var(--forestial);
@@ -131,6 +211,10 @@
       margin-left: desktop-vw(-20px);
       width: $width;
 
+      @include mobile {
+        $width: mobile-vw(120px);
+      }
+
       .imgC {
         @include position(absolute, 50%, auto, auto, 0);
         @include dims($width, auto);
@@ -141,6 +225,10 @@
     .b {
       $width: desktop-vw(240px);
       width: $width;
+
+      @include mobile {
+        $width: mobile-vw(120px);
+      }
 
       .imgC {
         @include position(absolute, 50%, 0, auto, auto);
@@ -153,15 +241,26 @@
 
   > .imgC {
     @include dims(desktop-vw(1300px), desktop-vw(600px));
+    border-radius: desktop-vw(9px);
     margin-bottom: desktop-vw(-400px);
     margin-top: desktop-vw(100px);
     overflow: hidden;
-    border-radius: desktop-vw(9px);
+
+    @include mobile {
+      @include dims(100%, auto);
+      border-radius: mobile-vw(9px);
+      margin-bottom: unset;
+      margin-top: mobile-vw(50px);
+    }
   }
 
   > .marquee {
     @include position(absolute, calc(100% + desktop-vw(240px)), auto, auto, 50%);
     transform: translateX(-50%);
+
+    @include mobile {
+      @include position(absolute, calc(100% + mobile-vw(25px)), auto, auto, 50%);
+    }
 
     h5 {
       color: var(--nightly-woods);
@@ -169,6 +268,11 @@
       font-size: desktop-vw(150px);
       font-weight: 700;
       margin: 0 desktop-vw(60px);
+
+      @include mobile {
+        font-size: mobile-vw(75px);
+        margin: 0 mobile-vw(60px);
+      }
     }
   }
 }
@@ -180,12 +284,24 @@
   position: relative;
   z-index: 10;
 
+  @include mobile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    margin-bottom: mobile-vw(100px);
+  }
+
   &::after {
     content: "";
     @include position(absolute, auto, auto, desktop-vw(-75px), 50%);
     @include dims(85%, 1px);
     background: var(--cloudy-day);
     transform: translateX(-50%);
+
+    @include mobile {
+      @include position(absolute, auto, auto, mobile-vw(-75px), 50%);
+    }
   }
 
   .chamaeleon {
@@ -193,11 +309,21 @@
     margin-top: desktop-vw(100px);
     position: relative;
 
+    @include mobile {
+      margin: 0 auto;
+      margin-top: mobile-vw(100px);
+    }
+
     .imgC {
       &:nth-child(1) {
         @include dims(desktop-vw(500px));
         border-radius: desktop-vw(20px);
         overflow: hidden;
+
+        @include mobile {
+          @include dims(mobile-vw(340px));
+          border-radius: mobile-vw(20px);
+        }
       }
 
       &:nth-child(2) {
@@ -206,6 +332,12 @@
         border-radius: desktop-vw(20px);
         overflow: hidden;
         transform: rotate(16deg);
+
+        @include mobile {
+          @include position(absolute, mobile-vw(-70px), mobile-vw(-20px), auto, auto);
+          @include dims(mobile-vw(280px), auto);
+          border-radius: mobile-vw(20px);
+        }
       }
     }
   }
@@ -213,12 +345,23 @@
   .text {
     padding-top: desktop-vw(100px);
 
+    @include mobile {
+      margin: 0 mobile-vw(16px);
+      padding-top: mobile-vw(50px);
+      text-align: center;
+    }
+
     > h2 {
       color: var(--nightly-woods);
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(25px);
       font-weight: 700;
       margin-bottom: desktop-vw(25px);
+
+      @include mobile {
+        font-size: mobile-vw(25px);
+        margin-bottom: mobile-vw(25px);
+      }
     }
 
     > h3 {
@@ -229,6 +372,12 @@
       line-height: 1.15;
       margin-bottom: desktop-vw(40px);
       width: desktop-vw(670px);
+
+      @include mobile {
+        font-size: mobile-vw(50px);
+        margin-bottom: mobile-vw(40px);
+        width: auto;
+      }
     }
 
     > p {
@@ -239,6 +388,12 @@
       line-height: 1.6;
       margin-bottom: desktop-vw(50px);
       width: desktop-vw(480px);
+
+      @include mobile {
+        font-size: mobile-vw(16px);
+        margin-bottom: mobile-vw(50px);
+        width: auto;
+      }
     }
   }
 }
@@ -246,6 +401,11 @@
 .kin {
   margin-bottom: desktop-vw(50px);
   padding: desktop-vw(80px);
+
+  @include mobile {
+    margin-bottom: 0;
+    padding: mobile-vw(50px) mobile-vw(16px);
+  }
 
   > h4 {
     color: var(--nightly-woods);
@@ -256,15 +416,32 @@
     margin-bottom: desktop-vw(50px);
     text-align: center;
 
+    @include mobile {
+      font-size: mobile-vw(50px);
+      margin-bottom: mobile-vw(50px);
+    }
+
     > span {
       display: block;
 
+      @include mobile {
+        display: inline;
+      }
+
       &:nth-child(1) {
         margin-right: desktop-vw(240px);
+
+        @include mobile {
+          margin: unset;
+        }
       }
 
       &:nth-child(2) {
         margin-left: desktop-vw(240px);
+
+        @include mobile {
+          margin: unset;
+        }
       }
     }
   }
@@ -274,8 +451,22 @@
     grid-template-columns: repeat(2, 1fr);
     position: relative;
 
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: unset;
+    }
+
     .text {
       padding-top: desktop-vw(100px);
+
+      @include mobile {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+        padding-top: 0;
+      }
 
       > p {
         color: var(--nightly-woods);
@@ -286,6 +477,13 @@
         margin-bottom: desktop-vw(50px);
         width: desktop-vw(460px);
 
+        @include mobile {
+          font-size: mobile-vw(20px);
+          margin-bottom: mobile-vw(50px);
+          text-align: center;
+          width: auto;
+        }
+
         strong {
           font-weight: 700;
         }
@@ -295,11 +493,22 @@
     .imgs {
       position: relative;
 
+      @include mobile {
+        margin-bottom: mobile-vw(50px);
+        order: 1;
+      }
+
       .imgC {
         &:nth-child(1) {
           @include dims(desktop-vw(520px), desktop-vw(240px));
           border-radius: desktop-vw(20px);
           overflow: hidden;
+
+          @include mobile {
+            @include dims(100%, mobile-vw(150px));
+            border-radius: mobile-vw(12px);
+            margin-bottom: mobile-vw(10px);
+          }
         }
 
         &:nth-child(2) {
@@ -307,12 +516,23 @@
           @include dims(desktop-vw(380px), auto);
           border-radius: desktop-vw(20px);
           overflow: hidden;
+
+          @include mobile {
+            @include position(relative, auto, auto, auto, auto);
+            @include dims(100%, mobile-vw(200px));
+            border-radius: mobile-vw(12px);
+          }
         }
 
         &:nth-child(3) {
           @include position(absolute, desktop-vw(210px), auto, auto, desktop-vw(-50px));
           @include dims(desktop-vw(160px), auto);
           transform: rotate(-10deg);
+
+          @include mobile {
+            @include position(absolute, mobile-vw(110px), auto, auto, mobile-vw(80px));
+            @include dims(mobile-vw(160px), auto);
+          }
         }
       }
     }

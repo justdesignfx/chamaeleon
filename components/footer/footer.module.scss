@@ -10,6 +10,11 @@
     font-family: var(--font-helvetica-neue);
     font-size: desktop-vw(15px);
     line-height: 1.6;
+
+    @include mobile {
+      font-size: mobile-vw(15px);
+      text-align: center;
+    }
   }
 
   .top {
@@ -18,25 +23,62 @@
     margin-bottom: desktop-vw(10px);
     padding: 0 desktop-vw(40px);
 
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: unset;
+      margin-bottom: mobile-vw(30px);
+      padding: 0 mobile-vw(16px);
+      row-gap: mobile-vw(50px);
+    }
+
     > div {
       &:nth-child(1) {
         margin-top: auto;
+
+        @include mobile {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          order: 2;
+        }
       }
 
       &:nth-child(2) {
+        @include mobile {
+          order: 1;
+        }
+
         .copyright {
           display: flex;
           justify-content: space-between;
+
+          @include mobile {
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: mobile-vw(30px);
+          }
         }
       }
     }
 
     nav {
-      row-gap: desktop-vw(5px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       margin-bottom: desktop-vw(75px);
       margin-top: desktop-vw(50px);
+      row-gap: desktop-vw(5px);
+
+      @include mobile {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: mobile-vw(75px);
+        margin-top: mobile-vw(50px);
+        row-gap: mobile-vw(5px);
+      }
     }
   }
 
@@ -47,6 +89,12 @@
     font-weight: 700;
     margin-bottom: desktop-vw(30px);
     text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(70px);
+      margin-bottom: mobile-vw(120px);
+      order: 3;
+    }
 
     span {
       font-family: var(--font-helvetica-neue);
@@ -59,14 +107,30 @@
     display: flex;
     padding: desktop-vw(50px) desktop-vw(40px);
 
+    @include mobile {
+      column-gap: mobile-vw(20px);
+      justify-content: space-between;
+      order: 2;
+      padding: mobile-vw(50px) mobile-vw(40px);
+    }
+
     .iconC {
       @include dims(desktop-vw(20px), desktop-vw(15px));
       display: block;
+
+      @include mobile {
+        @include dims(mobile-vw(20px), mobile-vw(15px));
+      }
     }
   }
 
   .imgC {
     @include position(absolute, auto, desktop-vw(50px), 0, auto);
     @include dims(desktop-vw(720px), desktop-vw(215px));
+
+    @include mobile {
+      @include position(absolute, auto, mobile-vw(0px), 0, auto);
+      @include dims(100%, auto);
+    }
   }
 }

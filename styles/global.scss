@@ -21,7 +21,7 @@
   --font-helvetica-neue: HelveticaNeue;
 
   @include mobile {
-    --header-height: #{mobile-vw(80px)};
+    --header-height: #{mobile-vw(60px)};
     --upcoming-accordion-height: #{mobile-vw(30px)};
     --nav-height: #{mobile-vw(30px)};
     --mobile-padding-x: #{mobile-vw(20px)};
@@ -100,6 +100,11 @@ sup {
   border-radius: desktop-vw(20px);
   margin: 0 desktop-vw(20px);
   // box-shadow: 0 0 2px 0px white inset, 0 0 2px 0px white;
+
+  @include mobile {
+    border-radius: mobile-vw(20px);
+    margin: 0 mobile-vw(10px);
+  }
 }
 
 .inherit-dims {

@@ -5,9 +5,17 @@
   justify-content: space-between;
   padding: 0 desktop-vw(40px);
 
+  @include mobile {
+    padding: 0 mobile-vw(16px);
+  }
+
   .logoC {
     @include dims(desktop-vw(210px), auto);
     z-index: z-index("hamburger");
+
+    @include mobile {
+      @include dims(mobile-vw(110px), auto);
+    }
   }
 
   .hamburger {
@@ -21,6 +29,13 @@
     font-weight: 700;
     overflow: hidden;
     z-index: z-index("hamburger");
+
+    @include mobile {
+      @include position(fixed, calc(var(--header-height / 2)), mobile-vw(16px), auto, auto);
+      @include dims(mobile-vw(85px), mobile-vw(36px));
+      border-radius: mobile-vw(45px);
+      font-size: mobile-vw(25px);
+    }
 
     .btn {
       @include dims(100%);

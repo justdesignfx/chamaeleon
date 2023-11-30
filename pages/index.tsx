@@ -62,7 +62,7 @@ export default function Home({ companies }: Props) {
       </section>
 
       <section className={s.manifesto}>
-        <div className={s.rocket}>
+        <div className={cn(s.rocket, "flex-center-y")}>
           <Parallax speedX={0} directionY={-1} speedY={0.2}>
             <div className={s.imgC}>
               <CustomImage

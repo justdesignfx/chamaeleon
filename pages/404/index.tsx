@@ -1,4 +1,4 @@
-import NonFooter from "@/layouts/non-footer"
+import { NonFooter } from "@/layouts/non-footer"
 import s from "./not-found.module.scss"
 
 import cn from "clsx"

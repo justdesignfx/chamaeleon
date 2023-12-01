@@ -18,8 +18,6 @@ type Props = {
 const DefaultLayout = ({ children, theme = "main" }: Props) => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
 
-  console.log(isMobile)
-
   return (
     <>
       <div className={cn("layout", `theme-${theme}`)}>
@@ -40,4 +38,4 @@ const DefaultLayout = ({ children, theme = "main" }: Props) => {
   )
 }
 
-export default DefaultLayout
+export { DefaultLayout }

@@ -8,7 +8,7 @@ import { CardFloatProps } from "@/types"
 
 type Props = CardFloatProps
 
-export const CardFloat = (props: Props): JSX.Element => {
+const CardFloat = (props: Props): JSX.Element => {
   return (
     <div
       className={s.cardFloat}
@@ -25,4 +25,4 @@ export const CardFloat = (props: Props): JSX.Element => {
   )
 }
 
-CardFloat.displayName = "CardFloat"
+export { CardFloat }

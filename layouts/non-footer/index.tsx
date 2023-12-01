@@ -20,4 +20,4 @@ const NonFooter = ({ children, theme = "main" }: Props) => {
   )
 }
 
-export default NonFooter
+export { NonFooter }

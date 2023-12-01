@@ -9,7 +9,7 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Searchbox } from "@/components/searchbox"
 import { Sort } from "@/components/sort"
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 
 import { apiClient } from "@/api"
 import { CardPostProps, OptionProps } from "@/types"

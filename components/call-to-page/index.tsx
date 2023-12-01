@@ -1,4 +1,3 @@
-import React from "react"
 import s from "./call-to-page.module.scss"
 
 import cn from "clsx"
@@ -12,7 +11,7 @@ type Props = {
   href: string
 }
 
-export const CallToPage = (props: Props) => {
+const CallToPage = (props: Props) => {
   return (
     <div className={cn(s.callToPage, "flex-center-y")}>
       <small className="flex-center">
@@ -26,4 +25,4 @@ export const CallToPage = (props: Props) => {
   )
 }
 
-CallToPage.displayName = "CallToPage"
+export { CallToPage }

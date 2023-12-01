@@ -3,7 +3,7 @@
 
 // import cn from "clsx"
 
-// import DefaultLayout from "@/layouts/default"
+// import { DefaultLayout } from "@/layouts/default"
 // import { apiClient } from "@/api"
 // import { GetServerSideProps } from "next"
 // import { IPost } from "@/constants"

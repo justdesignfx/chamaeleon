@@ -8,7 +8,7 @@ import { CallToPage } from "@/components/call-to-page"
 import { CustomImage } from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 import { Pixels } from "@/components/pixels"
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 import { routes } from "@/constants"
 
 import logoMantis from "@/public/img/logo-mantis.png"

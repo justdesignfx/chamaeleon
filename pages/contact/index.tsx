@@ -10,7 +10,7 @@ import { CustomImage } from "@/components/custom-image"
 
 import { useContactForm } from "@/api/mutations"
 import { routes } from "@/constants"
-import NonFooter from "@/layouts/non-footer"
+import { NonFooter } from "@/layouts/non-footer"
 
 import chamaeleon from "@/public/img/chamaeleon-hole.png"
 

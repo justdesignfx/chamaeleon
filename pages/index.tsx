@@ -13,7 +13,7 @@ import { Pixels } from "@/components/pixels"
 
 import { all } from "@/api/queries/home-portfolio"
 import { routes } from "@/constants"
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 
 import chamaeleonC from "@/public/img/chamaeleon-c.gif"
 import chamaeleonOnHill from "@/public/img/chamaeleon-on-hill.jpg"

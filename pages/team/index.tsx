@@ -10,7 +10,7 @@ import { SliderDetailedInfo } from "@/components/slider-detailed-info"
 
 import { all } from "@/api/queries/team"
 import { routes } from "@/constants"
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
 

@@ -12,7 +12,7 @@ import { CustomImage } from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 import { SequencedChamaeleon } from "@/components/sequenced-chamaeleon"
 
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 import { useLenisStore } from "@/lib/store/lenis"
 import { CardFloatProps } from "@/types"
 

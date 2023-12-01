@@ -3,7 +3,7 @@ import s from "./terms-and-conditions.module.scss"
 
 import { CustomLink } from "@/components/custom-link"
 
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 
 const TermsAndConditions = () => {
   return (

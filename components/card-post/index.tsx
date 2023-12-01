@@ -10,7 +10,7 @@ import { CardPostProps } from "@/types"
 
 type Props = CardPostProps
 
-const CardBlog = (props: Props) => {
+const CardPost = (props: Props) => {
   return (
     <CustomLink href={`${routes.newsAndEvents.path}/${props.url}`} div className={cn(s.cardBlog, "cursor-pointer")}>
       <div className={s.imgC}>
@@ -28,4 +28,4 @@ const CardBlog = (props: Props) => {
     </CustomLink>
   )
 }
-export { CardBlog }
+export { CardPost }

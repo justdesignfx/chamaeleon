@@ -14,7 +14,7 @@ import { Marquee } from "@/components/marquee"
 import { SliderDetailedInfo } from "@/components/slider-detailed-info"
 import { EmblaCarousel } from "@/components/embla-carousel"
 import IconArrow from "@/components/icons/icon-arrow"
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
 

@@ -12,7 +12,7 @@ type Props = {
   onClick?: () => void
 }
 
-export const Button = (props: Props) => {
+const Button = (props: Props) => {
   return (
     <CustomLink
       className={cn(s.button, [s[props.size]])}
@@ -25,4 +25,4 @@ export const Button = (props: Props) => {
   )
 }
 
-Button.displayName = "Button"
+export { Button }

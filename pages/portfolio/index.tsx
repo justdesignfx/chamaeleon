@@ -9,7 +9,7 @@ import { SliderCompanyDetail } from "@/components/slider-company-detail"
 import { CallToPage } from "@/components/call-to-page"
 
 import { all } from "@/api/queries/portfolio"
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CompanyBoxProps } from "@/types"
 import { routes } from "@/constants"

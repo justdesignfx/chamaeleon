@@ -7,7 +7,7 @@ import { CustomImage } from "@/components/custom-image"
 import { CardFloat } from "@/components/card-float"
 import { Reveal } from "@/components/animations/reveal"
 
-import DefaultLayout from "@/layouts/default"
+import { DefaultLayout } from "@/layouts/default"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import { Parallax } from "@/components/animations/parallax"

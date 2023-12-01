@@ -58,7 +58,12 @@ const Contact = () => {
         </div>
         <small>Takes 5 Minutes</small>
         <div className={s.imgC}>
-          <CustomImage src={chamaeleon} alt="Chamaeleon Coming Out of Hole" style={{ objectFit: "contain" }} />
+          <CustomImage
+            src={chamaeleon}
+            alt="Chamaeleon Coming Out of Hole"
+            style={{ objectFit: "contain" }}
+            priority={true}
+          />
         </div>
       </div>
     ),

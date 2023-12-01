@@ -182,7 +182,7 @@ const Approach = () => {
           <div className={s.transform}>
             <Parallax speedX={0} speedY={0.3} directionY={-1}>
               <div className={s.imgC}>
-                <CustomImage src={intro1} alt="People" style={{ objectFit: "cover" }} />
+                <CustomImage src={intro1} alt="People" style={{ objectFit: "cover" }} priority={true} />
               </div>
             </Parallax>
           </div>
@@ -190,7 +190,7 @@ const Approach = () => {
           <div className={s.transform}>
             <Parallax speedX={0} speedY={0.4} directionY={-1}>
               <div className={s.imgC}>
-                <CustomImage src={intro2} alt="People" style={{ objectFit: "cover" }} />
+                <CustomImage src={intro2} alt="People" style={{ objectFit: "cover" }} priority={true} />
               </div>
             </Parallax>
           </div>

@@ -61,7 +61,7 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          <CustomImage src={chamaeleonC} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} />
+          <CustomImage src={chamaeleonC} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
         </div>
       </section>
 
@@ -69,7 +69,7 @@ export default function Home({ companies }: Props) {
         <div className={cn(s.rocket, "flex-center-y")}>
           <Parallax speedX={0} directionY={-1} speedY={0.2}>
             <div className={s.imgC}>
-              <CustomImage src={rocket} alt="Rocket Illustration" style={{ objectFit: "contain" }} priority={true} />
+              <CustomImage src={rocket} alt="Rocket Illustration" style={{ objectFit: "contain" }} />
             </div>
           </Parallax>
         </div>

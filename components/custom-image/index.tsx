@@ -2,31 +2,20 @@ import { useState } from "react"
 import s from "./image.module.scss"
 
 import cn from "clsx"
+import type { ImageProps } from "next/image"
 import NextImage from "next/image"
-
-type Props = {
-  className?: string
-  style?: React.CSSProperties
-  src: string
-  loading?: "eager" | "lazy"
-  quality?: number
-  alt: string
-  height: number
-  width: number
-  [x: string]: any
-}
 
 const CustomImage = ({
   src = "",
   className,
-  height = 1000,
-  width = 1000,
   style,
   loading = "eager",
+  height,
+  width,
   quality = 100,
-  alt = "",
-  ...props
-}: Props) => {
+  priority,
+  alt,
+}: ImageProps) => {
   // const [loaded, setLoaded] = useState(loading !== 'lazy')
   const [loaded, setLoaded] = useState(true)
 
@@ -37,13 +26,13 @@ const CustomImage = ({
       className={cn(s.image, className, {
         [s.visible]: loaded,
       })}
-      height={height}
-      width={width}
       style={{ ...style }}
       loading={loading}
       quality={quality}
+      priority={priority}
       onLoad={() => setLoaded(true)}
-      {...props}
+      {...(height && { height })}
+      {...(width && { width })}
     />
   )
 }

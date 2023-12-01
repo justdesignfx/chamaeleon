@@ -2,10 +2,10 @@ import s from "./company-box.module.scss"
 
 import cn from "clsx"
 
-import { ICompanyBox } from "@/constants"
 import CustomImage from "@/components/custom-image"
+import { CompanyBoxProps } from "@/types"
 
-type Props = ICompanyBox
+type Props = CompanyBoxProps
 
 const CompanyBox = (props: Props) => {
   return (

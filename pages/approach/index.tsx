@@ -5,15 +5,15 @@ import cn from "clsx"
 
 import CustomImage from "@/components/custom-image"
 import CardFloat from "@/components/card-float"
-import { ICardFloat } from "@/constants"
 import Reveal from "@/components/animations/reveal"
 
 import DefaultLayout from "@/layouts/default"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import Parallax from "@/components/animations/parallax"
+import { CardFloatProps } from "@/types"
 
-const manifestoItems: ICardFloat[] = [
+const manifestoItems: CardFloatProps[] = [
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--forested-juniper)",
@@ -52,7 +52,7 @@ const manifestoItems: ICardFloat[] = [
   },
 ]
 
-const lookForItems: ICardFloat[] = [
+const lookForItems: CardFloatProps[] = [
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",

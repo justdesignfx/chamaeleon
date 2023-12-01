@@ -5,10 +5,9 @@ import cn from "clsx"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 import IconLinkedin from "@/components/icons/icon-linkedin"
+import { CardPersonProps } from "@/types"
 
-import { ICardPerson } from "@/constants"
-
-type Props = ICardPerson
+type Props = CardPersonProps
 
 const CardPerson = (props: Props) => {
   return (

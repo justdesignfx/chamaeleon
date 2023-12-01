@@ -1,7 +1,9 @@
 import React from "react"
 import s from "./terms-and-conditions.module.scss"
-import DefaultLayout from "@/layouts/default"
+
 import { CustomLink } from "@/components/custom-link"
+
+import DefaultLayout from "@/layouts/default"
 
 const TermsAndConditions = () => {
   return (

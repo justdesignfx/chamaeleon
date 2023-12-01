@@ -12,11 +12,23 @@ import { Marquee } from "@/components/marquee"
 import Pixels from "@/components/pixels"
 
 import { all } from "@/api/queries/home-portfolio"
-import { ICompanyBox, routes } from "@/constants"
+import { routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 
+import rocket from "@/public/img/rocket.png"
+import chamaeleonC from "@/public/img/chamaeleon-c.gif"
+import moneybox from "@/public/img/moneybox.gif"
+import cowboyHat from "@/public/img/cowboy-hat.png"
+import kinTrip from "@/public/img/kin-trip.jpg"
+import kinCurtain from "@/public/img/kin-curtain.png"
+import kinLunch from "@/public/img/kin-lunch.png"
+import chamaeleonOnHill from "@/public/img/chamaeleon-on-hill.jpg"
+import logoMantis from "@/public/img/logo-mantis.png"
+import logoKin from "@/public/img/logo-kin-community.png"
+import { CompanyBoxProps } from "@/types"
+
 type Props = {
-  companies: ICompanyBox[]
+  companies: CompanyBoxProps[]
 }
 
 export default function Home({ companies }: Props) {
@@ -27,7 +39,6 @@ export default function Home({ companies }: Props) {
           <h1>
             WHOLISTIC <br /> INVESTMENTS
           </h1>
-
           <Pixels
             bg="var(--forestial)"
             fill="var(--forested-juniper)"
@@ -50,14 +61,7 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          <CustomImage
-            src="/img/chamaeleon-c.gif"
-            alt="Chamaeleon Logomark"
-            style={{ objectFit: "contain" }}
-            height={400}
-            width={460}
-            priority="high"
-          />
+          <CustomImage src={chamaeleonC} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} />
         </div>
       </section>
 
@@ -65,13 +69,7 @@ export default function Home({ companies }: Props) {
         <div className={cn(s.rocket, "flex-center-y")}>
           <Parallax speedX={0} directionY={-1} speedY={0.2}>
             <div className={s.imgC}>
-              <CustomImage
-                src="/img/rocket.png"
-                alt="Rocket Illustration"
-                height={1568}
-                width={909}
-                style={{ objectFit: "contain" }}
-              />
+              <CustomImage src={rocket} alt="Rocket Illustration" style={{ objectFit: "contain" }} priority={true} />
             </div>
           </Parallax>
         </div>
@@ -106,14 +104,14 @@ export default function Home({ companies }: Props) {
           WHETHER YOU'RE{" "}
           <span className={s.a}>
             <span className={s.imgC}>
-              <CustomImage src="/img/moneybox.gif" alt="Company Logo" height={400} width={420} />
+              <CustomImage src={moneybox} alt="Moneybox Illustration" />
             </span>
           </span>
           <span className={s.forestial}>A HUMBLE STARTUP </span>
           OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
           <span className={s.b}>
             <span className={s.imgC}>
-              <CustomImage src="/img/cowboy-hat.png" alt="Company Logo" height={196} width={303} />
+              <CustomImage src={cowboyHat} alt="Cowboy Hat Illustration" />
             </span>
           </span>
           WE'RE HERE TO BOOST YOU.
@@ -123,7 +121,7 @@ export default function Home({ companies }: Props) {
 
         <div className={s.imgC}>
           <MaskedScale>
-            <CustomImage src="/img/kin-trip.jpg" alt="People in nature" loading="lazy" width={2000} height={1125} />
+            <CustomImage src={kinTrip} alt="People In Nature" loading="lazy" />
           </MaskedScale>
         </div>
 
@@ -144,24 +142,15 @@ export default function Home({ companies }: Props) {
           <div className={s.imgC}>
             <MaskedScale>
               <CustomImage
-                src="/img/chamaeleon-on-hill.jpg"
+                src={chamaeleonOnHill}
                 alt="Chamaeleon On Hill"
                 loading="lazy"
-                height={750}
-                width={750}
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "cover" }}
               />
             </MaskedScale>
           </div>
           <div className={s.imgC}>
-            <CustomImage
-              src="/img/logo-mantis.png"
-              alt="Mantis Logo"
-              loading="lazy"
-              height={315}
-              width={750}
-              style={{ objectFit: "contain" }}
-            />
+            <CustomImage src={logoMantis} alt="Mantis Logo" loading="lazy" style={{ objectFit: "contain" }} />
           </div>
         </div>
 
@@ -194,37 +183,16 @@ export default function Home({ companies }: Props) {
           <div className={s.imgs}>
             <div className={s.imgC}>
               <MaskedScale>
-                <CustomImage
-                  src="/img/kin-curtain.png"
-                  alt="Team at Event"
-                  loading="lazy"
-                  height={823}
-                  width={1854}
-                  style={{ objectFit: "cover" }}
-                />
+                <CustomImage src={kinCurtain} alt="People at Event" loading="lazy" style={{ objectFit: "cover" }} />
               </MaskedScale>
             </div>
             <div className={s.imgC}>
               <MaskedScale>
-                <CustomImage
-                  src="/img/kin-lunch.png"
-                  alt="Team at Event"
-                  loading="lazy"
-                  height={667}
-                  width={998}
-                  style={{ objectFit: "cover" }}
-                />
+                <CustomImage src={kinLunch} alt="People at Event" loading="lazy" style={{ objectFit: "cover" }} />
               </MaskedScale>
             </div>
             <div className={s.imgC}>
-              <CustomImage
-                src="/img/logo-kin-community.png"
-                alt="Kin Logo"
-                loading="lazy"
-                height={491}
-                width={904}
-                style={{ objectFit: "contain" }}
-              />
+              <CustomImage src={logoKin} alt="Kin Logo" loading="lazy" style={{ objectFit: "contain" }} />
             </div>
           </div>
         </div>

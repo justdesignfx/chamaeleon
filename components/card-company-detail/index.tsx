@@ -2,14 +2,14 @@ import s from "./card-company-detail.module.scss"
 
 import cn from "clsx"
 
-import { ICompanyBox } from "@/constants"
 import { useModalStore } from "@/lib/store/modal"
 import Button from "../button"
-import IconClose from "../icons/icon-close"
-import ScrollableBox from "../scrollable-box"
-import CustomImage from "../custom-image"
+import IconClose from "@/components/icons/icon-close"
+import ScrollableBox from "@/components/scrollable-box"
+import CustomImage from "@/components/custom-image"
+import { CompanyBoxProps } from "@/types"
 
-type Props = ICompanyBox
+type Props = CompanyBoxProps
 
 const CardCompanyDetail = (props: Props) => {
   const modalStore = useModalStore()

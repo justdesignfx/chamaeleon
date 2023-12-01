@@ -5,9 +5,10 @@ import cn from "clsx"
 import CustomImage from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 
-import { ICardBlog, routes } from "@/constants"
+import { routes } from "@/constants"
+import { CardPostProps } from "@/types"
 
-type Props = ICardBlog
+type Props = CardPostProps
 
 const CardBlog = (props: Props) => {
   return (

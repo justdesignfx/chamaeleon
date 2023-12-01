@@ -9,10 +9,10 @@ import IconLinkedin from "@/components/icons/icon-linkedin"
 import Pixels from "@/components/pixels"
 import ScrollableBox from "@/components/scrollable-box"
 
-import { ICardPerson } from "@/constants"
 import { useModalStore } from "@/lib/store/modal"
+import { CardPersonProps } from "@/types"
 
-type Props = ICardPerson
+type Props = CardPersonProps
 
 const CardInfo = (props: Props) => {
   const modalStore = useModalStore()

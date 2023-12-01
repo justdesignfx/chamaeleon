@@ -119,3 +119,19 @@ sup {
   position: relative;
   background-color: var(--theme-primary);
 }
+
+.mobile-only {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.desktop-only {
+  display: block;
+
+  @include mobile {
+    display: none;
+  }
+}

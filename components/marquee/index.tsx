@@ -1,8 +1,8 @@
-import { ReactElement, useRef } from "react"
+import { ReactElement } from "react"
 import s from "./marquee.module.scss"
 
-import cn from "clsx"
 import { useIntersectionObserver } from "@uidotdev/usehooks"
+import cn from "clsx"
 
 type Props = {
   children: ReactElement

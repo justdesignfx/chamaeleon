@@ -2,6 +2,11 @@
   margin-bottom: desktop-vw(50px);
   padding-top: var(--page-padding-top);
 
+  @include mobile {
+    margin: 0 mobile-vw(16px);
+    margin-bottom: mobile-vw(50px);
+  }
+
   > h1 {
     @include dims(desktop-vw(1270px), auto);
     color: var(--nightly-woods);
@@ -12,6 +17,12 @@
     margin: 0 auto;
     margin-bottom: desktop-vw(100px);
     text-align: center;
+
+    @include mobile {
+      @include dims(auto);
+      font-size: mobile-vw(20px);
+      margin-bottom: mobile-vw(50px);
+    }
 
     span {
       display: block;
@@ -29,6 +40,12 @@
     margin: 0 auto;
     margin-bottom: desktop-vw(20px);
     overflow: hidden;
+
+    @include mobile {
+      @include dims(100%, mobile-vw(215px));
+      border-radius: mobile-vw(12px);
+      margin-bottom: mobile-vw(20px);
+    }
   }
 }
 
@@ -44,18 +61,28 @@
       font-size: desktop-vw(150px);
       font-weight: 700;
       margin: 0 desktop-vw(60px);
+
+      @include mobile {
+        font-size: mobile-vw(75px);
+        margin: 0 mobile-vw(30px);
+      }
     }
   }
 
   > h3 {
-    @include dims(desktop-vw(800px), auto);
+    @include dims(desktop-vw(600px), auto);
     font-family: var(--font-helvetica-neue);
     font-size: desktop-vw(30px);
     font-weight: 400;
     line-height: 1.5;
     margin-bottom: desktop-vw(100px);
     text-align: center;
-    width: desktop-vw(600px);
+
+    @include mobile {
+      @include dims(auto);
+      font-size: mobile-vw(20px);
+      margin-bottom: mobile-vw(100px);
+    }
   }
 
   > .long {
@@ -83,6 +110,12 @@
     grid-template-columns: repeat(2, desktop-vw(360px));
     grid-template-rows: repeat(4, desktop-vw(360px));
     padding-bottom: desktop-vw(100px);
+
+    @include mobile {
+      grid-template-columns: repeat(1, mobile-vw(360px));
+      grid-template-rows: repeat(8, mobile-vw(360px));
+      padding-bottom: mobile-vw(50px);
+    }
 
     > div {
       @include dims(100%);

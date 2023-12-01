@@ -11,12 +11,12 @@ import CardFloat from "@/components/card-float"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 
-import { ICardFloat } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useLenisStore } from "@/lib/store/lenis"
 import SequencedChamaeleon from "@/components/sequenced-chamaeleon"
+import { CardFloatProps } from "@/types"
 
-const manifestoItems: ICardFloat[] = [
+const manifestoItems: CardFloatProps[] = [
   {
     backgroundColor: "var(--greening)",
     color: "var(-nightly-woods)",
@@ -329,7 +329,7 @@ const ManifestoAndValues = () => {
               style={{ objectFit: "cover" }}
               height={1067}
               width={1600}
-              priority="high"
+              priority={true}
             />
           </MaskedScale>
         </div>

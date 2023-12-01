@@ -15,6 +15,10 @@
     font-weight: 700;
     margin: 0 auto;
     text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(100px);
+    }
   }
 }
 
@@ -25,6 +29,14 @@
   gap: desktop-vw(50px) desktop-vw(25px);
   justify-content: center;
   margin-bottom: desktop-vw(100px);
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: repeat(auto, mobile-vw(340px));
+    gap: mobile-vw(25px);
+    margin-bottom: mobile-vw(100px);
+  }
 }
 
 .achievements {

@@ -26,7 +26,7 @@ const Superpower = () => {
             style={{ objectFit: "contain" }}
             height={356}
             width={848}
-            priority="high"
+            priority={true}
           />
         </div>
       </section>
@@ -40,7 +40,7 @@ const Superpower = () => {
               style={{ objectFit: "cover" }}
               width={1500}
               height={538}
-              priority="high"
+              priority={true}
             />
           </MaskedScale>
         </div>

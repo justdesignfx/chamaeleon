@@ -10,7 +10,7 @@
   pointer-events: auto;
 
   @include mobile {
-    @include dims(mobile-vw(350px), 95%);
+    @include dims(mobile-vw(310px), auto);
     border-radius: mobile-vw(20px);
     row-gap: mobile-vw(10px);
     flex-direction: column;
@@ -20,9 +20,11 @@
   .close {
     @include position(absolute, desktop-vw(20px), desktop-vw(20px), auto, auto);
     @include dims(desktop-vw(20px));
+    z-index: 20;
 
     @include mobile {
       @include position(absolute, mobile-vw(15px), mobile-vw(15px), auto, auto);
+      @include dims(mobile-vw(20px));
     }
   }
 
@@ -88,14 +90,15 @@
       margin-bottom: auto;
       overflow-y: scroll;
 
+      @include mobile {
+        @include dims(auto, mobile-vw(300px));
+        font-size: mobile-vw(14px);
+        margin-bottom: mobile-vw(30px);
+      }
+
       span {
         display: block;
         padding-right: desktop-vw(20px);
-      }
-
-      @include mobile {
-        @include dims(auto, mobile-vw(450px));
-        font-size: mobile-vw(14px);
       }
     }
 

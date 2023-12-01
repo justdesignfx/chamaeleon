@@ -13,12 +13,14 @@ import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 import SliderDetailedInfo from "@/components/slider-detailed-info"
 
-import { ICardPerson } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
+import EmblaCarousel from "@/components/embla-carousel"
+import IconArrow from "@/components/icons/icon-arrow"
+import { CardPersonProps } from "@/types"
 
 type Props = {
-  members: ICardPerson[]
+  members: CardPersonProps[]
 }
 
 const Kin = ({ members }: Props) => {
@@ -35,7 +37,7 @@ const Kin = ({ members }: Props) => {
         currentSlide={index}
         slides={members.map((member, i) => {
           return (
-            <div className={s.slide} key={i}>
+            <div className={s.modalSlide} key={i}>
               <CardInfo {...member} />
             </div>
           )
@@ -201,15 +203,42 @@ const Kin = ({ members }: Props) => {
       </section>
 
       <section className={s.members}>
-        {members.map((item, i) => {
-          return (
-            <Reveal key={i}>
-              <div>
-                <CardPerson {...item} toggleDetail={() => handleModal(i)} />
-              </div>
-            </Reveal>
-          )
-        })}
+        <div className="desktop-only">
+          <div className={cn(s.content, s.desktop)}>
+            {members.map((item, i) => {
+              return (
+                <Reveal key={i}>
+                  <div>
+                    <CardPerson {...item} toggleDetail={() => handleModal(i)} />
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
+        </div>
+        <div className="mobile-only">
+          <div className={cn(s.content, s.mobile)}>
+            <EmblaCarousel
+              slides={members.map((item, i) => {
+                return (
+                  <div className={s.slide} key={i}>
+                    <CardPerson {...item} toggleDetail={() => handleModal(i)} />
+                  </div>
+                )
+              })}
+              prevButton={
+                <div className={s.btn}>
+                  <IconArrow fill="var(--nightly-woods)" rotate={180} />
+                </div>
+              }
+              nextButton={
+                <div className={s.btn}>
+                  <IconArrow fill="var(--nightly-woods)" />
+                </div>
+              }
+            />
+          </div>
+        </div>
       </section>
     </DefaultLayout>
   )

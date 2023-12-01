@@ -1,45 +1,3 @@
-export interface ICompanyBox {
-  description?: string
-  id: string
-  name: string
-  logo: string
-  url?: string
-}
-
-export interface ICardPerson {
-  description: string
-  media: Media
-  name: string
-  title: string
-  linkedin: string
-  toggleDetail: () => void
-}
-
-export interface ICardBlog {
-  description: string
-  media: Media
-  title: string
-  url: string
-}
-
-export interface ISocial {
-  icon: string
-  url: string
-}
-
-export interface Media {
-  desktop: {
-    height: string
-    src: string
-    width: string
-  }
-  mobile: {
-    height: string
-    src: string
-    width: string
-  }
-}
-
 export const routes = {
   home: {
     name: "home",
@@ -86,36 +44,4 @@ export const routes = {
     path: "contact",
     ui: "CONTACT US",
   },
-}
-
-export interface ICardFloat {
-  backgroundColor: string
-  color: string
-  icon?: {
-    alignment: "tl" | "tr" | "bl" | "br"
-    src: string
-    size: "sm" | "md" | "lg"
-  }
-  rotate: number
-  title: string
-  desc?: string
-}
-
-export interface Alignment {
-  alignment: "tl" | "tr" | "bl" | "br"
-}
-
-export interface IOption {
-  label: string
-  value: string
-}
-
-export interface IPost {
-  date: string
-  title: string
-  readingTime: string
-  cover: Media
-  text: HTMLElement
-  image: Media[]
-  nexPost: string
 }

@@ -6,15 +6,23 @@
   gap: desktop-vw(12px);
   margin-bottom: desktop-vw(100px);
 
+  @include mobile {
+    grid-template-columns: repeat(2, mobile-vw(170px));
+    gap: mobile-vw(12px);
+    margin-bottom: mobile-vw(50px);
+  }
+
   .boxC {
     $ease: 200ms transform var(--ease-out-quart);
     @include dims(100%, desktop-vw(130px));
-    align-items: center;
     background-color: var(--alaskan-mist);
     border-radius: desktop-vw(10px);
-    display: flex;
-    justify-content: center;
     transition: $ease;
+
+    @include mobile {
+      @include dims(100%, mobile-vw(100px));
+      border-radius: mobile-vw(10px);
+    }
 
     > div {
       transition: $ease;
@@ -37,6 +45,11 @@
   margin-bottom: desktop-vw(150px);
   padding-top: var(--page-padding-top);
 
+  @include mobile {
+    margin: 0 var(--mobile-padding-x);
+    margin-bottom: mobile-vw(100px);
+  }
+
   > h1 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
@@ -49,10 +62,21 @@
     text-align: center;
     width: desktop-vw(900px);
 
+    @include mobile {
+      font-size: mobile-vw(42px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
+
     > span {
       @include position(absolute, 0, desktop-vw(20px), auto, auto);
       @include dims(desktop-vw(230px), auto);
       display: inline-block;
+
+      @include mobile {
+        @include position(absolute, mobile-vw(50px), 0, auto, auto);
+        @include dims(mobile-vw(100px), auto);
+      }
     }
   }
 }
@@ -70,6 +94,12 @@
     position: relative;
     text-align: center;
 
+    @include mobile {
+      font-size: mobile-vw(45px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
+
     > span {
       @include position(absolute, 0, desktop-vw(100px), auto, auto);
       @include dims(desktop-vw(190px), auto);
@@ -86,12 +116,23 @@
     &.left {
       @include position(absolute, desktop-vw(50px), auto, auto, desktop-vw(30px));
       @include dims(desktop-vw(500px));
+
+      @include mobile {
+        @include position(absolute, mobile-vw(100px), auto, auto, mobile-vw(-40px));
+        @include dims(mobile-vw(160px));
+      }
     }
 
     &.right {
       @include position(absolute, 50%, desktop-vw(160px), auto, auto);
       @include dims(desktop-vw(260px));
       transform: translateY(-50%);
+
+      @include mobile {
+        @include position(absolute, 50%, mobile-vw(4px), auto, auto);
+        @include dims(mobile-vw(100px));
+        transform: translateY(-120%);
+      }
     }
   }
 }

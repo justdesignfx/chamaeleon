@@ -9,21 +9,22 @@ import SliderCompanyDetail from "@/components/slider-company-detail"
 
 import { all } from "@/api/queries/portfolio"
 import CallToPage from "@/components/call-to-page"
-import { ICompanyBox, routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
+import { CompanyBoxProps } from "@/types"
+import { routes } from "@/constants"
 
 type Props = {
   companies: {
-    latest: ICompanyBox[]
-    prior: ICompanyBox[]
+    latest: CompanyBoxProps[]
+    prior: CompanyBoxProps[]
   }
 }
 
 const Portfolio = ({ companies }: Props) => {
   const modalStore = useModalStore()
 
-  function handleModal(id: ICompanyBox["id"]) {
+  function handleModal(id: CompanyBoxProps["id"]) {
     const allCompanies = [...companies.latest, ...companies.prior]
     const index = allCompanies.findIndex((value) => {
       return value.id === id
@@ -61,7 +62,7 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.latest.map((item, i) => {
             return (
-              <div className={cn(s.boxC, "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+              <div className={cn(s.boxC, "flex-center", "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
                 <div>
                   <CompanyBox {...item} />
                 </div>
@@ -75,7 +76,7 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.prior.map((item, i) => {
             return (
-              <div className={cn(s.boxC, "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+              <div className={cn(s.boxC, "flex-center", "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
                 <div>
                   <CompanyBox key={i} {...item} />
                 </div>

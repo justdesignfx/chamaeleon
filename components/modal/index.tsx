@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import s from "./modal.module.scss"
 
-import { EASE, gsap } from "@/lib/gsap"
+import { gsap } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { useLenisStore } from "@/lib/store/lenis"

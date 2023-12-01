@@ -4,9 +4,9 @@ import s from "./card-float.module.scss"
 import cn from "clsx"
 
 import CustomImage from "@/components/custom-image"
-import { ICardFloat } from "@/constants"
+import { CardFloatProps } from "@/types"
 
-type Props = ICardFloat
+type Props = CardFloatProps
 
 const CardFloat = (props: Props) => {
   return (

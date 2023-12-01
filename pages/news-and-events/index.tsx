@@ -10,13 +10,13 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { apiClient } from "@/api"
 import Searchbox from "@/components/searchbox"
 import Sort from "@/components/sort"
-import { ICardBlog, IOption } from "@/constants"
 import DefaultLayout from "@/layouts/default"
+import { CardPostProps, OptionProps } from "@/types"
 
 const LIMIT = 10
 
 type Props = {
-  posts: ICardBlog[]
+  posts: CardPostProps[]
 }
 
 const NewsAndEvents = ({ posts }: Props) => {
@@ -24,7 +24,7 @@ const NewsAndEvents = ({ posts }: Props) => {
   const ref = useRef(null)
   const [limit, setLimit] = useState(LIMIT)
   const [keyword, setKeyword] = useState("")
-  const [sort, setSort] = useState<IOption | null>(null)
+  const [sort, setSort] = useState<OptionProps | null>(null)
 
   useIsomorphicLayoutEffect(() => {
     router.push(

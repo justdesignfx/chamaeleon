@@ -1,6 +1,10 @@
 .intro {
   padding-top: var(--page-padding-top);
 
+  @include mobile {
+    margin: 0 var(--mobile-padding-x);
+  }
+
   > h1 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
@@ -10,6 +14,12 @@
     margin-bottom: desktop-vw(70px);
     text-align: center;
     width: desktop-vw(900px);
+
+    @include mobile {
+      font-size: mobile-vw(50px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
   }
 
   > p {
@@ -22,6 +32,12 @@
     margin-bottom: desktop-vw(120px);
     text-align: center;
     width: desktop-vw(950px);
+
+    @include mobile {
+      font-size: mobile-vw(20px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
 
     span {
       font-weight: 700;
@@ -39,22 +55,41 @@
     position: relative;
     text-align: center;
     width: desktop-vw(900px);
+
+    @include mobile {
+      font-size: mobile-vw(50px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
   }
 
   > .imgC {
     @include dims(desktop-vw(600px), auto);
     margin: 0 auto;
     margin-bottom: desktop-vw(100px);
+
+    @include mobile {
+      @include dims(mobile-vw(300px), auto);
+      margin-bottom: mobile-vw(50px);
+    }
   }
 
   > .marquee {
     margin-bottom: desktop-vw(100px);
     z-index: -1;
 
+    @include mobile {
+      margin-bottom: 0;
+    }
+
     &.rotated {
       @include position(absolute, desktop-vw(150px), auto, auto, auto);
       transform: rotate(-9deg) translateX(-50vw);
       width: 200vw;
+
+      @include mobile {
+        @include position(absolute, mobile-vw(150px), auto, auto, auto);
+      }
     }
 
     h5 {
@@ -63,6 +98,11 @@
       font-size: desktop-vw(250px);
       font-weight: 700;
       margin: 0 desktop-vw(75px);
+
+      @include mobile {
+        font-size: mobile-vw(125px);
+        margin: 0 mobile-vw(30px);
+      }
     }
   }
 
@@ -71,6 +111,10 @@
     margin-bottom: desktop-vw(50px);
     overflow: hidden;
     position: relative;
+
+    @include mobile {
+      @include dims(100vw, 50vh);
+    }
 
     .layerC {
       @include position(absolute, 50%, auto, auto, 50%);
@@ -87,21 +131,43 @@
 }
 
 .members {
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(3, desktop-vw(340px));
-  gap: desktop-vw(50px) desktop-vw(25px);
-  justify-content: center;
-  margin-bottom: desktop-vw(100px);
+  .content {
+    &.desktop {
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, desktop-vw(340px));
+      gap: desktop-vw(50px) desktop-vw(25px);
+      justify-content: center;
+      margin-bottom: desktop-vw(100px);
 
-  > div {
-    &:nth-of-type(3n + 2) {
-      margin-top: desktop-vw(-150px);
+      > div {
+        &:nth-of-type(3n + 2) {
+          margin-top: desktop-vw(-150px);
+        }
+      }
+    }
+
+    &.mobile {
+      @include dims(100vw, 100vh);
+      position: relative;
+
+      .slide {
+        @include dims(100vw, 100vh);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0 mobile-vw(35px);
+      }
+
+      .btn {
+        @include dims(mobile-vw(25px));
+        pointer-events: auto;
+      }
     }
   }
 }
 
-.slide {
+.modalSlide {
   @include dims(100vw, 100vh);
   align-items: center;
   display: flex;

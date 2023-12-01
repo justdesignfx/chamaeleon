@@ -65,15 +65,17 @@
     transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  &:hover {
-    &::after {
-      transform: scaleX(0) translateZ(0);
-      transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
+  @include hover {
+    &:hover {
+      &::after {
+        transform: scaleX(0) translateZ(0);
+        transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
 
-    &::before {
-      transform: scaleX(1) translateZ(0);
-      transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 200ms;
+      &::before {
+        transform: scaleX(1) translateZ(0);
+        transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 200ms;
+      }
     }
   }
 }

@@ -9,12 +9,13 @@ import SliderDetailedInfo from "@/components/slider-detailed-info"
 
 import { all } from "@/api/queries/team"
 import CallToPage from "@/components/call-to-page"
-import { ICardPerson, routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
+import { CardPersonProps } from "@/types"
+import { routes } from "@/constants"
 
 type Props = {
-  team: ICardPerson[]
+  team: CardPersonProps[]
 }
 
 const Team = ({ team }: Props) => {

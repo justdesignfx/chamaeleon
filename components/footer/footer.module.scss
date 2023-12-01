@@ -77,7 +77,7 @@
         grid-template-columns: repeat(2, 1fr);
         margin-bottom: mobile-vw(75px);
         margin-top: mobile-vw(50px);
-        row-gap: mobile-vw(5px);
+        row-gap: mobile-vw(10px);
       }
     }
   }
@@ -92,6 +92,7 @@
 
     @include mobile {
       font-size: mobile-vw(70px);
+      line-height: 0.85;
       margin-bottom: mobile-vw(120px);
       order: 3;
     }

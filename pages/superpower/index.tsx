@@ -11,6 +11,11 @@ import Pixels from "@/components/pixels"
 import DefaultLayout from "@/layouts/default"
 import { routes } from "@/constants"
 
+import logoMantis from "@/public/img/logo-mantis.png"
+import robot from "@/public/img/mantis-banner.jpg"
+import details1 from "@/public/img/mantis-1.jpg"
+import details2 from "@/public/img/mantis-2.jpg"
+
 const Superpower = () => {
   return (
     <DefaultLayout theme="mantis">
@@ -20,28 +25,14 @@ const Superpower = () => {
           millions of companies across thousands of data points.
         </h1>
         <div className={s.imgC}>
-          <CustomImage
-            src="/img/logo-mantis.png"
-            alt="Chamaeleon Face"
-            style={{ objectFit: "contain" }}
-            height={356}
-            width={848}
-            priority={true}
-          />
+          <CustomImage src={logoMantis} alt="Mantis Logo" style={{ objectFit: "contain" }} priority={true} />
         </div>
       </section>
 
       <section className={s.mantis}>
         <div className={s.imgC}>
           <MaskedScale>
-            <CustomImage
-              src="/img/mantis-banner.jpg"
-              alt="Chamaeleon Face"
-              style={{ objectFit: "cover" }}
-              width={1500}
-              height={538}
-              priority={true}
-            />
+            <CustomImage src={robot} alt="Robot & Human" style={{ objectFit: "cover" }} priority={true} />
           </MaskedScale>
         </div>
         <p>
@@ -63,27 +54,13 @@ const Superpower = () => {
         <div className={s.imgs}>
           <Parallax speedX={0} speedY={0.15} directionY={1}>
             <div className={cn(s.imgC, s.a)}>
-              <CustomImage
-                src="/img/mantis-1.jpg"
-                alt="Chamaeleon Face"
-                style={{ objectFit: "cover" }}
-                height={2000}
-                width={1334}
-                loading="lazy"
-              />
+              <CustomImage src={details1} alt="People" style={{ objectFit: "cover" }} loading="lazy" />
             </div>
           </Parallax>
 
           <Parallax speedX={0} speedY={0.25} directionY={-1}>
             <div className={cn(s.imgC, s.b)}>
-              <CustomImage
-                src="/img/mantis-2.jpg"
-                alt="Chamaeleon Face"
-                style={{ objectFit: "cover" }}
-                height={2000}
-                width={1334}
-                loading="lazy"
-              />
+              <CustomImage src={details2} alt="People" style={{ objectFit: "cover" }} loading="lazy" />
             </div>
           </Parallax>
         </div>

@@ -2,17 +2,19 @@ import s from "./team.module.scss"
 
 import Parallax from "@/components/animations/parallax"
 import Reveal from "@/components/animations/reveal"
+import CallToPage from "@/components/call-to-page"
 import CardInfo from "@/components/card-info"
 import CardPerson from "@/components/card-person"
 import CustomImage from "@/components/custom-image"
 import SliderDetailedInfo from "@/components/slider-detailed-info"
 
 import { all } from "@/api/queries/team"
-import CallToPage from "@/components/call-to-page"
+import { routes } from "@/constants"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
-import { routes } from "@/constants"
+
+import bale from "@/public/img/bale.png"
 
 type Props = {
   team: CardPersonProps[]
@@ -20,8 +22,6 @@ type Props = {
 
 const Team = ({ team }: Props) => {
   const modalStore = useModalStore()
-
-  console.log("team", team)
 
   const handleModal = (index: number) => {
     modalStore.setContent(
@@ -83,7 +83,7 @@ const Team = ({ team }: Props) => {
         <div className={s.imgC}>
           <Parallax speedX={0} directionY={-1} speedY={0.25}>
             <div>
-              <CustomImage src="/img/bale.png" alt="Dollar Bale" height={533} width={628} />
+              <CustomImage src={bale} alt="Dollar Bale Illustration" />
             </div>
           </Parallax>
         </div>

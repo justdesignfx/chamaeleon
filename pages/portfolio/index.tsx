@@ -14,6 +14,10 @@ import { useModalStore } from "@/lib/store/modal"
 import { CompanyBoxProps } from "@/types"
 import { routes } from "@/constants"
 
+import megaphone from "@/public/img/megaphone.png"
+import cactus from "@/public/img/cactus.png"
+import face from "@/public/img/chamaeleon-face.png"
+
 type Props = {
   companies: {
     latest: CompanyBoxProps[]
@@ -50,13 +54,7 @@ const Portfolio = ({ companies }: Props) => {
         <h1>
           OUR LATEST ANNOUNCED INVESTMENTS.
           <span>
-            <CustomImage
-              src="/img/megaphone.png"
-              alt="Megaphone Illustration"
-              style={{ objectFit: "contain" }}
-              height={278}
-              width={347}
-            />
+            <CustomImage src={megaphone} alt="Megaphone Illustration" style={{ objectFit: "contain" }} />
           </span>
         </h1>
         <div className={s.companies}>
@@ -87,22 +85,10 @@ const Portfolio = ({ companies }: Props) => {
       </section>
       <section className={s.toTheTeam}>
         <div className={cn(s.imgC, s.left)}>
-          <CustomImage
-            src="/img/cactus.png"
-            alt="Cactus Doodle"
-            style={{ objectFit: "contain" }}
-            height={659}
-            width={544}
-          />
+          <CustomImage src={cactus} alt="Cactus Doodle" style={{ objectFit: "contain" }} />
         </div>
         <div className={cn(s.imgC, s.right)}>
-          <CustomImage
-            src="/img/chamaeleon-face.png"
-            alt="Chamaeleon Face"
-            style={{ objectFit: "contain" }}
-            height={340}
-            width={363}
-          />
+          <CustomImage src={face} alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
         </div>
         <CallToPage text="Get to know about us" btnText="TEAM" href={routes.team.path} />
       </section>

@@ -12,6 +12,8 @@ import { useContactForm } from "@/api/mutations"
 import { routes } from "@/constants"
 import NonFooter from "@/layouts/non-footer"
 
+import chamaeleon from "@/public/img/chamaeleon-hole.png"
+
 enum Screen {
   start = "start",
   form = "form",
@@ -56,13 +58,7 @@ const Contact = () => {
         </div>
         <small>Takes 5 Minutes</small>
         <div className={s.imgC}>
-          <CustomImage
-            src="/img/chamaeleon-hole.png"
-            alt="Chamaeleon Coming Out of Hole"
-            style={{ objectFit: "contain" }}
-            height={257}
-            width={447}
-          />
+          <CustomImage src={chamaeleon} alt="Chamaeleon Coming Out of Hole" style={{ objectFit: "contain" }} />
         </div>
       </div>
     ),

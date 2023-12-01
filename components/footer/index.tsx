@@ -9,6 +9,8 @@ import { useAll } from "@/api/queries/social-media"
 import { routes } from "@/constants"
 import { capitalize } from "@/lib/utils"
 
+import coins from "@/public/img/coin-stack.png"
+
 const Footer = () => {
   const { data: social } = useAll()
 
@@ -55,9 +57,9 @@ const Footer = () => {
                 <CustomImage
                   src={item.icon}
                   alt="Social Media Icon"
-                  height={1000}
-                  width={1000}
                   style={{ objectFit: "contain" }}
+                  height={50}
+                  width={50}
                 />
               </CustomLink>
             )
@@ -65,13 +67,7 @@ const Footer = () => {
       </div>
 
       <div className={s.imgC}>
-        <CustomImage
-          src="/img/coin-stack.png"
-          alt="Coin Stack"
-          height={1000}
-          width={1000}
-          style={{ objectFit: "contain" }}
-        />
+        <CustomImage src={coins} alt="Coin Stack" style={{ objectFit: "contain" }} />
       </div>
     </footer>
   )

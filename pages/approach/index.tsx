@@ -13,6 +13,10 @@ import { ScrollTrigger, gsap } from "@/lib/gsap"
 import Parallax from "@/components/animations/parallax"
 import { CardFloatProps } from "@/types"
 
+import intro1 from "@/public/img/earth-1.jpg"
+import intro2 from "@/public/img/earth-2.jpg"
+import earth from "@/public/img/world.gif"
+
 const manifestoItems: CardFloatProps[] = [
   {
     backgroundColor: "var(--nightly-woods)",
@@ -178,13 +182,7 @@ const Approach = () => {
           <div className={s.transform}>
             <Parallax speedX={0} speedY={0.3} directionY={-1}>
               <div className={s.imgC}>
-                <CustomImage
-                  src="/img/earth-2.jpg"
-                  alt="Chamaeleon Logomark"
-                  style={{ objectFit: "cover" }}
-                  height={952}
-                  width={690}
-                />
+                <CustomImage src={intro1} alt="People" style={{ objectFit: "cover" }} />
               </div>
             </Parallax>
           </div>
@@ -192,13 +190,7 @@ const Approach = () => {
           <div className={s.transform}>
             <Parallax speedX={0} speedY={0.4} directionY={-1}>
               <div className={s.imgC}>
-                <CustomImage
-                  src="/img/earth-1.jpg"
-                  alt="Chamaeleon Logomark"
-                  style={{ objectFit: "cover" }}
-                  height={524}
-                  width={448}
-                />
+                <CustomImage src={intro2} alt="People" style={{ objectFit: "cover" }} />
               </div>
             </Parallax>
           </div>
@@ -219,13 +211,7 @@ const Approach = () => {
           </div>
         </div>
         <div className={s.imgC}>
-          <CustomImage
-            src="/img/world.gif"
-            alt="Chamaeleon Logomark"
-            style={{ objectFit: "contain" }}
-            height={1000}
-            width={1000}
-          />
+          <CustomImage src={earth} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} />
         </div>
       </section>
 

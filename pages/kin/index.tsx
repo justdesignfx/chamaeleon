@@ -13,23 +13,25 @@ import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
 import SliderDetailedInfo from "@/components/slider-detailed-info"
 
-import DefaultLayout from "@/layouts/default"
-import { useModalStore } from "@/lib/store/modal"
 import EmblaCarousel from "@/components/embla-carousel"
 import IconArrow from "@/components/icons/icon-arrow"
+import DefaultLayout from "@/layouts/default"
+import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
+
+import curtain from "@/public/img/kin-curtain.png"
+import lunch from "@/public/img/kin-lunch.png"
+import trip from "@/public/img/kin-trip.jpg"
+import logoKin from "@/public/img/logo-kin-community.png"
 
 type Props = {
   members: CardPersonProps[]
 }
 
-const Kin = ({ members }: Props) => {
+export const Kin = ({ members }: Props) => {
   const modalStore = useModalStore()
   const layeredImagesRef = useRef(null)
-  const q = gsap.utils.selector(layeredImagesRef)
-  const tl = useRef<gsap.core.Timeline | null>(null)
-
-  console.log("members", members)
+  const tl = useRef(gsap.timeline({ paused: true }))
 
   function handleModal(index: number) {
     modalStore.setContent(
@@ -46,12 +48,15 @@ const Kin = ({ members }: Props) => {
     )
   }
 
-  // layered images animations
+  // layered images animation
   useIsomorphicLayoutEffect(() => {
     if (!layeredImagesRef.current) return
 
-    const ctx = gsap.context(() => {
-      q(".layer").map((item, i) => {
+    const ctx = gsap.context((self) => {
+      const selector = self.selector
+      if (!selector) return
+
+      selector(".layer").map((item: HTMLElement, i: number) => {
         if (i === 0) return
         gsap.set(item, {
           yPercent: 150 + i * 10,
@@ -59,7 +64,7 @@ const Kin = ({ members }: Props) => {
         })
       })
 
-      q(".scale").map((item, i) => {
+      selector(".scale").map((item: HTMLElement, i: number) => {
         if (i === 0) return
 
         gsap.set(item, {
@@ -71,7 +76,7 @@ const Kin = ({ members }: Props) => {
 
       tl.current
         .to(
-          q(".layer")[1],
+          selector(".layer")[1],
           {
             yPercent: 0,
             scale: 1,
@@ -79,14 +84,14 @@ const Kin = ({ members }: Props) => {
           "b"
         )
         .to(
-          q(".scale")[1],
+          selector(".scale")[1],
           {
             scale: 1,
           },
           "b"
         )
         .to(
-          q(".layer")[2],
+          selector(".layer")[2],
           {
             yPercent: 0,
             scale: 1,
@@ -94,7 +99,7 @@ const Kin = ({ members }: Props) => {
           "c"
         )
         .to(
-          q(".scale")[2],
+          selector(".scale")[2],
           {
             scale: 1,
           },
@@ -139,52 +144,28 @@ const Kin = ({ members }: Props) => {
         <h2>...AND WE PROUDLY REFER TO THEM AS OUR...</h2>
 
         <div className={s.imgC}>
-          <CustomImage
-            src="/img/logo-kin-community.png"
-            alt="Kin Logo"
-            style={{ objectFit: "contain" }}
-            height={491}
-            width={904}
-          />
+          <CustomImage src={logoKin} alt="Kin Logo" style={{ objectFit: "contain" }} />
         </div>
 
         <div className={s.layeredImages} ref={layeredImagesRef}>
           <div className={cn(s.layerC, "layer-c")}>
             <div className={cn(s.imgC, "layer")}>
               <div className={cn(s.scale, "scale")}>
-                <CustomImage
-                  src="/img/kin-trip.jpg"
-                  alt="People Hanging Out"
-                  style={{ objectFit: "cover" }}
-                  height={2000}
-                  width={2000}
-                />
+                <CustomImage src={trip} alt="People Hanging Out" style={{ objectFit: "cover" }} />
               </div>
             </div>
           </div>
           <div className={cn(s.layerC, "layer-c")}>
             <div className={cn(s.imgC, "layer")}>
               <div className={cn(s.scale, "scale")}>
-                <CustomImage
-                  src="/img/kin-curtain.png"
-                  alt="People Hanging Out"
-                  style={{ objectFit: "cover" }}
-                  height={2000}
-                  width={2000}
-                />
+                <CustomImage src={curtain} alt="People Hanging Out" style={{ objectFit: "cover" }} />
               </div>
             </div>
           </div>
           <div className={cn(s.layerC, "layer-c")}>
             <div className={cn(s.imgC, "layer")}>
               <div className={cn(s.scale, "scale")}>
-                <CustomImage
-                  src="/img/kin-lunch.png"
-                  alt="People Hanging Out"
-                  style={{ objectFit: "cover" }}
-                  height={2000}
-                  width={2000}
-                />
+                <CustomImage src={lunch} alt="People Hanging Out" style={{ objectFit: "cover" }} />
               </div>
             </div>
           </div>

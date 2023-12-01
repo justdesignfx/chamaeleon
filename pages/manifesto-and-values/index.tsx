@@ -10,11 +10,17 @@ import Reveal from "@/components/animations/reveal"
 import CardFloat from "@/components/card-float"
 import CustomImage from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
+import SequencedChamaeleon from "@/components/sequenced-chamaeleon"
 
 import DefaultLayout from "@/layouts/default"
 import { useLenisStore } from "@/lib/store/lenis"
-import SequencedChamaeleon from "@/components/sequenced-chamaeleon"
 import { CardFloatProps } from "@/types"
+
+import lunch from "@/public/img/manifest-lunch.jpg"
+import c1 from "@/public/img/manifesto-c-1.png"
+import c2 from "@/public/img/manifesto-c-2.png"
+import c3 from "@/public/img/manifesto-c-3.png"
+import papa from "@/public/img/papa-chamaeleon.png"
 
 const manifestoItems: CardFloatProps[] = [
   {
@@ -323,14 +329,7 @@ const ManifestoAndValues = () => {
         </h1>
         <div className={s.imgC}>
           <MaskedScale>
-            <CustomImage
-              alt="Manifest"
-              src="/img/manifest-lunch.jpg"
-              style={{ objectFit: "cover" }}
-              height={1067}
-              width={1600}
-              priority={true}
-            />
+            <CustomImage alt="People at Lunch" src={lunch} style={{ objectFit: "cover" }} priority={true} />
           </MaskedScale>
         </div>
       </section>
@@ -371,41 +370,17 @@ const ManifestoAndValues = () => {
         </div>
         <div className={s.cactusC}>
           <div className={cn(s.imgC, "cactus-1")}>
-            <CustomImage
-              src="/img/manifesto-c-1.png"
-              alt="Cactus Doodle"
-              style={{ objectFit: "contain" }}
-              height={835}
-              width={738}
-            />
+            <CustomImage src={c1} alt="Cactus Doodle" style={{ objectFit: "contain" }} />
           </div>
           <div className={cn(s.imgC, "cactus-2")}>
-            <CustomImage
-              src="/img/manifesto-c-2.png"
-              alt="Cactus Doodle"
-              style={{ objectFit: "contain" }}
-              height={449}
-              width={259}
-            />
+            <CustomImage src={c2} alt="Cactus Doodle" style={{ objectFit: "contain" }} />
           </div>
           <div className={cn(s.imgC, "cactus-3")}>
-            <CustomImage
-              src="/img/manifesto-c-3.png"
-              alt="Cactus Doodle"
-              style={{ objectFit: "contain" }}
-              height={299}
-              width={266}
-            />
+            <CustomImage src={c3} alt="Cactus Doodle" style={{ objectFit: "contain" }} />
           </div>
         </div>
         <div className={cn(s.imgC, "papa-chamaeleon")}>
-          <CustomImage
-            src="/img/papa-chamaeleon.png"
-            alt="Papa Chamaeleon"
-            style={{ objectFit: "contain" }}
-            height={596}
-            width={629}
-          />
+          <CustomImage src={papa} alt="Papa Chamaeleon" style={{ objectFit: "contain" }} />
         </div>
       </section>
 

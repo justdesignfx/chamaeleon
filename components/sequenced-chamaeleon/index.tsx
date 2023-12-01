@@ -4,7 +4,7 @@ import s from "./sequence.module.scss"
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
 
 import b0 from "@/assets/img/sequence/bukalemun_1.png"
 import b9 from "@/assets/img/sequence/bukalemun_10.png"
@@ -84,4 +84,4 @@ const SequencedChamaeleon = () => {
   )
 }
 
-export default SequencedChamaeleon
+export { SequencedChamaeleon }

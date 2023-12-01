@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react"
 import s from "./slider-company-detail.module.scss"
 
-import EmblaCarousel from "@/components/embla-carousel"
+import { EmblaCarousel } from "@/components/embla-carousel"
 import IconArrow from "@/components/icons/icon-arrow"
 
 type Props = {
@@ -32,4 +32,4 @@ const SliderCompanyDetail = (props: Props) => {
   )
 }
 
-export default SliderCompanyDetail
+export { SliderCompanyDetail }

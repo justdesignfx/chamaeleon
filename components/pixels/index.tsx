@@ -1,4 +1,3 @@
-import React from "react"
 import s from "./pixels.module.scss"
 
 import cn from "clsx"
@@ -28,4 +27,4 @@ const Pixels = (props: Props) => {
   )
 }
 
-export default Pixels
+export { Pixels }

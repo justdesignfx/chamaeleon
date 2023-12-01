@@ -2,12 +2,12 @@ import s from "./card-info.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 import IconClose from "@/components/icons/icon-close"
 import IconLinkedin from "@/components/icons/icon-linkedin"
-import Pixels from "@/components/pixels"
-import ScrollableBox from "@/components/scrollable-box"
+import { Pixels } from "@/components/pixels"
+import { ScrollableBox } from "@/components/scrollable-box"
 
 import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
@@ -59,4 +59,4 @@ const CardInfo = (props: Props) => {
   )
 }
 
-export default CardInfo
+export { CardInfo }

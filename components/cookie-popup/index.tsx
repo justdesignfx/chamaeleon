@@ -1,10 +1,10 @@
-import React from "react"
 import s from "./cookie-popup.module.scss"
 
 import cn from "clsx"
 
-import Button from "@/components/button"
-import CustomImage from "@/components/custom-image"
+import { Button } from "@/components/button"
+import { CustomImage } from "@/components/custom-image"
+
 import { useModalStore } from "@/lib/store/modal"
 
 const CookiePopup = () => {
@@ -38,4 +38,4 @@ const CookiePopup = () => {
   )
 }
 
-export default CookiePopup
+export { CookiePopup }

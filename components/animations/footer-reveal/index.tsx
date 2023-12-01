@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
+import { ReactNode, useCallback, useRef, useState } from "react"
 import s from "./footer-reveal.module.scss"
 
 import { gsap, ScrollTrigger } from "@/lib/gsap"
@@ -72,4 +72,4 @@ const FooterReveal = ({ children }: Props) => {
   )
 }
 
-export default FooterReveal
+export { FooterReveal }

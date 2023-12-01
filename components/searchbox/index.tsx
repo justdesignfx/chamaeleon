@@ -33,4 +33,4 @@ const Searchbox = ({ keyword, setKeyword }: Props) => {
   )
 }
 
-export default Searchbox
+export { Searchbox }

@@ -46,4 +46,4 @@ const Reveal = ({ children }: Props) => {
   )
 }
 
-export default Reveal
+export { Reveal }

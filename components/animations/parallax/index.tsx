@@ -39,4 +39,4 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
   )
 }
 
-export default Parallax
+export { Parallax }

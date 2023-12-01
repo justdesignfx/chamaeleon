@@ -2,7 +2,7 @@ import s from "./card-blog.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 
 import { routes } from "@/constants"
@@ -28,5 +28,4 @@ const CardBlog = (props: Props) => {
     </CustomLink>
   )
 }
-
-export default CardBlog
+export { CardBlog }

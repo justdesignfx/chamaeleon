@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import s from "./slider-detailed-info.module.scss"
 
-import EmblaCarousel from "@/components/embla-carousel"
+import { EmblaCarousel } from "@/components/embla-carousel"
 import IconArrow from "@/components/icons/icon-arrow"
 
 type Props = {
@@ -33,4 +33,4 @@ const SliderDetailedInfo = (props: Props) => {
   )
 }
 
-export default SliderDetailedInfo
+export { SliderDetailedInfo }

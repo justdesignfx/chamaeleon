@@ -3,14 +3,14 @@ import s from "./approach.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
-import CardFloat from "@/components/card-float"
-import Reveal from "@/components/animations/reveal"
+import { CustomImage } from "@/components/custom-image"
+import { CardFloat } from "@/components/card-float"
+import { Reveal } from "@/components/animations/reveal"
 
 import DefaultLayout from "@/layouts/default"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { ScrollTrigger, gsap } from "@/lib/gsap"
-import Parallax from "@/components/animations/parallax"
+import { Parallax } from "@/components/animations/parallax"
 import { CardFloatProps } from "@/types"
 
 import intro1 from "@/public/img/earth-1.jpg"

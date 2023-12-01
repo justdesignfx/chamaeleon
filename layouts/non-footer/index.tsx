@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 import cn from "clsx"
 
-import Header from "@/components/header"
+import { Header } from "@/components/header"
 
 type Props = {
   children: ReactNode

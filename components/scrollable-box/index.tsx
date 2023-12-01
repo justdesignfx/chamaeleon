@@ -1,9 +1,9 @@
-import Lenis from "@studio-freight/lenis"
-import cn from "clsx"
 import { ReactNode, useRef, useState } from "react"
 import s from "./scrollable-box.module.scss"
 
 import { gsap } from "@/lib/gsap"
+import Lenis from "@studio-freight/lenis"
+import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
   reset?: boolean
 }
 
-export default function ScrollableBox({ children, className, infinite, reset }: Props) {
+const ScrollableBox = ({ children, className, infinite, reset }: Props) => {
   const [lenis, setLenis] = useState<Lenis | null>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -59,3 +59,5 @@ export default function ScrollableBox({ children, className, infinite, reset }: 
     </div>
   )
 }
+
+export { ScrollableBox }

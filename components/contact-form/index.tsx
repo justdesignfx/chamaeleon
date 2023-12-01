@@ -6,8 +6,8 @@ import cn from "clsx"
 import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-import Button from "@/components/button"
 import IconArrowForm from "@/components/icons/icon-form-arrow"
+import { Button } from "@/components/button"
 
 import { useContactForm } from "@/api/mutations"
 import { formModel, formSchema, initialValues } from "@/constants/form-contact"
@@ -344,4 +344,4 @@ const ContactForm = (props: Props) => {
   )
 }
 
-export default ContactForm
+export { ContactForm }

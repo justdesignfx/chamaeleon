@@ -2,7 +2,7 @@ import s from "./footer.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 
 import { useAll } from "@/api/queries/social-media"
@@ -73,4 +73,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export { Footer }

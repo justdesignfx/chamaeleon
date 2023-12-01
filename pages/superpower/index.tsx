@@ -2,12 +2,12 @@ import s from "./superpower.module.scss"
 
 import cn from "clsx"
 
-import MaskedScale from "@/components/animations/masked-scale"
-import Parallax from "@/components/animations/parallax"
-import CallToPage from "@/components/call-to-page"
-import CustomImage from "@/components/custom-image"
+import { MaskedScale } from "@/components/animations/masked-scale"
+import { Parallax } from "@/components/animations/parallax"
+import { CallToPage } from "@/components/call-to-page"
+import { CustomImage } from "@/components/custom-image"
 import { Marquee } from "@/components/marquee"
-import Pixels from "@/components/pixels"
+import { Pixels } from "@/components/pixels"
 import DefaultLayout from "@/layouts/default"
 import { routes } from "@/constants"
 

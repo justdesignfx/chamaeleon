@@ -4,7 +4,7 @@ import s from "./call-to-page.module.scss"
 import cn from "clsx"
 
 import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
-import Button from "@/components/button"
+import { Button } from "@/components/button"
 
 type Props = {
   text: string
@@ -12,7 +12,7 @@ type Props = {
   href: string
 }
 
-function CallToPage(props: Props) {
+export const CallToPage = (props: Props) => {
   return (
     <div className={cn(s.callToPage, "flex-center-y")}>
       <small className="flex-center">
@@ -26,4 +26,4 @@ function CallToPage(props: Props) {
   )
 }
 
-export default CallToPage
+CallToPage.displayName = "CallToPage"

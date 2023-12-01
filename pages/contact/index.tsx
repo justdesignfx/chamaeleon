@@ -4,9 +4,9 @@ import s from "./contact.module.scss"
 import { gsap } from "@/lib/gsap"
 import cn from "clsx"
 
-import Button from "@/components/button"
-import ContactForm from "@/components/contact-form"
-import CustomImage from "@/components/custom-image"
+import { Button } from "@/components/button"
+import { ContactForm } from "@/components/contact-form"
+import { CustomImage } from "@/components/custom-image"
 
 import { useContactForm } from "@/api/mutations"
 import { routes } from "@/constants"

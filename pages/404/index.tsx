@@ -3,7 +3,8 @@ import s from "./not-found.module.scss"
 
 import cn from "clsx"
 
-import Button from "@/components/button"
+import { Button } from "@/components/button"
+
 import { routes } from "@/constants"
 
 const NotFound = () => {

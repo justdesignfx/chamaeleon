@@ -1,14 +1,14 @@
-import React from "react"
 import s from "./card-float.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
+
 import { CardFloatProps } from "@/types"
 
 type Props = CardFloatProps
 
-const CardFloat = (props: Props) => {
+export const CardFloat = (props: Props): JSX.Element => {
   return (
     <div
       className={s.cardFloat}
@@ -25,4 +25,4 @@ const CardFloat = (props: Props) => {
   )
 }
 
-export default CardFloat
+CardFloat.displayName = "CardFloat"

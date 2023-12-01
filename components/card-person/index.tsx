@@ -2,9 +2,10 @@ import s from "./card-person.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 import IconLinkedin from "@/components/icons/icon-linkedin"
+
 import { CardPersonProps } from "@/types"
 
 type Props = CardPersonProps
@@ -31,4 +32,4 @@ const CardPerson = (props: Props) => {
   )
 }
 
-export default CardPerson
+export { CardPerson }

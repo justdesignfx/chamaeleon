@@ -2,6 +2,7 @@ import { useState } from "react"
 import s from "./image.module.scss"
 
 import cn from "clsx"
+
 import type { ImageProps } from "next/image"
 import NextImage from "next/image"
 
@@ -37,4 +38,4 @@ const CustomImage = ({
   )
 }
 
-export default CustomImage
+export { CustomImage }

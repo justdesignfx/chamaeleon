@@ -2,13 +2,13 @@ import s from "./portfolio.module.scss"
 
 import cn from "clsx"
 
-import CardCompanyDetail from "@/components/card-company-detail"
-import CompanyBox from "@/components/company-box"
-import CustomImage from "@/components/custom-image"
-import SliderCompanyDetail from "@/components/slider-company-detail"
+import { CardCompanyDetail } from "@/components/card-company-detail"
+import { CompanyBox } from "@/components/company-box"
+import { CustomImage } from "@/components/custom-image"
+import { SliderCompanyDetail } from "@/components/slider-company-detail"
+import { CallToPage } from "@/components/call-to-page"
 
 import { all } from "@/api/queries/portfolio"
-import CallToPage from "@/components/call-to-page"
 import DefaultLayout from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CompanyBoxProps } from "@/types"

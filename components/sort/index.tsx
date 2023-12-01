@@ -5,6 +5,7 @@ import { useClickAway } from "@uidotdev/usehooks"
 import cn from "clsx"
 
 import IconArrowForm from "@/components/icons/icon-form-arrow"
+
 import { OptionProps } from "@/types"
 
 type Props = {
@@ -46,4 +47,4 @@ const Sort = (props: Props) => {
   )
 }
 
-export default Sort
+export { Sort }

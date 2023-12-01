@@ -1,8 +1,8 @@
 import s from "./button.module.scss"
 
-import { CustomLink } from "@/components/custom-link"
-
 import cn from "clsx"
+
+import { CustomLink } from "@/components/custom-link"
 
 type Props = {
   color?: string
@@ -12,7 +12,7 @@ type Props = {
   onClick?: () => void
 }
 
-const Button = (props: Props) => {
+export const Button = (props: Props) => {
   return (
     <CustomLink
       className={cn(s.button, [s[props.size]])}
@@ -25,4 +25,4 @@ const Button = (props: Props) => {
   )
 }
 
-export default Button
+Button.displayName = "Button"

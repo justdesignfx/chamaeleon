@@ -2,7 +2,8 @@ import s from "./company-box.module.scss"
 
 import cn from "clsx"
 
-import CustomImage from "@/components/custom-image"
+import { CustomImage } from "@/components/custom-image"
+
 import { CompanyBoxProps } from "@/types"
 
 type Props = CompanyBoxProps
@@ -17,4 +18,4 @@ const CompanyBox = (props: Props) => {
   )
 }
 
-export default CompanyBox
+export { CompanyBox }

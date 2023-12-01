@@ -34,4 +34,4 @@ const MaskedScale = ({ children }: Props) => {
   )
 }
 
-export default MaskedScale
+export { MaskedScale }

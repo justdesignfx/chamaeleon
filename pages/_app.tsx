@@ -7,8 +7,8 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import useSmoothScroll from "@/hooks/useSmoothScroll"
 import { useModalStore } from "@/lib/store/modal"
 
-import CookiePopup from "@/components/cookie-popup"
-import Modal from "@/components/modal"
+import { CookiePopup } from "@/components/cookie-popup"
+import { Modal } from "@/components/modal"
 
 const queryClient = new QueryClient()
 

@@ -1,6 +1,6 @@
+import { apiClient } from "@/api"
 import { Values } from "@/constants/form-contact"
 import { useMutation } from "react-query"
-import { apiClient } from ".."
 
 // POST contact form
 async function submitContactForm(values: Values) {

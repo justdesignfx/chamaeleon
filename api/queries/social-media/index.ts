@@ -1,5 +1,5 @@
 import { apiClient } from "@/api"
-import { ISocial } from "@/constants"
+import { SocialProps } from "@/types"
 import { useQuery } from "react-query"
 
 // GET all portfolio items
@@ -9,7 +9,7 @@ export async function all() {
 }
 
 export function useAll() {
-  return useQuery<ISocial[]>(["social-media"], () => all(), {
+  return useQuery<SocialProps[]>(["social-media"], () => all(), {
     retry: 2,
   })
 }

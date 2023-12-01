@@ -1,5 +1,5 @@
 import { apiClient } from "@/api"
-import { ICompanyBox } from "@/constants"
+import { CompanyBoxProps } from "@/types"
 import { useQuery } from "react-query"
 
 // GET all portfolio items
@@ -9,7 +9,7 @@ export async function all() {
 }
 
 export function useAll() {
-  return useQuery<ICompanyBox[]>(["home-portfolio"], () => all(), {
+  return useQuery<CompanyBoxProps[]>(["home-portfolio"], () => all(), {
     retry: 2,
   })
 }

@@ -1,5 +1,5 @@
 import { apiClient } from "@/api"
-import { ICardPerson } from "@/constants"
+import { CardPersonProps } from "@/types"
 import { useQuery } from "react-query"
 
 // GET all kin members
@@ -9,7 +9,7 @@ export async function all() {
 }
 
 export function useAll() {
-  return useQuery<ICardPerson[]>(["kin"], () => all(), {
+  return useQuery<CardPersonProps[]>(["kin"], () => all(), {
     retry: 2,
   })
 }

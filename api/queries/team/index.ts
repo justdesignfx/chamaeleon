@@ -1,5 +1,5 @@
 import { apiClient } from "@/api"
-import { ICardPerson } from "@/constants"
+import { CardPersonProps } from "@/types"
 import { useQuery } from "react-query"
 
 // GET all team members
@@ -9,7 +9,7 @@ export async function all() {
 }
 
 export function useAll() {
-  return useQuery<ICardPerson[]>(["team"], () => all(), {
+  return useQuery<CardPersonProps[]>(["team"], () => all(), {
     retry: 2,
   })
 }

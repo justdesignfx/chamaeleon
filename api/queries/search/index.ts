@@ -1,5 +1,5 @@
 import { apiClient } from "@/api"
-import { IOption } from "@/constants"
+import { OptionProps } from "@/types"
 import { useQuery } from "react-query"
 
 // GET sort
@@ -9,7 +9,7 @@ async function getSortOptions() {
 }
 
 export function useSortOptions() {
-  return useQuery<IOption[]>(["sort-options"], () => getSortOptions(), {
+  return useQuery<OptionProps[]>(["sort-options"], () => getSortOptions(), {
     retry: 2,
   })
 }

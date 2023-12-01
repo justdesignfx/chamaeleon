@@ -80,47 +80,50 @@
     }
 
     nav {
-      column-gap: desktop-vw(130px);
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       margin-top: auto;
       margin-right: auto;
 
-      @include mobile {
-        column-gap: mobile-vw(130px);
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: unset;
-      }
-
-      .navItem {
-        align-items: center;
-        color: var(--nightly-woods);
-        display: flex;
-        font-family: var(--font-first-aid-kit-f);
-        font-size: desktop-vw(70px);
-        margin-bottom: desktop-vw(10px);
+      > ul {
+        column-gap: desktop-vw(130px);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
 
         @include mobile {
-          font-size: mobile-vw(40px);
-          margin-bottom: mobile-vw(10px);
+          column-gap: mobile-vw(130px);
+          display: flex;
+          flex-direction: column;
+          grid-template-columns: unset;
         }
 
-        @include hover {
-          &:hover {
-            color: var(--forestial);
-          }
-        }
-
-        .circle {
-          @include dims(desktop-vw(12px));
-          background-color: var(--nightly-woods);
-          border-radius: 50%;
-          margin: 0 desktop-vw(8px);
+        .navItem {
+          align-items: center;
+          color: var(--nightly-woods);
+          display: inline-flex;
+          font-family: var(--font-first-aid-kit-f);
+          font-size: desktop-vw(70px);
+          margin-bottom: desktop-vw(10px);
 
           @include mobile {
-            @include dims(mobile-vw(8px));
-            margin: 0 mobile-vw(8px);
+            font-size: mobile-vw(40px);
+            margin-bottom: mobile-vw(10px);
+          }
+
+          @include hover {
+            &:hover {
+              color: var(--forestial);
+            }
+          }
+
+          .circle {
+            @include dims(desktop-vw(12px));
+            background-color: var(--nightly-woods);
+            border-radius: 50%;
+            margin: 0 desktop-vw(8px);
+
+            @include mobile {
+              @include dims(mobile-vw(8px));
+              margin: 0 mobile-vw(8px);
+            }
           }
         }
       }

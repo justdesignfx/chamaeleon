@@ -64,20 +64,26 @@
     }
 
     nav {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       margin-bottom: desktop-vw(75px);
       margin-top: desktop-vw(50px);
-      row-gap: desktop-vw(5px);
 
       @include mobile {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: repeat(2, 1fr);
         margin-bottom: mobile-vw(75px);
         margin-top: mobile-vw(50px);
-        row-gap: mobile-vw(10px);
+      }
+
+      > ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: desktop-vw(5px);
+
+        @include mobile {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          grid-template-columns: repeat(2, 1fr);
+          row-gap: mobile-vw(10px);
+        }
       }
     }
   }

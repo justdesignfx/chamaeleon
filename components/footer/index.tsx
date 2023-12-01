@@ -25,16 +25,20 @@ const Footer = () => {
         </div>
         <div>
           <nav>
-            {Object.values(routes).map((value) => {
-              if (value.name === "home") {
-                return
-              }
-              return (
-                <CustomLink className={cn(s.navItem, "cursor-pointer")} key={value.name} href={`/${value.path}`}>
-                  {capitalize(value.ui)}
-                </CustomLink>
-              )
-            })}
+            <ul>
+              {Object.values(routes).map((value) => {
+                if (value.name === "home") {
+                  return
+                }
+                return (
+                  <li key={value.name}>
+                    <CustomLink className={cn(s.navItem, "cursor-pointer")} href={`/${value.path}`}>
+                      {capitalize(value.ui)}
+                    </CustomLink>
+                  </li>
+                )
+              })}
+            </ul>
           </nav>
           <div className={s.copyright}>
             <CustomLink className={s.navItem} href="/terms-and-conditions">

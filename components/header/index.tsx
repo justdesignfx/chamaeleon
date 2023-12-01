@@ -108,17 +108,21 @@ const Header = () => {
 
       <div className={cn(s.menu, "menu", "flex-center")}>
         <nav>
-          {Object.values(routes).map((value) => {
-            if (value.name === "home") {
-              return
-            }
-            return (
-              <CustomLink className={cn(s.navItem, "cursor-pointer")} key={value.name} href={`/${value.path}`}>
-                <span className={s.circle}></span>
-                {value.ui}
-              </CustomLink>
-            )
-          })}
+          <ul>
+            {Object.values(routes).map((value, i) => {
+              if (value.name === "home") {
+                return
+              }
+              return (
+                <li key={i}>
+                  <CustomLink className={cn(s.navItem, "cursor-pointer")} href={`/${value.path}`}>
+                    <span className={s.circle}></span>
+                    {value.ui}
+                  </CustomLink>
+                </li>
+              )
+            })}
+          </ul>
         </nav>
       </div>
 

@@ -7,31 +7,30 @@ import type { ImageProps } from "next/image"
 import NextImage from "next/image"
 
 const CustomImage = ({
-  src = "",
-  className,
-  style,
-  loading = "eager",
-  height,
-  width,
-  quality = 100,
-  priority,
   alt,
+  className,
+  height,
+  loading = "eager",
+  priority,
+  src = "",
+  style,
+  quality = 100,
+  width,
 }: ImageProps) => {
-  // const [loaded, setLoaded] = useState(loading !== 'lazy')
-  const [loaded, setLoaded] = useState(true)
+  const [loaded, setLoaded] = useState(false)
 
   return (
     <NextImage
       alt={alt}
-      src={src}
       className={cn(s.image, className, {
         [s.visible]: loaded,
       })}
-      style={{ ...style }}
       loading={loading}
-      quality={quality}
       priority={priority}
+      src={src}
+      style={{ ...style }}
       onLoad={() => setLoaded(true)}
+      quality={quality}
       {...(height && { height })}
       {...(width && { width })}
     />

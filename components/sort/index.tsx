@@ -4,14 +4,14 @@ import s from "./sort.module.scss"
 import { useClickAway } from "@uidotdev/usehooks"
 import cn from "clsx"
 
-import { IOption } from "@/constants"
-import IconArrowForm from "../icons/icon-form-arrow"
+import IconArrowForm from "@/components/icons/icon-form-arrow"
+import { OptionProps } from "@/types"
 
 type Props = {
   label: string
-  options: IOption[]
-  sort: IOption | null
-  setSort: (sort: IOption) => void
+  options: OptionProps[]
+  sort: OptionProps | null
+  setSort: (sort: OptionProps) => void
 }
 
 const Sort = (props: Props) => {

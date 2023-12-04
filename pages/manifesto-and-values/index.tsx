@@ -32,7 +32,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/drops.png",
       size: "sm",
     },
-    rotate: -6,
   },
   {
     backgroundColor: "var(--nightly-woods)",
@@ -43,7 +42,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/rock.png",
       size: "md",
     },
-    rotate: 14,
   },
   {
     backgroundColor: "var(--electric-energy)",
@@ -54,7 +52,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/bale.png",
       size: "md",
     },
-    rotate: 7,
   },
   {
     backgroundColor: "var(--greening)",
@@ -65,13 +62,11 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/earth.png",
       size: "sm",
     },
-    rotate: -6,
   },
   {
     backgroundColor: "var(--nightly-woods)",
     color: "var(--greening)",
     title: "Broad Vertical Focus, But Key Principles Are:",
-    rotate: 13,
   },
   {
     backgroundColor: "var(--electric-energy)",
@@ -82,7 +77,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/steampunk-chamaeleon-face.png",
       size: "md",
     },
-    rotate: 0,
   },
   {
     backgroundColor: "var(--greening)",
@@ -93,7 +87,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/doc.png",
       size: "md",
     },
-    rotate: -7,
   },
   {
     backgroundColor: "var(--nightly-woods)",
@@ -104,7 +97,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/steampunk-chamaeleon.png",
       size: "lg",
     },
-    rotate: 13,
   },
 ]
 

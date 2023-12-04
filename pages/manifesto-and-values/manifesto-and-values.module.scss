@@ -3,7 +3,7 @@
   padding-top: var(--page-padding-top);
 
   @include mobile {
-    margin: 0 mobile-vw(16px);
+    margin: 0 var(--mobile-padding-x);
     margin-bottom: mobile-vw(50px);
   }
 
@@ -42,7 +42,7 @@
     overflow: hidden;
 
     @include mobile {
-      @include dims(100%, mobile-vw(215px));
+      @include dims(100%, mobile-vw(200px));
       border-radius: mobile-vw(12px);
       margin-bottom: mobile-vw(20px);
     }
@@ -54,6 +54,10 @@
 
   > .marquee {
     margin-bottom: desktop-vw(150px);
+
+    @include mobile {
+      margin-bottom: mobile-vw(50px);
+    }
 
     h5 {
       color: var(--nightly-woods);
@@ -81,12 +85,16 @@
     @include mobile {
       @include dims(auto);
       font-size: mobile-vw(20px);
-      margin-bottom: mobile-vw(100px);
+      margin-bottom: mobile-vw(50px);
     }
   }
 
   > .long {
     text-align: center;
+
+    @include mobile {
+      padding: 0 var(--mobile-padding-x);
+    }
 
     p {
       @include dims(desktop-vw(900px), auto);
@@ -95,6 +103,13 @@
       font-weight: 400;
       line-height: 1.5;
       margin-bottom: desktop-vw(50px);
+
+      @include mobile {
+        @include dims(100%, auto);
+        font-size: mobile-vw(15px);
+        line-height: 2;
+        margin-bottom: mobile-vw(30px);
+      }
     }
 
     small {
@@ -102,6 +117,10 @@
       font-size: desktop-vw(30px);
       font-weight: 400;
       line-height: 1.5;
+
+      @include mobile {
+        font-size: mobile-vw(30px);
+      }
     }
   }
 
@@ -109,11 +128,14 @@
     display: grid;
     grid-template-columns: repeat(2, desktop-vw(360px));
     grid-template-rows: repeat(4, desktop-vw(360px));
+    margin-bottom: desktop-vw(300px);
     padding-bottom: desktop-vw(100px);
 
     @include mobile {
       grid-template-columns: repeat(1, mobile-vw(360px));
       grid-template-rows: repeat(8, mobile-vw(360px));
+      row-gap: mobile-vw(20px);
+      margin-bottom: 0;
       padding-bottom: mobile-vw(50px);
     }
 
@@ -122,40 +144,57 @@
 
       &:nth-child(1) {
         margin-top: desktop-vw(0px);
+        transform: rotate(-6deg);
       }
 
       &:nth-child(2) {
         margin-top: desktop-vw(100px);
         margin-left: desktop-vw(-40px);
+        transform: rotate(14deg);
       }
 
       &:nth-child(3) {
         margin-top: desktop-vw(-50px);
         margin-left: desktop-vw(-40px);
+        transform: rotate(7deg);
       }
 
       &:nth-child(4) {
         margin-top: desktop-vw(30px);
         margin-left: desktop-vw(-120px);
+        transform: rotate(-6deg);
       }
 
       &:nth-child(5) {
         margin-top: desktop-vw(-10px);
+        transform: rotate(13deg);
       }
 
       &:nth-child(6) {
         margin-top: desktop-vw(150px);
         margin-left: desktop-vw(-90px);
+        transform: rotate(0deg);
       }
 
       &:nth-child(7) {
         margin-top: desktop-vw(40px);
         margin-left: desktop-vw(-40px);
+        transform: rotate(-7deg);
       }
 
       &:nth-child(8) {
         margin-top: desktop-vw(250px);
         margin-left: desktop-vw(-100px);
+        transform: rotate(13deg);
+      }
+
+      @include mobile {
+        @for $i from 1 through 9 {
+          &:nth-child(#{$i}) {
+            margin: unset;
+            transform: rotate(0deg);
+          }
+        }
       }
     }
   }
@@ -167,6 +206,11 @@
   overflow: hidden;
   padding: desktop-vw(100px) 0;
 
+  @include mobile {
+    margin-bottom: mobile-vw(200px);
+    padding: mobile-vw(75px) 0 0 0;
+  }
+
   h2 {
     color: var(--nightly-woods);
     font-family: var(--font-first-aid-kit-f);
@@ -174,6 +218,11 @@
     font-weight: 700;
     margin: 0 auto;
     margin-bottom: desktop-vw(100px);
+
+    @include mobile {
+      font-size: mobile-vw(70px);
+      margin-bottom: mobile-vw(50px);
+    }
   }
 
   > .values {
@@ -183,6 +232,11 @@
     position: relative;
     z-index: 10;
 
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+      margin-bottom: mobile-vw(50px);
+    }
+
     .progressLine {
       @include position(absolute, 0, auto, auto, 50%);
       @include dims(1px, 100%);
@@ -190,14 +244,41 @@
       transform: translateX(-50%);
       transform: scaleY(0);
       transform-origin: top center;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     .item {
       @include dims(desktop-vw(340px), auto);
       margin: 0 desktop-vw(80px);
+      margin-bottom: desktop-vw(70px);
+
+      @include mobile {
+        @include dims(100%, auto);
+        margin: 0;
+        margin-bottom: mobile-vw(70px);
+        padding: 0 var(--mobile-padding-x);
+        text-align: center;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
 
       &:nth-child(2n + 1) {
         margin-top: desktop-vw(100px);
+
+        @include mobile {
+          margin: 0;
+          margin-bottom: mobile-vw(70px);
+          padding: 0 var(--mobile-padding-x);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
 
       h5 {
@@ -208,6 +289,11 @@
         margin: 0 auto;
         margin-bottom: desktop-vw(20px);
         text-transform: uppercase;
+
+        @include mobile {
+          font-size: mobile-vw(30px);
+          margin-bottom: mobile-vw(20px);
+        }
       }
 
       p {
@@ -217,7 +303,10 @@
         font-weight: 400;
         line-height: 1.5;
         margin: 0 auto;
-        margin-bottom: desktop-vw(70px);
+
+        @include mobile {
+          font-size: mobile-vw(17px);
+        }
       }
     }
   }
@@ -230,20 +319,43 @@
     margin: desktop-vw(-200px) 0;
     padding: 0 desktop-vw(100px);
 
+    @include mobile {
+      @include dims(100%, mobile-vw(100px));
+      margin: 0;
+      padding: 0 var(--mobile-padding-x);
+    }
+
     .imgC {
+      flex-shrink: 0;
+
       &:nth-child(1) {
         @include dims(desktop-vw(500px));
         margin-bottom: desktop-vw(-50px);
+
+        @include mobile {
+          @include dims(mobile-vw(110px));
+          margin-bottom: mobile-vw(-30px);
+        }
       }
 
       &:nth-child(2) {
         @include dims(desktop-vw(300px));
         margin-bottom: desktop-vw(20px);
+
+        @include mobile {
+          @include dims(mobile-vw(100px));
+          margin-bottom: mobile-vw(-30px);
+        }
       }
 
       &:nth-child(3) {
         @include dims(desktop-vw(200px));
         margin-bottom: desktop-vw(40px);
+
+        @include mobile {
+          @include dims(mobile-vw(90px));
+          margin-bottom: mobile-vw(-30px);
+        }
       }
     }
   }
@@ -251,13 +363,18 @@
   > .imgC {
     @include position(absolute, auto, 0, desktop-vw(25px), auto);
     @include dims(desktop-vw(420px));
+
+    @include mobile {
+      @include position(absolute, auto, 0, mobile-vw(25px), auto);
+      @include dims(mobile-vw(200px));
+    }
   }
 }
 
 .stickyBtn {
-  $distance: desktop-vw(4px);
+  --distance: -4px;
   @include position(fixed, auto, auto, 1.5%, 50%);
-  @include dims(desktop-vw(260px), calc(desktop-vw(60px) - $distance));
+  @include dims(desktop-vw(260px), calc(desktop-vw(60px) - var(--distance)));
   border-radius: desktop-vw(45px);
   color: var(--nightly-woods);
   display: grid;
@@ -270,11 +387,22 @@
   opacity: 0;
   visibility: hidden;
 
+  @include mobile {
+    --distance: -4px;
+    @include dims(mobile-vw(200px), calc(mobile-vw(40px) - var(--distance)));
+    border-radius: mobile-vw(45px);
+    font-size: mobile-vw(25px);
+  }
+
   &::before {
     content: "";
-    @include position(absolute, -$distance, -$distance, -$distance, -$distance);
+    @include position(absolute, var(--distance), var(--distance), var(--distance), var(--distance));
     background-color: var(--greening);
     border-radius: desktop-vw(45px);
+
+    @include mobile {
+      border-radius: mobile-vw(45px);
+    }
   }
 
   &::after {
@@ -285,6 +413,10 @@
     border-radius: desktop-vw(45px);
     transform: translate(0, -50%);
     transition: 400ms transform ease;
+
+    @include mobile {
+      border-radius: mobile-vw(45px);
+    }
   }
 
   &.long {

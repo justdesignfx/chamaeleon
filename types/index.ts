@@ -48,7 +48,6 @@ export interface CardFloatProps {
     src: string
     size: "sm" | "md" | "lg"
   }
-  rotate: number
   title: string
   desc?: string
 }

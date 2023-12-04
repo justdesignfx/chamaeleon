@@ -33,9 +33,8 @@
   @include mobile {
     display: flex;
     flex-direction: column;
-    grid-template-rows: repeat(auto, mobile-vw(340px));
     gap: mobile-vw(25px);
-    margin-bottom: mobile-vw(100px);
+    margin-bottom: mobile-vw(50px);
   }
 }
 
@@ -43,17 +42,34 @@
   margin-bottom: desktop-vw(50px);
   position: relative;
 
+  @include mobile {
+    margin: 0 var(--mobile-padding-x);
+    margin-bottom: mobile-vw(50px);
+  }
+
   .boxes {
     display: grid;
     grid-template-columns: repeat(3, desktop-vw(360px));
-    grid-template-rows: repeat(2, desktop-vw(275px));
+    grid-template-rows: repeat(2, desktop-vw(280px));
     gap: desktop-vw(24px);
     justify-content: center;
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: repeat(1, 100%);
+      grid-template-rows: repeat(4, mobile-vw(240px));
+      gap: mobile-vw(12px);
+    }
 
     > div {
       background-color: var(--greening);
       border-radius: desktop-vw(20px);
       padding: desktop-vw(5px) desktop-vw(40px);
+
+      @include mobile {
+        border-radius: mobile-vw(20px);
+        padding: mobile-vw(20px) mobile-vw(16px);
+      }
 
       &:nth-child(1) {
         grid-column: span 1;
@@ -67,12 +83,22 @@
 
       &:nth-child(3) {
         grid-column: span 1;
-        grid-row: span 2;
+        grid-row: span 1;
+
+        @include mobile {
+          grid-row: span 2;
+          order: 4;
+        }
       }
 
       &:nth-child(4) {
         grid-column: span 2;
         grid-row: span 1;
+
+        @include mobile {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
       }
 
       > h5 {
@@ -82,8 +108,17 @@
         font-weight: 700;
         margin-bottom: desktop-vw(10px);
 
+        @include mobile {
+          font-size: mobile-vw(90px);
+          margin-bottom: mobile-vw(10px);
+        }
+
         > span {
-          font-size: desktop-vw(120px);
+          font-size: desktop-vw(50px);
+
+          @include mobile {
+            font-size: mobile-vw(70px);
+          }
         }
       }
 
@@ -93,6 +128,10 @@
         font-size: desktop-vw(24px);
         font-weight: 400;
         line-height: 1.5;
+
+        @include mobile {
+          font-size: mobile-vw(20px);
+        }
 
         > span {
           font-weight: 700;
@@ -104,6 +143,11 @@
   .imgC {
     @include position(absolute, auto, desktop-vw(50px), desktop-vw(-150px), auto);
     @include dims(desktop-vw(400px), auto);
+
+    @include mobile {
+      @include position(absolute, auto, 0, mobile-vw(-100px), auto);
+      @include dims(mobile-vw(200px), auto);
+    }
   }
 }
 

@@ -4,6 +4,11 @@
   padding: desktop-vw(50px) desktop-vw(40px);
   position: relative;
 
+  @include mobile {
+    border-radius: mobile-vw(20px);
+    padding: mobile-vw(50px) mobile-vw(40px);
+  }
+
   > h5 {
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(40px);
@@ -14,11 +19,23 @@
     text-transform: uppercase;
     width: desktop-vw(250px);
 
+    @include mobile {
+      font-size: mobile-vw(40px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
+
     &.lg {
       font-size: desktop-vw(90px);
       line-height: 1;
       margin-bottom: desktop-vw(30px);
       margin-top: desktop-vw(30px);
+
+      @include mobile {
+        font-size: mobile-vw(90px);
+        margin-bottom: mobile-vw(30px);
+        margin-top: mobile-vw(30px);
+      }
     }
   }
 
@@ -33,44 +50,73 @@
   }
 
   > .iconC {
-    $distance: desktop-vw(-100px);
+    --distance: #{desktop-vw(-100px)};
     @include dims(desktop-vw(200px));
     position: absolute;
     z-index: 100;
 
+    @include mobile {
+      --distance: #{mobile-vw(10px)};
+      @include dims(auto, mobile-vw(100px));
+    }
+
     &.tl {
-      top: $distance;
-      left: $distance;
+      top: var(--distance);
+      left: var(--distance);
     }
 
     &.tr {
-      top: $distance;
-      right: $distance;
+      top: var(--distance);
+      right: var(--distance);
     }
 
     &.bl {
-      bottom: $distance;
-      left: $distance;
+      bottom: var(--distance);
+      left: var(--distance);
     }
 
     &.br {
-      bottom: $distance;
-      right: $distance;
+      bottom: var(--distance);
+      right: var(--distance);
+    }
+
+    &.tl,
+    &.tr,
+    &.bl,
+    &.br {
+      @include mobile {
+        bottom: var(--distance);
+        left: auto;
+        right: var(--distance);
+        top: auto;
+      }
     }
 
     &.sm {
       // @include dims(desktop-vw(140px));
       transform: scale(0.9);
+
+      @include mobile {
+        transform: scale(1);
+      }
     }
 
     &.md {
       // @include dims(desktop-vw(180px));
       transform: scale(1);
+
+      @include mobile {
+        transform: scale(1);
+      }
     }
 
     &.lg {
       // @include dims(desktop-vw(220px));
       transform: scale(1.8);
+
+      @include mobile {
+        transform: scale(1);
+      }
     }
   }
 }

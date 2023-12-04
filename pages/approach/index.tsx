@@ -28,7 +28,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/dart.png",
       size: "sm",
     },
-    rotate: -6,
   },
   {
     backgroundColor: "var(--greening)",
@@ -40,7 +39,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/newborn.png",
       size: "md",
     },
-    rotate: 5,
   },
   {
     backgroundColor: "var(--electric-energy)",
@@ -52,7 +50,6 @@ const manifestoItems: CardFloatProps[] = [
       src: "/img/map.png",
       size: "md",
     },
-    rotate: -8,
   },
 ]
 
@@ -67,7 +64,6 @@ const lookForItems: CardFloatProps[] = [
       src: "/img/steampunk-chamaeleon-face.png",
       size: "md",
     },
-    rotate: -7,
   },
   {
     backgroundColor: "var(--nightly-woods)",
@@ -79,7 +75,6 @@ const lookForItems: CardFloatProps[] = [
       src: "/img/papa-chamaeleon.png",
       size: "md",
     },
-    rotate: 8,
   },
   {
     backgroundColor: "var(--nightly-woods)",
@@ -91,7 +86,6 @@ const lookForItems: CardFloatProps[] = [
       src: "/img/brain.png",
       size: "md",
     },
-    rotate: -16,
   },
   {
     backgroundColor: "var(--nightly-woods)",
@@ -103,7 +97,6 @@ const lookForItems: CardFloatProps[] = [
       src: "/img/trap.png",
       size: "md",
     },
-    rotate: 5,
   },
 ]
 

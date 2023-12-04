@@ -1,10 +1,14 @@
 .sequence {
-  @include dims(auto, 800px);
+  @include dims(auto, desktop-vw(700px));
+  margin-bottom: desktop-vw(-160px);
   position: relative;
   pointer-events: none;
   z-index: 10;
-  margin-bottom: desktop-vw(-200px);
-  margin-top: desktop-vw(100px);
+
+  @include mobile {
+    @include dims(auto, mobile-vw(400px));
+    margin-bottom: mobile-vw(-160px);
+  }
 
   // @include outline(red);
 

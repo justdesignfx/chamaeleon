@@ -9,6 +9,7 @@ import { useModalStore } from "@/lib/store/modal"
 
 import { CookiePopup } from "@/components/cookie-popup"
 import { Modal } from "@/components/modal"
+import { CustomEase, ScrollTrigger, gsap } from "@/lib/gsap"
 
 const queryClient = new QueryClient()
 
@@ -21,6 +22,10 @@ if (typeof window !== "undefined") {
 export default function App({ Component, pageProps }: AppProps) {
   const modalStore = useModalStore()
   useSmoothScroll()
+
+  useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, CustomEase)
+  }, [])
 
   useIsomorphicLayoutEffect(() => {
     if (localStorage.getItem("cookieAccepted")) return

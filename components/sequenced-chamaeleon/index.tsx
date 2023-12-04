@@ -1,8 +1,9 @@
-import { useLayoutEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import s from "./sequence.module.scss"
 
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomImage } from "@/components/custom-image"
 
@@ -33,7 +34,7 @@ const SequencedChamaeleon = () => {
   const ref = useRef(null)
   const [phase, setPhase] = useState(0)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     function setImgRecursively(progress: number, items: HTMLElement[], currentIndex: number) {
       const part = 1 / items.length
 

@@ -69,7 +69,7 @@ export default function Home({ companies }: Props) {
         <div className={cn(s.rocket, "flex-center-y")}>
           <Parallax speedX={0} directionY={-1} speedY={0.2}>
             <div className={s.imgC}>
-              <CustomImage src={rocket} alt="Rocket Illustration" style={{ objectFit: "contain" }} />
+              <CustomImage src={rocket} alt="Rocket Illustration" style={{ objectFit: "contain" }} loading="lazy" />
             </div>
           </Parallax>
         </div>
@@ -104,14 +104,14 @@ export default function Home({ companies }: Props) {
           WHETHER YOU'RE{" "}
           <span className={s.a}>
             <span className={s.imgC}>
-              <CustomImage src={moneybox} alt="Moneybox Illustration" />
+              <CustomImage src={moneybox} alt="Moneybox Illustration" loading="lazy" />
             </span>
           </span>
           <span className={s.forestial}>A HUMBLE STARTUP </span>
           OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
           <span className={s.b}>
             <span className={s.imgC}>
-              <CustomImage src={cowboyHat} alt="Cowboy Hat Illustration" />
+              <CustomImage src={cowboyHat} alt="Cowboy Hat Illustration" loading="lazy" />
             </span>
           </span>
           WE'RE HERE TO BOOST YOU.
@@ -150,7 +150,7 @@ export default function Home({ companies }: Props) {
             </MaskedScale>
           </div>
           <div className={s.imgC}>
-            <CustomImage src={logoMantis} alt="Mantis Logo" loading="lazy" style={{ objectFit: "contain" }} />
+            <CustomImage src={logoMantis} alt="Mantis Logo" style={{ objectFit: "contain" }} loading="lazy" />
           </div>
         </div>
 
@@ -183,16 +183,16 @@ export default function Home({ companies }: Props) {
           <div className={s.imgs}>
             <div className={s.imgC}>
               <MaskedScale>
-                <CustomImage src={kinCurtain} alt="People at Event" loading="lazy" style={{ objectFit: "cover" }} />
+                <CustomImage src={kinCurtain} alt="People at Event" style={{ objectFit: "cover" }} loading="lazy" />
               </MaskedScale>
             </div>
             <div className={s.imgC}>
               <MaskedScale>
-                <CustomImage src={kinLunch} alt="People at Event" loading="lazy" style={{ objectFit: "cover" }} />
+                <CustomImage src={kinLunch} alt="People at Event" style={{ objectFit: "cover" }} loading="lazy" />
               </MaskedScale>
             </div>
             <div className={s.imgC}>
-              <CustomImage src={logoKin} alt="Kin Logo" loading="lazy" style={{ objectFit: "contain" }} />
+              <CustomImage src={logoKin} alt="Kin Logo" style={{ objectFit: "contain" }} loading="lazy" />
             </div>
           </div>
         </div>

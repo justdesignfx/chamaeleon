@@ -1,0 +1,31 @@
+.layeredImages {
+  @include dims(100vw, 100vh);
+  margin-bottom: desktop-vw(50px);
+  overflow: hidden;
+  position: relative;
+
+  @include mobile {
+    @include dims(100%, 100vh);
+    margin: mobile-vw(-100px) 0;
+  }
+
+  .layerC {
+    @include position(absolute, 50%, auto, auto, 50%);
+    @include dims(desktop-vw(1400px), desktop-vw(620px));
+    transform: translate(-50%, -50%);
+
+    @include mobile {
+      @include dims(mobile-vw(340px), mobile-vw(400px));
+    }
+
+    .imgC {
+      @include dims(100%);
+      border-radius: desktop-vw(20px);
+      overflow: hidden;
+
+      @include mobile {
+        border-radius: mobile-vw(12px);
+      }
+    }
+  }
+}

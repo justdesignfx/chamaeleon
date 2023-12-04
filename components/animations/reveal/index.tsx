@@ -30,9 +30,9 @@ const Reveal = ({ children }: Props) => {
         once: true,
         animation: tl.current,
         id: "reveal",
-        markers: false,
+        markers: true,
         trigger: ref.current,
-        start: "top center+=35%",
+        start: "center-=25% center+=25%",
       })
     }, ref)
 

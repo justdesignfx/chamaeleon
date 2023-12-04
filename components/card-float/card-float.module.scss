@@ -47,6 +47,12 @@
     margin-bottom: desktop-vw(50px);
     text-align: start;
     width: desktop-vw(300px);
+
+    @include mobile {
+      font-size: mobile-vw(25px);
+      margin-bottom: mobile-vw(50px);
+      width: mobile-vw(300px);
+    }
   }
 
   > .iconC {

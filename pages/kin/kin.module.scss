@@ -79,7 +79,7 @@
     z-index: -1;
 
     @include mobile {
-      margin-bottom: 0;
+      margin-bottom: mobile-vw(50px);
     }
 
     &.rotated {
@@ -105,67 +105,78 @@
       }
     }
   }
-
-  .layeredImages {
-    @include dims(100vw, 100vh);
-    margin-bottom: desktop-vw(50px);
-    overflow: hidden;
-    position: relative;
-
-    @include mobile {
-      @include dims(100vw, 50vh);
-    }
-
-    .layerC {
-      @include position(absolute, 50%, auto, auto, 50%);
-      @include dims(desktop-vw(1400px), desktop-vw(620px));
-      transform: translate(-50%, -50%);
-
-      .imgC {
-        @include dims(100%);
-        border-radius: desktop-vw(20px);
-        overflow: hidden;
-      }
-    }
-  }
 }
 
 .members {
-  .content {
-    &.desktop {
-      align-items: center;
-      display: grid;
-      grid-template-columns: repeat(3, desktop-vw(340px));
-      gap: desktop-vw(50px) desktop-vw(25px);
-      justify-content: center;
-      margin-bottom: desktop-vw(100px);
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, desktop-vw(340px));
+  gap: desktop-vw(50px) desktop-vw(25px);
+  justify-content: center;
+  margin-bottom: desktop-vw(100px);
 
-      > div {
-        &:nth-of-type(3n + 2) {
-          margin-top: desktop-vw(-150px);
-        }
-      }
-    }
+  @include mobile {
+    grid-template-columns: repeat(1, mobile-vw(340px));
+    margin-bottom: mobile-vw(50px);
+    row-gap: mobile-vw(50px);
+  }
 
-    &.mobile {
-      @include dims(100vw, 100vh);
-      position: relative;
+  > div {
+    &:nth-of-type(3n + 2) {
+      margin-top: desktop-vw(-150px);
 
-      .slide {
-        @include dims(100vw, 100vh);
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        padding: 0 mobile-vw(35px);
-      }
-
-      .btn {
-        @include dims(mobile-vw(25px));
-        pointer-events: auto;
+      @include mobile {
+        margin-top: 0;
       }
     }
   }
 }
+
+// .members {
+//   .content {
+//     &.desktop {
+//       align-items: center;
+//       display: grid;
+//       grid-template-columns: repeat(3, desktop-vw(340px));
+//       gap: desktop-vw(50px) desktop-vw(25px);
+//       justify-content: center;
+//       margin-bottom: desktop-vw(100px);
+
+//       @include mobile {
+//         grid-template-columns: repeat(1, mobile-vw(340px));
+//         row-gap: mobile-vw(50px);
+//       }
+
+//       > div {
+//         &:nth-of-type(3n + 2) {
+//           margin-top: desktop-vw(-150px);
+
+//           @include mobile {
+//             margin-top: 0;
+//           }
+//         }
+//       }
+//     }
+
+//     &.mobile {
+//       @include dims(100vw, 100vh);
+//       position: relative;
+
+//       .slide {
+//         @include dims(100vw, 100vh);
+//         align-items: center;
+//         display: flex;
+//         justify-content: center;
+//         padding: 0 mobile-vw(35px);
+//       }
+
+//       .btn {
+//         @include dims(mobile-vw(25px));
+//         pointer-events: auto;
+//       }
+//     }
+//   }
+// }
 
 .modalSlide {
   @include dims(100vw, 100vh);

@@ -1,26 +1,20 @@
-import { useRef } from "react"
 import s from "./kin.module.scss"
 
-import { gsap, ScrollTrigger } from "@/lib/gsap"
 import cn from "clsx"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-import { all } from "@/api/queries/kin"
 import { Reveal } from "@/components/animations/reveal"
 import { CardInfo } from "@/components/card-info"
 import { CardPerson } from "@/components/card-person"
 import { CustomImage } from "@/components/custom-image"
+import { LayeredImages } from "@/components/layered-images"
 import { Marquee } from "@/components/marquee"
 import { SliderDetailedInfo } from "@/components/slider-detailed-info"
-import { EmblaCarousel } from "@/components/embla-carousel"
-import IconArrow from "@/components/icons/icon-arrow"
+
+import { all } from "@/api/queries/kin"
 import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
 
-import curtain from "@/public/img/kin-curtain.png"
-import lunch from "@/public/img/kin-lunch.png"
-import trip from "@/public/img/kin-trip.jpg"
 import logoKin from "@/public/img/logo-kin-community.png"
 
 type Props = {
@@ -29,8 +23,6 @@ type Props = {
 
 export const Kin = ({ members }: Props) => {
   const modalStore = useModalStore()
-  const layeredImagesRef = useRef(null)
-  const tl = useRef(gsap.timeline({ paused: true }))
 
   function handleModal(index: number) {
     modalStore.setContent(
@@ -46,78 +38,6 @@ export const Kin = ({ members }: Props) => {
       />
     )
   }
-
-  // layered images animation
-  useIsomorphicLayoutEffect(() => {
-    if (!layeredImagesRef.current) return
-
-    const ctx = gsap.context((self) => {
-      const selector = self.selector
-      if (!selector) return
-
-      selector(".layer").map((item: HTMLElement, i: number) => {
-        if (i === 0) return
-        gsap.set(item, {
-          yPercent: 150 + i * 10,
-          scale: 1 + i * 0.025,
-        })
-      })
-
-      selector(".scale").map((item: HTMLElement, i: number) => {
-        if (i === 0) return
-
-        gsap.set(item, {
-          scale: 2,
-        })
-      })
-
-      tl.current = gsap.timeline({ paused: true })
-
-      tl.current
-        .to(
-          selector(".layer")[1],
-          {
-            yPercent: 0,
-            scale: 1,
-          },
-          "b"
-        )
-        .to(
-          selector(".scale")[1],
-          {
-            scale: 1,
-          },
-          "b"
-        )
-        .to(
-          selector(".layer")[2],
-          {
-            yPercent: 0,
-            scale: 1,
-          },
-          "c"
-        )
-        .to(
-          selector(".scale")[2],
-          {
-            scale: 1,
-          },
-          "c"
-        )
-
-      ScrollTrigger.create({
-        id: "layered-images",
-        animation: tl.current,
-        end: "bottom+=2000px top",
-        trigger: layeredImagesRef.current,
-        scrub: true,
-        pin: true,
-        markers: true,
-      })
-    }, layeredImagesRef)
-
-    return () => ctx.revert()
-  }, [])
 
   return (
     <DefaultLayout>
@@ -146,31 +66,9 @@ export const Kin = ({ members }: Props) => {
           <CustomImage src={logoKin} alt="Kin Logo" style={{ objectFit: "contain" }} />
         </div>
 
-        <div className={s.layeredImages} ref={layeredImagesRef}>
-          <div className={cn(s.layerC, "layer-c")}>
-            <div className={cn(s.imgC, "layer")}>
-              <div className={cn(s.scale, "scale")}>
-                <CustomImage src={trip} alt="People Hanging Out" style={{ objectFit: "cover" }} />
-              </div>
-            </div>
-          </div>
-          <div className={cn(s.layerC, "layer-c")}>
-            <div className={cn(s.imgC, "layer")}>
-              <div className={cn(s.scale, "scale")}>
-                <CustomImage src={curtain} alt="People Hanging Out" style={{ objectFit: "cover" }} />
-              </div>
-            </div>
-          </div>
-          <div className={cn(s.layerC, "layer-c")}>
-            <div className={cn(s.imgC, "layer")}>
-              <div className={cn(s.scale, "scale")}>
-                <CustomImage src={lunch} alt="People Hanging Out" style={{ objectFit: "cover" }} />
-              </div>
-            </div>
-          </div>
-        </div>
-
         <h2>BELOW, A NON-EXHAUSTIVE LIST OF MEMBERS OF KIN COMMUNITY. MEMBERSHIP IS INVITE-ONLY.</h2>
+
+        <LayeredImages />
 
         <div className={s.marquee}>
           <Marquee duration={30}>
@@ -182,7 +80,7 @@ export const Kin = ({ members }: Props) => {
         </div>
       </section>
 
-      <section className={s.members}>
+      {/* <section className={s.members}>
         <div className="desktop-only">
           <div className={cn(s.content, s.desktop)}>
             {members.map((item, i) => {
@@ -219,7 +117,17 @@ export const Kin = ({ members }: Props) => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <div className={s.members}>
+        {members.map((item, i) => {
+          return (
+            <Reveal key={i}>
+              <CardPerson {...item} toggleDetail={() => handleModal(i)} />
+            </Reveal>
+          )
+        })}
+      </div>
     </DefaultLayout>
   )
 }

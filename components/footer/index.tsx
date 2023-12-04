@@ -62,8 +62,9 @@ const Footer = () => {
                   src={item.icon}
                   alt="Social Media Icon"
                   style={{ objectFit: "contain" }}
-                  height={50}
-                  width={50}
+                  height={30}
+                  width={30}
+                  loading="lazy"
                 />
               </CustomLink>
             )
@@ -71,7 +72,7 @@ const Footer = () => {
       </div>
 
       <div className={s.imgC}>
-        <CustomImage src={coins} alt="Coin Stack" style={{ objectFit: "contain" }} />
+        <CustomImage src={coins} alt="Coin Stack" style={{ objectFit: "contain" }} loading="lazy" />
       </div>
     </footer>
   )

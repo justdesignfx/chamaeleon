@@ -32,7 +32,7 @@
       margin-top: desktop-vw(30px);
 
       @include mobile {
-        font-size: mobile-vw(90px);
+        font-size: mobile-vw(60px);
         margin-bottom: mobile-vw(30px);
         margin-top: mobile-vw(30px);
       }
@@ -49,9 +49,9 @@
     width: desktop-vw(300px);
 
     @include mobile {
-      font-size: mobile-vw(25px);
+      font-size: mobile-vw(20px);
       margin-bottom: mobile-vw(50px);
-      width: mobile-vw(300px);
+      width: mobile-vw(200px);
     }
   }
 

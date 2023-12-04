@@ -15,7 +15,8 @@ const MaskedScale = ({ children }: Props) => {
         scale: 1.1,
         scrollTrigger: {
           id: "masked-scale",
-          markers: true,
+
+          markers: false,
           scrub: true,
           trigger: ref.current,
         },

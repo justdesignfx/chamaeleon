@@ -55,7 +55,8 @@ const FooterReveal = ({ children }: Props) => {
         start: "top bottom",
         end: () => `top bottom-=${height}`,
         scrub: true,
-        markers: true,
+
+        markers: false,
       })
     }, ref)
 

@@ -7,21 +7,32 @@
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(80px);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.1;
     margin: 0 auto;
     margin-bottom: desktop-vw(300px);
     text-align: center;
     width: desktop-vw(1000px);
+
+    @include mobile {
+      font-size: mobile-vw(50px);
+      margin-bottom: mobile-vw(100px);
+      width: auto;
+    }
   }
 }
 
 .earth {
-  background: var(--nightly-woods);
-  margin-bottom: desktop-vw(300px);
-  position: relative;
   align-items: center;
+  background: var(--nightly-woods);
   display: flex;
   flex-direction: column;
+  margin-bottom: desktop-vw(300px);
+  position: relative;
+
+  @include mobile {
+    margin-bottom: mobile-vw(200px);
+    padding: 0 var(--mobile-padding-x);
+  }
 
   > .imgs {
     align-items: flex-end;
@@ -47,6 +58,11 @@
       @include dims(desktop-vw(440px), desktop-vw(520px));
       border-radius: desktop-vw(20px);
       overflow: hidden;
+
+      @include mobile {
+        @include dims(mobile-vw(160px), mobile-vw(200px));
+        border-radius: mobile-vw(12px);
+      }
     }
   }
 
@@ -60,6 +76,12 @@
     margin-bottom: desktop-vw(75px);
     text-align: center;
     width: desktop-vw(850px);
+
+    @include mobile {
+      font-size: mobile-vw(50px);
+      margin-bottom: mobile-vw(75px);
+      width: auto;
+    }
   }
 
   > .values {
@@ -69,14 +91,26 @@
     padding-bottom: desktop-vw(100px);
     align-items: flex-end;
 
+    @include mobile {
+      column-gap: unset;
+      grid-template-columns: repeat(1, 100%);
+      padding: 0 var(--mobile-padding-x);
+      padding-bottom: mobile-vw(100px);
+    }
+
     > div {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
       text-align: center;
+
+      @include mobile {
+        margin-bottom: mobile-vw(50px);
+      }
 
       &:nth-child(2) {
         padding-bottom: desktop-vw(200px);
+
+        @include mobile {
+          padding-bottom: 0;
+        }
       }
 
       > h3 {
@@ -85,6 +119,11 @@
         font-size: desktop-vw(60px);
         font-weight: 700;
         margin-bottom: desktop-vw(20px);
+
+        @include mobile {
+          font-size: mobile-vw(45px);
+          margin-bottom: mobile-vw(20px);
+        }
       }
 
       > p {
@@ -93,6 +132,10 @@
         font-size: desktop-vw(25px);
         font-weight: 400;
         line-height: 1.5;
+
+        @include mobile {
+          font-size: mobile-vw(20px);
+        }
       }
     }
   }
@@ -101,6 +144,10 @@
     @include position(absolute, 100%, auto, auto, 50%);
     @include dims(desktop-vw(400px));
     transform: translate(-50%, -50%);
+
+    @include mobile {
+      @include dims(mobile-vw(250px));
+    }
   }
 }
 
@@ -108,6 +155,11 @@
   display: flex;
   flex-direction: column;
   margin-bottom: desktop-vw(100px);
+
+  @include mobile {
+    margin-bottom: mobile-vw(15px);
+    padding: 0 var(--mobile-padding-x);
+  }
 
   > h2 {
     color: var(--nightly-woods);
@@ -120,6 +172,12 @@
     position: relative;
     text-align: center;
     width: desktop-vw(700px);
+
+    @include mobile {
+      font-size: mobile-vw(60px);
+      margin-bottom: mobile-vw(50px);
+      width: 100%;
+    }
   }
 
   > .cards {
@@ -129,163 +187,49 @@
     justify-content: center;
     width: desktop-vw(1000px);
 
+    @include mobile {
+      row-gap: mobile-vw(16px);
+      width: 100%;
+    }
+
     > div {
       @include dims(desktop-vw(440px), desktop-vw(500px));
 
+      @include mobile {
+        @include dims(100%, auto);
+      }
+
       &:nth-child(1) {
+        transform: rotate(-6deg);
         z-index: 1;
+
+        @include mobile {
+          margin: 0;
+          transform: rotate(0deg);
+        }
       }
 
       &:nth-child(2) {
         margin-left: desktop-vw(-50px);
         margin-top: desktop-vw(50px);
+        transform: rotate(5deg);
         z-index: 3;
+
+        @include mobile {
+          margin: 0;
+          transform: rotate(0deg);
+        }
       }
 
       &:nth-child(3) {
         margin-top: desktop-vw(-100px);
+        transform: rotate(-9deg);
         z-index: 2;
-      }
-    }
-  }
-}
 
-.table {
-  > h2 {
-    color: var(--nightly-woods);
-    font-family: var(--font-first-aid-kit-f);
-    font-size: desktop-vw(80px);
-    font-weight: 700;
-    line-height: 1.15;
-    margin: 0 auto;
-    margin-bottom: desktop-vw(70px);
-    position: relative;
-    text-align: center;
-    width: desktop-vw(900px);
-  }
-
-  > .grid {
-    margin: 0 auto;
-    margin-bottom: desktop-vw(100px);
-    position: relative;
-    width: desktop-vw(1350px);
-
-    &::before,
-    &::after {
-      content: "";
-      @include position(absolute, 50%, auto, auto, 50%);
-      background: var(--nightly-woods);
-      transform: translate(-50%, -50%);
-    }
-
-    &::before {
-      @include dims(1px, 100%);
-    }
-
-    &::after {
-      @include dims(100%, 1px);
-    }
-
-    .punch {
-      @include position(absolute, 50%, auto, auto, 50%);
-      @include dims(22px);
-      transform: translate(-50%, -50%);
-      z-index: 10;
-
-      .dot {
-        border: 100px solid var(--nightly-woods);
-
-        &:nth-child(1) {
-          content: "";
-          @include position(absolute, 50%, auto, auto, 50%);
-          @include dims(6000px);
-          background: var(--forested-juniper);
-          border-radius: 50%;
-          transform: translate(-50%, -50%);
+        @include mobile {
+          margin: 0;
+          transform: rotate(0deg);
         }
-
-        &:nth-child(2) {
-          content: "";
-          @include position(absolute, 50%, auto, auto, 50%);
-          @include dims(2200px);
-          background: var(--electric-energy);
-          border-radius: 50%;
-          transform: translate(-50%, -50%);
-        }
-      }
-    }
-
-    .lookForC {
-      @include position(absolute, 50%, auto, auto, 50%);
-      transform: translate(-50%, -50%);
-      z-index: 20;
-
-      .lookFor {
-        color: var(--nightly-woods);
-        font-family: var(--font-first-aid-kit-f);
-        font-size: desktop-vw(180px);
-        font-weight: 700;
-        line-height: 0.9;
-        text-align: center;
-        transform: rotate(-6deg);
-
-        span {
-          font-family: var(--font-helvetica-neue);
-        }
-      }
-    }
-
-    .items {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, desktop-vw(260px));
-
-      > div {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-
-        > h3 {
-          color: var(--nightly-woods);
-          font-family: var(--font-first-aid-kit-f);
-          font-size: desktop-vw(40px);
-          font-weight: 700;
-          margin-bottom: desktop-vw(20px);
-        }
-
-        > p {
-          color: var(--nightly-woods);
-          font-family: var(--font-helvetica-neue);
-          font-size: desktop-vw(20px);
-          font-weight: 400;
-          line-height: 1.5;
-          width: desktop-vw(360px);
-        }
-      }
-    }
-  }
-}
-
-.expectations {
-  padding: desktop-vw(100px) 0;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-
-  > .cards {
-    display: grid;
-    grid-template-columns: repeat(2, desktop-vw(420px));
-    grid-template-rows: repeat(2, desktop-vw(470px));
-    margin-bottom: desktop-vw(100px);
-    row-gap: desktop-vw(50px);
-
-    > div {
-      @include dims(100%);
-
-      &:nth-child(2n) {
-        margin-top: desktop-vw(160px);
       }
     }
   }

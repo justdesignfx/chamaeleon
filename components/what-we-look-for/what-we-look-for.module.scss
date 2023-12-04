@@ -1,0 +1,217 @@
+.whatWeLookFor {
+  @include mobile {
+    padding: 0 var(--mobile-padding-x);
+  }
+
+  > h2 {
+    color: var(--nightly-woods);
+    font-family: var(--font-first-aid-kit-f);
+    font-size: desktop-vw(80px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 auto;
+    margin-bottom: desktop-vw(70px);
+    position: relative;
+    text-align: center;
+    width: desktop-vw(900px);
+
+    @include mobile {
+      font-size: mobile-vw(50px);
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
+  }
+
+  > .grid {
+    margin: 0 auto;
+    margin-bottom: desktop-vw(100px);
+    position: relative;
+    width: desktop-vw(1350px);
+
+    @include mobile {
+      margin-bottom: mobile-vw(50px);
+      width: auto;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      @include position(absolute, 50%, auto, auto, 50%);
+      background: var(--nightly-woods);
+      transform: translate(-50%, -50%);
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &::before {
+      @include dims(1px, 100%);
+    }
+
+    &::after {
+      @include dims(100%, 1px);
+    }
+
+    .punch {
+      @include position(absolute, 50%, auto, auto, 50%);
+      @include dims(22px);
+      transform: translate(-50%, -50%);
+      z-index: 10;
+
+      .dot {
+        border: 100px solid var(--nightly-woods);
+
+        &:nth-child(1) {
+          content: "";
+          @include position(absolute, 50%, auto, auto, 50%);
+          @include dims(6000px);
+          background: var(--forested-juniper);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:nth-child(2) {
+          content: "";
+          @include position(absolute, 50%, auto, auto, 50%);
+          @include dims(3000px);
+          background: var(--electric-energy);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .lookForC {
+      @include position(absolute, 50%, auto, auto, 50%);
+      transform: translate(-50%, -50%);
+      z-index: 20;
+
+      .lookFor {
+        color: var(--nightly-woods);
+        font-family: var(--font-first-aid-kit-f);
+        font-size: desktop-vw(180px);
+        font-weight: 700;
+        line-height: 0.9;
+        text-align: center;
+        transform: rotate(-6deg);
+
+        span {
+          font-family: var(--font-helvetica-neue);
+        }
+      }
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, desktop-vw(260px));
+
+      @include mobile {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: unset;
+      }
+
+      > div {
+        text-align: center;
+
+        > h3 {
+          color: var(--nightly-woods);
+          font-family: var(--font-first-aid-kit-f);
+          font-size: desktop-vw(40px);
+          font-weight: 700;
+          margin-bottom: desktop-vw(20px);
+
+          @include mobile {
+            font-size: mobile-vw(40px);
+            margin-bottom: mobile-vw(20px);
+          }
+        }
+
+        > p {
+          color: var(--nightly-woods);
+          font-family: var(--font-helvetica-neue);
+          font-size: desktop-vw(20px);
+          font-weight: 400;
+          line-height: 1.5;
+          width: desktop-vw(360px);
+
+          @include mobile {
+            font-size: mobile-vw(20px);
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  > .expectations {
+    padding: desktop-vw(100px) 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    position: relative;
+
+    > .cards {
+      display: grid;
+      grid-template-columns: repeat(2, desktop-vw(420px));
+      grid-template-rows: repeat(2, desktop-vw(470px));
+      margin-bottom: desktop-vw(100px);
+      row-gap: desktop-vw(50px);
+
+      @include mobile {
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: unset;
+        margin-bottom: mobile-vw(50px);
+        row-gap: mobile-vw(50px);
+      }
+
+      > div {
+        @include dims(100%);
+
+        &:nth-child(1) {
+          transform: rotate(-7deg);
+
+          @include mobile {
+            transform: rotate(0deg);
+          }
+        }
+
+        &:nth-child(2) {
+          transform: rotate(8deg);
+
+          @include mobile {
+            transform: rotate(0deg);
+          }
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-16deg);
+
+          @include mobile {
+            transform: rotate(0deg);
+          }
+        }
+
+        &:nth-child(4) {
+          transform: rotate(5deg);
+
+          @include mobile {
+            transform: rotate(0deg);
+          }
+        }
+
+        &:nth-child(2n) {
+          margin-top: desktop-vw(160px);
+          margin-left: desktop-vw(-50px);
+
+          @include mobile {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

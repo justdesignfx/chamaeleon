@@ -51,7 +51,8 @@ const NewsAndEvents = ({ posts }: Props) => {
         start: "top center",
         end: "bottom center",
         id: "infinite",
-        markers: true,
+
+        markers: false,
         trigger: selector(".list"),
         onLeave: () => {
           setLimit((prev) => prev + LIMIT)

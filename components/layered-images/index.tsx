@@ -81,7 +81,8 @@ const LayeredImages = () => {
         trigger: layeredImagesRef.current,
         scrub: true,
         pin: true,
-        markers: true,
+
+        markers: false,
       })
     }, layeredImagesRef)
 

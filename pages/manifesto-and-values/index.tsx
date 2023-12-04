@@ -244,7 +244,8 @@ const ManifestoAndValues = () => {
         trigger: ourValuesRef.current,
         scrub: true,
         start: `center bottom`,
-        markers: true,
+
+        markers: false,
       })
     }, ourValuesRef)
 
@@ -260,7 +261,8 @@ const ManifestoAndValues = () => {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         id: "manifesto",
-        // markers: true,
+        //
+        markers: false,
         trigger: manifestoRef.current,
         start: "top center",
         end: "bottom center",

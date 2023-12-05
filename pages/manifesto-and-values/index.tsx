@@ -196,6 +196,8 @@ const manifestoView = {
 }
 
 const ManifestoAndValues = () => {
+  console.log("st-top", ScrollTrigger)
+
   const manifestoRef = useRef(null)
   const ourValuesRef = useRef(null)
   const tl = useRef(gsap.timeline({ paused: true }))
@@ -204,8 +206,6 @@ const ManifestoAndValues = () => {
 
   // our values animations
   useIsomorphicLayoutEffect(() => {
-    if (!ourValuesRef.current) return
-
     const ctx = gsap.context(() => {
       tl.current = gsap.timeline({ paused: true })
 
@@ -239,13 +239,12 @@ const ManifestoAndValues = () => {
         })
 
       ScrollTrigger.create({
+        markers: false,
         id: "our-values",
         animation: tl.current,
         trigger: ourValuesRef.current,
         scrub: true,
         start: `center bottom`,
-
-        markers: false,
       })
     }, ourValuesRef)
 
@@ -254,15 +253,12 @@ const ManifestoAndValues = () => {
 
   // manifesto dual view animations
   useIsomorphicLayoutEffect(() => {
-    if (!manifestoRef.current) return
-
     const duration = 0.2
 
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
-        id: "manifesto",
-        //
         markers: false,
+        id: "manifesto",
         trigger: manifestoRef.current,
         start: "top center",
         end: "bottom center",
@@ -304,7 +300,9 @@ const ManifestoAndValues = () => {
   }
 
   useEffect(() => {
-    ScrollTrigger?.refresh()
+    console.log("st", ScrollTrigger)
+
+    ScrollTrigger.refresh()
   }, [currentManifestoView])
 
   return (

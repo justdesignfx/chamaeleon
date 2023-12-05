@@ -304,7 +304,7 @@ const ManifestoAndValues = () => {
   }
 
   useEffect(() => {
-    ScrollTrigger.refresh()
+    ScrollTrigger?.refresh()
   }, [currentManifestoView])
 
   return (

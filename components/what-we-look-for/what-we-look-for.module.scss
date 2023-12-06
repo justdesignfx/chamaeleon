@@ -147,12 +147,11 @@
   }
 
   > .expectations {
-    padding: desktop-vw(100px) 0;
     align-items: center;
     display: flex;
     flex-direction: column;
-    z-index: 100;
     position: relative;
+    z-index: 100;
 
     > .cards {
       display: grid;

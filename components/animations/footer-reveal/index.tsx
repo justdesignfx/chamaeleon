@@ -49,14 +49,13 @@ const FooterReveal = ({ children }: Props) => {
         )
 
       ScrollTrigger.create({
+        markers: true,
         animation: tl.current,
         id: "footer",
         trigger: ref.current,
         start: "top bottom",
         end: () => `top bottom-=${height}`,
         scrub: true,
-
-        markers: false,
       })
     }, ref)
 

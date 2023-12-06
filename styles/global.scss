@@ -135,3 +135,15 @@ sup {
     display: none;
   }
 }
+
+.post-item {
+  margin-bottom: desktop-vw(22px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    margin-bottom: mobile-vw(16px);
+  }
+}

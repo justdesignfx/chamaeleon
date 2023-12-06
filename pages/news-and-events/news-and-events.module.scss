@@ -2,10 +2,11 @@
   column-gap: desktop-vw(60px);
   display: grid;
   grid-template-columns: desktop-vw(500px) auto;
+  margin-bottom: desktop-vw(100px);
   padding: desktop-vw(50px) desktop-vw(40px);
   position: relative;
 
-  &::after {
+  &::before {
     content: "";
     @include position(absolute, 0, 0, auto, 50%);
     @include dims(calc(100% - desktop-vw(80px)), 1px);
@@ -31,13 +32,21 @@
       column-gap: desktop-vw(50px);
     }
 
+    .loadingScreen {
+      @include dims(100%, calc(100vh - var(--header-height)));
+    }
+
     .list {
       display: grid;
+      column-gap: desktop-vw(12px);
       grid-template-columns: repeat(2, 1fr);
       margin: desktop-vw(100px) 0;
+      row-gap: desktop-vw(48px);
 
-      &:nth-child(2n) {
-        margin-top: desktop-vw(100px);
+      > div {
+        &:nth-child(2n) {
+          transform: translateY(desktop-vw(100px));
+        }
       }
     }
   }

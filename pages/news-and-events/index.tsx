@@ -3,43 +3,29 @@ import s from "./news-and-events.module.scss"
 
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
-import { GetServerSideProps } from "next"
-import { useRouter } from "next/router"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Searchbox } from "@/components/searchbox"
 import { Sort } from "@/components/sort"
 import { DefaultLayout } from "@/layouts/default"
 
-import { apiClient } from "@/api"
-import { CardPostProps, OptionProps } from "@/types"
+import { useAll } from "@/api/queries/news-and-events"
+import { CardPost } from "@/components/card-post"
+import LoadingSpinner from "@/components/loading-spinner"
+import { ClientOnly } from "@/hocs/isomorphic"
+import { OptionProps } from "@/types"
 
 const LIMIT = 10
 
-type Props = {
-  posts: CardPostProps[]
-}
-
-const NewsAndEvents = ({ posts }: Props) => {
-  const router = useRouter()
+const NewsAndEvents = () => {
   const ref = useRef(null)
+
   const [limit, setLimit] = useState(LIMIT)
   const [keyword, setKeyword] = useState("")
   const [sort, setSort] = useState<OptionProps | null>(null)
+  const { data: posts, isLoading } = useAll(limit, keyword, sort)
 
-  useIsomorphicLayoutEffect(() => {
-    router.push(
-      {
-        pathname: "/news-and-events",
-        query: {
-          ...(limit && { limit }),
-          ...(keyword && { keyword }),
-          ...(sort && { sort: sort?.value }),
-        },
-      },
-      "/news-and-events"
-    )
-  }, [keyword, limit, sort])
+  console.log("posts", posts)
 
   // infinite fetch
   useIsomorphicLayoutEffect(() => {
@@ -55,6 +41,7 @@ const NewsAndEvents = ({ posts }: Props) => {
         markers: false,
         trigger: selector(".list"),
         onLeave: () => {
+          return
           setLimit((prev) => prev + LIMIT)
         },
       })
@@ -69,49 +56,50 @@ const NewsAndEvents = ({ posts }: Props) => {
         <div className={s.title}>
           <h1>Where Every Gathering Becomes a Memorable Experience.</h1>
         </div>
-        <div className={s.items}>
-          <div className={s.filter}>
-            <div>
-              <Sort
-                label="SORT BY"
-                sort={sort}
-                setSort={setSort}
-                options={[
-                  { label: "Newest to Latest", value: "NEWEST_TO_LATEST" },
-                  { label: "Latest to Newest", value: "LATEST_TO_NEWEST" },
-                ]}
-              />
+        <ClientOnly>
+          <div className={s.items}>
+            <div className={s.filter}>
+              <div>
+                <Sort
+                  label="SORT BY"
+                  sort={sort}
+                  setSort={setSort}
+                  options={[
+                    { label: "Newest to Latest", value: "NEWEST_TO_LATEST" },
+                    { label: "Latest to Newest", value: "LATEST_TO_NEWEST" },
+                  ]}
+                />
+              </div>
+              <div>
+                <Searchbox keyword={keyword} setKeyword={setKeyword} />
+              </div>
             </div>
-            <div>
-              <Searchbox keyword={keyword} setKeyword={setKeyword} />
-            </div>
+            {isLoading ? (
+              <div className={cn(s.loadingScreen, "flex-center")}>
+                <LoadingSpinner />
+              </div>
+            ) : (
+              <>
+                {posts ? (
+                  <div className={cn(s.list, "list")}>
+                    {posts.map((item) => {
+                      return (
+                        <div key={item.id}>
+                          <CardPost {...item} />
+                        </div>
+                      )
+                    })}
+                  </div>
+                ) : (
+                  <div className={cn(s.loadingScreen, "flex-center")}>NOT FOUND</div>
+                )}
+              </>
+            )}
           </div>
-          <div className={cn(s.list, "list")}>
-            {/* {posts.length &&
-              posts.map((item) => {
-                return <div>{item.title}</div>
-              })} */}
-          </div>
-        </div>
+        </ClientOnly>
       </div>
     </DefaultLayout>
   )
 }
 
 export default NewsAndEvents
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await apiClient.get("/newsAndEvents.php", {
-    params: {
-      ...context.query,
-    },
-  })
-
-  const posts = await res.data
-
-  return {
-    props: {
-      posts,
-    },
-  }
-}

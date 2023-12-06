@@ -1,4 +1,4 @@
-import s from "./card-blog.module.scss"
+import s from "./card-post.module.scss"
 
 import cn from "clsx"
 
@@ -12,19 +12,17 @@ type Props = CardPostProps
 
 const CardPost = (props: Props) => {
   return (
-    <CustomLink href={`${routes.newsAndEvents.path}/${props.url}`} div className={cn(s.cardBlog, "cursor-pointer")}>
+    <CustomLink href={`${routes.newsAndEvents.path}/${props.url}`} div className={cn(s.cardPost, "cursor-pointer")}>
       <div className={s.imgC}>
-        <div>
-          <CustomImage
-            src={props.media.desktop.src}
-            alt="Profile Photo of a Team Member"
-            height={parseFloat(props.media.desktop.height)}
-            width={parseFloat(props.media.desktop.width)}
-          />
-        </div>
+        <CustomImage
+          src={props.media.desktop.src}
+          alt="Post Cover Photo"
+          height={parseFloat(props.media.desktop.height)}
+          width={parseFloat(props.media.desktop.width)}
+        />
       </div>
       <p>{props.title}</p>
-      <small>{props.title}</small>
+      <small>{props.date}</small>
     </CustomLink>
   )
 }

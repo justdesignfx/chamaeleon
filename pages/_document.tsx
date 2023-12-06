@@ -12,7 +12,7 @@ export default function Document() {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link
+        {/* <link
           href="/fonts/HelveticaNeue-Bold.woff2"
           as="font"
           rel="preload prefetch"
@@ -25,7 +25,7 @@ export default function Document() {
           rel="preload prefetch"
           type="font/woff2"
           crossOrigin="anonymous"
-        />
+        /> */}
       </Head>
       <body>
         <Main />

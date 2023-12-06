@@ -7,8 +7,8 @@ import { FooterReveal } from "@/components/animations/footer-reveal"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 
-import { breakpoints } from "@/lib/utils"
 import { ClientOnly } from "@/hocs/isomorphic"
+import { breakpoints } from "@/lib/utils"
 
 type Props = {
   children: ReactNode

@@ -14,7 +14,7 @@ const CardPerson = (props: Props) => {
   return (
     <div className={cn(s.cardPerson, "cursor-pointer")}>
       <div className={s.imgC} onClick={props.toggleDetail}>
-        <div>
+        <div className="inherit-dims">
           <CustomImage
             src={props.media.desktop.src}
             alt="Profile Photo of a Team Member"

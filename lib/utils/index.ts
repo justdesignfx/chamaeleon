@@ -27,8 +27,8 @@ export function shareOnSocialMedia() {
 
   const copyContent = async () => {
     try {
-      await navigator.clipboard.writeText(`https://producture.justdesignfx.com${location.pathname}`)
-      console.log("Content copied to clipboard", `https://producture.justdesignfx.com${location.pathname}`)
+      await navigator.clipboard.writeText(`https://chamaeleon.vc${location.pathname}`)
+      console.log("Content copied to clipboard", `https://chamaeleon.vc${location.pathname}`)
     } catch (err) {
       console.error("Failed to copy: ", err)
     }

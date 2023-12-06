@@ -16,10 +16,11 @@ export interface CardPersonProps {
 }
 
 export interface CardPostProps {
-  description: string
+  id: string
   media: MediaProps
   title: string
   url: string
+  date: string
 }
 
 export interface SocialProps {
@@ -62,11 +63,20 @@ export interface OptionProps {
 }
 
 export interface PostProps {
-  date: string
-  title: string
-  readingTime: string
-  cover: MediaProps
-  text: HTMLElement
-  image: MediaProps[]
-  nexPost: string
+  id: string
+  header: {
+    title: string
+    date: string
+    readingTime: string
+    banner: MediaProps
+  }
+  nextPost: string
+  body: BlockProps
+}
+
+export interface BlockProps {
+  id: string
+  data: MediaProps[] | HTMLElement | any
+  componentName: "Image" | "Text" | "Body"
+  [key: string]: unknown
 }

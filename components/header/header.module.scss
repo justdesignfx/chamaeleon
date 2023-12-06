@@ -75,13 +75,18 @@
     transform: translateY(-100%);
 
     @include mobile {
-      height: mobile-vw(540px);
+      height: 100vh;
       padding: mobile-vw(50px) mobile-vw(8px);
     }
 
     nav {
       margin-top: auto;
       margin-right: auto;
+
+      @include mobile {
+        margin-bottom: auto;
+        margin-top: mobile-vw(30px);
+      }
 
       > ul {
         column-gap: desktop-vw(130px);

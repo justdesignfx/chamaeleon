@@ -4,7 +4,7 @@ import { useQuery } from "react-query"
 
 // GET all
 async function all(limit: number, keyword?: string | null, sort?: string) {
-  const res = await apiClient.get("/newsAndEvents.php", {
+  const res = await apiClient.get("/news.php", {
     params: {
       keyword,
       sort,

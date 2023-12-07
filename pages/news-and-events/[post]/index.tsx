@@ -86,9 +86,9 @@ const Post = (props: Props) => {
         </div>
       </section>
 
-      {/* <section className={s.postBody}>
+      <section className={s.postBody}>
         <PostBody {...props} />
-      </section> */}
+      </section>
 
       <CustomLink href={`/${props.nextPost}`} className={cn(s.marquee, "cursor-pointer")}>
         <Marquee duration={30}>

@@ -1,17 +1,9 @@
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { BlockProps, PostProps } from "@/types"
 
 import { BlockBody } from "@/components/block-body"
 import { BlockImage } from "@/components/block-image"
 import { BlockText } from "@/components/block-text"
-
-type ComponentList = "Image" | "Text"
-
-enum ComponentNames {
-  image = "Image",
-  text = "Text",
-  body = "Body",
-}
 
 const blocks = {
   Body: BlockBody,
@@ -32,7 +24,7 @@ const PostBody = (props: Props) => {
       // console.log("data", data, componentName, id)
 
       if (!data) {
-        return React.createElement(blocks[componentName])
+        return React.createElement(blocks[componentName] as FunctionComponent)
       }
 
       const { components, ...rest } = data
@@ -43,7 +35,7 @@ const PostBody = (props: Props) => {
 
       const el = React.createElement(
         // TODO: This can be improved
-        blocks[componentName],
+        blocks[componentName] as FunctionComponent,
         {
           // Pass all the props coming from the data object.
           ...rest,

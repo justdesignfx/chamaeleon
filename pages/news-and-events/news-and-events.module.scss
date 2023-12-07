@@ -34,6 +34,9 @@
 
     .loadingScreen {
       @include dims(100%, calc(100vh - var(--header-height)));
+      color: var(--nightly-woods);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(40px);
     }
 
     .list {

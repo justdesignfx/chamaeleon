@@ -5,13 +5,13 @@ import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
+import { CardPost } from "@/components/card-post"
+import { LoadingSpinner } from "@/components/loading-spinner"
 import { Searchbox } from "@/components/searchbox"
 import { Sort } from "@/components/sort"
 import { DefaultLayout } from "@/layouts/default"
 
 import { useAll } from "@/api/queries/news-and-events"
-import { CardPost } from "@/components/card-post"
-import LoadingSpinner from "@/components/loading-spinner"
 import { ClientOnly } from "@/hocs/isomorphic"
 import { OptionProps } from "@/types"
 
@@ -34,11 +34,10 @@ const NewsAndEvents = () => {
       if (!selector) return
 
       ScrollTrigger.create({
+        markers: true,
         start: "top center",
         end: "bottom center",
         id: "infinite",
-
-        markers: false,
         trigger: selector(".list"),
         onLeave: () => {
           return
@@ -49,6 +48,10 @@ const NewsAndEvents = () => {
 
     return () => ctx.revert()
   }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    ScrollTrigger.refresh()
+  }, [posts])
 
   return (
     <DefaultLayout>
@@ -82,7 +85,7 @@ const NewsAndEvents = () => {
               <>
                 {posts ? (
                   <div className={cn(s.list, "list")}>
-                    {posts.map((item) => {
+                    {posts?.map((item) => {
                       return (
                         <div key={item.id}>
                           <CardPost {...item} />
@@ -91,7 +94,7 @@ const NewsAndEvents = () => {
                     })}
                   </div>
                 ) : (
-                  <div className={cn(s.loadingScreen, "flex-center")}>NOT FOUND</div>
+                  <div className={cn(s.loadingScreen, "flex-center")}>CONTENT NOT FOUND</div>
                 )}
               </>
             )}

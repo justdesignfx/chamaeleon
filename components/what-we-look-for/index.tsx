@@ -1,13 +1,15 @@
-import { useRef } from "react"
+import React, { useRef } from "react"
 import s from "./what-we-look-for.module.scss"
 
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { useIsomorphicLayoutEffect, useMediaQuery } from "usehooks-ts"
 
 import { Parallax } from "@/components/animations/parallax"
 import { CardFloat } from "@/components/card-float"
 import { CardFloatProps } from "@/types"
+import { breakpoints } from "@/lib/utils"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 const items: CardFloatProps[] = [
   {
@@ -59,9 +61,12 @@ const items: CardFloatProps[] = [
 const WhatWeLookFor = () => {
   const tableRef = useRef(null)
   const tl = useRef(gsap.timeline({ paused: true }))
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
+  console.log("isMobile", isMobile)
 
   // what we look for animations
   useIsomorphicLayoutEffect(() => {
+    if (isMobile) return
     if (!tableRef.current) return
 
     const ctx = gsap.context(() => {
@@ -119,58 +124,78 @@ const WhatWeLookFor = () => {
     }, tableRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
 
   return (
-    <section className={s.whatWeLookFor} ref={tableRef}>
-      <h2>WHAT WE BRING TO THE TABLE?</h2>
+    <ClientOnly>
+      <section className={s.whatWeLookFor} ref={tableRef}>
+        <h2>WHAT WE BRING TO THE TABLE?</h2>
 
-      <div className={s.grid}>
-        <div className={cn(s.punch, "flex-center")}>
-          <div className={cn(s.dot, "dot-back")}></div>
-          <div className={cn(s.dot, "dot-front")}></div>
+        <div className={s.grid}>
+          {!isMobile && (
+            <div className={cn(s.punch, "flex-center")}>
+              <div className={cn(s.dot, "dot-back")}></div>
+              <div className={cn(s.dot, "dot-front")}></div>
+            </div>
+          )}
+
+          {!isMobile && (
+            <div className={s.lookForC}>
+              <h4 className={cn(s.lookFor, "look-for")}>
+                WHAT WE <br /> LOOK FOR<span>?</span>
+              </h4>
+            </div>
+          )}
+
+          <div className={s.items}>
+            <div className="flex-center-y">
+              <h3>SPEED</h3>
+              <p>Quick decision-making, enabled by more efficient and fact-based due diligence.</p>
+            </div>
+            <div className="flex-center-y">
+              <h3>DEPTH</h3>
+              <p>Support our portfolio in deep understanding of markets and trends.</p>
+            </div>
+            <div className="flex-center-y">
+              <h3>NO BIAS</h3>
+              <p>Source deals globally, extended by our analytic engines.</p>
+            </div>
+            <div className="flex-center-y">
+              <h3>HUMANIST</h3>
+              <p>Individuals matter, “all hands on deck” support in key moments.</p>
+            </div>
+          </div>
         </div>
 
-        <div className={s.lookForC}>
-          <h4 className={cn(s.lookFor, "look-for")}>
-            WHAT WE <br /> LOOK FOR<span>?</span>
-          </h4>
-        </div>
+        <div className={s.expectations}>
+          {isMobile && (
+            <div className={s.lookForC}>
+              <h4 className={cn(s.lookFor, "look-for")}>
+                WHAT WE <br /> LOOK FOR<span>?</span>
+              </h4>
+            </div>
+          )}
 
-        <div className={s.items}>
-          <div className="flex-center-y">
-            <h3>SPEED</h3>
-            <p>Quick decision-making, enabled by more efficient and fact-based due diligence.</p>
-          </div>
-          <div className="flex-center-y">
-            <h3>DEPTH</h3>
-            <p>Support our portfolio in deep understanding of markets and trends.</p>
-          </div>
-          <div className="flex-center-y">
-            <h3>NO BIAS</h3>
-            <p>Source deals globally, extended by our analytic engines.</p>
-          </div>
-          <div className="flex-center-y">
-            <h3>HUMANIST</h3>
-            <p>Individuals matter, “all hands on deck” support in key moments.</p>
+          <div className={s.cards}>
+            {items.map((item, i) => {
+              return (
+                <React.Fragment key={i}>
+                  {isMobile ? (
+                    <CardFloat {...item} />
+                  ) : (
+                    <div>
+                      <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1}>
+                        <CardFloat {...item} />
+                      </Parallax>
+                    </div>
+                  )}
+                </React.Fragment>
+              )
+            })}
           </div>
         </div>
-      </div>
-
-      <div className={s.expectations}>
-        <div className={s.cards}>
-          {items.map((item, i) => {
-            return (
-              <div key={i}>
-                <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1}>
-                  <CardFloat {...item} />
-                </Parallax>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
+      </section>
+    </ClientOnly>
   )
 }
 

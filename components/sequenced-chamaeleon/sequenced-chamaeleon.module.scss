@@ -6,8 +6,8 @@
   z-index: 10;
 
   @include mobile {
-    @include dims(auto, mobile-vw(400px));
-    margin-bottom: mobile-vw(-160px);
+    @include dims(auto, mobile-vw(300px));
+    margin-bottom: mobile-vw(-100px);
   }
 
   // @include outline(red);

@@ -92,7 +92,7 @@ const Approach = () => {
           </div>
         </div>
         <div className={s.imgC}>
-          <CustomImage src={earth} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} />
+          <CustomImage src={earth} alt="Spinning Earth Gif" style={{ objectFit: "contain" }} priority={true} />
         </div>
       </section>
 

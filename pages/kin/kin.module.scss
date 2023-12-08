@@ -116,8 +116,11 @@
   margin-bottom: desktop-vw(100px);
 
   @include mobile {
-    grid-template-columns: repeat(1, mobile-vw(340px));
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
     margin-bottom: mobile-vw(50px);
+    padding: 0 mobile-vw(28px);
     row-gap: mobile-vw(50px);
   }
 

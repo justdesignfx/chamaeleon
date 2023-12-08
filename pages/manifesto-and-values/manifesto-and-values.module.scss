@@ -135,8 +135,8 @@
       grid-template-columns: repeat(1, mobile-vw(360px));
       grid-template-rows: repeat(8, mobile-vw(360px));
       row-gap: mobile-vw(20px);
-      margin-bottom: 0;
-      padding-bottom: mobile-vw(50px);
+      margin-bottom: unset;
+      padding-bottom: unset;
     }
 
     > div {

@@ -30,7 +30,7 @@
   position: relative;
 
   @include mobile {
-    margin-bottom: mobile-vw(200px);
+    margin-bottom: mobile-vw(175px);
     padding: 0 var(--mobile-padding-x);
   }
 
@@ -40,17 +40,29 @@
     margin: 0 auto;
     margin-top: desktop-vw(-150px);
 
+    @include mobile {
+      margin-top: mobile-vw(-50px);
+    }
+
     .transform {
       &:nth-child(1) {
         margin-right: desktop-vw(-50px);
         transform: rotate(-6deg);
         z-index: 10;
+
+        @include mobile {
+          margin-right: mobile-vw(-25px);
+        }
       }
 
       &:nth-child(2) {
         margin-bottom: desktop-vw(50px);
         transform: rotate(8deg);
         z-index: 5;
+
+        @include mobile {
+          margin-bottom: mobile-vw(50px);
+        }
       }
     }
 
@@ -95,14 +107,14 @@
       column-gap: unset;
       grid-template-columns: repeat(1, 100%);
       padding: 0 var(--mobile-padding-x);
-      padding-bottom: mobile-vw(100px);
+      padding-bottom: mobile-vw(125px);
     }
 
     > div {
       text-align: center;
 
       @include mobile {
-        margin-bottom: mobile-vw(50px);
+        margin-bottom: mobile-vw(75px);
       }
 
       &:nth-child(2) {
@@ -121,7 +133,7 @@
         margin-bottom: desktop-vw(20px);
 
         @include mobile {
-          font-size: mobile-vw(45px);
+          font-size: mobile-vw(35px);
           margin-bottom: mobile-vw(20px);
         }
       }
@@ -174,7 +186,7 @@
     width: desktop-vw(700px);
 
     @include mobile {
-      font-size: mobile-vw(60px);
+      font-size: mobile-vw(55px);
       margin-bottom: mobile-vw(50px);
       width: 100%;
     }
@@ -188,6 +200,9 @@
     width: desktop-vw(1000px);
 
     @include mobile {
+      align-items: stretch;
+      flex-direction: column;
+      margin-bottom: mobile-vw(50px);
       row-gap: mobile-vw(16px);
       width: 100%;
     }
@@ -196,7 +211,7 @@
       @include dims(desktop-vw(440px), desktop-vw(500px));
 
       @include mobile {
-        @include dims(100%, auto);
+        @include dims(auto, mobile-vw(380px));
       }
 
       &:nth-child(1) {

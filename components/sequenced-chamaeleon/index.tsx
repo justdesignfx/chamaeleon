@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import s from "./sequence.module.scss"
+import s from "./sequenced-chamaeleon.module.scss"
 
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"

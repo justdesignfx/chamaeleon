@@ -6,7 +6,7 @@
 
   @include mobile {
     border-radius: mobile-vw(20px);
-    padding: mobile-vw(50px) mobile-vw(40px);
+    padding: mobile-vw(40px) mobile-vw(25px);
   }
 
   > h5 {
@@ -63,7 +63,7 @@
 
     @include mobile {
       --distance: #{mobile-vw(10px)};
-      @include dims(auto, mobile-vw(100px));
+      @include dims(mobile-vw(125px));
     }
 
     &.tl {
@@ -99,7 +99,6 @@
     }
 
     &.sm {
-      // @include dims(desktop-vw(140px));
       transform: scale(0.9);
 
       @include mobile {
@@ -108,7 +107,6 @@
     }
 
     &.md {
-      // @include dims(desktop-vw(180px));
       transform: scale(1);
 
       @include mobile {
@@ -117,7 +115,6 @@
     }
 
     &.lg {
-      // @include dims(desktop-vw(220px));
       transform: scale(1.8);
 
       @include mobile {

@@ -17,8 +17,39 @@
 
     @include mobile {
       font-size: mobile-vw(50px);
+      line-height: 1;
       margin-bottom: mobile-vw(50px);
       width: auto;
+    }
+  }
+
+  .lookForC {
+    @include position(absolute, 50%, auto, auto, 50%);
+    transform: translate(-50%, -50%);
+    z-index: 20;
+
+    @include mobile {
+      @include position(relative, auto, auto, auto, auto);
+      margin-bottom: mobile-vw(50px);
+      transform: unset;
+    }
+
+    .lookFor {
+      color: var(--nightly-woods);
+      font-family: var(--font-first-aid-kit-f);
+      font-size: desktop-vw(180px);
+      font-weight: 700;
+      line-height: 0.9;
+      text-align: center;
+      transform: rotate(-6deg);
+
+      @include mobile {
+        font-size: mobile-vw(80px);
+      }
+
+      span {
+        font-family: var(--font-helvetica-neue);
+      }
     }
   }
 
@@ -82,26 +113,6 @@
       }
     }
 
-    .lookForC {
-      @include position(absolute, 50%, auto, auto, 50%);
-      transform: translate(-50%, -50%);
-      z-index: 20;
-
-      .lookFor {
-        color: var(--nightly-woods);
-        font-family: var(--font-first-aid-kit-f);
-        font-size: desktop-vw(180px);
-        font-weight: 700;
-        line-height: 0.9;
-        text-align: center;
-        transform: rotate(-6deg);
-
-        span {
-          font-family: var(--font-helvetica-neue);
-        }
-      }
-    }
-
     .items {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -111,6 +122,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: unset;
+        row-gap: mobile-vw(50px);
       }
 
       > div {
@@ -153,6 +165,10 @@
     position: relative;
     z-index: 100;
 
+    @include mobile {
+      align-items: stretch;
+    }
+
     > .cards {
       display: grid;
       grid-template-columns: repeat(2, desktop-vw(420px));
@@ -161,14 +177,21 @@
       row-gap: desktop-vw(50px);
 
       @include mobile {
+        align-items: stretch;
+        display: flex;
+        flex-direction: column;
         grid-template-columns: repeat(1, 100%);
         grid-template-rows: unset;
         margin-bottom: mobile-vw(50px);
-        row-gap: mobile-vw(50px);
+        row-gap: mobile-vw(16px);
       }
 
       > div {
         @include dims(100%);
+
+        @include mobile {
+          @include dims(100%, mobile-vw(350px));
+        }
 
         &:nth-child(1) {
           transform: rotate(-7deg);

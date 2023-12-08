@@ -27,7 +27,7 @@ const CardCompanyDetail = (props: Props) => {
       </div>
 
       <div className={s.info}>
-        <p className={s.title}>{props.name}</p>
+        {/* <p className={s.title}>{props.name}</p> */}
         <div className={s.desc}>
           <ScrollableBox>
             <p>

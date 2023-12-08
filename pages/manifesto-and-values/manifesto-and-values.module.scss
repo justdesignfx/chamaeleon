@@ -365,7 +365,7 @@
     @include dims(desktop-vw(420px));
 
     @include mobile {
-      @include position(absolute, auto, 0, mobile-vw(25px), auto);
+      @include position(absolute, auto, mobile-vw(-150px), mobile-vw(25px), auto);
       @include dims(mobile-vw(200px));
     }
   }

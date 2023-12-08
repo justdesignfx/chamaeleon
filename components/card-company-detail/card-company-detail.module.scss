@@ -10,11 +10,12 @@
   pointer-events: auto;
 
   @include mobile {
-    @include dims(mobile-vw(350px), 95%);
+    @include dims(mobile-vw(300px), auto);
+    align-items: center;
     border-radius: mobile-vw(20px);
-    row-gap: mobile-vw(10px);
     flex-direction: column;
-    padding: mobile-vw(16px);
+    padding: mobile-vw(16px) mobile-vw(16px) mobile-vw(32px) mobile-vw(16px);
+    row-gap: mobile-vw(10px);
   }
 
   .close {
@@ -22,30 +23,35 @@
     @include dims(desktop-vw(15px));
 
     @include mobile {
-      @include position(absolute, mobile-vw(15px), mobile-vw(15px), auto, auto);
-      font-size: mobile-vw(25px);
+      @include position(absolute, mobile-vw(25px), mobile-vw(25px), auto, auto);
+      @include dims(mobile-vw(15px));
+
+      * {
+        path {
+          fill: var(--nightly-woods);
+        }
+      }
     }
   }
 
   > .imgCC {
-    @include dims(desktop-vw(300px), desktop-vw(300px));
+    @include dims(desktop-vw(300px));
     background: var(--greening);
     border-radius: desktop-vw(10px);
     flex-shrink: 0;
     overflow: hidden;
 
     @include mobile {
-      @include dims(100%, mobile-vw(300px));
+      @include dims(100%, mobile-vw(160px));
       border-radius: mobile-vw(10px);
-      display: none;
+      margin-bottom: mobile-vw(10px);
     }
 
     .imgC {
-      @include dims(desktop-vw(160px), auto);
+      @include dims(desktop-vw(140px), auto);
 
       @include mobile {
-        @include dims(100%, mobile-vw(300px));
-        display: none;
+        @include dims(mobile-vw(150px), mobile-vw(75px));
       }
     }
   }
@@ -59,6 +65,7 @@
 
     @include mobile {
       @include dims(100%);
+      align-items: center;
     }
 
     .title {
@@ -72,6 +79,7 @@
       @include mobile {
         font-size: mobile-vw(30px);
         margin-bottom: mobile-vw(10px);
+        text-align: center;
       }
     }
 
@@ -92,8 +100,10 @@
       }
 
       @include mobile {
-        @include dims(auto, mobile-vw(450px));
+        @include dims(auto, mobile-vw(200px));
         font-size: mobile-vw(14px);
+        line-height: 2;
+        text-align: center;
       }
     }
 

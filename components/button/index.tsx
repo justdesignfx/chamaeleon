@@ -18,7 +18,7 @@ const Button = (props: Props) => {
       className={cn(s.button, [s[props.size]])}
       {...(props.path && { href: props.path })}
       {...(props.onClick && { onClick: props.onClick })}
-      style={{ color: props.color, borderColor: props.color }}
+      style={{ color: props.color, borderColor: props.color, "--btn-theme-color": props.color }}
     >
       {props.text}
     </CustomLink>

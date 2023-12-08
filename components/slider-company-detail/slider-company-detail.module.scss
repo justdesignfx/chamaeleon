@@ -9,5 +9,9 @@
   .btn {
     @include dims(desktop-vw(50px));
     pointer-events: auto;
+
+    @include mobile {
+      @include dims(mobile-vw(25px));
+    }
   }
 }

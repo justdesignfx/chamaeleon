@@ -9,7 +9,7 @@
   z-index: 10;
 
   @include mobile {
-    @include dims(100%, mobile-vw(45px));
+    @include dims(100%, auto);
     border-radius: mobile-vw(8px);
   }
 
@@ -27,8 +27,8 @@
     text-transform: uppercase;
 
     @include mobile {
-      @include dims(100%, mobile-vw(45px));
-      font-size: mobile-vw(16px);
+      @include dims(100%, auto);
+      font-size: mobile-vw(25px);
       padding: 0 var(--input-padding);
     }
 
@@ -39,7 +39,7 @@
 
       @include mobile {
         @include position(absolute, 50%, mobile-vw(16px), auto, auto);
-        @include dims(mobile-vw(14px), mobile-vw(8px));
+        @include dims(mobile-vw(12px), mobile-vw(8px));
       }
     }
   }
@@ -52,14 +52,16 @@
     border-radius: desktop-vw(4px);
     background: var(--forested-juniper);
     display: none;
-    justify-content: flex-start;
     flex-direction: column;
-    row-gap: desktop-vw(10px);
+    justify-content: flex-start;
     overflow: hidden;
     padding: desktop-vw(6px) 0;
+    row-gap: desktop-vw(10px);
 
     @include mobile {
-      padding: mobile-vw(10px) mobile-vw(15px) mobile-vw(25px) mobile-vw(15px);
+      @include dims(100%, auto);
+      border-radius: mobile-vw(4px);
+      padding: mobile-vw(6px) 0;
       row-gap: mobile-vw(10px);
     }
 
@@ -75,16 +77,16 @@
       font-weight: 400;
       padding: desktop-vw(10px);
 
-      @include hover {
-        &:hover {
-          background-color: var(--cloudy-day);
-        }
-      }
-
       @include mobile {
         border-radius: mobile-vw(8px);
         font-size: mobile-vw(14px);
         padding: mobile-vw(10px) mobile-vw(10px) mobile-vw(7px) mobile-vw(10px);
+      }
+
+      @include hover {
+        &:hover {
+          background-color: var(--cloudy-day);
+        }
       }
     }
   }

@@ -8,7 +8,7 @@
   @include mobile {
     column-gap: 0;
     grid-template-columns: 1fr;
-    padding: mobile-vw(40px) 0;
+    padding: mobile-vw(20px) 0;
   }
 
   > .text {

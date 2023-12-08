@@ -6,6 +6,13 @@
   padding: desktop-vw(50px) desktop-vw(40px);
   position: relative;
 
+  @include mobile {
+    column-gap: mobile-vw(60px);
+    grid-template-columns: unset;
+    margin-bottom: 0;
+    padding: mobile-vw(50px) var(--mobile-padding-x);
+  }
+
   &::before {
     content: "";
     @include position(absolute, 0, 0, auto, 50%);
@@ -22,6 +29,14 @@
       font-weight: 700;
       margin-top: desktop-vw(200px);
       text-transform: uppercase;
+
+      @include mobile {
+        font-size: mobile-vw(40px);
+        line-height: 1.15;
+        margin-bottom: mobile-vw(50px);
+        margin-top: 0;
+        text-align: center;
+      }
     }
   }
 
@@ -30,6 +45,12 @@
       display: flex;
       align-items: flex-end;
       column-gap: desktop-vw(50px);
+
+      @include mobile {
+        align-items: stretch;
+        flex-direction: column;
+        row-gap: mobile-vw(20px);
+      }
     }
 
     .loadingScreen {
@@ -46,9 +67,20 @@
       margin: desktop-vw(100px) 0;
       row-gap: desktop-vw(48px);
 
+      @include mobile {
+        column-gap: mobile-vw(12px);
+        grid-template-columns: repeat(1, 1fr);
+        margin: mobile-vw(50px) 0;
+        row-gap: mobile-vw(48px);
+      }
+
       > div {
         &:nth-child(2n) {
           transform: translateY(desktop-vw(100px));
+
+          @include mobile {
+            transform: translateY(0);
+          }
         }
       }
     }

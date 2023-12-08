@@ -55,6 +55,10 @@
     .imgC {
       border-radius: desktop-vw(12px);
       overflow: hidden;
+
+      @include mobile {
+        border-radius: mobile-vw(12px);
+      }
     }
   }
 }

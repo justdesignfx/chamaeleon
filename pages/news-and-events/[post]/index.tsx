@@ -37,8 +37,9 @@ const Post = (props: Props) => {
         <div className={s.info}>
           <div className={s.breadcrumb}>
             <small>
-              <CustomLink href={`/${routes.newsAndEvents.path}`}>NEWS & EVENTS / </CustomLink>
+              <CustomLink href={`/${routes.newsAndEvents.path}`}>NEWS & EVENTS</CustomLink>
             </small>
+            <small className={s.separator}> / </small>
             <small>{props.header.title}</small>
           </div>
 

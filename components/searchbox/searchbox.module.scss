@@ -5,8 +5,8 @@
   display: flex;
 
   @include mobile {
-    @include dims(100%, mobile-vw(45px));
-    margin-bottom: mobile-vw(14px);
+    @include dims(100%, auto);
+    column-gap: mobile-vw(10px);
   }
 
   .label {
@@ -14,6 +14,10 @@
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(20px);
     font-weight: 700;
+
+    @include mobile {
+      font-size: mobile-vw(25px);
+    }
   }
 
   .field {
@@ -52,7 +56,7 @@
 
         @include mobile {
           border-radius: mobile-vw(11px);
-          font-size: mobile-vw(16px);
+          font-size: mobile-vw(20px);
           padding: 0 var(--input-padding);
         }
 

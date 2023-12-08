@@ -20,7 +20,6 @@ const CardPerson = (props: Props) => {
             alt="Profile Photo of a Team Member"
             height={parseFloat(props.media.desktop.height)}
             width={parseFloat(props.media.desktop.width)}
-            sizes="(max-width: 800px) 100vw, 33vw"
           />
         </div>
       </div>

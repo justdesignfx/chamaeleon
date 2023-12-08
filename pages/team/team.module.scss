@@ -31,10 +31,12 @@
   margin-bottom: desktop-vw(100px);
 
   @include mobile {
+    align-items: stretch;
     display: flex;
     flex-direction: column;
     gap: mobile-vw(25px);
     margin-bottom: mobile-vw(50px);
+    padding: 0 mobile-vw(28px);
   }
 }
 
@@ -83,7 +85,7 @@
 
       &:nth-child(3) {
         grid-column: span 1;
-        grid-row: span 1;
+        grid-row: span 2;
 
         @include mobile {
           grid-row: span 2;

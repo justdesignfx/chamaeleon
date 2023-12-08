@@ -12,15 +12,15 @@ type Props = {
   onClick?: () => void
 }
 
-const Button = (props: Props) => {
+const Button = ({ color = "var(--nightly-woods)", text, path, size, onClick }: Props) => {
   return (
     <CustomLink
-      className={cn(s.button, [s[props.size]])}
-      {...(props.path && { href: props.path })}
-      {...(props.onClick && { onClick: props.onClick })}
-      style={{ color: props.color, borderColor: props.color, "--btn-theme-color": props.color }}
+      className={cn(s.button, [s[size]])}
+      {...(path && { href: path })}
+      {...(onClick && { onClick: onClick })}
+      style={{ color: color, "--btn-theme-color": color }}
     >
-      {props.text}
+      {text}
     </CustomLink>
   )
 }

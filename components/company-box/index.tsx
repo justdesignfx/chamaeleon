@@ -12,7 +12,7 @@ const CompanyBox = (props: Props) => {
   return (
     <div className={cn(s.companyBox, "flex-center")}>
       <div className={s.imgC}>
-        <CustomImage src={props.logo} alt={props.name} height={200} width={200} loading="lazy" />
+        <CustomImage src={props.logo} alt={props.name} height={200} width={200} />
       </div>
     </div>
   )

@@ -188,7 +188,7 @@
 }
 
 .postBody {
-  margin-bottom: desktop-vw(150px);
+  margin-bottom: desktop-vw(100px);
   padding: 0 desktop-vw(40px);
 
   @include mobile {
@@ -198,7 +198,7 @@
 
 .marquee {
   display: block;
-  margin-bottom: desktop-vw(150px);
+  margin-bottom: desktop-vw(50px);
 
   @include mobile {
     margin-bottom: mobile-vw(30px);

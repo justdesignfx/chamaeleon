@@ -14,8 +14,9 @@ import { Pixels } from "@/components/pixels"
 import { all } from "@/api/queries/home-portfolio"
 import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
+import { CompanyBoxProps } from "@/types"
 
-import chamaeleonC from "@/public/img/chamaeleon-c.gif"
+import chamaeleonC from "@/public/img/chamaeleon-c.webp"
 import chamaeleonOnHill from "@/public/img/chamaeleon-on-hill.jpg"
 import cowboyHat from "@/public/img/cowboy-hat.png"
 import kinCurtain from "@/public/img/kin-curtain.png"
@@ -25,7 +26,6 @@ import logoKin from "@/public/img/logo-kin-community.png"
 import logoMantis from "@/public/img/logo-mantis.png"
 import moneybox from "@/public/img/moneybox.gif"
 import rocket from "@/public/img/rocket.png"
-import { CompanyBoxProps } from "@/types"
 
 type Props = {
   companies: CompanyBoxProps[]

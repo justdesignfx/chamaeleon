@@ -295,8 +295,8 @@ const ContactForm = (props: Props) => {
     <div className={cn(s.screens, "flex-center")} ref={ref}>
       <div className={s.buttons}>
         <button className={cn(s.button, s.up, "flex-center")} onClick={prev} disabled={currentScreen === 0}>
-          <span>
-            <IconArrowForm />
+          <span className={s.iconC}>
+            <IconArrowForm fill="var(--forested-juniper)" />
           </span>
         </button>
         <button
@@ -304,8 +304,8 @@ const ContactForm = (props: Props) => {
           onClick={next}
           disabled={currentScreen === screens.length - 1}
         >
-          <span>
-            <IconArrowForm rotate={180} />
+          <span className={s.iconC}>
+            <IconArrowForm fill="var(--forested-juniper)" rotate={180} />
           </span>
         </button>
       </div>

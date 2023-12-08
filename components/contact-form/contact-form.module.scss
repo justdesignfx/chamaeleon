@@ -34,8 +34,12 @@
         opacity: 0.3;
       }
 
-      > span {
-        @include dims(8px);
+      > .iconC {
+        @include dims(desktop-vw(8px));
+
+        @include mobile {
+          @include dims(mobile-vw(8px));
+        }
       }
     }
   }

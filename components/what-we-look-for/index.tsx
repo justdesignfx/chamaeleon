@@ -112,10 +112,9 @@ const WhatWeLookFor = () => {
         )
 
       ScrollTrigger.create({
+        markers: false,
         animation: tl.current,
         id: "table",
-        //
-        markers: false,
         end: "bottom+=3000px top",
         trigger: tableRef.current,
         scrub: true,

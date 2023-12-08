@@ -86,7 +86,7 @@ export default function Home({ companies }: Props) {
       </section>
 
       <section className={s.investments}>
-        <Marquee duration={40}>
+        <Marquee duration={40} repeat={2}>
           <>
             {companies.map((item, i) => {
               return (
@@ -108,7 +108,7 @@ export default function Home({ companies }: Props) {
             </span>
           </span>
           <span className={s.forestial}>A HUMBLE STARTUP </span>
-          OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR</span>
+          OR <span className={s.forestial}>AN INDUSTRY SUPERSTAR </span>
           <span className={s.b}>
             <span className={s.imgC}>
               <CustomImage src={cowboyHat} alt="Cowboy Hat Illustration" loading="lazy" />

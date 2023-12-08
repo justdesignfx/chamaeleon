@@ -8,17 +8,17 @@
   }
 
   > .content {
+    @include dims(auto, desktop-vw(615px));
     align-items: center;
     background-color: var(--forestial);
     display: flex;
-    height: desktop-vw(615px);
     justify-content: flex-start;
     overflow: hidden;
     padding: desktop-vw(30px);
     position: relative;
 
     @include mobile {
-      height: mobile-vw(460px);
+      @include dims(auto, mobile-vw(360px));
       justify-content: center;
       padding: mobile-vw(30px);
     }
@@ -33,7 +33,7 @@
 
       @include mobile {
         font-size: mobile-vw(70px);
-        margin-bottom: mobile-vw(50px);
+        margin-bottom: mobile-vw(150px);
         text-align: center;
       }
     }
@@ -45,8 +45,8 @@
     transform: rotate(-12deg);
 
     @include mobile {
-      @include position(absolute, auto, auto, mobile-vw(10px), 50%);
-      @include dims(mobile-vw(150px));
+      @include position(absolute, auto, auto, mobile-vw(-50px), 50%);
+      @include dims(mobile-vw(225px));
       transform: translateX(-50%) rotate(-12deg);
     }
   }
@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
     grid-template-columns: unset;
-    margin-bottom: mobile-vw(100px);
+    margin-bottom: mobile-vw(75px);
   }
 
   > .rocket {
@@ -156,7 +156,7 @@
 
     @include mobile {
       @include dims(mobile-vw(115px), mobile-vw(50px));
-      margin: 0 mobile-vw(50px);
+      margin: 0 mobile-vw(35px);
     }
   }
 }
@@ -200,6 +200,10 @@
     .b {
       display: inline-block;
       position: relative;
+
+      @include mobile {
+        display: none;
+      }
 
       .imgC {
         z-index: 100;
@@ -271,7 +275,7 @@
 
       @include mobile {
         font-size: mobile-vw(75px);
-        margin: 0 mobile-vw(60px);
+        margin: 0 mobile-vw(30px);
       }
     }
   }
@@ -289,7 +293,7 @@
     display: flex;
     flex-direction: column;
     grid-template-columns: unset;
-    margin-bottom: mobile-vw(100px);
+    margin-bottom: mobile-vw(50px);
   }
 
   &::after {
@@ -300,7 +304,7 @@
     transform: translateX(-50%);
 
     @include mobile {
-      @include position(absolute, auto, auto, mobile-vw(-75px), 50%);
+      @include position(absolute, auto, auto, mobile-vw(-55px), 50%);
     }
   }
 
@@ -311,7 +315,7 @@
 
     @include mobile {
       margin: 0 auto;
-      margin-top: mobile-vw(100px);
+      margin-top: mobile-vw(50px);
     }
 
     .imgC {
@@ -494,7 +498,7 @@
       position: relative;
 
       @include mobile {
-        margin-bottom: mobile-vw(50px);
+        margin-bottom: mobile-vw(25px);
         order: 1;
       }
 

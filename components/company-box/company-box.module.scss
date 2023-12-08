@@ -2,10 +2,10 @@
   @include dims(inherit);
 
   .imgC {
-    @include dims(desktop-vw(130px), auto);
+    @include dims(desktop-vw(130px), desktop-vw(50px));
 
     @include mobile {
-      @include dims(mobile-vw(130px), auto);
+      @include dims(mobile-vw(100px), mobile-vw(50px));
     }
   }
 }

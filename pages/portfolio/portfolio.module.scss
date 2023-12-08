@@ -113,6 +113,10 @@
   position: relative;
 
   > .imgC {
+    @include mobile {
+      display: none;
+    }
+
     &.left {
       @include position(absolute, desktop-vw(50px), auto, auto, desktop-vw(30px));
       @include dims(desktop-vw(500px));

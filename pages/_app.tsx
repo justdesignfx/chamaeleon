@@ -7,6 +7,7 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CookiePopup } from "@/components/cookie-popup"
 import { Modal } from "@/components/modal"
+import { CustomHead } from "@/components/custom-head"
 
 import useSmoothScroll from "@/hooks/useSmoothScroll"
 import { useLenisStore } from "@/lib/store/lenis"
@@ -38,6 +39,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <CustomHead
+        canonical={"https://chamaeleon.vc"}
+        title="Chamaeleon"
+        description="Data-driven Silicon Valley  based venture capital firm investing globally in early stage startups"
+        keywords={["venture capital", "startup", "investment", "chamaeleon", "silicon walley", "finance", "technology"]}
+      />
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
         <Modal />

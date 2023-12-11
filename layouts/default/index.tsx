@@ -9,6 +9,7 @@ import { Header } from "@/components/header"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import { breakpoints } from "@/lib/utils"
+import { CustomHead } from "@/components/custom-head"
 
 type Props = {
   children: ReactNode

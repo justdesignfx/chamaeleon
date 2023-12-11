@@ -6,6 +6,7 @@ import cn from "clsx"
 import { useIsomorphicLayoutEffect, useMediaQuery } from "usehooks-ts"
 
 import { Parallax } from "@/components/animations/parallax"
+import { Reveal } from "@/components/animations/reveal"
 import { CardFloat } from "@/components/card-float"
 
 import { breakpoints } from "@/lib/utils"
@@ -180,7 +181,9 @@ const WhatWeLookFor = () => {
             return (
               <React.Fragment key={i}>
                 {isMobile ? (
-                  <CardFloat {...item} />
+                  <Reveal>
+                    <CardFloat {...item} />
+                  </Reveal>
                 ) : (
                   <div>
                     <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1}>

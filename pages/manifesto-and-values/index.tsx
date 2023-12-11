@@ -8,10 +8,11 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { MaskedScale } from "@/components/animations/masked-scale"
 import { Reveal } from "@/components/animations/reveal"
 import { CustomImage } from "@/components/custom-image"
-import { SequencedChamaeleon } from "@/components/sequenced-chamaeleon"
 import { Manifesto } from "@/components/manifesto"
+import { SequencedChamaeleon } from "@/components/sequenced-chamaeleon"
 
 import { DefaultLayout } from "@/layouts/default"
+import { routes } from "@/constants"
 
 import lunch from "@/public/img/manifest-lunch.jpg"
 import c1 from "@/public/img/manifesto-c-1.png"
@@ -115,7 +116,7 @@ const ManifestoAndValues = () => {
   }, [])
 
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ ...routes.manifestoAndValues.seo }}>
       <section className={s.intro}>
         <h1>
           <span>

@@ -18,7 +18,7 @@ import details2 from "@/public/img/mantis-2.jpg"
 
 const Superpower = () => {
   return (
-    <DefaultLayout theme="mantis">
+    <DefaultLayout theme="mantis" seo={{ ...routes.superpower.seo }}>
       <section className={s.intro}>
         <h1>
           Chamaeleon's investment strategy is powered by our proprietary AI and quantitative engine, which analyzes

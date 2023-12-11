@@ -1,3 +1,5 @@
+import { NextSeoProps } from "next-seo"
+
 export interface CompanyBoxProps {
   description?: string
   id: string
@@ -79,4 +81,9 @@ export interface BlockProps {
   data: MediaProps[] | HTMLElement | any
   componentName: "Image" | "Text" | "Body"
   [key: string]: unknown
+}
+
+export interface Seo {
+  title: NextSeoProps["title"]
+  description: NextSeoProps["description"]
 }

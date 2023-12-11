@@ -9,10 +9,11 @@ import { CardPost } from "@/components/card-post"
 import { LoadingSpinner } from "@/components/loading-spinner"
 import { Searchbox } from "@/components/searchbox"
 import { Sort } from "@/components/sort"
-import { DefaultLayout } from "@/layouts/default"
 
 import { useAll } from "@/api/queries/news-and-events"
+import { routes } from "@/constants/index"
 import { ClientOnly } from "@/hocs/isomorphic"
+import { DefaultLayout } from "@/layouts/default"
 import { OptionProps } from "@/types"
 
 const LIMIT = 10
@@ -54,7 +55,7 @@ const NewsAndEvents = () => {
   }, [posts])
 
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ ...routes.newsAndEvents.seo }}>
       <div className={s.newsAndEvents} ref={ref}>
         <div className={s.title}>
           <h1>Where Every Gathering Becomes a Memorable Experience.</h1>

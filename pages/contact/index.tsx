@@ -84,7 +84,7 @@ const Contact = () => {
   }
 
   return (
-    <NonFooter>
+    <NonFooter seo={{ ...routes.contact.seo }}>
       <div className={cn(s.form, "flex-center")} ref={ref}>
         {screens[currentScreen]}
       </div>

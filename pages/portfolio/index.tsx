@@ -49,7 +49,7 @@ const Portfolio = ({ companies }: Props) => {
   }
 
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ ...routes.portfolio.seo }}>
       <section className={s.intro}>
         <h1>
           OUR LATEST ANNOUNCED INVESTMENTS.

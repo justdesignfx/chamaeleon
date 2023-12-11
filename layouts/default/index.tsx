@@ -1,40 +1,45 @@
 import { ReactNode } from "react"
 
 import cn from "clsx"
-import { useMediaQuery } from "usehooks-ts"
+import { useRouter } from "next/router"
 
-import { FooterReveal } from "@/components/animations/footer-reveal"
-import { Footer } from "@/components/footer"
-import { Header } from "@/components/header"
-
-import { ClientOnly } from "@/hocs/isomorphic"
-import { breakpoints } from "@/lib/utils"
 import { CustomHead } from "@/components/custom-head"
+import { Header } from "@/components/header"
+import { ResponsiveFooter } from "@/components/responsive-footer"
+
+import { Seo } from "@/types"
 
 type Props = {
   children: ReactNode
   theme?: "main" | "mantis"
+  seo: Seo
 }
 
-const DefaultLayout = ({ children, theme = "main" }: Props) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
+const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
+  const router = useRouter()
 
   return (
     <>
+      <CustomHead
+        {...(seo &&
+          Object.assign(seo, {
+            canonical: `https://chamaeleon.vc${router.pathname}`,
+            keywords: [
+              "venture capital",
+              "startup",
+              "investment",
+              "chamaeleon",
+              "silicon walley",
+              "finance",
+              "technology",
+            ],
+          }))}
+      />
       <div className={cn("layout", `theme-${theme}`)}>
         <Header />
         <main>{children}</main>
       </div>
-
-      <ClientOnly>
-        {isMobile ? (
-          <Footer />
-        ) : (
-          <FooterReveal>
-            <Footer />
-          </FooterReveal>
-        )}
-      </ClientOnly>
+      <ResponsiveFooter />
     </>
   )
 }

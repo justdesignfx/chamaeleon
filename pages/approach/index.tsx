@@ -15,6 +15,7 @@ import { CardFloatProps } from "@/types"
 import intro1 from "@/public/img/earth-1.jpg"
 import intro2 from "@/public/img/earth-2.jpg"
 import earth from "@/public/img/world.gif"
+import { routes } from "@/constants"
 
 const manifestoItems: CardFloatProps[] = [
   {
@@ -54,7 +55,7 @@ const manifestoItems: CardFloatProps[] = [
 
 const Approach = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ ...routes.approach.seo }}>
       <section className={s.intro}>
         <h1>START-UPS ARE CHANGING. IT'S TIME FOR VENTURE CAPITALS TO CHANGE.</h1>
       </section>

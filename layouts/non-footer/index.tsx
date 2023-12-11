@@ -1,20 +1,44 @@
 import { ReactNode } from "react"
 
 import cn from "clsx"
+import { useRouter } from "next/router"
 
+import { CustomHead } from "@/components/custom-head"
 import { Header } from "@/components/header"
+
+import { Seo } from "@/types"
 
 type Props = {
   children: ReactNode
   theme?: "main" | "mantis"
+  seo: Seo
 }
 
-const NonFooter = ({ children, theme = "main" }: Props) => {
+const NonFooter = ({ children, theme = "main", seo }: Props) => {
+  const router = useRouter()
+
   return (
-    <div className={cn("layout", `theme-${theme}`)}>
-      <Header />
-      <main>{children}</main>
-    </div>
+    <>
+      <CustomHead
+        {...(seo &&
+          Object.assign(seo, {
+            canonical: `https://chamaeleon.vc${router.pathname}`,
+            keywords: [
+              "venture capital",
+              "startup",
+              "investment",
+              "chamaeleon",
+              "silicon walley",
+              "finance",
+              "technology",
+            ],
+          }))}
+      />
+      <div className={cn("layout", `theme-${theme}`)}>
+        <Header />
+        <main>{children}</main>
+      </div>
+    </>
   )
 }
 

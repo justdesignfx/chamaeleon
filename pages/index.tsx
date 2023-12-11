@@ -33,7 +33,7 @@ type Props = {
 
 export default function Home({ companies }: Props) {
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ ...routes.home.seo }}>
       <section className={s.intro}>
         <div className={cn(s.content, "island")}>
           <h1>

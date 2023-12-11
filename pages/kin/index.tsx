@@ -11,6 +11,7 @@ import { Marquee } from "@/components/marquee"
 import { SliderDetailedInfo } from "@/components/slider-detailed-info"
 
 import { all } from "@/api/queries/kin"
+import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
 import { CardPersonProps } from "@/types"
@@ -40,7 +41,7 @@ export const Kin = ({ members }: Props) => {
   }
 
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ ...routes.kin.seo }}>
       <section className={s.intro}>
         <h1>CHAMAELEON'S VISION FOR VALUE-ADD GROWTH.</h1>
 

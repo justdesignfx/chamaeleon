@@ -8,7 +8,7 @@ type Props = {
   image?: { width: number; height: number; url: string }
   keywords?: string[]
   twitter?: NextSeoProps["twitter"]
-  themeColor: NextSeoProps["themeColor"]
+  themeColor?: NextSeoProps["themeColor"]
 }
 export function CustomHead({
   canonical,

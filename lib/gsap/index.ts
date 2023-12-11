@@ -14,6 +14,9 @@ gsap.defaults({
   ease: "none",
 })
 
-ScrollTrigger.defaults({ markers: process.env.NEXT_PUBLIC_NODE_ENV === "development" })
+ScrollTrigger.defaults({
+  markers: false,
+  // markers: process.env.NEXT_PUBLIC_NODE_ENV === "development"
+})
 
 export { ScrollTrigger, CustomEase, EASE, gsap }

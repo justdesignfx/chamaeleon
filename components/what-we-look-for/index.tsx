@@ -111,7 +111,7 @@ const WhatWeLookFor = () => {
         )
 
       ScrollTrigger.create({
-        markers: true,
+        markers: false,
         animation: tl.current,
         id: "table",
         start: "center center",

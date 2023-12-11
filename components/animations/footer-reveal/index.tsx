@@ -49,7 +49,7 @@ const FooterReveal = ({ children }: Props) => {
         )
 
       ScrollTrigger.create({
-        markers: true,
+        markers: false,
         animation: tl.current,
         id: "footer",
         trigger: ref.current,

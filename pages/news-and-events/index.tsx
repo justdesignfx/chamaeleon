@@ -34,7 +34,7 @@ const NewsAndEvents = () => {
       if (!selector) return
 
       ScrollTrigger.create({
-        markers: true,
+        markers: false,
         start: "top center",
         end: "bottom center",
         id: "infinite",

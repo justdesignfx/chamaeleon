@@ -7,6 +7,7 @@ import { Reveal } from "@/components/animations/reveal"
 import { CardFloat } from "@/components/card-float"
 import { CustomImage } from "@/components/custom-image"
 import { WhatWeLookFor } from "@/components/what-we-look-for"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 import { DefaultLayout } from "@/layouts/default"
 import { CardFloatProps } from "@/types"
@@ -111,7 +112,9 @@ const Approach = () => {
         </div>
       </section>
 
-      <WhatWeLookFor />
+      <ClientOnly>
+        <WhatWeLookFor />
+      </ClientOnly>
     </DefaultLayout>
   )
 }

@@ -7,9 +7,9 @@ import { useIsomorphicLayoutEffect, useMediaQuery } from "usehooks-ts"
 
 import { Parallax } from "@/components/animations/parallax"
 import { CardFloat } from "@/components/card-float"
-import { CardFloatProps } from "@/types"
+
 import { breakpoints } from "@/lib/utils"
-import { ClientOnly } from "@/hocs/isomorphic"
+import { CardFloatProps } from "@/types"
 
 const items: CardFloatProps[] = [
   {
@@ -59,15 +59,14 @@ const items: CardFloatProps[] = [
 ]
 
 const WhatWeLookFor = () => {
-  const tableRef = useRef(null)
+  const pinRef = useRef(null)
   const tl = useRef(gsap.timeline({ paused: true }))
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
-  console.log("isMobile", isMobile)
 
   // what we look for animations
   useIsomorphicLayoutEffect(() => {
     if (isMobile) return
-    if (!tableRef.current) return
+    if (!pinRef.current) return
 
     const ctx = gsap.context(() => {
       gsap.set(".look-for", {
@@ -112,25 +111,25 @@ const WhatWeLookFor = () => {
         )
 
       ScrollTrigger.create({
-        markers: false,
+        markers: true,
         animation: tl.current,
         id: "table",
-        end: "bottom+=3000px top",
-        trigger: tableRef.current,
+        start: "center center",
+        trigger: pinRef.current,
         scrub: true,
         pin: true,
       })
-    }, tableRef)
+    }, pinRef)
 
     return () => ctx.revert()
   }, [isMobile])
 
   return (
-    <ClientOnly>
-      <section className={s.whatWeLookFor} ref={tableRef}>
+    <section className={s.whatWeLookFor}>
+      <div className={s.pinC} ref={pinRef}>
         <h2>WHAT WE BRING TO THE TABLE?</h2>
 
-        <div className={s.grid}>
+        <div className={s.table}>
           {!isMobile && (
             <div className={cn(s.punch, "flex-center")}>
               <div className={cn(s.dot, "dot-back")}></div>
@@ -165,36 +164,36 @@ const WhatWeLookFor = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className={s.expectations}>
-          {isMobile && (
-            <div className={s.lookForC}>
-              <h4 className={cn(s.lookFor, "look-for")}>
-                WHAT WE <br /> LOOK FOR<span>?</span>
-              </h4>
-            </div>
-          )}
-
-          <div className={s.cards}>
-            {items.map((item, i) => {
-              return (
-                <React.Fragment key={i}>
-                  {isMobile ? (
-                    <CardFloat {...item} />
-                  ) : (
-                    <div>
-                      <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1}>
-                        <CardFloat {...item} />
-                      </Parallax>
-                    </div>
-                  )}
-                </React.Fragment>
-              )
-            })}
+      <div className={s.expectations}>
+        {isMobile && (
+          <div className={s.lookForC}>
+            <h4 className={cn(s.lookFor, "look-for")}>
+              WHAT WE <br /> LOOK FOR<span>?</span>
+            </h4>
           </div>
+        )}
+
+        <div className={s.cards}>
+          {items.map((item, i) => {
+            return (
+              <React.Fragment key={i}>
+                {isMobile ? (
+                  <CardFloat {...item} />
+                ) : (
+                  <div>
+                    <Parallax speedX={0} speedY={i % 2 === 0 ? (i + 1) * 0.1 : (i + 1) * 0.11} directionY={-1}>
+                      <CardFloat {...item} />
+                    </Parallax>
+                  </div>
+                )}
+              </React.Fragment>
+            )
+          })}
         </div>
-      </section>
-    </ClientOnly>
+      </div>
+    </section>
   )
 }
 

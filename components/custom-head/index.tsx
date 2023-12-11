@@ -8,6 +8,7 @@ type Props = {
   image?: { width: number; height: number; url: string }
   keywords?: string[]
   twitter?: NextSeoProps["twitter"]
+  themeColor: NextSeoProps["themeColor"]
 }
 export function CustomHead({
   canonical,
@@ -15,7 +16,7 @@ export function CustomHead({
   description,
   image,
   keywords,
-  // theme = { mask: "#ff00ff", tile: "#ff00ff", color: "#ff00ff" },
+  themeColor = "#007538",
   twitter = { handle: "@chamaeleonvc" },
 }: Props) {
   return (
@@ -40,13 +41,12 @@ export function CustomHead({
 
         {/* START FAVICON */}
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color={theme.mask} /> */}
-        {/* <meta name="msapplication-TileColor" content={theme.tile} />
-        <meta name="theme-color" content={theme.color} /> */}
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color={themeColor} />
+        <meta name="msapplication-TileColor" content={themeColor} />
+        <meta name="theme-color" content={themeColor} />
         <link rel="icon" href="/favicon.ico" />
         {/* END FAVICON */}
 

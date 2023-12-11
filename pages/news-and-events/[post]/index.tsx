@@ -25,14 +25,12 @@ type Props = PostProps
 const Post = (props: Props) => {
   const router = useRouter()
 
-  console.log(router)
-
   function handleShare() {
     shareOnSocialMedia()
   }
 
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ title: `News & Events | ${props.header.title}`, description: props.header.title }}>
       <section className={s.intro}>
         <div className={s.info}>
           <div className={s.breadcrumb}>

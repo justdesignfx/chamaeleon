@@ -41,13 +41,13 @@ export function CustomHead({
 
         {/* START FAVICON */}
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color={themeColor} />
+        <link rel="mask-icon" href="/img/favicon-32x32.png" color={themeColor} />
         <meta name="msapplication-TileColor" content={themeColor} />
         <meta name="theme-color" content={themeColor} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/img/favicon.ico" />
         {/* END FAVICON */}
 
         <link rel="canonical" href={canonical}></link>

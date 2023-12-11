@@ -13,6 +13,7 @@ import { routes } from "@/constants"
 import { NonFooter } from "@/layouts/non-footer"
 
 import chamaeleon from "@/public/img/chamaeleon-hole.png"
+import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
 
 enum Screen {
   start = "start",
@@ -52,7 +53,12 @@ const Contact = () => {
   const screens = {
     start: (
       <div className={s.start}>
-        <h1>Want to reach out?</h1>
+        <h1>
+          Want to reach out?{" "}
+          <span className={cn(s.iconC, "flex-center")}>
+            <IconCurvedArrow fill="var(--nightly-woods)" />
+          </span>
+        </h1>
         <div className={s.buttonC}>
           <Button text="POP US A MESSAGE" size="lg" onClick={start} />
         </div>

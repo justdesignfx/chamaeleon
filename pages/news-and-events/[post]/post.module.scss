@@ -216,4 +216,12 @@
       margin: 0 mobile-vw(30px);
     }
   }
+
+  .iconC {
+    @include dims(desktop-vw(300px), auto);
+
+    @include mobile {
+      @include dims(mobile-vw(100px), auto);
+    }
+  }
 }

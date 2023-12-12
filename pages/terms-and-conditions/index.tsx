@@ -7,7 +7,7 @@ import { DefaultLayout } from "@/layouts/default"
 
 const TermsAndConditions = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout seo={{ title: "Terms & Conditions", description: "" }}>
       <div className={s.termsAndConditions}>
         <h1>TERMS AND CONDITIONS OF USE</h1>
         <p>For the avoidance any doubt, by accessing this site you agree to be bound by the terms described below:</p>

@@ -1,6 +1,8 @@
+import { Fragment } from "react"
 import s from "./kin.module.scss"
 
 import cn from "clsx"
+import { useMediaQuery } from "usehooks-ts"
 
 import { Reveal } from "@/components/animations/reveal"
 import { CardInfo } from "@/components/card-info"
@@ -14,6 +16,7 @@ import { all } from "@/api/queries/kin"
 import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
+import { breakpoints } from "@/lib/utils"
 import { CardPersonProps } from "@/types"
 
 import logoKin from "@/public/img/logo-kin-community.png"
@@ -23,21 +26,31 @@ type Props = {
 }
 
 export const Kin = ({ members }: Props) => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
   const modalStore = useModalStore()
 
   function handleModal(index: number) {
-    modalStore.setContent(
-      <SliderDetailedInfo
-        currentSlide={index}
-        slides={members.map((member, i) => {
-          return (
-            <div className={s.modalSlide} key={i}>
+    const items = members.map((member, i) => {
+      return (
+        <Fragment key={i}>
+          {isMobile ? (
+            <>
+              {i === index && (
+                <div className={s.modalSlide}>
+                  <CardInfo {...member} />
+                </div>
+              )}
+            </>
+          ) : (
+            <div className={s.modalSlide}>
               <CardInfo {...member} />
             </div>
-          )
-        })}
-      />
-    )
+          )}
+        </Fragment>
+      )
+    })
+
+    modalStore.setContent(<SliderDetailedInfo currentSlide={index} slides={items} />)
   }
 
   return (
@@ -81,46 +94,7 @@ export const Kin = ({ members }: Props) => {
         </div>
       </section>
 
-      {/* <section className={s.members}>
-        <div className="desktop-only">
-          <div className={cn(s.content, s.desktop)}>
-            {members.map((item, i) => {
-              return (
-                <Reveal key={i}>
-                  <div>
-                    <CardPerson {...item} toggleDetail={() => handleModal(i)} />
-                  </div>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
-        <div className="mobile-only">
-          <div className={cn(s.content, s.mobile)}>
-            <EmblaCarousel
-              slides={members.map((item, i) => {
-                return (
-                  <div className={s.slide} key={i}>
-                    <CardPerson {...item} toggleDetail={() => handleModal(i)} />
-                  </div>
-                )
-              })}
-              prevButton={
-                <div className={s.btn}>
-                  <IconArrow fill="var(--nightly-woods)" rotate={180} />
-                </div>
-              }
-              nextButton={
-                <div className={s.btn}>
-                  <IconArrow fill="var(--nightly-woods)" />
-                </div>
-              }
-            />
-          </div>
-        </div>
-      </section> */}
-
-      <div className={s.members}>
+      <section className={s.members}>
         {members.map((item, i) => {
           return (
             <Reveal key={i}>
@@ -128,7 +102,7 @@ export const Kin = ({ members }: Props) => {
             </Reveal>
           )
         })}
-      </div>
+      </section>
     </DefaultLayout>
   )
 }

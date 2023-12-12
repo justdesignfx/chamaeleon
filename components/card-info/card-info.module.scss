@@ -10,7 +10,7 @@
   pointer-events: auto;
 
   @include mobile {
-    @include dims(mobile-vw(310px), auto);
+    @include dims(mobile-vw(340px), auto);
     border-radius: mobile-vw(20px);
     row-gap: mobile-vw(10px);
     flex-direction: column;

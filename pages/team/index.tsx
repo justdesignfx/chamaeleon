@@ -1,4 +1,8 @@
+import { Fragment } from "react"
+
 import s from "./team.module.scss"
+
+import { useMediaQuery } from "usehooks-ts"
 
 import { Parallax } from "@/components/animations/parallax"
 import { Reveal } from "@/components/animations/reveal"
@@ -12,6 +16,7 @@ import { all } from "@/api/queries/team"
 import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
 import { useModalStore } from "@/lib/store/modal"
+import { breakpoints } from "@/lib/utils"
 import { CardPersonProps } from "@/types"
 
 import bale from "@/public/img/bale.png"
@@ -20,22 +25,32 @@ type Props = {
   team: CardPersonProps[]
 }
 
-const Team = ({ team }: Props) => {
+const Team = ({ team: members }: Props) => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
   const modalStore = useModalStore()
 
-  const handleModal = (index: number) => {
-    modalStore.setContent(
-      <SliderDetailedInfo
-        currentSlide={index}
-        slides={team.map((member, i) => {
-          return (
-            <div className={s.slide} key={i}>
+  function handleModal(index: number) {
+    const items = members.map((member, i) => {
+      return (
+        <Fragment key={i}>
+          {isMobile ? (
+            <>
+              {i === index && (
+                <div className={s.modalSlide}>
+                  <CardInfo {...member} />
+                </div>
+              )}
+            </>
+          ) : (
+            <div className={s.modalSlide}>
               <CardInfo {...member} />
             </div>
-          )
-        })}
-      />
-    )
+          )}
+        </Fragment>
+      )
+    })
+
+    modalStore.setContent(<SliderDetailedInfo currentSlide={index} slides={items} />)
   }
 
   return (
@@ -45,7 +60,7 @@ const Team = ({ team }: Props) => {
       </section>
 
       <section className={s.members}>
-        {team.map((item, i) => {
+        {members.map((item, i) => {
           return (
             <div key={i}>
               <Reveal>

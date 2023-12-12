@@ -135,52 +135,6 @@
   }
 }
 
-// .members {
-//   .content {
-//     &.desktop {
-//       align-items: center;
-//       display: grid;
-//       grid-template-columns: repeat(3, desktop-vw(340px));
-//       gap: desktop-vw(50px) desktop-vw(25px);
-//       justify-content: center;
-//       margin-bottom: desktop-vw(100px);
-
-//       @include mobile {
-//         grid-template-columns: repeat(1, mobile-vw(340px));
-//         row-gap: mobile-vw(50px);
-//       }
-
-//       > div {
-//         &:nth-of-type(3n + 2) {
-//           margin-top: desktop-vw(-150px);
-
-//           @include mobile {
-//             margin-top: 0;
-//           }
-//         }
-//       }
-//     }
-
-//     &.mobile {
-//       @include dims(100vw, 100vh);
-//       position: relative;
-
-//       .slide {
-//         @include dims(100vw, 100vh);
-//         align-items: center;
-//         display: flex;
-//         justify-content: center;
-//         padding: 0 mobile-vw(35px);
-//       }
-
-//       .btn {
-//         @include dims(mobile-vw(25px));
-//         pointer-events: auto;
-//       }
-//     }
-//   }
-// }
-
 .modalSlide {
   @include dims(100vw, 100vh);
   align-items: center;

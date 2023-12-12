@@ -6,8 +6,8 @@ import { QueryClient, QueryClientProvider } from "react-query"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CookiePopup } from "@/components/cookie-popup"
-import { Modal } from "@/components/modal"
 import { CustomHead } from "@/components/custom-head"
+import { Modal } from "@/components/modal"
 
 import useSmoothScroll from "@/hooks/useSmoothScroll"
 import { useLenisStore } from "@/lib/store/lenis"
@@ -48,7 +48,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
         <Modal />
-        {/* <LoadingScreen loading={loading} setLoading={setLoading} /> */}
       </QueryClientProvider>
     </>
   )

@@ -54,12 +54,10 @@ const SequencedChamaeleon = () => {
       if (!selector) return
 
       ScrollTrigger.create({
-        // once: true,
+        markers: true,
         id: "sequence",
-
-        markers: false,
         scrub: true,
-        start: `top+=25% center`,
+        start: `top center`,
         end: `bottom-=25% center`,
         trigger: ref.current,
         onUpdate: ({ progress }) => {

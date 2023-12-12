@@ -29,7 +29,7 @@ const Header = () => {
         .to(
           ".btn",
           {
-            ease: EASE,
+            ease: "power3.inOut",
             xPercent: 100,
           },
           "s"
@@ -37,8 +37,8 @@ const Header = () => {
         .to(
           ".menu-bg",
           {
-            ease: EASE,
-            duration: 0.4,
+            ease: "power3.inOut",
+            duration: 0.8,
             opacity: 0.9,
             pointerEvents: "auto",
           },
@@ -47,8 +47,8 @@ const Header = () => {
         .to(
           ".menu",
           {
-            ease: EASE,
-            duration: 0.4,
+            ease: "power3.inOut",
+            duration: 0.8,
             opacity: 1,
             y: 0,
           },
@@ -114,7 +114,7 @@ const Header = () => {
                 return
               }
               return (
-                <li key={i}>
+                <li key={i} onClick={() => setIsOpen(false)}>
                   <CustomLink className={cn(s.navItem, "cursor-pointer")} href={`/${value.path}`}>
                     <span className={s.circle}></span>
                     {value.ui}

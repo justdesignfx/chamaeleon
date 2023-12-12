@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-around;
   padding-top: var(--page-padding-top);
+  margin-bottom: desktop-vw(100px);
 
   @include mobile {
     flex-direction: column;
@@ -20,6 +21,7 @@
 
     @include mobile {
       font-size: mobile-vw(20px);
+      margin-bottom: mobile-vw(50px);
       text-align: center;
       width: auto;
     }
@@ -27,11 +29,9 @@
 
   > .imgC {
     @include dims(desktop-vw(550px), auto);
-    margin-bottom: desktop-vw(150px);
 
     @include mobile {
       @include dims(mobile-vw(350px), auto);
-      margin-bottom: unset;
     }
   }
 }

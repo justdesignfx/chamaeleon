@@ -1,6 +1,7 @@
 .sequence {
   @include dims(auto, desktop-vw(700px));
   margin-bottom: desktop-vw(-160px);
+  margin-top: desktop-vw(-120px);
   position: relative;
   pointer-events: none;
   z-index: 10;

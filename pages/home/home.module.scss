@@ -8,7 +8,7 @@
   }
 
   > .content {
-    @include dims(auto, desktop-vw(550px));
+    @include dims(auto, desktop-vw(640px));
     align-items: flex-start;
     background-color: var(--forestial);
     display: flex;
@@ -57,8 +57,8 @@
   }
 
   > .imgC {
-    @include position(absolute, auto, desktop-vw(110px), desktop-vw(-140px), auto);
-    @include dims(desktop-vw(490px));
+    @include position(absolute, auto, desktop-vw(210px), desktop-vw(-100px), auto);
+    @include dims(desktop-vw(400px));
     transform: rotate(-12deg);
 
     @include mobile {
@@ -547,7 +547,7 @@
 
         &:nth-child(3) {
           @include position(absolute, desktop-vw(210px), auto, auto, desktop-vw(-50px));
-          @include dims(desktop-vw(160px), auto);
+          @include dims(desktop-vw(240px), auto);
           transform: rotate(-10deg);
 
           @include mobile {

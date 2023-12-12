@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import s from "./contact-form.module.scss"
 
 import { gsap } from "@/lib/gsap"
@@ -6,8 +6,8 @@ import cn from "clsx"
 import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-import IconArrowForm from "@/components/icons/icon-form-arrow"
 import { Button } from "@/components/button"
+import IconArrowForm from "@/components/icons/icon-form-arrow"
 
 import { useContactForm } from "@/api/mutations"
 import { formModel, formSchema, initialValues } from "@/constants/form-contact"
@@ -20,9 +20,9 @@ type Props = {
 const ContactForm = (props: Props) => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
-  const tl = useRef(gsap.timeline({ paused: true }))
   const [currentScreen, setCurrentScreen] = useState(0)
   const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessageVisible, setErrorMessageVisible] = useState(false)
   const { mutate } = useContactForm()
 
   const formik = useFormik({
@@ -34,68 +34,9 @@ const ContactForm = (props: Props) => {
     },
   })
 
-  function next() {
-    if (currentScreen === screens.length - 1) {
-      props.onEnd()
-      formik.submitForm()
-    }
-
-    const field = Object.values(formModel)[currentScreen]
-
-    formik?.validateForm(formik.values).then((errors) => {
-      formik.setFieldTouched(field.name)
-      console.log("errors", errors)
-      console.log("touched", formik.touched)
-
-      if (errors.hasOwnProperty(field.name)) {
-        return
-      }
-
-      gsap.to(q(".transform-c"), {
-        onStart: () => {
-          gsap.to(q(".transform-c"), {
-            yPercent: -5,
-            autoAlpha: 0,
-            ease: "expo.inOut",
-          })
-        },
-        onComplete: () => {
-          setCurrentScreen((prev) => prev + 1)
-          gsap.to(q(".transform-c"), {
-            delay: 0.2,
-            autoAlpha: 1,
-            yPercent: 0,
-          })
-        },
-      })
-    })
-  }
-
-  function prev() {
-    if (currentScreen === 0) {
-      return
-    }
-
-    gsap.to(q(".transform-c"), {
-      onStart: () => {
-        gsap.to(q(".transform-c"), {
-          yPercent: 5,
-          autoAlpha: 0,
-          ease: "expo.inOut",
-          onComplete: () => {
-            setCurrentScreen((prev) => prev - 1)
-          },
-        })
-      },
-      onComplete: () => {
-        gsap.to(q(".transform-c"), {
-          delay: 0.2,
-          autoAlpha: 1,
-          yPercent: 0,
-        })
-      },
-    })
-  }
+  useEffect(() => {
+    console.log("values", formik.values)
+  }, [formik])
 
   const screens = [
     <>
@@ -129,9 +70,10 @@ const ContactForm = (props: Props) => {
           })}
         >
           <label className={s.label} htmlFor={formModel.deck.name}>
-            {formik.values.deck ? truncateString(formik.values.deck.name, 32) : "CHOOSE FILE"}
+            {formik.values.deck ? truncateString(formik.values.deck.name, 28) : "Choose File"}
           </label>
           <input
+            key={formik.values.deck?.name}
             accept=".pdf"
             className={s.input}
             id={formModel.deck.name}
@@ -147,8 +89,6 @@ const ContactForm = (props: Props) => {
             className={cn(s.resetBtn, "cursor-pointer")}
             disabled={!formik.values.deck}
             onClick={() => {
-              console.log("lol")
-
               formik.setFieldValue("deck", null)
             }}
           >
@@ -270,26 +210,81 @@ const ContactForm = (props: Props) => {
     </>,
   ]
 
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      tl.current
-        .to(".error-message", {
+  function next() {
+    if (currentScreen === screens.length - 1) {
+      props.onEnd()
+      formik.submitForm()
+    }
+
+    const field = Object.values(formModel)[currentScreen]
+
+    formik?.validateForm(formik.values).then((errors) => {
+      formik.setFieldTouched(field.name)
+      console.log("errors", errors)
+      console.log("touched", formik.touched)
+
+      if (errors.hasOwnProperty(field.name)) {
+        return
+      }
+
+      gsap.to(q(".transform-c"), {
+        onStart: () => {
+          setErrorMessageVisible(false)
+          gsap.to(q(".transform-c"), {
+            yPercent: -5,
+            autoAlpha: 0,
+            ease: "expo.inOut",
+          })
+        },
+        onComplete: () => {
+          setCurrentScreen((prev) => prev + 1)
+          gsap.to(q(".transform-c"), {
+            delay: 0.2,
+            autoAlpha: 1,
+            yPercent: 0,
+          })
+        },
+      })
+    })
+  }
+
+  function prev() {
+    if (currentScreen === 0) {
+      return
+    }
+
+    gsap.to(q(".transform-c"), {
+      onStart: () => {
+        gsap.to(q(".transform-c"), {
+          yPercent: 5,
           autoAlpha: 0,
-        })
-        .to(".error-message", {
-          autoAlpha: 1,
-          onStart: () => {
-            setErrorMessage(Object.keys(formik.errors)[currentScreen])
+          ease: "expo.inOut",
+          onComplete: () => {
+            setCurrentScreen((prev) => prev - 1)
           },
         })
+      },
+      onComplete: () => {
+        gsap.to(q(".transform-c"), {
+          delay: 0.2,
+          autoAlpha: 1,
+          yPercent: 0,
+        })
+      },
+    })
+  }
 
-      tl.current.play()
-    }, ref)
+  // error message
+  useIsomorphicLayoutEffect(() => {
+    const key = Object.keys(formModel)[currentScreen] as keyof typeof formModel
 
-    return () => {
-      ctx.revert()
+    if (formik.errors[key] && formik.touched[key]) {
+      setErrorMessage(formik.errors[key] ?? "")
+      setErrorMessageVisible(true)
+    } else {
+      setErrorMessageVisible(false)
     }
-  }, [formik.errors])
+  }, [formik, currentScreen])
 
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>
@@ -311,7 +306,7 @@ const ContactForm = (props: Props) => {
       </div>
 
       <form className={cn(s.form, "form")} onSubmit={formik.handleSubmit}>
-        <div className="transform-c" style={{ height: "inherit", width: "inherit" }}>
+        <div className="transform-c inherit-dims">
           {screens.map((screen, i) => {
             return (
               <div
@@ -339,7 +334,7 @@ const ContactForm = (props: Props) => {
         </div>
       </form>
 
-      {errorMessage && <div className={cn(s.errorMessage, "error-message")}>{errorMessage}</div>}
+      <div className={cn(s.errorMessage, "error-message", { [s.active]: errorMessageVisible })}>{errorMessage}</div>
     </div>
   )
 }

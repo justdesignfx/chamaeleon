@@ -29,27 +29,28 @@ const NewsAndEvents = () => {
   console.log("posts", posts)
 
   // infinite fetch
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context((self) => {
-      const selector = self.selector
-      if (!selector) return
+  // useIsomorphicLayoutEffect(() => {
+  //   const ctx = gsap.context((self) => {
+  //     const selector = self.selector
+  //     if (!selector) return
 
-      ScrollTrigger.create({
-        markers: false,
-        start: "top center",
-        end: "bottom center",
-        id: "infinite",
-        trigger: selector(".list"),
-        onLeave: () => {
-          return
-          setLimit((prev) => prev + LIMIT)
-        },
-      })
-    }, ref)
+  //     ScrollTrigger.create({
+  //       markers: false,
+  //       start: "top center",
+  //       end: "bottom center",
+  //       id: "infinite",
+  //       trigger: selector(".list"),
+  //       onLeave: () => {
+  //         return
+  //         setLimit((prev) => prev + LIMIT)
+  //       },
+  //     })
+  //   }, ref)
 
-    return () => ctx.revert()
-  }, [])
+  //   return () => ctx.revert()
+  // }, [])
 
+  // footer reveal calculations
   useIsomorphicLayoutEffect(() => {
     ScrollTrigger.refresh()
   }, [posts])

@@ -73,6 +73,11 @@
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(24px);
       margin-bottom: desktop-vw(10px);
+
+      @include mobile {
+        font-size: mobile-vw(20px);
+        margin-bottom: mobile-vw(10px);
+      }
     }
 
     > p {
@@ -80,6 +85,11 @@
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(90px);
       margin-bottom: desktop-vw(20px);
+
+      @include mobile {
+        font-size: mobile-vw(80px);
+        margin-bottom: mobile-vw(20px);
+      }
     }
   }
 }

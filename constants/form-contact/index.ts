@@ -68,8 +68,6 @@ export const formSchema = yup.object().shape({
   deck: yup
     .mixed()
     .test("fileType", "Invalid file type. Only PDF files are allowed.", function (value: any) {
-      console.log("value", value)
-
       if (!value) return false
 
       const allowedExtensions = ["pdf"] // Add more if needed
@@ -85,9 +83,9 @@ export const formSchema = yup.object().shape({
       const maxSize = 5 * 1024 * 1024 // 5MB
       return value.size <= maxSize
     })
-    .required(),
+    .required("This field is required."),
   name: yup.string().required("This field is required."),
-  email: yup.string().email().required("This field is required."),
+  email: yup.string().email("It must be a valid email.").required("This field is required."),
   companyName: yup.string().required("This field is required."),
   website: yup.string(),
   linkedin: yup.string(),

@@ -23,7 +23,7 @@
 
     &::before,
     &::after {
-      @include dims(100%, 3px);
+      @include dims(100%, 2px);
     }
 
     @include mobile {
@@ -43,7 +43,7 @@
     font-size: desktop-vw(90px);
 
     @include mobile {
-      font-size: mobile-vw(90px);
+      font-size: mobile-vw(55px);
     }
   }
 

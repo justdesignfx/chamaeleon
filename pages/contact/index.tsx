@@ -7,13 +7,13 @@ import cn from "clsx"
 import { Button } from "@/components/button"
 import { ContactForm } from "@/components/contact-form"
 import { CustomImage } from "@/components/custom-image"
+import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
 
 import { useContactForm } from "@/api/mutations"
 import { routes } from "@/constants"
 import { NonFooter } from "@/layouts/non-footer"
 
 import chamaeleon from "@/public/img/chamaeleon-hole.png"
-import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
 
 enum Screen {
   start = "start",

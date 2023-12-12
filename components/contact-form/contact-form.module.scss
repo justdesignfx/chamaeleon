@@ -1,6 +1,5 @@
 .screens {
-  @include dims(100%, 100vh);
-  margin-top: calc(-1 * var(--header-height));
+  @include dims(100%);
   position: relative;
 
   .buttons {

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import s from "./contact-form.module.scss"
 
-import { gsap } from "@/lib/gsap"
+import { EASE, gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
@@ -231,9 +231,9 @@ const ContactForm = (props: Props) => {
         onStart: () => {
           setErrorMessageVisible(false)
           gsap.to(q(".transform-c"), {
-            yPercent: -5,
+            yPercent: -3,
             autoAlpha: 0,
-            ease: "expo.inOut",
+            ease: "power3.inOut",
           })
         },
         onComplete: () => {
@@ -242,6 +242,7 @@ const ContactForm = (props: Props) => {
             delay: 0.2,
             autoAlpha: 1,
             yPercent: 0,
+            ease: "power3.inOut",
           })
         },
       })
@@ -256,9 +257,9 @@ const ContactForm = (props: Props) => {
     gsap.to(q(".transform-c"), {
       onStart: () => {
         gsap.to(q(".transform-c"), {
-          yPercent: 5,
+          yPercent: -3,
           autoAlpha: 0,
-          ease: "expo.inOut",
+          ease: "power3.inOut",
           onComplete: () => {
             setCurrentScreen((prev) => prev - 1)
           },
@@ -266,9 +267,10 @@ const ContactForm = (props: Props) => {
       },
       onComplete: () => {
         gsap.to(q(".transform-c"), {
-          delay: 0.2,
+          delay: 0.3,
           autoAlpha: 1,
           yPercent: 0,
+          ease: "power3.inOut",
         })
       },
     })

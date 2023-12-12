@@ -1,5 +1,6 @@
 .form {
-  @include dims(100%, calc(100vh - var(--header-height)));
+  @include dims(100%, 100vh);
+  margin-top: calc(-1 * var(--header-height));
   position: relative;
 
   .start {

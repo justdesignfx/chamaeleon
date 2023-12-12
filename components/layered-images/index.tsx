@@ -7,8 +7,8 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomImage } from "@/components/custom-image"
 
-import curtain from "@/public/img/kin-curtain.png"
-import lunch from "@/public/img/kin-lunch.png"
+import curtain from "@/public/img/kin-curtain.jpg"
+import lunch from "@/public/img/kin-lunch.jpg"
 import trip from "@/public/img/kin-trip.jpg"
 
 const LayeredImages = () => {

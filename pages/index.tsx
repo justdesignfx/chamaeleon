@@ -176,7 +176,7 @@ export default function Home({ companies }: Props) {
             <p>
               We partner with exceptional people who are aligned with us on values, have worked or have done business
               with us, and believe that entrepreneurship can create massive opportunities and impact for everyone. They
-              are part of our family… they are <strong>KIN</strong>.
+              are part of our family... they are <strong>KIN</strong>.
             </p>
             <Button text="MEET OUR COMMUNITY" path={`/${routes.kin.path}`} size="md" />
           </div>

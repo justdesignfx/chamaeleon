@@ -15,7 +15,7 @@ import { CardFloatProps } from "@/types"
 const manifestoItems: CardFloatProps[] = [
   {
     backgroundColor: "var(--greening)",
-    color: "var(-nightly-woods)",
+    color: "var(--nightly-woods)",
     title: "Typically Coming In At Series Seed Or Series A",
     icon: {
       alignment: "tl",
@@ -35,7 +35,7 @@ const manifestoItems: CardFloatProps[] = [
   },
   {
     backgroundColor: "var(--electric-energy)",
-    color: "var(-nightly-woods)",
+    color: "var(--nightly-woods)",
     title: "First Checks Between 1-5 Million USD",
     icon: {
       alignment: "bl",
@@ -61,7 +61,7 @@ const manifestoItems: CardFloatProps[] = [
   {
     backgroundColor: "var(--electric-energy)",
     color: "var(--nightly-woods)",
-    title: "Product-Led Companies, Not “Just” Core-Technology Or IP",
+    title: 'Product-Led Companies, Not "Just" Core-Technology Or IP',
     icon: {
       alignment: "br",
       src: "/img/steampunk-chamaeleon-face.png",
@@ -141,9 +141,7 @@ const manifestoView = {
   ),
 }
 
-type Props = {}
-
-const Manifesto = (props: Props) => {
+const Manifesto = () => {
   const manifestoRef = useRef(null)
   const { lenis } = useLenisStore()
   const [currentManifestoView, setCurrentManifestoView] = useState<"long" | "tldr">("tldr")

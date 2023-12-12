@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import s from "./contact-form.module.scss"
 
-import { EASE, gsap } from "@/lib/gsap"
+import { gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useFormik } from "formik"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"

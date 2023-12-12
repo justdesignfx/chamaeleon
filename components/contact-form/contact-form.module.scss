@@ -45,7 +45,7 @@
   }
 
   .form {
-    @include dims(desktop-vw(500px));
+    @include dims(desktop-vw(560px));
     position: relative;
     align-items: stretch;
     display: flex;
@@ -259,11 +259,14 @@
 }
 
 .submitBtn {
+  --btn-theme-color: var(--nightly-woods);
   color: var(--nightly-woods);
   font-family: var(--font-first-aid-kit-f);
   font-size: desktop-vw(30px);
   font-weight: 700;
   margin-top: desktop-vw(30px);
+  position: relative;
+  display: inline-block;
 
   @include mobile {
     font-size: mobile-vw(30px);

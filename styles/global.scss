@@ -147,3 +147,40 @@ sup {
     margin-bottom: mobile-vw(16px);
   }
 }
+
+.animated-btn {
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: "";
+    @include position(absolute, auto, auto, -2px, 0);
+    @include dims(100%, 2px);
+    background: var(--btn-theme-color);
+    transform-origin: right;
+    transform: scaleX(1) translateZ(0);
+    transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 200ms;
+    will-change: transform;
+  }
+
+  &::before {
+    transform-origin: left;
+    transform: scaleX(0) translateZ(0);
+    transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  @include hover {
+    &:hover {
+      &::after {
+        transform: scaleX(0) translateZ(0);
+        transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      &::before {
+        transform: scaleX(1) translateZ(0);
+        transition: transform 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 200ms;
+      }
+    }
+  }
+}

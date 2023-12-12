@@ -29,14 +29,9 @@ const ContactForm = (props: Props) => {
     initialValues: initialValues,
     validationSchema: formSchema,
     onSubmit: (values) => {
-      console.log("values", values)
       mutate(values)
     },
   })
-
-  useEffect(() => {
-    console.log("values", formik.values)
-  }, [formik])
 
   const screens = [
     <>
@@ -204,7 +199,7 @@ const ContactForm = (props: Props) => {
         </div>
       </div>
       {/* <Button text="SUBMIT" type="submit" onClick={props.onEnd} size="sm" /> */}
-      <button className={s.submitBtn} type="submit" onClick={props.onEnd}>
+      <button className={cn(s.submitBtn, "animated-btn")} type="submit" onClick={props.onEnd}>
         SUBMIT
       </button>
     </>,
@@ -326,7 +321,6 @@ const ContactForm = (props: Props) => {
                 {screen}
                 {currentScreen !== screens.length - 1 && (
                   <div className={s.action}>
-                    {/* <Button text="PREV" onClick={prev} size="sm" /> */}
                     <Button text="NEXT" onClick={next} size="sm" />
                   </div>
                 )}

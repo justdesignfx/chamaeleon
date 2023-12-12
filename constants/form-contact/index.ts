@@ -77,10 +77,10 @@ export const formSchema = yup.object().shape({
 
       return allowedExtensions.includes(fileExtension)
     })
-    .test("fileSize", "File size is too large. Maximum size allowed is 5MB.", (value: any) => {
+    .test("fileSize", "File size is too large. Maximum size allowed is 50MB.", (value: any) => {
       if (!value) return false
 
-      const maxSize = 5 * 1024 * 1024 // 5MB
+      const maxSize = 5 * 1024 * 1024 * 10 // 50MB
       return value.size <= maxSize
     })
     .required("This field is required."),

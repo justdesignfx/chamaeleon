@@ -152,7 +152,7 @@
 .stickyBtn {
   --distance: -4px;
   @include position(fixed, auto, auto, 1.5%, 50%);
-  @include dims(desktop-vw(260px), calc(desktop-vw(60px) - var(--distance)));
+  @include dims(desktop-vw(260px), calc(desktop-vw(45px) - var(--distance)));
   border-radius: desktop-vw(45px);
   color: var(--nightly-woods);
   display: grid;

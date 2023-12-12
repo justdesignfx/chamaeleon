@@ -18,6 +18,24 @@ export const routes = {
         "Chamaeleon is a new early-stage venture capital firm that brings together partners that have long collaborated as investors, operators and entrepreneurs that will focus on investing in truly transformative companies.",
     },
   },
+  team: {
+    name: "team",
+    path: "team",
+    ui: "TEAM",
+    seo: {
+      title: "Chamaeleon | Team",
+      description: "We are an early-stage VC firm based in Silicon Valley, investing globally.",
+    },
+  },
+  approach: {
+    name: "approach",
+    path: "approach",
+    ui: "APPROACH",
+    seo: {
+      title: "Chamaeleon | Approach",
+      description: "Start-ups are changing. It's time for venture capitals to change.",
+    },
+  },
   superpower: {
     name: "superpower",
     path: "superpower",
@@ -28,13 +46,13 @@ export const routes = {
         "Chamaeleon's investment strategy is powered by our proprietary AI and quantitative engine, which analyzes millions of companies across thousands of data points.",
     },
   },
-  team: {
-    name: "team",
-    path: "team",
-    ui: "TEAM",
+  portfolio: {
+    name: "portfolio",
+    path: "portfolio",
+    ui: "PORTFOLIO",
     seo: {
-      title: "Chamaeleon | Team",
-      description: "We are an early-stage VC firm based in Silicon Valley, investing globally.",
+      title: "Chamaeleon | Portfolio",
+      description: "Our current and past investments.",
     },
   },
   kin: {
@@ -47,15 +65,7 @@ export const routes = {
         "We partner with exceptional individuals who share our values, have worked with us, or have done business alongside us.",
     },
   },
-  portfolio: {
-    name: "portfolio",
-    path: "portfolio",
-    ui: "PORTFOLIO",
-    seo: {
-      title: "Chamaeleon | Portfolio",
-      description: "Our current and past investments.",
-    },
-  },
+
   newsAndEvents: {
     name: "news-and-events",
     path: "news-and-events",
@@ -63,15 +73,6 @@ export const routes = {
     seo: {
       title: "Chamaeleon | News & Events",
       description: "Where every gathering becomes a memorable experience.",
-    },
-  },
-  approach: {
-    name: "approach",
-    path: "approach",
-    ui: "APPROACH",
-    seo: {
-      title: "Chamaeleon | Approach",
-      description: "Start-ups are changing. It's time for venture capitals to change.",
     },
   },
   contact: {

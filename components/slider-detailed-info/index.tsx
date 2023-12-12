@@ -15,6 +15,9 @@ const SliderDetailedInfo = (props: Props) => {
       <EmblaCarousel
         options={{
           startIndex: props.currentSlide ?? 0,
+          breakpoints: {
+            "(max-width: 800px)": { skipSnaps: true },
+          },
         }}
         scrollTo={props.currentSlide}
         slides={props.slides}

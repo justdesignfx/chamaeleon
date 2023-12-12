@@ -11,7 +11,7 @@
     pointer-events: auto;
 
     @include mobile {
-      @include dims(mobile-vw(25px));
+      display: none;
     }
   }
 }

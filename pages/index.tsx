@@ -39,6 +39,7 @@ export default function Home({ companies }: Props) {
           <h1>
             WHOLISTIC <br /> INVESTMENTS
           </h1>
+          <h2>Based in Silicon Valley, investing globally.</h2>
           <Pixels
             bg="var(--forestial)"
             fill="var(--forested-juniper)"

@@ -1,5 +1,7 @@
+import { useEffect } from "react"
 import s from "./footer.module.scss"
 
+import { ScrollTrigger } from "@/lib/gsap"
 import cn from "clsx"
 
 import { CustomImage } from "@/components/custom-image"
@@ -13,6 +15,10 @@ import coins from "@/public/img/coin-stack.png"
 
 const Footer = () => {
   const { data: social } = useAll()
+
+  useEffect(() => {
+    ScrollTrigger.refresh()
+  }, [social])
 
   return (
     <footer className={s.footer}>

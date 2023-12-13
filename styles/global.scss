@@ -117,7 +117,7 @@ sup {
   overflow: hidden;
   z-index: z-index("main");
   position: relative;
-  background-color: var(--theme-primary);
+  padding-top: var(--header-height);
 }
 
 .mobile-only {

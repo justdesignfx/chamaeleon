@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import s from "./header.module.scss"
 
-import { EASE, gsap } from "@/lib/gsap"
+import { gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
@@ -75,15 +75,15 @@ const Header = () => {
     const ctx = gsap.context(() => {
       lenisStore.lenis?.on("scroll", (e: any) => {
         if (e.direction === 1) {
-          if (gsap.getProperty(".hamburger", "opacity") === 1) {
-            gsap.to(".hamburger", {
+          if (gsap.getProperty(ref.current, "opacity") === 1) {
+            gsap.to(ref.current, {
               opacity: 0,
               duration: 0.2,
             })
           }
         } else {
-          if (gsap.getProperty(".hamburger", "opacity") === 0) {
-            gsap.to(".hamburger", {
+          if (gsap.getProperty(ref.current, "opacity") === 0) {
+            gsap.to(ref.current, {
               opacity: 1,
               duration: 0.2,
             })

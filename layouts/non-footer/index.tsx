@@ -4,7 +4,6 @@ import cn from "clsx"
 import { useRouter } from "next/router"
 
 import { CustomHead } from "@/components/custom-head"
-import { Header } from "@/components/header"
 
 import { Seo } from "@/types"
 
@@ -35,7 +34,6 @@ const NonFooter = ({ children, theme = "main", seo }: Props) => {
           }))}
       />
       <div className={cn("layout", `theme-${theme}`)}>
-        <Header />
         <main>{children}</main>
       </div>
     </>

@@ -12,6 +12,7 @@ import { Modal } from "@/components/modal"
 import useSmoothScroll from "@/hooks/useSmoothScroll"
 import { useLenisStore } from "@/lib/store/lenis"
 import { useModalStore } from "@/lib/store/modal"
+import { Header } from "@/components/header"
 
 const queryClient = new QueryClient()
 
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
         keywords={["venture capital", "startup", "investment", "chamaeleon", "silicon walley", "finance", "technology"]}
       />
       <QueryClientProvider client={queryClient}>
+        <Header />
         <Component {...pageProps} />
         <Modal />
       </QueryClientProvider>

@@ -4,6 +4,8 @@
   height: var(--header-height);
   justify-content: space-between;
   padding: 0 desktop-vw(40px);
+  position: relative;
+  z-index: z-index("header");
 
   @include mobile {
     padding: 0 mobile-vw(16px);

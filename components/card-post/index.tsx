@@ -19,6 +19,7 @@ const CardPost = (props: Props) => {
           alt="Post Cover Photo"
           height={parseFloat(props.media.desktop.height)}
           width={parseFloat(props.media.desktop.width)}
+          loading="lazy"
         />
       </div>
       <p>{props.title}</p>

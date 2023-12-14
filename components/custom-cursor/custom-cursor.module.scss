@@ -1,10 +1,13 @@
 .cursor {
   @include position(fixed, 0, auto, auto, 0);
-  @include dims(desktop-vw(16px));
-  // opacity: 0;
-  // pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
   transition: 100ms opacity ease;
   z-index: z-index("cursor");
+
+  @include mobile {
+    display: none;
+  }
 
   &.visible {
     opacity: 1;
@@ -12,9 +15,24 @@
 
   .c {
     @include position(absolute, 50%, auto, auto, 50%);
+    @include dims(desktop-vw(16px));
     transform: translate(-50%, -50%);
     border-radius: 50%;
     transition: 200ms all cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    > span {
+      display: block;
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(20px);
+      font-weight: 400;
+      opacity: 0;
+      visibility: hidden;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
 
     &.default {
       @include dims(18px);
@@ -22,12 +40,20 @@
     }
 
     &.click {
-      @include dims(48px);
+      @include dims(56px);
       background: var(--electric-energy);
+      color: var(--nightly-woods);
     }
-  }
 
-  @include mobile {
-    display: none;
+    &.clickDark {
+      @include dims(56px);
+      background: var(--nightly-woods);
+      color: var(--electric-energy);
+    }
+
+    &.menu {
+      @include dims(18px);
+      background: var(--nightly-woods);
+    }
   }
 }

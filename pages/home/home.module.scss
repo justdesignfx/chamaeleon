@@ -337,7 +337,7 @@
 
     .imgC {
       &:nth-child(1) {
-        @include dims(desktop-vw(500px));
+        @include dims(desktop-vw(510px));
         border-radius: desktop-vw(20px);
         overflow: hidden;
 
@@ -352,7 +352,7 @@
         @include dims(desktop-vw(380px), auto);
         border-radius: desktop-vw(20px);
         overflow: hidden;
-        transform: rotate(16deg);
+        transform: rotate(6deg);
 
         @include mobile {
           @include position(absolute, mobile-vw(-70px), mobile-vw(-20px), auto, auto);

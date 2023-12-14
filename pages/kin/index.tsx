@@ -20,6 +20,7 @@ import { breakpoints } from "@/lib/utils"
 import { CardPersonProps } from "@/types"
 
 import logoKin from "@/public/img/logo-kin-community.png"
+import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = {
   members: CardPersonProps[]
@@ -28,8 +29,11 @@ type Props = {
 export const Kin = ({ members }: Props) => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
   const modalStore = useModalStore()
+  const cursorStore = useCursorStore()
 
   function handleModal(index: number) {
+    cursorStore.setCursor("default")
+
     const items = members.map((member, i) => {
       return (
         <Fragment key={i}>

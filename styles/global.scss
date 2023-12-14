@@ -185,3 +185,11 @@ sup {
     }
   }
 }
+
+.cursor-none {
+  cursor: none;
+
+  * {
+    cursor: none;
+  }
+}

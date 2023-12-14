@@ -1,18 +1,21 @@
-import { useEffect, useRef } from "react"
+import { useRef, useState } from "react"
 import s from "./custom-cursor.module.scss"
 
-import { gsap } from "@/lib/gsap"
-import { useMouse } from "@uidotdev/usehooks"
+import { EASE, gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
-import { useCursorStore } from "@/lib/store/cursor"
 import useMousePosition from "@/hooks/useMousePosition"
+import { useCursorStore } from "@/lib/store/cursor"
+import { CursorType } from "@/types"
+import { useRouter } from "next/router"
 
 const CustomCursor = () => {
   const ref = useRef(null)
   const cursorStore = useCursorStore()
   const mouse = useMousePosition()
+  const [cursorUi, setCursorUi] = useState<CursorType>("default")
+  const router = useRouter()
 
   // control screen display
   useIsomorphicLayoutEffect(() => {
@@ -33,7 +36,7 @@ const CustomCursor = () => {
     }
   }, [cursorStore])
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!cursorStore.visible) return
 
     const ctx = gsap.context(() => {
@@ -41,14 +44,43 @@ const CustomCursor = () => {
       //   gsap.quickSetter(ref.current, "y", `${mouse.y}px`)
 
       gsap.to(ref.current, {
-        x: mouse.x ? mouse.x - 9 : 0,
-        y: mouse.y ? mouse.y - 9 : 0,
+        x: mouse.x ? mouse.x : 0,
+        y: mouse.y ? mouse.y : 0,
         duration: 0,
       })
     }, ref)
 
     return () => ctx.revert()
   }, [mouse, cursorStore])
+
+  useIsomorphicLayoutEffect(() => {
+    if (!cursorStore.visible) return
+
+    const ctx = gsap.context(() => {
+      //   gsap.quickSetter(ref.current, "x", `${mouse.x}px`)
+      //   gsap.quickSetter(ref.current, "y", `${mouse.y}px`)
+
+      gsap.to(".c", {
+        opacity: 0,
+        scale: 0.5,
+        duration: 0.05,
+        onComplete: () => {
+          setCursorUi(cursorStore.type)
+          gsap.to(".c", {
+            opacity: 1,
+            scale: 1,
+            duration: 0.1,
+          })
+        },
+      })
+    }, ref)
+
+    return () => ctx.revert()
+  }, [cursorStore])
+
+  useIsomorphicLayoutEffect(() => {
+    cursorStore.setCursor("default")
+  }, [router.pathname])
 
   return (
     <div
@@ -57,7 +89,9 @@ const CustomCursor = () => {
       })}
       ref={ref}
     >
-      <div className={cn(s.c, [s[cursorStore.type]])}></div>
+      <div className={cn(s.c, "c", "flex-center", [s[cursorUi]])}>
+        <span className={cn({ [s.active]: cursorUi === "click" || cursorUi === "clickDark" })}>Click</span>
+      </div>
     </div>
   )
 }

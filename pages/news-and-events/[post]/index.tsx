@@ -7,6 +7,7 @@ import { useRouter } from "next/router"
 import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
 import { CustomPopover } from "@/components/custom-popover"
+import IconArrowNext from "@/components/icons/icon-arrow-next"
 import IconClock from "@/components/icons/icon-clock"
 import IconLinkedin from "@/components/icons/icon-linkedin"
 import IconShare from "@/components/icons/icon-share"
@@ -17,14 +18,15 @@ import { PostBody } from "@/components/post-body"
 import { apiClient } from "@/api"
 import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
+import { useCursorStore } from "@/lib/store/cursor"
 import { shareOnSocialMedia } from "@/lib/utils"
 import { PostProps } from "@/types"
-import IconArrowNext from "@/components/icons/icon-arrow-next"
 
 type Props = PostProps
 
 const Post = (props: Props) => {
   const router = useRouter()
+  const cursorStore = useCursorStore()
 
   function handleShare() {
     shareOnSocialMedia()
@@ -90,7 +92,12 @@ const Post = (props: Props) => {
         <PostBody {...props} />
       </section>
 
-      <CustomLink href={`/${routes.newsAndEvents.path}/${props.nextPost}`} className={cn(s.marquee, "cursor-pointer")}>
+      <CustomLink
+        href={`/${routes.newsAndEvents.path}/${props.nextPost}`}
+        className={cn(s.marquee, "cursor-pointer", cursorStore.type !== "default" && "cursor-none")}
+        onMouseEnter={() => cursorStore.setCursor("click")}
+        onMouseLeave={() => cursorStore.setCursor("default")}
+      >
         <Marquee duration={30} repeat={2} inverted>
           <>
             <h5>NEXT NEWS & EVENT</h5>

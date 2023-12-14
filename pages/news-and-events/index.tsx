@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import s from "./news-and-events.module.scss"
 
-import { ScrollTrigger, gsap } from "@/lib/gsap"
+import { ScrollTrigger } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 

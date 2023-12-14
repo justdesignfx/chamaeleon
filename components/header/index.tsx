@@ -7,7 +7,9 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomLink } from "@/components/custom-link"
 import LogoChamaeleon from "@/components/icons/logo-chamaeleon"
+
 import { routes } from "@/constants"
+import { useCursorStore } from "@/lib/store/cursor"
 import { useLenisStore } from "@/lib/store/lenis"
 
 const Header = () => {
@@ -15,6 +17,7 @@ const Header = () => {
   const tl = useRef(gsap.timeline({ paused: true }))
   const lenisStore = useLenisStore()
   const [isOpen, setIsOpen] = useState(false)
+  const cursorStore = useCursorStore()
 
   function toggleMenu() {
     setIsOpen((prev) => !prev)
@@ -64,7 +67,13 @@ const Header = () => {
   // toggle logic
   useIsomorphicLayoutEffect(() => {
     if (!tl.current) return
-    isOpen ? tl.current.play() : tl.current.reverse()
+
+    if (isOpen) {
+      tl.current.play()
+    } else {
+      tl.current.reverse()
+    }
+
     lenisStore.setIsStopped(isOpen)
   }, [isOpen])
 
@@ -106,7 +115,15 @@ const Header = () => {
         <div className={cn(s.btn, s.open, "flex-center", "btn")}>MENU</div>
       </div>
 
-      <div className={cn(s.menu, "menu", "flex-center")}>
+      <div
+        className={cn(s.menu, "menu", "flex-center")}
+        onMouseEnter={() => {
+          cursorStore.setCursor("menu")
+        }}
+        onMouseLeave={() => {
+          cursorStore.setCursor("default")
+        }}
+      >
         <nav>
           <ul>
             {Object.values(routes).map((value, i) => {
@@ -115,7 +132,16 @@ const Header = () => {
               }
               return (
                 <li key={i} onClick={() => setIsOpen(false)}>
-                  <CustomLink className={cn(s.navItem, "cursor-pointer")} href={`/${value.path}`}>
+                  <CustomLink
+                    className={cn(s.navItem, "cursor-pointer", cursorStore.type !== "default" && "cursor-none")}
+                    href={`/${value.path}`}
+                    onMouseEnter={() => {
+                      cursorStore.setCursor("clickDark")
+                    }}
+                    onMouseLeave={() => {
+                      cursorStore.setCursor("menu")
+                    }}
+                  >
                     <span className={s.circle}></span>
                     {value.ui}
                   </CustomLink>

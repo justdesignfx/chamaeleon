@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app"
 import "../styles/global.scss"
 
+import { ScrollTrigger } from "@/lib/gsap"
 import { useRouter } from "next/router"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
@@ -10,13 +11,21 @@ import { CustomHead } from "@/components/custom-head"
 import { Header } from "@/components/header"
 import { Modal } from "@/components/modal"
 
+import CustomCursor from "@/components/custom-cursor"
+import { ClientOnly } from "@/hocs/isomorphic"
 import useSmoothScroll from "@/hooks/useSmoothScroll"
 import { useLenisStore } from "@/lib/store/lenis"
 import { useModalStore } from "@/lib/store/modal"
-import CustomCursor from "@/components/custom-cursor"
-import { ClientOnly } from "@/hocs/isomorphic"
 
 const queryClient = new QueryClient()
+
+if (typeof window !== "undefined") {
+  ScrollTrigger.defaults({ markers: process.env.NEXT_PUBLIC_NODE_ENV === "development" })
+
+  // reset scroll position
+  window.scrollTo(0, 0)
+  window.history.scrollRestoration = "manual"
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   const modalStore = useModalStore()

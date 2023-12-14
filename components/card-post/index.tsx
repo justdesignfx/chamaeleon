@@ -7,12 +7,20 @@ import { CustomLink } from "@/components/custom-link"
 
 import { routes } from "@/constants"
 import { CardPostProps } from "@/types"
+import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = CardPostProps
 
 const CardPost = (props: Props) => {
+  const cursorStore = useCursorStore()
+
   return (
-    <CustomLink href={`${routes.newsAndEvents.path}/${props.url}`} div className={cn(s.cardPost, "cursor-pointer")}>
+    <CustomLink
+      href={`${routes.newsAndEvents.path}/${props.url}`}
+      className={cn(s.cardPost, "cursor-pointer", cursorStore.type !== "default" && "cursor-none")}
+      onMouseEnter={() => cursorStore.setCursor("click")}
+      onMouseLeave={() => cursorStore.setCursor("default")}
+    >
       <div className={s.imgC}>
         <CustomImage
           src={props.media.desktop.src}

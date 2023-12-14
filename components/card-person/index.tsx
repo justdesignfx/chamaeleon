@@ -7,13 +7,21 @@ import { CustomLink } from "@/components/custom-link"
 import IconLinkedin from "@/components/icons/icon-linkedin"
 
 import { CardPersonProps } from "@/types"
+import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = CardPersonProps
 
 const CardPerson = (props: Props) => {
+  const cursorStore = useCursorStore()
+
   return (
     <div className={cn(s.cardPerson, "cursor-pointer")}>
-      <div className={s.imgC} onClick={props.toggleDetail}>
+      <div
+        className={cn(s.imgC, cursorStore.type !== "default" && "cursor-none")}
+        onClick={props.toggleDetail}
+        onMouseEnter={() => cursorStore.setCursor("click")}
+        onMouseLeave={() => cursorStore.setCursor("default")}
+      >
         <div className="inherit-dims">
           <CustomImage
             src={props.media.desktop.src}

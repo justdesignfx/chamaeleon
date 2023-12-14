@@ -17,6 +17,7 @@ import { routes } from "@/constants"
 import megaphone from "@/public/img/megaphone.png"
 import cactus from "@/public/img/cactus.png"
 import face from "@/public/img/chamaeleon-face.png"
+import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = {
   companies: {
@@ -27,8 +28,10 @@ type Props = {
 
 const Portfolio = ({ companies }: Props) => {
   const modalStore = useModalStore()
+  const cursorStore = useCursorStore()
 
   function handleModal(id: CompanyBoxProps["id"]) {
+    cursorStore.setCursor("default")
     const allCompanies = [...companies.latest, ...companies.prior]
     const index = allCompanies.findIndex((value) => {
       return value.id === id
@@ -60,7 +63,13 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.latest.map((item, i) => {
             return (
-              <div className={cn(s.boxC, "flex-center", "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+              <div
+                className={cn(s.boxC, "flex-center", "cursor-pointer", cursorStore.type !== "default" && "cursor-none")}
+                key={i}
+                onClick={() => handleModal(item.id)}
+                onMouseEnter={() => cursorStore.setCursor("click")}
+                onMouseLeave={() => cursorStore.setCursor("default")}
+              >
                 <div>
                   <CompanyBox {...item} />
                 </div>
@@ -74,7 +83,13 @@ const Portfolio = ({ companies }: Props) => {
         <div className={s.companies}>
           {companies.prior.map((item, i) => {
             return (
-              <div className={cn(s.boxC, "flex-center", "cursor-pointer")} key={i} onClick={() => handleModal(item.id)}>
+              <div
+                className={cn(s.boxC, "flex-center", "cursor-pointer", cursorStore.type !== "default" && "cursor-none")}
+                key={i}
+                onClick={() => handleModal(item.id)}
+                onMouseEnter={() => cursorStore.setCursor("click")}
+                onMouseLeave={() => cursorStore.setCursor("default")}
+              >
                 <div>
                   <CompanyBox key={i} {...item} />
                 </div>

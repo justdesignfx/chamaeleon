@@ -87,3 +87,5 @@ export interface Seo {
   title: NextSeoProps["title"]
   description: NextSeoProps["description"]
 }
+
+export type CursorType = "default" | "click" | "clickDark" | "menu"

@@ -1,6 +1,5 @@
+import { CursorType } from "@/types"
 import { create } from "zustand"
-
-export type CursorType = "default" | "click" | "open"
 
 interface State {
   type: CursorType

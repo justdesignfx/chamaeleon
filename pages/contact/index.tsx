@@ -3,6 +3,7 @@ import s from "./contact.module.scss"
 
 import { gsap } from "@/lib/gsap"
 import cn from "clsx"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Button } from "@/components/button"
 import { ContactForm } from "@/components/contact-form"
@@ -13,6 +14,7 @@ import { useContactForm } from "@/api/mutations"
 import { routes } from "@/constants"
 import { NonFooter } from "@/layouts/non-footer"
 
+import { useCursorStore } from "@/lib/store/cursor"
 import chamaeleon from "@/public/img/chamaeleon-hole.png"
 
 enum Screen {
@@ -25,6 +27,7 @@ const Contact = () => {
   const ref = useRef(null)
   const [currentScreen, setCurrentScreen] = useState<Screen>(Screen.start)
   const { isLoading } = useContactForm()
+  const cursorStore = useCursorStore()
 
   function start() {
     gsap.to(ref.current, {
@@ -49,6 +52,10 @@ const Contact = () => {
       },
     })
   }
+
+  useIsomorphicLayoutEffect(() => {
+    cursorStore.setCursor("default")
+  }, [currentScreen])
 
   const screens = {
     start: (

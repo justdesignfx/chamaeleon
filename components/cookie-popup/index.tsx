@@ -6,12 +6,15 @@ import { Button } from "@/components/button"
 import { CustomImage } from "@/components/custom-image"
 
 import { useModalStore } from "@/lib/store/modal"
+import { useCursorStore } from "@/lib/store/cursor"
 
 const CookiePopup = () => {
   const modalStore = useModalStore()
+  const cursorStore = useCursorStore()
 
   function handleCookie(preference: boolean) {
     localStorage.setItem("cookieAccepted", `${preference}`)
+    cursorStore.setCursor("default")
     modalStore.close()
   }
 

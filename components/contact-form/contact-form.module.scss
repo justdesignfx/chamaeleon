@@ -137,7 +137,7 @@
     visibility: hidden;
 
     @include mobile {
-      @include position(absolute, auto, auto, mobile-vw(150px), 50%);
+      @include position(absolute, auto, auto, mobile-vw(100px), 50%);
       font-size: mobile-vw(14px);
     }
 

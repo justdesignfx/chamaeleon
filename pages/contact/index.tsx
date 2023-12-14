@@ -87,7 +87,7 @@ const Contact = () => {
           <div>LOADING...</div>
         ) : (
           <div className={s.end}>
-            <small>We will reach out you soon!</small>
+            <small>We will reach out to you soon!</small>
             <p>THANK YOU.</p>
             <Button text="MAIN PAGE" size="sm" path={`/${routes.home.path}`} />
           </div>

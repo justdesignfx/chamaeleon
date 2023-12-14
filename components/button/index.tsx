@@ -12,9 +12,18 @@ type Props = {
   size: "xs" | "sm" | "md" | "lg"
   onClick?: () => void
   cursorClick?: boolean
+  disabled?: boolean
 }
 
-const Button = ({ color = "var(--nightly-woods)", text, path, size, onClick, cursorClick = true }: Props) => {
+const Button = ({
+  color = "var(--nightly-woods)",
+  text,
+  path,
+  size,
+  onClick,
+  cursorClick = true,
+  disabled = false,
+}: Props) => {
   const cursorStore = useCursorStore()
 
   return (
@@ -27,6 +36,7 @@ const Button = ({ color = "var(--nightly-woods)", text, path, size, onClick, cur
         onMouseLeave: () => cursorStore.setCursor("default"),
       })}
       style={{ color: color, "--btn-theme-color": color }}
+      disabled={disabled}
     >
       {text}
     </CustomLink>

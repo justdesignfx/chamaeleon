@@ -1,21 +1,24 @@
 .spinner {
+  @include dims(inherit);
   flex-shrink: 0;
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
 
   > div {
+    --dims: #{desktop-vw(10px)};
+    @include dims(calc(100% - var(--dims)));
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 64px;
-    height: 64px;
-    margin: 8px;
-    border: 8px solid var(--nightly-woods);
+    margin: calc(var(--dims) / 2);
+    border: calc(var(--dims) / 2) solid var(--nightly-woods);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: var(--nightly-woods) transparent transparent transparent;
+
+    @include mobile {
+      --dims: #{mobile-vw(8px)};
+    }
 
     &:nth-child(1) {
       animation-delay: -0.45s;

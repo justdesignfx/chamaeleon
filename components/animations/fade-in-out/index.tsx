@@ -15,16 +15,12 @@ const FadeInOut = ({ children, delay, durationIn, durationOut }: Props) => (
     durationIn={durationIn}
     durationOut={durationOut}
     delay={delay}
-    set={{
-      opacity: 1,
-    }}
     from={{
       opacity: 1,
-      duration: 0.3,
+      duration: 0.5,
     }}
     to={{
       opacity: 0,
-      duration: 0.3,
     }}
   >
     {children}

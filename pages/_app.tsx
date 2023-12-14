@@ -7,12 +7,14 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CookiePopup } from "@/components/cookie-popup"
 import { CustomHead } from "@/components/custom-head"
+import { Header } from "@/components/header"
 import { Modal } from "@/components/modal"
 
 import useSmoothScroll from "@/hooks/useSmoothScroll"
 import { useLenisStore } from "@/lib/store/lenis"
 import { useModalStore } from "@/lib/store/modal"
-import { Header } from "@/components/header"
+import CustomCursor from "@/components/custom-cursor"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 const queryClient = new QueryClient()
 
@@ -21,8 +23,6 @@ export default function App({ Component, pageProps }: AppProps) {
   const lenisStore = useLenisStore()
   const router = useRouter()
   useSmoothScroll()
-
-  // const [loading, setLoading] = useState(false)
 
   useIsomorphicLayoutEffect(() => {
     if (localStorage.getItem("cookieAccepted")) return
@@ -47,9 +47,18 @@ export default function App({ Component, pageProps }: AppProps) {
         keywords={["venture capital", "startup", "investment", "chamaeleon", "silicon walley", "finance", "technology"]}
       />
       <QueryClientProvider client={queryClient}>
+        {/* <ClientOnly>
+          <FadeInOut durationIn={1} durationOut={1} delay={1}>
+            <div></div>
+          </FadeInOut>
+        </ClientOnly> */}
+
         <Header />
         <Component {...pageProps} />
         <Modal />
+        <ClientOnly>
+          <CustomCursor />
+        </ClientOnly>
       </QueryClientProvider>
     </>
   )

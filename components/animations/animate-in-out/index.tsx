@@ -18,7 +18,6 @@ type Props = {
 }
 
 const AnimateInOut = ({
-  children,
   durationIn = 0,
   durationOut = 0,
   delay = 0,
@@ -34,8 +33,6 @@ const AnimateInOut = ({
   useIsomorphicLayoutEffect(() => {
     // intro animation
     if (set) {
-      console.log("set")
-
       gsap.set(el.current, { ...set })
     }
 
@@ -47,8 +44,6 @@ const AnimateInOut = ({
 
     // outro animation
     if (!skipOutro) {
-      console.log("outro")
-
       timeline?.add(
         gsap.to(el.current, {
           ...from,
@@ -73,11 +68,10 @@ const AnimateInOut = ({
           background: "var(--forested-juniper)",
           zIndex: "6000",
           pointerEvents: "none",
+          opacity: 1,
         } as React.CSSProperties
       }
-    >
-      {children}
-    </div>
+    ></div>
   )
 }
 

@@ -3,7 +3,6 @@ import { ReactNode } from "react"
 import cn from "clsx"
 import { useRouter } from "next/router"
 
-import FadeInOut from "@/components/animations/fade-in-out"
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
@@ -36,9 +35,6 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
           }))}
       />
       <div className={cn("layout", `theme-${theme}`)}>
-        <FadeInOut durationIn={0.5} durationOut={0.5}>
-          <div></div>
-        </FadeInOut>
         <main>{children}</main>
       </div>
       <ResponsiveFooter />

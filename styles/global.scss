@@ -114,10 +114,11 @@ sup {
 }
 
 .layout {
+  background-color: var(--theme-primary);
   overflow: hidden;
-  z-index: z-index("main");
   position: relative;
   padding-top: var(--header-height);
+  z-index: z-index("main");
 }
 
 .mobile-only {

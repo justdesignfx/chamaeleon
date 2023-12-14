@@ -1,0 +1,33 @@
+.cursor {
+  @include position(fixed, 0, auto, auto, 0);
+  @include dims(desktop-vw(16px));
+  // opacity: 0;
+  // pointer-events: none;
+  transition: 100ms opacity ease;
+  z-index: z-index("cursor");
+
+  &.visible {
+    opacity: 1;
+  }
+
+  .c {
+    @include position(absolute, 50%, auto, auto, 50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: 200ms all cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &.default {
+      @include dims(18px);
+      background: var(--electric-energy);
+    }
+
+    &.click {
+      @include dims(48px);
+      background: var(--electric-energy);
+    }
+  }
+
+  @include mobile {
+    display: none;
+  }
+}

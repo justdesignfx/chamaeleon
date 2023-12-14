@@ -33,9 +33,7 @@ const NonFooter = ({ children, theme = "main", seo }: Props) => {
             ],
           }))}
       />
-      <div className={cn("layout", `theme-${theme}`)}>
-        <main>{children}</main>
-      </div>
+      <main className={cn("layout", `theme-${theme}`)}>{children}</main>
     </>
   )
 }

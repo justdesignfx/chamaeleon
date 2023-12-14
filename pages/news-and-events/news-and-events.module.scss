@@ -58,6 +58,14 @@
       color: var(--nightly-woods);
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(40px);
+
+      .loadingSpinnerC {
+        @include dims(desktop-vw(60px));
+
+        @include mobile {
+          @include dims(mobile-vw(60px));
+        }
+      }
     }
 
     .list {

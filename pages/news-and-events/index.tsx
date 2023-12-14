@@ -81,7 +81,9 @@ const NewsAndEvents = () => {
             </div>
             {isLoading ? (
               <div className={cn(s.loadingScreen, "flex-center")}>
-                <LoadingSpinner />
+                <div className={s.loadingSpinnerC}>
+                  <LoadingSpinner />
+                </div>
               </div>
             ) : (
               <>

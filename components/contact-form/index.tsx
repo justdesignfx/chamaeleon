@@ -12,6 +12,8 @@ import IconArrowForm from "@/components/icons/icon-form-arrow"
 import { useContactForm } from "@/api/mutations"
 import { formModel, formSchema, initialValues } from "@/constants/form-contact"
 import { truncateString } from "@/lib/utils"
+import { LoadingSpinner } from "../loading-spinner"
+import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = {
   onEnd: () => void
@@ -21,9 +23,11 @@ const ContactForm = (props: Props) => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
   const [currentScreen, setCurrentScreen] = useState(0)
+  const [animating, setAnimating] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [errorMessageVisible, setErrorMessageVisible] = useState(false)
-  const { mutate } = useContactForm()
+  const { mutate, isLoading, isError, data, isSuccess } = useContactForm()
+  const cursorStore = useCursorStore()
 
   const formik = useFormik({
     initialValues: initialValues,
@@ -198,16 +202,44 @@ const ContactForm = (props: Props) => {
           />
         </div>
       </div>
-      {/* <Button text="SUBMIT" type="submit" onClick={props.onEnd} size="sm" /> */}
-      <button className={cn(s.submitBtn, "animated-btn")} type="submit" onClick={props.onEnd}>
+
+      <button
+        className={cn(s.submitBtn, "animated-btn", cursorStore.type !== "default" && "cursor-none")}
+        type="submit"
+        disabled={isLoading}
+        onMouseEnter={() => cursorStore.setCursor("click")}
+        onMouseLeave={() => cursorStore.setCursor("default")}
+      >
         SUBMIT
+        {isLoading && (
+          <span className={s.loading}>
+            <LoadingSpinner />
+          </span>
+        )}
       </button>
     </>,
   ]
 
+  // server side error
+  useIsomorphicLayoutEffect(() => {
+    if (data?.success) {
+      return props.onEnd()
+    }
+
+    setErrorMessageVisible(true)
+    data?.message && setErrorMessage(data?.message)
+  }, [isSuccess, data])
+
+  // client side error
+  useIsomorphicLayoutEffect(() => {
+    if (isError) {
+      setErrorMessageVisible(true)
+      setErrorMessage("An error has occured. Please try again.")
+    }
+  }, [isError])
+
   function next() {
     if (currentScreen === screens.length - 1) {
-      props.onEnd()
       formik.submitForm()
     }
 
@@ -215,8 +247,8 @@ const ContactForm = (props: Props) => {
 
     formik?.validateForm(formik.values).then((errors) => {
       formik.setFieldTouched(field.name)
-      console.log("errors", errors)
-      console.log("touched", formik.touched)
+      // console.log("errors", errors)
+      // console.log("touched", formik.touched)
 
       if (errors.hasOwnProperty(field.name)) {
         return
@@ -225,6 +257,7 @@ const ContactForm = (props: Props) => {
       gsap.to(q(".transform-c"), {
         onStart: () => {
           setErrorMessageVisible(false)
+          setAnimating(true)
           gsap.to(q(".transform-c"), {
             yPercent: -3,
             autoAlpha: 0,
@@ -238,6 +271,9 @@ const ContactForm = (props: Props) => {
             autoAlpha: 1,
             yPercent: 0,
             ease: "power3.inOut",
+            onComplete: () => {
+              setAnimating(false)
+            },
           })
         },
       })
@@ -251,6 +287,7 @@ const ContactForm = (props: Props) => {
 
     gsap.to(q(".transform-c"), {
       onStart: () => {
+        setAnimating(true)
         gsap.to(q(".transform-c"), {
           yPercent: -3,
           autoAlpha: 0,
@@ -266,6 +303,9 @@ const ContactForm = (props: Props) => {
           autoAlpha: 1,
           yPercent: 0,
           ease: "power3.inOut",
+          onComplete: () => {
+            setAnimating(false)
+          },
         })
       },
     })
@@ -285,8 +325,12 @@ const ContactForm = (props: Props) => {
 
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>
-      <div className={s.buttons}>
-        <button className={cn(s.button, s.up, "flex-center")} onClick={prev} disabled={currentScreen === 0}>
+      <div className={cn(s.buttons, "buttons")}>
+        <button
+          className={cn(s.button, s.up, "flex-center")}
+          onClick={prev}
+          disabled={currentScreen === 0 || animating || isLoading}
+        >
           <span className={s.iconC}>
             <IconArrowForm fill="var(--forested-juniper)" />
           </span>
@@ -294,7 +338,7 @@ const ContactForm = (props: Props) => {
         <button
           className={cn(s.button, s.down, "flex-center")}
           onClick={next}
-          disabled={currentScreen === screens.length - 1}
+          disabled={currentScreen === screens.length - 1 || animating || isLoading}
         >
           <span className={s.iconC}>
             <IconArrowForm fill="var(--forested-juniper)" rotate={180} />
@@ -321,7 +365,7 @@ const ContactForm = (props: Props) => {
                 {screen}
                 {currentScreen !== screens.length - 1 && (
                   <div className={s.action}>
-                    <Button text="NEXT" onClick={next} size="sm" />
+                    <Button text="NEXT" onClick={next} size="sm" disabled={animating || isLoading} />
                   </div>
                 )}
               </div>

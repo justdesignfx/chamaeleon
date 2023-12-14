@@ -261,15 +261,25 @@
 .submitBtn {
   --btn-theme-color: var(--nightly-woods);
   color: var(--nightly-woods);
+  display: inline-block;
   font-family: var(--font-first-aid-kit-f);
   font-size: desktop-vw(30px);
   font-weight: 700;
   margin-top: desktop-vw(30px);
   position: relative;
-  display: inline-block;
 
   @include mobile {
     font-size: mobile-vw(30px);
     margin-top: mobile-vw(30px);
+  }
+
+  .loading {
+    @include position(absolute, 50%, auto, auto, 110%);
+    @include dims(desktop-vw(30px));
+    transform: translateY(-50%);
+
+    @include mobile {
+      @include dims(mobile-vw(30px));
+    }
   }
 }

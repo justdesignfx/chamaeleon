@@ -10,7 +10,7 @@ async function submitContactForm(values: Values) {
     formData.append(`${key}`, value)
   })
 
-  const res = await apiClient.post("/contact.php", formData, {
+  const res = await apiClient.post<{ success: boolean; message: string }>("/contact.php", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -26,7 +26,11 @@ export function useContactForm() {
     onError: (err) => {
       console.log(`error`, err)
     },
-    onSuccess: (res: Response) => {},
-    onSettled: (res) => {},
+    onSuccess: (res) => {
+      res
+    },
+    onSettled: (res) => {
+      res
+    },
   })
 }

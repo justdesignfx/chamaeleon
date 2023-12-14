@@ -8,12 +8,12 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Button } from "@/components/button"
 import IconArrowForm from "@/components/icons/icon-form-arrow"
+import { LoadingSpinner } from "@/components/loading-spinner"
 
 import { useContactForm } from "@/api/mutations"
 import { formModel, formSchema, initialValues } from "@/constants/form-contact"
-import { truncateString } from "@/lib/utils"
-import { LoadingSpinner } from "../loading-spinner"
 import { useCursorStore } from "@/lib/store/cursor"
+import { truncateString } from "@/lib/utils"
 
 type Props = {
   onEnd: () => void
@@ -220,24 +220,6 @@ const ContactForm = (props: Props) => {
     </>,
   ]
 
-  // server side error
-  useIsomorphicLayoutEffect(() => {
-    if (data?.success) {
-      return props.onEnd()
-    }
-
-    setErrorMessageVisible(true)
-    data?.message && setErrorMessage(data?.message)
-  }, [isSuccess, data])
-
-  // client side error
-  useIsomorphicLayoutEffect(() => {
-    if (isError) {
-      setErrorMessageVisible(true)
-      setErrorMessage("An error has occured. Please try again.")
-    }
-  }, [isError])
-
   function next() {
     if (currentScreen === screens.length - 1) {
       formik.submitForm()
@@ -311,7 +293,7 @@ const ContactForm = (props: Props) => {
     })
   }
 
-  // error message
+  // error handling
   useIsomorphicLayoutEffect(() => {
     const key = Object.keys(formModel)[currentScreen] as keyof typeof formModel
 
@@ -322,6 +304,24 @@ const ContactForm = (props: Props) => {
       setErrorMessageVisible(false)
     }
   }, [formik, currentScreen])
+
+  // server side error
+  useIsomorphicLayoutEffect(() => {
+    if (data?.success) {
+      return props.onEnd()
+    }
+
+    setErrorMessageVisible(true)
+    data?.message && setErrorMessage(data?.message)
+  }, [isSuccess, data])
+
+  // client side error
+  useIsomorphicLayoutEffect(() => {
+    if (isError) {
+      setErrorMessageVisible(true)
+      setErrorMessage("An error has occured. Please try again.")
+    }
+  }, [isError])
 
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>

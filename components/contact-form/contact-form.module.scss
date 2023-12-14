@@ -12,8 +12,8 @@
     z-index: 10;
 
     @include mobile {
-      @include position(absolute, desktop-vw(200px), auto, auto, 50%);
-      column-gap: mobile-vw(3px);
+      @include position(absolute, mobile-vw(100px), auto, auto, 50%);
+      column-gap: mobile-vw(4px);
       flex-direction: row;
       transform: translateX(-50%);
     }
@@ -127,11 +127,19 @@
   .errorMessage {
     @include position(absolute, auto, auto, desktop-vw(100px), 50%);
     color: var(--error);
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(14px);
+    font-weight: 400;
     opacity: 0;
     text-align: center;
     transform: translateX(-50%);
     transition: 400ms all ease;
     visibility: hidden;
+
+    @include mobile {
+      @include position(absolute, auto, auto, mobile-vw(150px), 50%);
+      font-size: mobile-vw(14px);
+    }
 
     &.active {
       opacity: 1;

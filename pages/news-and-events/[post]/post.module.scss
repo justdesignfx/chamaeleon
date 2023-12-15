@@ -177,6 +177,7 @@
 }
 
 .bannerC {
+  @include dims(auto, desktop-vw(500px));
   border-radius: desktop-vw(20px);
   grid-column: 1/13;
   overflow: hidden;

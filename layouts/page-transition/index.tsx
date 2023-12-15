@@ -1,34 +1,38 @@
-import { usePageTransitionStore } from "@/lib/store/page-transition"
-import { ReactNode, useRef, useState } from "react"
+import { LoadingScreen } from "@/components/loading-screen"
+import { ReactNode, memo, useRef, useState } from "react"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
   children: ReactNode
 }
 
-export default function TransitionLayout({ children }: Props) {
-  const [displayChildren, setDisplayChildren] = useState(children)
-  const { timeline } = usePageTransitionStore()
+function PageTransition({ children }: Props) {
   const el = useRef(null)
+  const [displayChildren, setDisplayChildren] = useState(children)
+  const [active, setActive] = useState(false)
 
   useIsomorphicLayoutEffect(() => {
-    console.log("changed")
+    console.log(children)
+    let timeout: NodeJS.Timeout
 
     if (children !== displayChildren) {
-      console.log(timeline?.duration())
+      setActive(true)
 
-      if (timeline?.duration() === 0) {
-        // there are no outro animations, so immediately transition
+      timeout = setTimeout(() => {
         setDisplayChildren(children)
-      } else {
-        timeline?.play().then(() => {
-          // outro complete so reset to an empty paused timeline
-          timeline?.seek(0).pause().clear()
-          setDisplayChildren(children)
-        })
-      }
+        setActive(false)
+      }, 1000)
     }
+
+    return () => clearTimeout(timeout)
   }, [children])
 
-  return <div ref={el}>{displayChildren}</div>
+  return (
+    <div ref={el}>
+      <LoadingScreen loading={active} />
+      {displayChildren}
+    </div>
+  )
 }
+
+export { PageTransition }

@@ -6,8 +6,8 @@ import { useRouter } from "next/router"
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
-import { Seo } from "@/types"
 import { ClientOnly } from "@/hocs/isomorphic"
+import { Seo } from "@/types"
 
 type Props = {
   children: ReactNode

@@ -96,4 +96,4 @@ const CustomCursor = () => {
   )
 }
 
-export default CustomCursor
+export { CustomCursor }

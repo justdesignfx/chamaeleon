@@ -2,6 +2,8 @@ import { useRef, useState } from "react"
 import s from "./post-cards.module.scss"
 
 import cn from "clsx"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { ScrollTrigger } from "@/lib/gsap"
 
 import { CardPost } from "@/components/card-post"
 import { LoadingSpinner } from "@/components/loading-spinner"
@@ -45,9 +47,9 @@ const PostCards = () => {
   //   }, [isLoading])
 
   // footer reveal calculations
-  //   useIsomorphicLayoutEffect(() => {
-  //     ScrollTrigger.refresh()
-  //   }, [posts])
+  useIsomorphicLayoutEffect(() => {
+    ScrollTrigger.refresh()
+  }, [posts])
 
   return (
     <div className={s.items} ref={ref}>

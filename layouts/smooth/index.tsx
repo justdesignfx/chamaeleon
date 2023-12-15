@@ -15,12 +15,18 @@ const SmoothLayout = ({ children }: Props) => {
   const router = useRouter()
 
   useIsomorphicLayoutEffect(() => {
-    router.events.on("routeChangeComplete", () => {
+    function scrollToTop() {
       lenisStore.lenis?.scrollTo({
         offset: 0,
         duration: 0,
       })
-    })
+    }
+
+    router.events.on("routeChangeComplete", scrollToTop)
+
+    return () => {
+      router.events.off("routeChangeComplete", scrollToTop)
+    }
   }, [])
 
   return <div>{children}</div>

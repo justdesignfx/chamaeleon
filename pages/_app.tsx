@@ -21,8 +21,8 @@ export default function App({ Component, pageProps }: AppProps) {
     // gsap.registerPlugin(ScrollTrigger)
     // ScrollTrigger.clearScrollMemory()
     // reset scroll position
-    // window.scrollTo(0, 0)
-    // window.history.scrollRestoration = "manual"
+    window.scrollTo(0, 0)
+    window.history.scrollRestoration = "manual"
   }, [])
 
   return (
@@ -45,9 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <SmoothLayout>
           <Header />
-          <PageTransition>
-            <Component {...pageProps} />
-          </PageTransition>
+          <Component {...pageProps} />
         </SmoothLayout>
         <CookiePopup />
         <Modal />

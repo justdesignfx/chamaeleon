@@ -20,6 +20,7 @@ const SmoothLayout = ({ children }: Props) => {
     function scrollToTop() {
       lenisStore.setReset(true)
     }
+    scrollToTop()
 
     router.events.on("routeChangeComplete", scrollToTop)
 

@@ -16,13 +16,13 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
-  useIsomorphicLayoutEffect(() => {
-    // gsap.registerPlugin(ScrollTrigger)
-    // ScrollTrigger.clearScrollMemory()
-    // reset scroll position
-    window.scrollTo(0, 0)
-    window.history.scrollRestoration = "manual"
-  }, [])
+  // useIsomorphicLayoutEffect(() => {
+  //   // gsap.registerPlugin(ScrollTrigger)
+  //   // ScrollTrigger.clearScrollMemory()
+  //   // reset scroll position
+  //   window.scrollTo(0, 0)
+  //   window.history.scrollRestoration = "manual"
+  // }, [])
 
   return (
     <>

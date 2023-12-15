@@ -21,7 +21,7 @@ async function submitContactForm(values: Values) {
 export function useContactForm() {
   return useMutation(submitContactForm, {
     onMutate: (variables) => {
-      console.log(variables)
+      // console.log(variables)
     },
     onError: (err) => {
       console.log(`error`, err)

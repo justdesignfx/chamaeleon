@@ -7,6 +7,7 @@ import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
 import { Seo } from "@/types"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 type Props = {
   children: ReactNode
@@ -35,7 +36,9 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
           }))}
       />
       <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-      <ResponsiveFooter />
+      <ClientOnly>
+        <ResponsiveFooter />
+      </ClientOnly>
     </>
   )
 }

@@ -1,4 +1,3 @@
-import { ClientOnly } from "@/hocs/isomorphic"
 import { breakpoints } from "@/lib/utils"
 import { useMediaQuery } from "usehooks-ts"
 import { FooterReveal } from "../animations/footer-reveal"
@@ -8,7 +7,7 @@ const ResponsiveFooter = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
 
   return (
-    <ClientOnly>
+    <>
       {isMobile ? (
         <Footer />
       ) : (
@@ -16,7 +15,7 @@ const ResponsiveFooter = () => {
           <Footer />
         </FooterReveal>
       )}
-    </ClientOnly>
+    </>
   )
 }
 

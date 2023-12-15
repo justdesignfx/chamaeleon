@@ -47,13 +47,13 @@ const ContactForm = (props: Props) => {
             ["input-required"]: formik.errors.description && formik.touched.description,
           })}
         >
-          <input
+          <textarea
             className={s.input}
             id={formModel.description.name}
             name={formModel.description.name}
             onChange={formik?.handleChange}
             placeholder={formModel.description.placeholder}
-            type={formModel.description.type}
+            // type={formModel.description.type}
             value={formik?.values.description}
           />
         </div>
@@ -120,7 +120,7 @@ const ContactForm = (props: Props) => {
       </div>
     </>,
     <>
-      <p className={s.question}>COULD YOU LET ME KNOW YOUR EMAIL ADDRESS?*</p>
+      <p className={s.question}>COULD YOU LET US KNOW YOUR EMAIL ADDRESS?*</p>
       <p className={s.description}>We'll be in touch within the next couple of days with an answer for you.</p>
       <div className={s.field}>
         <div
@@ -183,7 +183,7 @@ const ContactForm = (props: Props) => {
     <>
       <p className={s.question}>FINALLY, IT WOULD BE GREAT TO HAVE YOUR LINKEDIN URL!</p>
       <p className={s.description}>
-        Thanks for the extra info! (if you don't Linkedin, please feel free to share any other relevant url)
+        Thanks for the extra info! (if you don't have Linkedin, please feel free to share any other relevant url)
       </p>
       <div className={s.field}>
         <div

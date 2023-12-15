@@ -227,6 +227,7 @@
     }
 
     &.textarea {
+      @include dims(100%, desktop-vw(135px));
       flex: 1;
       line-height: 1.5;
       resize: none;

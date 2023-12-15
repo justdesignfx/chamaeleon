@@ -14,6 +14,12 @@ import SmoothLayout from "@/layouts/smooth"
 
 const queryClient = new QueryClient()
 
+if (typeof window !== "undefined") {
+  window.scrollTo(0, 0)
+  window.history.scrollRestoration = "manual"
+  console.log("manual")
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   // useIsomorphicLayoutEffect(() => {
   //   // gsap.registerPlugin(ScrollTrigger)

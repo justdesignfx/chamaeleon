@@ -45,6 +45,14 @@ const useSmoothScroll = () => {
       lenis?.start()
     }
   }, [lenisStore.isStopped])
+
+  useIsomorphicLayoutEffect(() => {
+    if (lenisStore.reset) {
+      lenis?.scrollTo(0, { immediate: true })
+    }
+
+    lenisStore.setReset(false)
+  }, [lenisStore.reset])
 }
 
 export default useSmoothScroll

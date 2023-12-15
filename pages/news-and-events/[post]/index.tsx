@@ -6,7 +6,6 @@ import { useRouter } from "next/router"
 
 import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
-import { CustomPopover } from "@/components/custom-popover"
 import IconArrowNext from "@/components/icons/icon-arrow-next"
 import IconClock from "@/components/icons/icon-clock"
 import IconLinkedin from "@/components/icons/icon-linkedin"

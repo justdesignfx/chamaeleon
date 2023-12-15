@@ -168,7 +168,7 @@ export default function Home({ companies }: Props) {
 
       <section className={s.kin}>
         <h4>
-          <span>CHAMAELEON'S VISION</span>
+          <span>CHAMAELEON'S VISION </span>
           <span>FOR VALUE-ADD GROWTH.</span>
         </h4>
         <div>

@@ -1,8 +1,8 @@
-import { useEffect } from "react"
 import s from "./footer.module.scss"
 
 import { ScrollTrigger } from "@/lib/gsap"
 import cn from "clsx"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
@@ -16,7 +16,7 @@ import coins from "@/public/img/coin-stack.png"
 const Footer = () => {
   const { data: social } = useAll()
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     ScrollTrigger.refresh()
   }, [social])
 

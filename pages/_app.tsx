@@ -19,21 +19,21 @@ import { ScrollTrigger, gsap } from "@/lib/gsap"
 
 const queryClient = new QueryClient()
 
-if (typeof window !== "undefined") {
-  ScrollTrigger.defaults({ markers: process.env.NEXT_PUBLIC_NODE_ENV === "development" })
-  gsap.registerPlugin(ScrollTrigger)
-  ScrollTrigger.clearScrollMemory()
-
-  // reset scroll position
-  window.scrollTo(0, 0)
-  window.history.scrollRestoration = "manual"
-}
-
 export default function App({ Component, pageProps }: AppProps) {
   const modalStore = useModalStore()
   // const lenisStore = useLenisStore()
   // const router = useRouter()
   useSmoothScroll()
+
+  useIsomorphicLayoutEffect(() => {
+    ScrollTrigger.defaults({ markers: process.env.NEXT_PUBLIC_NODE_ENV === "development" })
+    gsap.registerPlugin(ScrollTrigger)
+    ScrollTrigger.clearScrollMemory()
+
+    // reset scroll position
+    window.scrollTo(0, 0)
+    window.history.scrollRestoration = "manual"
+  })
 
   useIsomorphicLayoutEffect(() => {
     if (localStorage.getItem("cookieAccepted")) return

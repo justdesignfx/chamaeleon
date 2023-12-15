@@ -42,7 +42,7 @@ const manifestoItems: CardFloatProps[] = [
   },
   {
     backgroundColor: "var(--electric-energy)",
-    color: "var(-nightly-woods)",
+    color: "var(--nightly-woods)",
     title: "MULTI- GEOGRAPHY",
     desc: "Innovation happens everywhere.",
     icon: {

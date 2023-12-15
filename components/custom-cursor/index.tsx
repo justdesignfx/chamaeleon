@@ -4,11 +4,11 @@ import s from "./custom-cursor.module.scss"
 import { gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { useRouter } from "next/router"
 
 import useMousePosition from "@/hooks/useMousePosition"
 import { useCursorStore } from "@/lib/store/cursor"
 import { CursorType } from "@/types"
-import { useRouter } from "next/router"
 
 const CustomCursor = () => {
   const ref = useRef(null)
@@ -17,8 +17,12 @@ const CustomCursor = () => {
   const [cursorUi, setCursorUi] = useState<CursorType>("default")
   const router = useRouter()
 
-  // control screen display
+  // control visibility
   useIsomorphicLayoutEffect(() => {
+    const handleMouseOver = () => {
+      if (!cursorStore.visible) cursorStore.toggleVisibility()
+    }
+
     const handleMouseEnter = () => {
       if (!cursorStore.visible) cursorStore.toggleVisibility()
     }
@@ -28,10 +32,12 @@ const CustomCursor = () => {
     }
 
     document.body.addEventListener("mouseenter", handleMouseEnter)
+    document.body.addEventListener("mouseover", handleMouseOver)
     document.body.addEventListener("mouseleave", handleMouseLeave)
 
     return () => {
       document.body.removeEventListener("mouseenter", handleMouseEnter)
+      document.body.removeEventListener("mouseover", handleMouseOver)
       document.body.removeEventListener("mouseleave", handleMouseLeave)
     }
   }, [cursorStore])
@@ -40,9 +46,6 @@ const CustomCursor = () => {
     if (!cursorStore.visible) return
 
     const ctx = gsap.context(() => {
-      //   gsap.quickSetter(ref.current, "x", `${mouse.x}px`)
-      //   gsap.quickSetter(ref.current, "y", `${mouse.y}px`)
-
       gsap.to(ref.current, {
         x: mouse.x ? mouse.x : 0,
         y: mouse.y ? mouse.y : 0,
@@ -57,9 +60,6 @@ const CustomCursor = () => {
     if (!cursorStore.visible) return
 
     const ctx = gsap.context(() => {
-      //   gsap.quickSetter(ref.current, "x", `${mouse.x}px`)
-      //   gsap.quickSetter(ref.current, "y", `${mouse.y}px`)
-
       gsap.to(".c", {
         opacity: 0,
         scale: 0.5,

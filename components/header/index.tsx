@@ -88,6 +88,11 @@ const Header = () => {
             gsap.to(ref.current, {
               opacity: 0,
               duration: 0.2,
+              onStart: () => {
+                gsap.to(ref.current, {
+                  pointerEvents: "none",
+                })
+              },
             })
           }
         } else {
@@ -95,6 +100,11 @@ const Header = () => {
             gsap.to(ref.current, {
               opacity: 1,
               duration: 0.2,
+              onComplete: () => {
+                gsap.to(ref.current, {
+                  pointerEvents: "auto",
+                })
+              },
             })
           }
         }

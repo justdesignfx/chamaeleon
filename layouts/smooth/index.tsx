@@ -10,8 +10,6 @@ type Props = {
 }
 
 const SmoothLayout = ({ children }: Props) => {
-  console.log("lol")
-
   useSmoothScroll()
   const lenisStore = useLenisStore()
   const router = useRouter()

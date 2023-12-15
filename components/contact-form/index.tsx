@@ -323,6 +323,10 @@ const ContactForm = (props: Props) => {
     }
   }, [isError])
 
+  useIsomorphicLayoutEffect(() => {
+    cursorStore.setCursor("default")
+  }, [currentScreen])
+
   return (
     <div className={cn(s.screens, "flex-center")} ref={ref}>
       <div className={cn(s.buttons, "buttons")}>

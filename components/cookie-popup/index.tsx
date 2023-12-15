@@ -1,14 +1,15 @@
 import s from "./cookie-popup.module.scss"
 
 import cn from "clsx"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Button } from "@/components/button"
 import { CustomImage } from "@/components/custom-image"
 
-import { useModalStore } from "@/lib/store/modal"
 import { useCursorStore } from "@/lib/store/cursor"
+import { useModalStore } from "@/lib/store/modal"
 
-const CookiePopup = () => {
+const ModalContent = () => {
   const modalStore = useModalStore()
   const cursorStore = useCursorStore()
 
@@ -39,6 +40,17 @@ const CookiePopup = () => {
       </div>
     </div>
   )
+}
+
+const CookiePopup = () => {
+  const modalStore = useModalStore()
+
+  useIsomorphicLayoutEffect(() => {
+    if (localStorage.getItem("cookieAccepted")) return
+    modalStore.setContent(<ModalContent />)
+  }, [])
+
+  return null
 }
 
 export { CookiePopup }

@@ -11,8 +11,6 @@ type Props = {
 }
 
 const BlockImage = (props: Props) => {
-  console.log("block-image", props.items)
-
   return (
     <div className={s.blockImage}>
       <div className={cn(s.images, { [s.multiple]: props.items.length > 1 })}>

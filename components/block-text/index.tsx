@@ -5,8 +5,6 @@ type Props = {
   html: string
 }
 const BlockText = (props: Props) => {
-  // console.log("block-text", props)
-
   return (
     <div className={s.blockText}>
       <article className={s.text} dangerouslySetInnerHTML={{ __html: props.html }}></article>

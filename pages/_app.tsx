@@ -1,8 +1,7 @@
 import type { AppProps } from "next/app"
 import "../styles/global.scss"
 
-import { ScrollTrigger } from "@/lib/gsap"
-import { useRouter } from "next/router"
+// import { useRouter } from "next/router"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
@@ -14,13 +13,16 @@ import { Modal } from "@/components/modal"
 import CustomCursor from "@/components/custom-cursor"
 import { ClientOnly } from "@/hocs/isomorphic"
 import useSmoothScroll from "@/hooks/useSmoothScroll"
-import { useLenisStore } from "@/lib/store/lenis"
+// import { useLenisStore } from "@/lib/store/lenis"
 import { useModalStore } from "@/lib/store/modal"
+import { ScrollTrigger, gsap } from "@/lib/gsap"
 
 const queryClient = new QueryClient()
 
 if (typeof window !== "undefined") {
   ScrollTrigger.defaults({ markers: process.env.NEXT_PUBLIC_NODE_ENV === "development" })
+  gsap.registerPlugin(ScrollTrigger)
+  ScrollTrigger.clearScrollMemory()
 
   // reset scroll position
   window.scrollTo(0, 0)
@@ -29,8 +31,8 @@ if (typeof window !== "undefined") {
 
 export default function App({ Component, pageProps }: AppProps) {
   const modalStore = useModalStore()
-  const lenisStore = useLenisStore()
-  const router = useRouter()
+  // const lenisStore = useLenisStore()
+  // const router = useRouter()
   useSmoothScroll()
 
   useIsomorphicLayoutEffect(() => {
@@ -38,14 +40,14 @@ export default function App({ Component, pageProps }: AppProps) {
     modalStore.setContent(<CookiePopup />)
   }, [])
 
-  useIsomorphicLayoutEffect(() => {
-    router.events.on("routeChangeComplete", () => {
-      lenisStore.lenis?.scrollTo({
-        offset: 0,
-        duration: 0,
-      })
-    })
-  }, [])
+  // useIsomorphicLayoutEffect(() => {
+  //   router.events.on("routeChangeComplete", () => {
+  //     lenisStore.lenis?.scrollTo({
+  //       offset: 0,
+  //       duration: 0,
+  //     })
+  //   })
+  // }, [])
 
   return (
     <>

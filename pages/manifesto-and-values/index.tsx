@@ -113,7 +113,7 @@ const ManifestoAndValues = () => {
     }, ourValuesRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [ScrollTrigger])
 
   return (
     <DefaultLayout seo={{ ...routes.manifestoAndValues.seo }}>

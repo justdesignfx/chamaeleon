@@ -58,10 +58,9 @@ const Post = (props: Props) => {
 
             <div className={s.social}>
               <div className={cn(s.iconC, "cursor-pointer")} onClick={handleShare}>
-                <CustomPopover>
-                  <IconShare fill={"var(--nightly-woods)"} />
-                </CustomPopover>
+                <IconShare fill={"var(--nightly-woods)"} />
               </div>
+
               <CustomLink
                 className={cn(s.iconC, "cursor-pointer")}
                 href={`https://twitter.com/share?url=https://chamaeleon.vc${router.asPath}`}

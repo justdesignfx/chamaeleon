@@ -21,15 +21,11 @@ const PostBody = (props: Props) => {
     function createComponent(item: BlockProps): React.ReactNode {
       const { data, componentName, id } = item
 
-      // console.log("data", data, componentName, id)
-
       if (!data) {
         return React.createElement(blocks[componentName] as FunctionComponent)
       }
 
       const { components, ...rest } = data
-
-      // console.log("block", blocks, componentName)
 
       if (!blocks[componentName]) return
 

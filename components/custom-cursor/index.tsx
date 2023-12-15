@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import s from "./custom-cursor.module.scss"
 
-import { EASE, gsap } from "@/lib/gsap"
+import { gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 

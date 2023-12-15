@@ -23,7 +23,7 @@
     > span {
       display: block;
       font-family: var(--font-helvetica-neue);
-      font-size: desktop-vw(20px);
+      font-size: desktop-vw(16px);
       font-weight: 400;
       opacity: 0;
       visibility: hidden;
@@ -35,24 +35,24 @@
     }
 
     &.default {
-      @include dims(18px);
+      @include dims(desktop-vw(18px));
       background: var(--electric-energy);
     }
 
     &.click {
-      @include dims(56px);
+      @include dims(desktop-vw(56px));
       background: var(--electric-energy);
       color: var(--nightly-woods);
     }
 
     &.clickDark {
-      @include dims(56px);
+      @include dims(desktop-vw(56px));
       background: var(--nightly-woods);
       color: var(--electric-energy);
     }
 
     &.menu {
-      @include dims(18px);
+      @include dims(desktop-vw(18px));
       background: var(--nightly-woods);
     }
   }

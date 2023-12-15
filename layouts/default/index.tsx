@@ -6,7 +6,6 @@ import { useRouter } from "next/router"
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
-import { ClientOnly } from "@/hocs/isomorphic"
 import { Seo } from "@/types"
 
 type Props = {
@@ -36,9 +35,7 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
           }))}
       />
       <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-      <ClientOnly>
-        <ResponsiveFooter />
-      </ClientOnly>
+      <ResponsiveFooter />
     </>
   )
 }

@@ -11,11 +11,13 @@ import { Modal } from "@/components/modal"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import SmoothLayout from "@/layouts/smooth"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import PageTransition, { PageTransitionContext, useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
 
 const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
+  const key = useAsPathWithoutHash()
+
   // useIsomorphicLayoutEffect(() => {
   //   // gsap.registerPlugin(ScrollTrigger)
   //   // ScrollTrigger.clearScrollMemory()
@@ -44,7 +46,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <SmoothLayout>
           <Header />
-          <Component {...pageProps} />
+          <PageTransitionContext>
+            <PageTransition as="div" inPhaseDuration={1000} outPhaseDuration={1000} className={"page-transition"}>
+              <Component {...pageProps} key={key} />
+            </PageTransition>
+          </PageTransitionContext>
         </SmoothLayout>
         <CookiePopup />
         <Modal />

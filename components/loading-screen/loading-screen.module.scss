@@ -2,12 +2,25 @@
   @include position(fixed, 0, 0, 0, 0);
   @include dims(100vw, 100vh);
   background: var(--forested-juniper);
-  opacity: 0;
-  pointer-events: none;
   z-index: z-index("loading-screen");
-  transition: 1000ms opacity cubic-bezier(0.175, 0.885, 0.32, 1);
+  transition: 1000ms opacity var(--ease-in-out-cubic);
 
-  &.loading {
+  &.idle {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.in {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.out {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.appear {
     opacity: 1;
     pointer-events: auto;
   }

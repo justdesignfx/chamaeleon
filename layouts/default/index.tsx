@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
+import { LoadingScreen } from "@/components/loading-screen"
 import { Seo } from "@/types"
 
 type Props = {
@@ -19,6 +20,7 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
 
   return (
     <>
+      <LoadingScreen />
       <CustomHead
         {...(seo &&
           Object.assign(seo, {

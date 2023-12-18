@@ -1,14 +1,21 @@
 import s from "./loading-screen.module.scss"
 
+import { usePageTransitionState } from "@madeinhaus/nextjs-page-transition"
 import cn from "clsx"
 
-type Props = {
-  loading: boolean
-  setLoading?: (val: boolean) => void
-}
+const LoadingScreen = () => {
+  const { phase } = usePageTransitionState()
 
-const LoadingScreen = (props: Props) => {
-  return <div className={cn(s.loadingScreen, "flex-center", { [s.loading]: props.loading })}></div>
+  return (
+    <div
+      className={cn(s.loadingScreen, "flex-center", {
+        [s.in]: phase === "IN",
+        [s.out]: phase === "OUT",
+        [s.idle]: phase === "IDLE",
+        [s.appear]: phase === "APPEAR",
+      })}
+    ></div>
+  )
 }
 
 export { LoadingScreen }

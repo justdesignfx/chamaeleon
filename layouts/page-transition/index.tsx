@@ -1,18 +1,21 @@
-import { LoadingScreen } from "@/components/loading-screen"
-import { ReactNode, memo, useRef, useState } from "react"
+import { ReactNode, useRef, useState } from "react"
+
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
+
+import { LoadingScreen } from "@/components/loading-screen"
 
 type Props = {
   children: ReactNode
 }
 
-function PageTransition({ children }: Props) {
+function PageTransitionOverlay({ children }: Props) {
   const el = useRef(null)
   const [displayChildren, setDisplayChildren] = useState(children)
   const [active, setActive] = useState(false)
 
   useIsomorphicLayoutEffect(() => {
-    console.log(children)
+    console.log("transition start")
+
     let timeout: NodeJS.Timeout
 
     if (children !== displayChildren) {
@@ -21,6 +24,7 @@ function PageTransition({ children }: Props) {
       timeout = setTimeout(() => {
         setDisplayChildren(children)
         setActive(false)
+        console.log("transition end")
       }, 1000)
     }
 
@@ -29,10 +33,10 @@ function PageTransition({ children }: Props) {
 
   return (
     <div ref={el}>
-      <LoadingScreen loading={active} />
+      <LoadingScreen />
       {displayChildren}
     </div>
   )
 }
 
-export { PageTransition }
+export { PageTransitionOverlay }

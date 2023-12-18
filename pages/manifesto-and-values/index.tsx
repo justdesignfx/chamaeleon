@@ -19,6 +19,7 @@ import c1 from "@/public/img/manifesto-c-1.png"
 import c2 from "@/public/img/manifesto-c-2.png"
 import c3 from "@/public/img/manifesto-c-3.png"
 import papa from "@/public/img/papa-chamaeleon.png"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 const gridItems = [
   {
@@ -136,7 +137,9 @@ const ManifestoAndValues = () => {
         </div>
       </section>
 
-      <Manifesto />
+      <ClientOnly>
+        <Manifesto />
+      </ClientOnly>
 
       <SequencedChamaeleon />
 

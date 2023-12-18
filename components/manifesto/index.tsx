@@ -3,12 +3,12 @@ import s from "./manifesto.module.scss"
 
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { ScrollTrigger, gsap } from "@/lib/gsap"
 
 import { Reveal } from "@/components/animations/reveal"
 import { CardFloat } from "@/components/card-float"
 import { Marquee } from "@/components/marquee"
 
-import { ScrollTrigger, gsap } from "@/lib/gsap"
 import { useLenisStore } from "@/lib/store/lenis"
 import { CardFloatProps } from "@/types"
 
@@ -146,6 +146,13 @@ const Manifesto = () => {
   const { lenis } = useLenisStore()
   const [currentManifestoView, setCurrentManifestoView] = useState<"long" | "tldr">("tldr")
 
+  function handleManifestoView(view: typeof currentManifestoView) {
+    setCurrentManifestoView(view)
+    lenis?.scrollTo(".manifesto", {
+      duration: 1,
+    })
+  }
+
   // manifesto dual view animations
   useIsomorphicLayoutEffect(() => {
     const duration = 0.2
@@ -187,14 +194,7 @@ const Manifesto = () => {
     return () => ctx.revert()
   }, [])
 
-  function handleManifestoView(view: typeof currentManifestoView) {
-    setCurrentManifestoView(view)
-    lenis?.scrollTo(".manifesto", {
-      duration: 1,
-    })
-  }
-
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     ScrollTrigger.refresh()
   }, [currentManifestoView])
 

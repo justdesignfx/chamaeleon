@@ -18,6 +18,13 @@ const queryClient = new QueryClient()
 export default function App({ Component, pageProps }: AppProps) {
   const key = useAsPathWithoutHash()
 
+  // useIsomorphicLayoutEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     window.history.scrollRestoration = "manual"
+  //     ScrollTrigger.clearScrollMemory()
+  //   }
+  // }, [])
+
   return (
     <>
       <CustomHead

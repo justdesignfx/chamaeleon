@@ -21,6 +21,7 @@ import { CardPersonProps } from "@/types"
 
 import bale from "@/public/img/bale.png"
 import { useCursorStore } from "@/lib/store/cursor"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 type Props = {
   team: CardPersonProps[]
@@ -67,9 +68,11 @@ const Team = ({ team: members }: Props) => {
         {members.map((item, i) => {
           return (
             <div key={i}>
-              <Reveal>
-                <CardPerson {...item} toggleDetail={() => handleModal(i)} />
-              </Reveal>
+              <ClientOnly>
+                <Reveal>
+                  <CardPerson {...item} toggleDetail={() => handleModal(i)} />
+                </Reveal>
+              </ClientOnly>
             </div>
           )
         })}

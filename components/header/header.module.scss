@@ -74,6 +74,7 @@
     z-index: z-index("menu");
 
     opacity: 0;
+    pointer-events: none;
     transform: translateY(-100%);
 
     @include mobile {

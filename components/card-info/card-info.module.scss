@@ -1,5 +1,5 @@
 .cardInfo {
-  @include dims(desktop-vw(1000px), auto);
+  @include dims(desktop-vw(950px), auto);
   background-color: var(--greening);
   border-radius: desktop-vw(20px);
   column-gap: desktop-vw(40px);
@@ -29,7 +29,7 @@
   }
 
   > .imgC {
-    @include dims(desktop-vw(390px), desktop-vw(500px));
+    @include dims(desktop-vw(340px), desktop-vw(500px));
     border-radius: desktop-vw(10px);
     flex-shrink: 0;
     overflow: hidden;

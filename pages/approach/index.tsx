@@ -7,15 +7,15 @@ import { Reveal } from "@/components/animations/reveal"
 import { CardFloat } from "@/components/card-float"
 import { CustomImage } from "@/components/custom-image"
 import { WhatWeLookFor } from "@/components/what-we-look-for"
-import { ClientOnly } from "@/hocs/isomorphic"
 
+import { routes } from "@/constants"
+import { ClientOnly } from "@/hocs/isomorphic"
 import { DefaultLayout } from "@/layouts/default"
 import { CardFloatProps } from "@/types"
 
 import intro1 from "@/public/img/earth-1.jpg"
 import intro2 from "@/public/img/earth-2.jpg"
 import earth from "@/public/img/world.gif"
-import { routes } from "@/constants"
 
 const manifestoItems: CardFloatProps[] = [
   {
@@ -57,7 +57,7 @@ const Approach = () => {
   return (
     <DefaultLayout seo={{ ...routes.approach.seo }}>
       <section className={s.intro}>
-        <h1>START-UPS ARE CHANGING. IT'S TIME FOR VENTURE CAPITALS TO CHANGE.</h1>
+        <h1>START-UPS ARE CHANGING. IT'S TIME FOR VENTURE CAPITAL TO CHANGE.</h1>
       </section>
 
       <section className={cn(s.earth, "island")}>

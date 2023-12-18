@@ -26,8 +26,6 @@ const Header = () => {
   // gsap timeline
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      tl.current = gsap.timeline({ paused: true })
-
       tl.current
         .to(
           ".btn",
@@ -54,6 +52,7 @@ const Header = () => {
             duration: 0.8,
             opacity: 1,
             y: 0,
+            pointerEvents: "auto",
           },
           "s"
         )
@@ -67,6 +66,7 @@ const Header = () => {
   // toggle logic
   useIsomorphicLayoutEffect(() => {
     if (!tl.current) return
+    if (tl.current.isActive()) return
 
     if (isOpen) {
       tl.current.play()

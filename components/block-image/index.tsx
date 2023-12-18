@@ -18,7 +18,8 @@ const BlockImage = (props: Props) => {
           return (
             <div className={s.imgC} key={i}>
               <CustomImage
-                alt="Post"
+                alt="Post Image"
+                loading="lazy"
                 src={item.desktop.src}
                 height={parseFloat(item.desktop.height)}
                 width={parseFloat(item.desktop.width)}

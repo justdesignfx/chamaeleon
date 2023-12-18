@@ -9,12 +9,19 @@ import { useLenisStore } from "@/lib/store/lenis"
 
 const LoadingScreen = () => {
   const { phase } = usePageTransitionState()
+  const isBrowser = () => typeof window !== "undefined" //The approach recommended by Next.js
 
   const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
     function scrollToTop() {
       lenisStore.setReset(true)
+
+      if (typeof window !== "undefined") {
+        console.log("lol")
+
+        window.scrollTo({ top: 0 })
+      }
     }
 
     if (phase === PageTransitionPhase.APPEAR) {

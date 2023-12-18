@@ -118,7 +118,8 @@
       transform: scale(1.8);
 
       @include mobile {
-        transform: scale(1);
+        transform: scale(1.75);
+        transform-origin: right center;
       }
     }
   }

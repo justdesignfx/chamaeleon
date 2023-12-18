@@ -1,5 +1,6 @@
-import { ScrollTrigger, gsap } from "@/lib/gsap"
 import { ReactNode, useRef } from "react"
+
+import { ScrollTrigger, gsap } from "@/lib/gsap"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -27,7 +28,7 @@ const Reveal = ({ children }: Props) => {
       })
 
       ScrollTrigger.create({
-        markers: true,
+        markers: false,
         once: true,
         animation: tl.current,
         id: "reveal",

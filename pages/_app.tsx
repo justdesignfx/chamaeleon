@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <SmoothLayout>
           <Header />
           <PageTransitionContext>
-            <PageTransition as="div" inPhaseDuration={800} outPhaseDuration={800}>
+            <PageTransition as="div" inPhaseDuration={800} outPhaseDuration={600} disableDefaultStyles={true}>
               <Component {...pageProps} key={key} />
             </PageTransition>
           </PageTransitionContext>

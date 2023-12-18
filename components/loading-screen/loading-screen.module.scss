@@ -2,26 +2,29 @@
   @include position(fixed, 0, 0, 0, 0);
   @include dims(100vw, 100vh);
   background: var(--forested-juniper);
-  transition: 1000ms opacity var(--ease-in-out-cubic);
   z-index: z-index("loading-screen");
 
   &.idle {
     opacity: 0;
     pointer-events: none;
+    transition: 600ms opacity var(--ease-in-out-cubic);
   }
 
   &.in {
     opacity: 0;
     pointer-events: none;
+    transition: 600ms opacity var(--ease-in-out-cubic);
   }
 
   &.out {
     opacity: 1;
     pointer-events: auto;
+    transition: 800ms opacity var(--ease-in-out-cubic);
   }
 
   &.appear {
     opacity: 1;
     pointer-events: auto;
+    transition: 800ms opacity var(--ease-in-out-cubic);
   }
 }

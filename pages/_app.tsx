@@ -2,6 +2,7 @@ import type { AppProps } from "next/app"
 import "../styles/global.scss"
 
 import { QueryClient, QueryClientProvider } from "react-query"
+import PageTransition, { PageTransitionContext, useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
 
 import { CookiePopup } from "@/components/cookie-popup"
 import { CustomCursor } from "@/components/custom-cursor"
@@ -10,8 +11,7 @@ import { Header } from "@/components/header"
 import { Modal } from "@/components/modal"
 
 import { ClientOnly } from "@/hocs/isomorphic"
-import SmoothLayout from "@/layouts/smooth"
-import PageTransition, { PageTransitionContext, useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
+import { SmoothLayout } from "@/layouts/smooth"
 
 const queryClient = new QueryClient()
 
@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <SmoothLayout>
           <Header />
           <PageTransitionContext>
-            <PageTransition as="div" inPhaseDuration={1000} outPhaseDuration={1000} className={"page-transition"}>
+            <PageTransition as="div" inPhaseDuration={1000} outPhaseDuration={1000}>
               <Component {...pageProps} key={key} />
             </PageTransition>
           </PageTransitionContext>

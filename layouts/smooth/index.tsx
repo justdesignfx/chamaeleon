@@ -30,4 +30,4 @@ const SmoothLayout = ({ children }: Props) => {
   return <div>{children}</div>
 }
 
-export default SmoothLayout
+export { SmoothLayout }

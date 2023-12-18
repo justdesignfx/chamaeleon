@@ -40,7 +40,6 @@ export const CustomLink = forwardRef(({ href, children, className, scroll = fals
       scroll={scroll}
       {...attributes}
       {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
-      prefetch={true}
     >
       {children}
     </NextLink>

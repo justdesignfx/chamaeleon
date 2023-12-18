@@ -27,13 +27,12 @@ const Reveal = ({ children }: Props) => {
       })
 
       ScrollTrigger.create({
+        markers: true,
         once: true,
         animation: tl.current,
         id: "reveal",
-
-        markers: false,
         trigger: ref.current,
-        start: "center-=25% center+=25%",
+        start: "center-=25% center+=40%",
       })
     }, ref)
 

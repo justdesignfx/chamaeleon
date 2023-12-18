@@ -16,7 +16,6 @@ import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
 import { CompanyBoxProps } from "@/types"
 
-import chamaeleonC from "@/public/img/chamaeleon-c.webp"
 import chamaeleonOnHill from "@/public/img/chamaeleon-on-hill.jpg"
 import cowboyHat from "@/public/img/cowboy-hat.png"
 import kinCurtain from "@/public/img/kin-curtain.jpg"
@@ -26,6 +25,8 @@ import logoKin from "@/public/img/logo-kin-community.png"
 import logoMantis from "@/public/img/logo-mantis.png"
 import moneybox from "@/public/img/moneybox.gif"
 import rocket from "@/public/img/rocket.png"
+
+import logomark from "@/public/img/chamaeleon-c.webp"
 
 type Props = {
   companies: CompanyBoxProps[]
@@ -62,7 +63,7 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          <CustomImage src={chamaeleonC} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
+          <CustomImage src={logomark} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
         </div>
       </section>
 

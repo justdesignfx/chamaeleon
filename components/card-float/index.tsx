@@ -15,7 +15,14 @@ const CardFloat = (props: Props): JSX.Element => {
       {props.desc && <p>{props.desc}</p>}
       {props.icon && (
         <div className={cn(s.iconC, "flex-center", [s[props.icon.alignment]], [s[props.icon.size]])}>
-          <CustomImage src={props.icon.src} style={{ objectFit: "contain" }} alt="Icon" height={400} width={400} />
+          <CustomImage
+            src={props.icon.src}
+            style={{ objectFit: "contain" }}
+            alt="Icon"
+            height={400}
+            width={400}
+            loading="lazy"
+          />
         </div>
       )}
     </div>

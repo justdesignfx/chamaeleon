@@ -16,6 +16,7 @@ const CustomImage = ({
   style,
   quality = 100,
   width,
+  placeholder,
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false)
 
@@ -31,6 +32,7 @@ const CustomImage = ({
       style={{ ...style }}
       onLoad={() => setLoaded(true)}
       quality={quality}
+      {...(placeholder && { placeholder })}
       {...(height && { height })}
       {...(width && { width })}
     />

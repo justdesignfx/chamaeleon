@@ -40,13 +40,15 @@ export default function App({ Component, pageProps }: AppProps) {
           "finance",
           "technology",
           "wholistic",
+          "mantis",
+          "kin",
         ]}
       />
       <QueryClientProvider client={queryClient}>
         <SmoothLayout>
           <Header />
           <PageTransitionContext>
-            <PageTransition as="div" inPhaseDuration={800} outPhaseDuration={600} disableDefaultStyles={true}>
+            <PageTransition as="div" inPhaseDuration={0} outPhaseDuration={1000} disableDefaultStyles={true}>
               <Component {...pageProps} key={key} />
             </PageTransition>
           </PageTransitionContext>

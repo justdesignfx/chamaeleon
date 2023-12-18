@@ -41,13 +41,13 @@ export function CustomHead({
 
         {/* START FAVICON */}
         {/* <link rel="manifest" href="/site.webmanifest" /> */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png" />
         {/* <link rel="manifest" href="/site.webmanifest" /> */}
-        <link rel="mask-icon" href="/img/favicon-32x32.png" color={themeColor} />
+        <link rel="mask-icon" href="/img/favicon/favicon-32x32.png" color={themeColor} />
         <meta name="msapplication-TileColor" content={themeColor} />
         <meta name="theme-color" content={themeColor} />
-        <link rel="icon" href="/img/favicon.ico" />
+        <link rel="icon" href="/img/favicon/favicon.ico" />
         {/* END FAVICON */}
 
         <link rel="canonical" href={canonical}></link>
@@ -65,13 +65,13 @@ export function CustomHead({
           images: [
             {
               url: image ? image.url : "/img/chamaeleon-c.png",
-              width: image?.width ? image.width : 525,
-              height: image?.height ? image.height : 478,
+              width: image?.width ? image.width : 750,
+              height: image?.height ? image.height : 652,
               alt: title,
             },
           ],
-          defaultImageWidth: 525,
-          defaultImageHeight: 478,
+          defaultImageWidth: 750,
+          defaultImageHeight: 652,
           site_name: "chamaeleon.vc",
         }}
         twitter={{

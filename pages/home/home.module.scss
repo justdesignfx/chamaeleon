@@ -510,16 +510,18 @@
     }
 
     .imgs {
+      padding-top: desktop-vw(50px);
       position: relative;
 
       @include mobile {
         margin-bottom: mobile-vw(25px);
         order: 1;
+        padding-top: 0;
       }
 
       .imgC {
         &:nth-child(1) {
-          @include dims(desktop-vw(520px), desktop-vw(240px));
+          @include dims(desktop-vw(520px), auto);
           border-radius: desktop-vw(20px);
           overflow: hidden;
 
@@ -531,8 +533,8 @@
         }
 
         &:nth-child(2) {
-          @include position(absolute, desktop-vw(180px), auto, auto, desktop-vw(250px));
           @include dims(desktop-vw(380px), auto);
+          @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(250px));
           border-radius: desktop-vw(20px);
           overflow: hidden;
 

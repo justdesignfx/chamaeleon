@@ -13,13 +13,13 @@ import { SequencedChamaeleon } from "@/components/sequenced-chamaeleon"
 
 import { DefaultLayout } from "@/layouts/default"
 import { routes } from "@/constants"
+import { ClientOnly } from "@/hocs/isomorphic"
 
-import lunch from "@/public/img/manifest-lunch.jpg"
+import lunch from "@/public/img/manifesto-lunch.jpg"
 import c1 from "@/public/img/manifesto-c-1.png"
 import c2 from "@/public/img/manifesto-c-2.png"
 import c3 from "@/public/img/manifesto-c-3.png"
 import papa from "@/public/img/papa-chamaeleon.png"
-import { ClientOnly } from "@/hocs/isomorphic"
 
 const gridItems = [
   {

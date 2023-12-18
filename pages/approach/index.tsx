@@ -13,8 +13,8 @@ import { ClientOnly } from "@/hocs/isomorphic"
 import { DefaultLayout } from "@/layouts/default"
 import { CardFloatProps } from "@/types"
 
-import intro1 from "@/public/img/earth-1.jpg"
-import intro2 from "@/public/img/earth-2.jpg"
+import intro1 from "@/public/img/approach-1.jpg"
+import intro2 from "@/public/img/approach-2.jpg"
 import earth from "@/public/img/world.gif"
 
 const manifestoItems: CardFloatProps[] = [

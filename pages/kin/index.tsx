@@ -15,12 +15,12 @@ import { SliderDetailedInfo } from "@/components/slider-detailed-info"
 import { all } from "@/api/queries/kin"
 import { routes } from "@/constants"
 import { DefaultLayout } from "@/layouts/default"
+import { useCursorStore } from "@/lib/store/cursor"
 import { useModalStore } from "@/lib/store/modal"
 import { breakpoints } from "@/lib/utils"
 import { CardPersonProps } from "@/types"
 
 import logoKin from "@/public/img/logo-kin-community.png"
-import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = {
   members: CardPersonProps[]

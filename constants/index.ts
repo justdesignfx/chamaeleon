@@ -85,3 +85,10 @@ export const routes = {
     },
   },
 }
+
+export enum PageTransitionPhase {
+  IDLE = "IDLE",
+  APPEAR = "APPEAR",
+  IN = "IN",
+  OUT = "OUT",
+}

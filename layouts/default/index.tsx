@@ -6,8 +6,8 @@ import { useRouter } from "next/router"
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
-import { LoadingScreen } from "@/components/loading-screen"
 import { Seo } from "@/types"
+import { PageTransitionLayout } from "@/layouts/page-transition"
 
 type Props = {
   children: ReactNode
@@ -20,7 +20,6 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
 
   return (
     <>
-      <LoadingScreen />
       <CustomHead
         {...(seo &&
           Object.assign(seo, {
@@ -36,8 +35,10 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
             ],
           }))}
       />
-      <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-      <ResponsiveFooter />
+      <PageTransitionLayout>
+        <main className={cn("layout", `theme-${theme}`)}>{children}</main>
+        <ResponsiveFooter />
+      </PageTransitionLayout>
     </>
   )
 }

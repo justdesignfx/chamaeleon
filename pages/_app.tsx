@@ -1,8 +1,8 @@
 import type { AppProps } from "next/app"
 import "../styles/global.scss"
 
-import { QueryClient, QueryClientProvider } from "react-query"
 import PageTransition, { PageTransitionContext, useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
+import { QueryClient, QueryClientProvider } from "react-query"
 
 import { CookiePopup } from "@/components/cookie-popup"
 import { CustomCursor } from "@/components/custom-cursor"
@@ -17,14 +17,6 @@ const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
   const key = useAsPathWithoutHash()
-
-  // useIsomorphicLayoutEffect(() => {
-  //   // gsap.registerPlugin(ScrollTrigger)
-  //   // ScrollTrigger.clearScrollMemory()
-  //   // reset scroll position
-  //   window.scrollTo(0, 0)
-  //   window.history.scrollRestoration = "manual"
-  // }, [])
 
   return (
     <>
@@ -47,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <SmoothLayout>
           <Header />
           <PageTransitionContext>
-            <PageTransition as="div" inPhaseDuration={1000} outPhaseDuration={1000}>
+            <PageTransition as="div" inPhaseDuration={800} outPhaseDuration={800}>
               <Component {...pageProps} key={key} />
             </PageTransition>
           </PageTransitionContext>

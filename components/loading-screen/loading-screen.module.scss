@@ -2,8 +2,8 @@
   @include position(fixed, 0, 0, 0, 0);
   @include dims(100vw, 100vh);
   background: var(--forested-juniper);
-  z-index: z-index("loading-screen");
   transition: 1000ms opacity var(--ease-in-out-cubic);
+  z-index: z-index("loading-screen");
 
   &.idle {
     opacity: 0;

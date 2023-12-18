@@ -18,8 +18,6 @@ const LoadingScreen = () => {
       lenisStore.setReset(true)
 
       if (typeof window !== "undefined") {
-        console.log("lol")
-
         window.scrollTo({ top: 0 })
       }
     }

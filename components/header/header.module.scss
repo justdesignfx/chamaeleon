@@ -34,8 +34,8 @@
 
     @include mobile {
       @include position(fixed, calc(var(--header-height / 2)), mobile-vw(16px), auto, auto);
-      @include dims(mobile-vw(68px), mobile-vw(30px));
-      border-radius: mobile-vw(20px);
+      @include dims(mobile-vw(72px), mobile-vw(32px));
+      border-radius: mobile-vw(16px);
       font-size: mobile-vw(22px);
     }
 

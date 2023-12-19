@@ -30,10 +30,9 @@ const CardPost = (props: Props) => {
           loading="lazy"
         />
       </div>
-      <p>
-        {props.title} <span className={s.tag}>{props.category}</span>
-      </p>
+      <p>{props.title}</p>
       <small>{props.date}</small>
+      <div className={s.tag}>{props.category}</div>
     </CustomLink>
   )
 }

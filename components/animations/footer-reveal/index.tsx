@@ -20,6 +20,8 @@ const FooterReveal = ({ children }: Props) => {
   }, [])
 
   useIsomorphicLayoutEffect(() => {
+    let timeout: NodeJS.Timeout
+
     const ctx = gsap.context((self) => {
       const selector = self.selector
       if (!selector) return
@@ -57,9 +59,16 @@ const FooterReveal = ({ children }: Props) => {
         end: () => `top bottom-=${height}`,
         scrub: true,
       })
+
+      timeout = setTimeout(function () {
+        ScrollTrigger.refresh()
+      }, 100)
     }, ref)
 
-    return () => ctx.revert()
+    return () => {
+      clearTimeout(timeout)
+      ctx.revert()
+    }
   }, [height])
 
   return (

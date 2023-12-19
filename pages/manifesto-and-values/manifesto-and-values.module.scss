@@ -1,10 +1,8 @@
 .intro {
-  margin-bottom: desktop-vw(50px);
   padding-top: var(--page-padding-top);
 
   @include mobile {
     margin: 0 var(--mobile-padding-x);
-    margin-bottom: mobile-vw(50px);
   }
 
   > h1 {
@@ -40,13 +38,11 @@
     @include dims(desktop-vw(1400px), desktop-vw(615px));
     border-radius: desktop-vw(30px);
     margin: 0 auto;
-    margin-bottom: desktop-vw(20px);
     overflow: hidden;
 
     @include mobile {
       @include dims(100%, mobile-vw(200px));
       border-radius: mobile-vw(12px);
-      margin-bottom: mobile-vw(20px);
     }
   }
 }

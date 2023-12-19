@@ -20,31 +20,20 @@ const FooterReveal = ({ children }: Props) => {
   }, [])
 
   useIsomorphicLayoutEffect(() => {
-    let timeout: NodeJS.Timeout
-
-    const ctx = gsap.context((self) => {
-      const selector = self.selector
-      if (!selector) return
-
-      gsap.set(".wrapper", {
-        yPercent: -50,
-      })
-
-      gsap.set(".overlay", {
-        opacity: 1,
-      })
-
+    const ctx = gsap.context(() => {
       tl.current
-        .to(
+        .from(
           ".wrapper",
           {
-            yPercent: 0,
+            ease: "none",
+            yPercent: -50,
           },
           "s"
         )
         .to(
           ".overlay",
           {
+            ease: "none",
             opacity: 0,
           },
           "s"
@@ -57,23 +46,17 @@ const FooterReveal = ({ children }: Props) => {
         trigger: ref.current,
         start: "top bottom",
         end: () => `top bottom-=${height}`,
+        invalidateOnRefresh: true,
         scrub: true,
       })
-
-      timeout = setTimeout(function () {
-        ScrollTrigger.refresh()
-      }, 100)
     }, ref)
 
-    return () => {
-      clearTimeout(timeout)
-      ctx.revert()
-    }
+    return () => ctx.revert()
   }, [height])
 
   return (
     <div className={s.footerReveal} ref={ref}>
-      <div className="wrapper" ref={(node) => refElement(node)}>
+      <div className={cn(s.wrapper, "wrapper")} ref={(node) => refElement(node)}>
         {children}
       </div>
       <div className={cn(s.overlay, "overlay")}></div>

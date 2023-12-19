@@ -418,7 +418,7 @@
 }
 
 .kin {
-  margin-bottom: desktop-vw(50px);
+  margin-bottom: desktop-vw(100px);
   padding: desktop-vw(80px);
 
   @include mobile {
@@ -521,7 +521,7 @@
 
       .imgC {
         &:nth-child(1) {
-          @include dims(desktop-vw(520px), auto);
+          @include dims(desktop-vw(520px), desktop-vw(244px));
           border-radius: desktop-vw(20px);
           overflow: hidden;
 
@@ -533,7 +533,7 @@
         }
 
         &:nth-child(2) {
-          @include dims(desktop-vw(380px), auto);
+          @include dims(desktop-vw(380px), desktop-vw(240px));
           @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(250px));
           border-radius: desktop-vw(20px);
           overflow: hidden;

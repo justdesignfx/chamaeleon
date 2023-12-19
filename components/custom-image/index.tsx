@@ -17,6 +17,7 @@ const CustomImage = ({
   quality = 100,
   width,
   placeholder,
+  blurDataURL,
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false)
 
@@ -32,6 +33,7 @@ const CustomImage = ({
       style={{ ...style }}
       onLoad={() => setLoaded(true)}
       quality={quality}
+      {...(blurDataURL && { blurDataURL })}
       {...(placeholder && { placeholder })}
       {...(height && { height })}
       {...(width && { width })}

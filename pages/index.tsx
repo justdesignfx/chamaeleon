@@ -63,7 +63,14 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          <CustomImage src={logomark} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
+          <CustomImage
+            src={logomark}
+            alt="Chamaeleon Logomark"
+            style={{ objectFit: "contain" }}
+            priority={true}
+            placeholder="blur"
+            blurDataURL="/img/chamaeleon-c.png"
+          />
         </div>
       </section>
 

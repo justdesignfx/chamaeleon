@@ -145,29 +145,32 @@
             @include dims(mobile-vw(15px));
           }
 
-          &.show {
-            pointer-events: none;
-          }
-
-          .popover {
-            @include position(absolute, auto, auto, 120%, 100%);
-            background: #000;
-            border-radius: desktop-vw(4px);
-            color: var(--nightly-woods);
-            font-size: desktop-vw(10px);
-            opacity: 0;
-            padding: desktop-vw(4px) desktop-vw(8px);
-            pointer-events: none;
-            transition: 0.3s all ease;
-            text-align: center;
-            z-index: 100;
-
-            display: flex;
+          .copied {
+            @include position(absolute, 0, 0, auto, auto);
             align-items: center;
+            background: var(--nightly-woods);
+            border-radius: desktop-vw(10px) desktop-vw(10px) desktop-vw(10px) desktop-vw(3px);
+            color: var(--forested-juniper);
+            display: flex;
+            font-family: var(--font-helvetica-neue);
+            font-size: desktop-vw(11px);
             justify-content: center;
+            opacity: 0;
+            padding: desktop-vw(5px) desktop-vw(7px) desktop-vw(4px) desktop-vw(7px);
+            transform: translate(100%, -130%);
+            transition: 300ms all ease;
+            visibility: hidden;
+            white-space: nowrap;
 
-            &.show {
-              opacity: 0.7;
+            @include mobile {
+              border-radius: mobile-vw(10px) mobile-vw(10px) mobile-vw(10px) mobile-vw(3px);
+              font-size: mobile-vw(11px);
+              padding: mobile-vw(5px) mobile-vw(7px) mobile-vw(4px) mobile-vw(7px);
+            }
+
+            &.visible {
+              opacity: 1;
+              visibility: visible;
             }
           }
         }
@@ -178,6 +181,7 @@
 
 .bannerC {
   @include dims(auto, desktop-vw(500px));
+  background: var(--alaskan-mist);
   border-radius: desktop-vw(20px);
   grid-column: 1/13;
   overflow: hidden;

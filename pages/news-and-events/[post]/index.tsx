@@ -1,8 +1,10 @@
+import { useState } from "react"
 import s from "./post.module.scss"
 
 import cn from "clsx"
 import { GetServerSideProps } from "next"
 import { useRouter } from "next/router"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomImage } from "@/components/custom-image"
 import { CustomLink } from "@/components/custom-link"
@@ -26,10 +28,20 @@ type Props = PostProps
 const Post = (props: Props) => {
   const router = useRouter()
   const cursorStore = useCursorStore()
+  const [copied, setCopied] = useState(false)
 
   function handleShare() {
     shareOnSocialMedia()
+    setCopied(true)
   }
+
+  useIsomorphicLayoutEffect(() => {
+    const timeout = setTimeout(() => {
+      setCopied(false)
+    }, 1000)
+
+    return () => clearTimeout(timeout)
+  }, [copied])
 
   return (
     <DefaultLayout seo={{ title: `News & Events | ${props.header.title}`, description: props.header.title }}>
@@ -57,6 +69,7 @@ const Post = (props: Props) => {
 
             <div className={s.social}>
               <div className={cn(s.iconC, "cursor-pointer")} onClick={handleShare}>
+                <div className={cn(s.copied, { [s.visible]: copied })}>link copied</div>
                 <IconShare fill={"var(--nightly-woods)"} />
               </div>
 
@@ -79,6 +92,7 @@ const Post = (props: Props) => {
         <div className={s.bannerC}>
           <CustomImage
             alt="Post Banner"
+            priority={true}
             src={props.header.banner.desktop.src}
             height={parseFloat(props.header.banner.desktop.height)}
             width={parseFloat(props.header.banner.desktop.width)}

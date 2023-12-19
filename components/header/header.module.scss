@@ -34,9 +34,9 @@
 
     @include mobile {
       @include position(fixed, calc(var(--header-height / 2)), mobile-vw(16px), auto, auto);
-      @include dims(mobile-vw(85px), mobile-vw(36px));
-      border-radius: mobile-vw(45px);
-      font-size: mobile-vw(25px);
+      @include dims(mobile-vw(68px), mobile-vw(30px));
+      border-radius: mobile-vw(20px);
+      font-size: mobile-vw(22px);
     }
 
     .btn {

@@ -23,6 +23,7 @@ export interface CardPostProps {
   title: string
   url: string
   date: string
+  category: string
 }
 
 export interface SocialProps {

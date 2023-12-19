@@ -38,7 +38,9 @@
   }
 
   > p {
+    align-items: center;
     color: var(--nightly-woods);
+    display: flex;
     font-family: var(--font-first-aid-kit-f);
     font-size: desktop-vw(30px);
     font-weight: 700;
@@ -49,6 +51,25 @@
       font-size: mobile-vw(30px);
       margin-bottom: mobile-vw(10px);
       text-align: center;
+    }
+
+    .tag {
+      background: var(--nightly-woods);
+      border-radius: desktop-vw(40px);
+      color: var(--forested-juniper);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(14px);
+      font-weight: 400;
+      margin-left: desktop-vw(10px);
+      padding: desktop-vw(3px) desktop-vw(8px) desktop-vw(4px) desktop-vw(8px);
+      text-transform: lowercase;
+
+      @include mobile {
+        border-radius: mobile-vw(40px);
+        font-size: mobile-vw(13px);
+        margin-left: mobile-vw(10px);
+        padding: mobile-vw(3px) mobile-vw(8px) mobile-vw(4px) mobile-vw(8px);
+      }
     }
   }
 

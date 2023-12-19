@@ -202,7 +202,7 @@ const Manifesto = () => {
     <>
       <section className={cn(s.manifesto, "manifesto", "flex-center-y")} ref={manifestoRef}>
         <div className={s.marquee}>
-          <Marquee duration={30}>
+          <Marquee duration={30} repeat={3}>
             <>
               <h5>MANIFESTO</h5>
               <h5>MANIFESTO</h5>

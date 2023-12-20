@@ -39,7 +39,7 @@ const Footer = () => {
                 return (
                   <li key={value.name}>
                     <CustomLink className={cn(s.navItem, "cursor-pointer")} href={`/${value.path}`}>
-                      {capitalize(value.ui)}
+                      {value.name === "kin" ? value.ui : capitalize(value.ui)}
                     </CustomLink>
                   </li>
                 )

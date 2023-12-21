@@ -13,6 +13,7 @@ import { Modal } from "@/components/modal"
 import { ClientOnly } from "@/hocs/isomorphic"
 import { SmoothLayout } from "@/layouts/smooth"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { ScrollTrigger } from "@/lib/gsap"
 
 const queryClient = new QueryClient()
 

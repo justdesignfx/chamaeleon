@@ -20,7 +20,6 @@ const LoadingScreen = () => {
 
       if (typeof window !== "undefined") {
         window.scrollTo({ top: 0 })
-        window.scroll(0, 0)
       }
     }
 

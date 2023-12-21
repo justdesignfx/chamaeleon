@@ -135,9 +135,11 @@ const ManifestoAndValues = () => {
           </span>
         </h1>
         <div className={s.imgC}>
-          <MaskedScale>
-            <CustomImage alt="People at Lunch" src={lunch} style={{ objectFit: "cover" }} priority={true} />
-          </MaskedScale>
+          <ClientOnly>
+            <MaskedScale>
+              <CustomImage alt="People at Lunch" src={lunch} style={{ objectFit: "cover" }} priority={true} />
+            </MaskedScale>
+          </ClientOnly>
         </div>
       </section>
 
@@ -145,7 +147,9 @@ const ManifestoAndValues = () => {
         <Manifesto />
       </ClientOnly>
 
-      <SequencedChamaeleon />
+      <ClientOnly>
+        <SequencedChamaeleon />
+      </ClientOnly>
 
       <section className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
         <Reveal>

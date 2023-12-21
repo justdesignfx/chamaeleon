@@ -36,13 +36,11 @@ const ManifestoAndValues = () => {
         </div>
       </section>
 
-      <div>
-        <ClientOnly>
-          <Manifesto />
-          <SequencedChamaeleon />
-          <OurValues />
-        </ClientOnly>
-      </div>
+      <Manifesto />
+
+      <SequencedChamaeleon />
+
+      <OurValues />
     </DefaultLayout>
   )
 }

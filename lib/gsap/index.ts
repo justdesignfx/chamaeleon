@@ -16,7 +16,6 @@ gsap.defaults({
 
 ScrollTrigger.defaults({
   markers: false,
-  invalidateOnRefresh: true,
   // markers: process.env.NEXT_PUBLIC_NODE_ENV === "development"
 })
 

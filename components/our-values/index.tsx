@@ -8,7 +8,6 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 import { Reveal } from "@/components/animations/reveal"
 import { CustomImage } from "@/components/custom-image"
 
-import { ClientOnly } from "@/hocs/isomorphic"
 import c1 from "@/public/img/manifesto-c-1.png"
 import c2 from "@/public/img/manifesto-c-2.png"
 import c3 from "@/public/img/manifesto-c-3.png"
@@ -65,8 +64,6 @@ const OurValues = () => {
   // our values animations
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      tl.current = gsap.timeline({ paused: true })
-
       tl.current
         .to(".progress-line", {
           scaleY: 1,
@@ -97,7 +94,7 @@ const OurValues = () => {
         })
 
       ScrollTrigger.create({
-        markers: false,
+        markers: true,
         id: "our-values",
         animation: tl.current,
         trigger: ourValuesRef.current,
@@ -110,25 +107,22 @@ const OurValues = () => {
       ctx.revert()
     }
   }, [])
+
   return (
     <section className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
-      <ClientOnly>
-        <Reveal>
-          <h2>OUR VALUES</h2>
-        </Reveal>
-      </ClientOnly>
+      <Reveal>
+        <h2>OUR VALUES</h2>
+      </Reveal>
 
       <div className={s.values}>
         <div className={cn(s.progressLine, "progress-line")}></div>
         {gridItems.map((item, i) => {
           return (
             <div className={s.item} key={i}>
-              <ClientOnly>
-                <Reveal>
-                  <h5>{item.title}</h5>
-                  <p>{item.desc}</p>
-                </Reveal>
-              </ClientOnly>
+              <Reveal>
+                <h5>{item.title}</h5>
+                <p>{item.desc}</p>
+              </Reveal>
             </div>
           )
         })}

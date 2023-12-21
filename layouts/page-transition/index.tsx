@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 
 import { LoadingScreen } from "@/components/loading-screen"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 type Props = {
   children: ReactNode
@@ -9,7 +10,10 @@ type Props = {
 const PageTransitionLayout = ({ children }: Props) => {
   return (
     <>
-      <LoadingScreen />
+      <ClientOnly>
+        <LoadingScreen />
+      </ClientOnly>
+
       {children}
     </>
   )

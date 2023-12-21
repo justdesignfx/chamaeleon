@@ -71,6 +71,8 @@ const ManifestoAndValues = () => {
 
   // our values animations
   useIsomorphicLayoutEffect(() => {
+    let st: ScrollTrigger
+
     const ctx = gsap.context(() => {
       tl.current = gsap.timeline({ paused: true })
 
@@ -103,7 +105,7 @@ const ManifestoAndValues = () => {
           xPercent: -350,
         })
 
-      ScrollTrigger.create({
+      st = ScrollTrigger.create({
         markers: false,
         id: "our-values",
         animation: tl.current,
@@ -113,7 +115,10 @@ const ManifestoAndValues = () => {
       })
     }, ourValuesRef)
 
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      st.kill()
+    }
   }, [ScrollTrigger])
 
   return (

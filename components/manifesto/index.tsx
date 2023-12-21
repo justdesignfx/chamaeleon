@@ -155,10 +155,11 @@ const Manifesto = () => {
 
   // manifesto dual view animations
   useIsomorphicLayoutEffect(() => {
+    let st: ScrollTrigger
     const duration = 0.2
 
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
+      st = ScrollTrigger.create({
         markers: false,
         id: "manifesto",
         trigger: manifestoRef.current,
@@ -191,7 +192,10 @@ const Manifesto = () => {
       })
     }, manifestoRef)
 
-    return () => ctx.revert()
+    return () => {
+      ctx.revert()
+      st.kill()
+    }
   }, [])
 
   useIsomorphicLayoutEffect(() => {

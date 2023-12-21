@@ -47,9 +47,9 @@ const PostCards = () => {
   //   }, [isLoading])
 
   // footer reveal calculations
-  useIsomorphicLayoutEffect(() => {
-    ScrollTrigger.refresh()
-  }, [posts])
+  // useIsomorphicLayoutEffect(() => {
+  //   ScrollTrigger.refresh()
+  // }, [posts])
 
   return (
     <div className={s.items} ref={ref}>

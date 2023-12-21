@@ -46,7 +46,6 @@ const FooterReveal = ({ children }: Props) => {
         trigger: ref.current,
         start: "top bottom",
         end: () => `top bottom-=${height}`,
-        invalidateOnRefresh: true,
         scrub: true,
       })
     }, ref)

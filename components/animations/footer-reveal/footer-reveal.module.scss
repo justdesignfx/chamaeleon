@@ -1,10 +1,6 @@
 .footerReveal {
   position: relative;
 
-  @include mobile {
-    display: none;
-  }
-
   .overlay {
     @include position(absolute, 0, 0, 0, 0);
     background: var(--black);

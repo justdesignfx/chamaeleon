@@ -14,23 +14,23 @@ const LoadingScreen = () => {
 
   const lenisStore = useLenisStore()
 
-  useIsomorphicLayoutEffect(() => {
-    function scrollToTop() {
-      lenisStore.setReset(true)
+  // useIsomorphicLayoutEffect(() => {
+  //   function scrollToTop() {
+  //     lenisStore.setReset(true)
 
-      if (typeof window !== "undefined") {
-        window.scrollTo({ top: 0 })
-      }
-    }
+  //     if (typeof window !== "undefined") {
+  //       window.scrollTo({ top: 0 })
+  //     }
+  //   }
 
-    // if (phase === PageTransitionPhase.IDLE) {
-    //   document.body.style.pointerEvents = "auto"
-    // }
+  //   // if (phase === PageTransitionPhase.IDLE) {
+  //   //   document.body.style.pointerEvents = "auto"
+  //   // }
 
-    if (phase === PageTransitionPhase.APPEAR) {
-      scrollToTop()
-    }
-  }, [phase])
+  //   if (phase === PageTransitionPhase.APPEAR) {
+  //     scrollToTop()
+  //   }
+  // }, [phase])
 
   // useIsomorphicLayoutEffect(() => {
   //   function disableBodyClick() {

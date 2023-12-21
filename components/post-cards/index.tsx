@@ -11,7 +11,7 @@ import { Sort } from "@/components/sort"
 import { useAll } from "@/api/queries/news-and-events"
 import { OptionProps } from "@/types"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import { ScrollTrigger } from "@/lib/gsap"
+import { ScrollTrigger, gsap } from "@/lib/gsap"
 
 const LIMIT = 100
 

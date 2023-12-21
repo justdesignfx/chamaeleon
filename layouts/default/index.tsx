@@ -6,9 +6,8 @@ import { useRouter } from "next/router"
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
-import { Seo } from "@/types"
-import { PageTransitionLayout } from "@/layouts/page-transition"
 import { ClientOnly } from "@/hocs/isomorphic"
+import { Seo } from "@/types"
 
 type Props = {
   children: ReactNode
@@ -36,12 +35,10 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
             ],
           }))}
       />
-      <PageTransitionLayout>
-        <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-        <ClientOnly>
-          <ResponsiveFooter />
-        </ClientOnly>
-      </PageTransitionLayout>
+      <main className={cn("layout", `theme-${theme}`)}>{children}</main>
+      <ClientOnly>
+        <ResponsiveFooter />
+      </ClientOnly>
     </>
   )
 }

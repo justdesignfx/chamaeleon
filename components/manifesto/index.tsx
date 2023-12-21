@@ -3,7 +3,6 @@ import s from "./manifesto.module.scss"
 
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Reveal } from "@/components/animations/reveal"
 import { CardFloat } from "@/components/card-float"
@@ -11,6 +10,7 @@ import { Marquee } from "@/components/marquee"
 
 import { useLenisStore } from "@/lib/store/lenis"
 import { CardFloatProps } from "@/types"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 const manifestoItems: CardFloatProps[] = [
   {
@@ -155,6 +155,8 @@ const Manifesto = () => {
 
   // manifesto dual view animations
   useIsomorphicLayoutEffect(() => {
+    console.log(manifestoRef.current)
+
     const duration = 0.2
 
     const ctx = gsap.context(() => {

@@ -3,7 +3,6 @@ import s from "./sequenced-chamaeleon.module.scss"
 
 import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomImage } from "@/components/custom-image"
 
@@ -27,6 +26,7 @@ import b5 from "@/assets/img/sequence/bukalemun_6.png"
 import b6 from "@/assets/img/sequence/bukalemun_7.png"
 import b7 from "@/assets/img/sequence/bukalemun_8.png"
 import b8 from "@/assets/img/sequence/bukalemun_9.png"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 const bs = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19]
 
@@ -50,6 +50,8 @@ const SequencedChamaeleon = () => {
     }
 
     const ctx = gsap.context((self) => {
+      console.log(ref.current)
+
       const selector = self.selector
       if (!selector) return
 

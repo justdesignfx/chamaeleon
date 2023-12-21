@@ -11,14 +11,14 @@ import { CustomImage } from "@/components/custom-image"
 import { Manifesto } from "@/components/manifesto"
 import { SequencedChamaeleon } from "@/components/sequenced-chamaeleon"
 
-import { DefaultLayout } from "@/layouts/default"
 import { routes } from "@/constants"
 import { ClientOnly } from "@/hocs/isomorphic"
+import { DefaultLayout } from "@/layouts/default"
 
-import lunch from "@/public/img/manifesto-lunch.jpg"
 import c1 from "@/public/img/manifesto-c-1.png"
 import c2 from "@/public/img/manifesto-c-2.png"
 import c3 from "@/public/img/manifesto-c-3.png"
+import lunch from "@/public/img/manifesto-lunch.jpg"
 import papa from "@/public/img/papa-chamaeleon.png"
 
 const gridItems = [
@@ -71,7 +71,7 @@ const ManifestoAndValues = () => {
 
   // our values animations
   useIsomorphicLayoutEffect(() => {
-    let st: ScrollTrigger
+    if (!ScrollTrigger) return
 
     const ctx = gsap.context(() => {
       tl.current = gsap.timeline({ paused: true })
@@ -105,7 +105,7 @@ const ManifestoAndValues = () => {
           xPercent: -350,
         })
 
-      st = ScrollTrigger.create({
+      ScrollTrigger.create({
         markers: false,
         id: "our-values",
         animation: tl.current,
@@ -117,7 +117,6 @@ const ManifestoAndValues = () => {
 
     return () => {
       ctx.revert()
-      st.kill()
     }
   }, [ScrollTrigger])
 

@@ -1,3 +1,4 @@
+import { ScrollTrigger } from "@/lib/gsap"
 import { useLenisStore } from "@/lib/store/lenis"
 import Lenis from "@studio-freight/lenis"
 import { useRef } from "react"
@@ -12,9 +13,9 @@ const useSmoothScroll = () => {
   useIsomorphicLayoutEffect(() => {
     const animate = (time: DOMHighResTimeStamp) => {
       lenis?.raf(time)
-      // lenis?.on("scroll", () => {
-      //   ScrollTrigger.update()
-      // })
+      lenis?.on("scroll", () => {
+        ScrollTrigger.update()
+      })
       reqIdRef.current = requestAnimationFrame(animate)
     }
     reqIdRef.current = requestAnimationFrame(animate)

@@ -201,8 +201,8 @@ const Manifesto = () => {
   }, [currentManifestoView])
 
   return (
-    <>
-      <section className={cn(s.manifesto, "manifesto", "flex-center-y")} ref={manifestoRef}>
+    <section>
+      <div className={cn(s.manifesto, "manifesto", "flex-center-y")} ref={manifestoRef}>
         <div className={s.marquee}>
           <Marquee duration={30} repeat={3}>
             <>
@@ -215,7 +215,7 @@ const Manifesto = () => {
         </div>
         <h3>Today, we announce the creation of Chamaeleon and the launch of its first fund.</h3>
         {manifestoView[currentManifestoView]}
-      </section>
+      </div>
 
       <div className={cn(s.stickyBtn, "sticky-btn", [s[currentManifestoView]])}>
         <div
@@ -231,7 +231,7 @@ const Manifesto = () => {
           LONG
         </div>
       </div>
-    </>
+    </section>
   )
 }
 

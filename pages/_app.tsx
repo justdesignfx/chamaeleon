@@ -12,20 +12,18 @@ import { Modal } from "@/components/modal"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import { SmoothLayout } from "@/layouts/smooth"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import { ScrollTrigger } from "@/lib/gsap"
 
 const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
   const key = useAsPathWithoutHash()
 
-  useIsomorphicLayoutEffect(() => {
-    if (typeof window !== "undefined") {
-      // window.history.scrollRestoration = "manual"
-      ScrollTrigger.clearScrollMemory()
-    }
-  }, [key])
+  // useIsomorphicLayoutEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     // window.history.scrollRestoration = "manual"
+  //     ScrollTrigger.clearScrollMemory()
+  //   }
+  // }, [key])
 
   return (
     <>

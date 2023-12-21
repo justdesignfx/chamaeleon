@@ -63,19 +63,23 @@ const Approach = () => {
       <section className={cn(s.earth, "island")}>
         <div className={s.imgs}>
           <div className={s.transform}>
-            <Parallax speedX={0} speedY={0.3} directionY={-1}>
-              <div className={s.imgC}>
-                <CustomImage src={intro2} alt="People" style={{ objectFit: "cover" }} priority={true} />
-              </div>
-            </Parallax>
+            <ClientOnly>
+              <Parallax speedX={0} speedY={0.3} directionY={-1}>
+                <div className={s.imgC}>
+                  <CustomImage src={intro2} alt="People" style={{ objectFit: "cover" }} priority={true} />
+                </div>
+              </Parallax>
+            </ClientOnly>
           </div>
 
           <div className={s.transform}>
-            <Parallax speedX={0} speedY={0.4} directionY={-1}>
-              <div className={s.imgC}>
-                <CustomImage src={intro1} alt="People" style={{ objectFit: "cover" }} priority={true} />
-              </div>
-            </Parallax>
+            <ClientOnly>
+              <Parallax speedX={0} speedY={0.4} directionY={-1}>
+                <div className={s.imgC}>
+                  <CustomImage src={intro1} alt="People" style={{ objectFit: "cover" }} priority={true} />
+                </div>
+              </Parallax>
+            </ClientOnly>
           </div>
         </div>
         <h2>WE ARE PASSIONATE EARLY STAGE INVESTORS...</h2>
@@ -104,9 +108,11 @@ const Approach = () => {
           {manifestoItems.map((item, i) => {
             return (
               <div key={i}>
-                <Reveal>
-                  <CardFloat {...item} />
-                </Reveal>
+                <ClientOnly>
+                  <Reveal>
+                    <CardFloat {...item} />
+                  </Reveal>
+                </ClientOnly>
               </div>
             )
           })}

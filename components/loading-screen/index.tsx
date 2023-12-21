@@ -6,16 +6,15 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { PageTransitionPhase } from "@/constants"
 import { useLenisStore } from "@/lib/store/lenis"
+import { useRouter } from "next/router"
 
 const LoadingScreen = () => {
   const { phase } = usePageTransitionState()
+  const router = useRouter()
 
   const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
-    console.log("phase", phase)
-
-    // document.body.style.pointerEvents = "none"
     function scrollToTop() {
       lenisStore.setReset(true)
 
@@ -27,14 +26,24 @@ const LoadingScreen = () => {
 
     if (phase === PageTransitionPhase.IDLE) {
       document.body.style.pointerEvents = "auto"
-    } else {
-      document.body.style.pointerEvents = "none"
     }
 
     if (phase === PageTransitionPhase.APPEAR) {
       scrollToTop()
     }
   }, [phase])
+
+  useIsomorphicLayoutEffect(() => {
+    function disableBodyClick() {
+      document.body.style.pointerEvents = "none"
+    }
+
+    router.events.on("routeChangeStart", disableBodyClick)
+
+    return () => {
+      router.events.off("routeChangeStart", disableBodyClick)
+    }
+  }, [])
 
   return (
     <div

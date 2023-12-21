@@ -9,7 +9,7 @@ const ResponsiveFooter = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
 
   return (
-    <>
+    <div>
       {isMobile ? (
         <Footer />
       ) : (
@@ -19,7 +19,7 @@ const ResponsiveFooter = () => {
           </FooterReveal>
         </ClientOnly>
       )}
-    </>
+    </div>
   )
 }
 

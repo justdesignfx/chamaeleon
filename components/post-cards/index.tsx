@@ -10,8 +10,6 @@ import { Sort } from "@/components/sort"
 
 import { useAll } from "@/api/queries/news-and-events"
 import { OptionProps } from "@/types"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import { ScrollTrigger } from "@/lib/gsap"
 
 const LIMIT = 100
 
@@ -47,9 +45,9 @@ const PostCards = () => {
   //   }, [isLoading])
 
   // footer reveal calculations
-  useIsomorphicLayoutEffect(() => {
-    ScrollTrigger.refresh()
-  }, [posts])
+  // useIsomorphicLayoutEffect(() => {
+  //   ScrollTrigger.refresh()
+  // }, [posts])
 
   return (
     <div className={s.items} ref={ref}>

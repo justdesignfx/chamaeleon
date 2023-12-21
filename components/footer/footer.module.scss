@@ -1,9 +1,9 @@
 .footer {
   background-color: var(--nightly-woods);
-  display: flex;
   flex-direction: column;
   position: relative;
   z-index: z-index("footer");
+  display: flex;
 
   .navItem {
     color: var(--forested-juniper);

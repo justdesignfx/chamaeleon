@@ -8,6 +8,7 @@ import { ResponsiveFooter } from "@/components/responsive-footer"
 
 import { Seo } from "@/types"
 import { PageTransitionLayout } from "@/layouts/page-transition"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 type Props = {
   children: ReactNode
@@ -37,7 +38,9 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
       />
       <PageTransitionLayout>
         <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-        <ResponsiveFooter />
+        <ClientOnly>
+          <ResponsiveFooter />
+        </ClientOnly>
       </PageTransitionLayout>
     </>
   )

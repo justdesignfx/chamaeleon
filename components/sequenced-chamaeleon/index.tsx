@@ -50,8 +50,6 @@ const SequencedChamaeleon = () => {
     }
 
     const ctx = gsap.context((self) => {
-      console.log(ref.current)
-
       const selector = self.selector
       if (!selector) return
 

@@ -94,7 +94,7 @@ const OurValues = () => {
         })
 
       ScrollTrigger.create({
-        markers: true,
+        markers: false,
         id: "our-values",
         animation: tl.current,
         trigger: ourValuesRef.current,

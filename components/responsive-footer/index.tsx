@@ -3,6 +3,7 @@ import { useIsomorphicLayoutEffect, useMediaQuery } from "usehooks-ts"
 
 import { FooterReveal } from "@/components/animations/footer-reveal"
 import { Footer } from "@/components/footer"
+import { ScrollTrigger } from "@/lib/gsap"
 
 const ResponsiveFooter = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)

@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import s from "./manifesto.module.scss"
 
+import { ScrollTrigger, gsap } from "@/lib/gsap"
 import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
-import { ScrollTrigger, gsap } from "@/lib/gsap"
 
 import { Reveal } from "@/components/animations/reveal"
 import { CardFloat } from "@/components/card-float"
@@ -155,7 +155,6 @@ const Manifesto = () => {
 
   // manifesto dual view animations
   useIsomorphicLayoutEffect(() => {
-    if (!ScrollTrigger) return
     const duration = 0.2
 
     const ctx = gsap.context(() => {
@@ -195,12 +194,11 @@ const Manifesto = () => {
     return () => {
       ctx.revert()
     }
-  }, [ScrollTrigger])
+  }, [])
 
   useIsomorphicLayoutEffect(() => {
-    if (!ScrollTrigger) return
     ScrollTrigger.refresh()
-  }, [currentManifestoView, ScrollTrigger])
+  }, [currentManifestoView])
 
   return (
     <>

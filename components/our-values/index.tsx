@@ -6,13 +6,13 @@ import cn from "clsx"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { Reveal } from "@/components/animations/reveal"
+import { CustomImage } from "@/components/custom-image"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import c1 from "@/public/img/manifesto-c-1.png"
 import c2 from "@/public/img/manifesto-c-2.png"
 import c3 from "@/public/img/manifesto-c-3.png"
 import papa from "@/public/img/papa-chamaeleon.png"
-import { CustomImage } from "../custom-image"
 
 const OurValues = () => {
   const ourValuesRef = useRef(null)

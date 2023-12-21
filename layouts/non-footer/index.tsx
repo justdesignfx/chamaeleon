@@ -6,7 +6,6 @@ import { useRouter } from "next/router"
 import { CustomHead } from "@/components/custom-head"
 
 import { Seo } from "@/types"
-import { PageTransitionLayout } from "@/layouts/page-transition"
 
 type Props = {
   children: ReactNode
@@ -34,9 +33,7 @@ const NonFooterLayout = ({ children, theme = "main", seo }: Props) => {
             ],
           }))}
       />
-      <PageTransitionLayout>
-        <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-      </PageTransitionLayout>
+      <main className={cn("layout", `theme-${theme}`)}>{children}</main>
     </>
   )
 }

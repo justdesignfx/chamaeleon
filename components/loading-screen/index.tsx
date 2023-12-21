@@ -15,6 +15,8 @@ const LoadingScreen = () => {
   const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
+    console.log(phase)
+
     function scrollToTop() {
       lenisStore.setReset(true)
 
@@ -51,7 +53,7 @@ const LoadingScreen = () => {
         [s.in]: phase === PageTransitionPhase.IN,
         [s.out]: phase === PageTransitionPhase.OUT,
         [s.idle]: phase === PageTransitionPhase.IDLE,
-        [s.appear]: phase === PageTransitionPhase.APPEAR,
+        // [s.appear]: phase === PageTransitionPhase.APPEAR,
       })}
     ></div>
   )

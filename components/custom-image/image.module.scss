@@ -1,9 +1,9 @@
 .image {
   @include dims(100%);
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  opacity: 0;
   transition: 300ms opacity ease;
-  opacity: 1;
 
   &.visible {
     opacity: 1;

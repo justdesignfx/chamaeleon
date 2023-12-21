@@ -2,6 +2,7 @@ import type { AppProps } from "next/app"
 import "../styles/global.scss"
 
 import PageTransition, { PageTransitionContext, useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
+import "@madeinhaus/nextjs-page-transition/dist/index.css"
 import { QueryClient, QueryClientProvider } from "react-query"
 
 import { CookiePopup } from "@/components/cookie-popup"
@@ -18,13 +19,6 @@ const queryClient = new QueryClient()
 export default function App({ Component, pageProps }: AppProps) {
   const key = useAsPathWithoutHash()
 
-  // useIsomorphicLayoutEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     // window.history.scrollRestoration = "manual"
-  //     ScrollTrigger.clearScrollMemory()
-  //   }
-  // }, [key])
-
   return (
     <>
       <CustomHead
@@ -33,13 +27,13 @@ export default function App({ Component, pageProps }: AppProps) {
         description="Data-driven Silicon Valley  based venture capital firm investing globally in early stage startups"
         keywords={[
           "venture capital",
-          "startup",
           "investment",
           "chamaeleon",
+          "startup",
           "silicon walley",
           "finance",
           "technology",
-          "wholistic",
+          "wholistic investemnts",
           "mantis",
           "kin",
         ]}
@@ -48,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <SmoothLayout>
           <Header />
           <PageTransitionContext>
-            <PageTransition as="div" inPhaseDuration={0} outPhaseDuration={1000} disableDefaultStyles={true}>
+            <PageTransition as="div" outPhaseDuration={0}>
               <Component {...pageProps} key={key} />
             </PageTransition>
           </PageTransitionContext>

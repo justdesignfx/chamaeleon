@@ -3,28 +3,30 @@
   @include dims(100vw, 100vh);
   background: var(--forested-juniper);
   z-index: z-index("loading-screen");
+  opacity: 0;
+  pointer-events: none;
 
-  &.idle {
-    opacity: 0;
-    pointer-events: none;
-    transition: 600ms opacity var(--ease-in-out-cubic);
-  }
+  // &.idle {
+  //   opacity: 0;
+  //   pointer-events: none;
+  //   transition: 500ms opacity var(--ease-in-out-cubic);
+  // }
 
-  &.in {
-    opacity: 0;
-    pointer-events: none;
-    transition: 600ms opacity var(--ease-in-out-cubic);
-  }
+  // &.in {
+  //   opacity: 1;
+  //   pointer-events: none;
+  //   // transition: 500ms opacity var(--ease-in-out-cubic);
+  // }
 
-  &.out {
-    opacity: 1;
-    pointer-events: auto;
-    transition: 800ms opacity var(--ease-in-out-cubic);
-  }
+  // &.out {
+  //   opacity: 1;
+  //   pointer-events: auto;
+  //   transition: 500ms opacity var(--ease-in-out-cubic);
+  // }
 
-  &.appear {
-    opacity: 1;
-    pointer-events: auto;
-    transition: 800ms opacity var(--ease-in-out-cubic);
-  }
+  // &.appear {
+  //   opacity: 1;
+  //   pointer-events: auto;
+  //   // transition: 500ms opacity var(--ease-in-out-cubic);
+  // }
 }

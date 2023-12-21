@@ -152,18 +152,23 @@ const ManifestoAndValues = () => {
       </ClientOnly>
 
       <section className={cn(s.ourValues, "island", "flex-center-y")} ref={ourValuesRef}>
-        <Reveal>
-          <h2>OUR VALUES</h2>
-        </Reveal>
+        <ClientOnly>
+          <Reveal>
+            <h2>OUR VALUES</h2>
+          </Reveal>
+        </ClientOnly>
+
         <div className={s.values}>
           <div className={cn(s.progressLine, "progress-line")}></div>
           {gridItems.map((item, i) => {
             return (
               <div className={s.item} key={i}>
-                <Reveal>
-                  <h5>{item.title}</h5>
-                  <p>{item.desc}</p>
-                </Reveal>
+                <ClientOnly>
+                  <Reveal>
+                    <h5>{item.title}</h5>
+                    <p>{item.desc}</p>
+                  </Reveal>
+                </ClientOnly>
               </div>
             )
           })}

@@ -4,6 +4,7 @@ import { useIsomorphicLayoutEffect, useMediaQuery } from "usehooks-ts"
 import { FooterReveal } from "@/components/animations/footer-reveal"
 import { Footer } from "@/components/footer"
 import { ScrollTrigger } from "@/lib/gsap"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 const ResponsiveFooter = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
@@ -17,9 +18,11 @@ const ResponsiveFooter = () => {
       {isMobile ? (
         <Footer />
       ) : (
-        <FooterReveal>
-          <Footer />
-        </FooterReveal>
+        <ClientOnly>
+          <FooterReveal>
+            <Footer />
+          </FooterReveal>
+        </ClientOnly>
       )}
     </>
   )

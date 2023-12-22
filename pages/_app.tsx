@@ -11,8 +11,16 @@ import { Modal } from "@/components/modal"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import { SmoothLayout } from "@/layouts/smooth"
+import { ScrollTrigger } from "@/lib/gsap"
 
 const queryClient = new QueryClient()
+
+if (typeof window !== "undefined") {
+  console.log("manual")
+
+  ScrollTrigger.clearScrollMemory()
+  window.history.scrollRestoration = "manual"
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

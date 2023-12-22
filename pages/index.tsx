@@ -75,7 +75,7 @@ export default function Home({ companies }: Props) {
             />
           </div>
           <div className="mobile-only">
-            <CustomImage src={logomarkPng} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
+            <CustomImage src={logomarkPng} alt="Chamaeleon Logo" style={{ objectFit: "contain" }} priority={true} />
           </div>
         </div>
       </section>

@@ -53,9 +53,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <h5 className={s.punch}>
+      <p className={s.punch}>
         LOOKING FOR INVESTMENT<span>?</span>
-      </h5>
+      </p>
 
       <div className={s.social}>
         {social &&

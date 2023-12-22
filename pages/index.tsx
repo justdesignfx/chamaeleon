@@ -27,6 +27,7 @@ import moneybox from "@/public/img/moneybox.gif"
 import rocket from "@/public/img/rocket.png"
 
 import logomark from "@/public/img/chamaeleon-c.webp"
+import logomarkPng from "@/public/img/chamaeleon-c.png"
 
 type Props = {
   companies: CompanyBoxProps[]
@@ -63,14 +64,19 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          <CustomImage
-            src={logomark}
-            alt="Chamaeleon Logomark"
-            style={{ objectFit: "contain" }}
-            priority={true}
-            placeholder="blur"
-            blurDataURL="/img/chamaeleon-c.png"
-          />
+          <div className="desktop-only">
+            <CustomImage
+              src={logomark}
+              alt="Chamaeleon Logomark"
+              style={{ objectFit: "contain" }}
+              priority={true}
+              placeholder="blur"
+              blurDataURL="/img/chamaeleon-c.png"
+            />
+          </div>
+          <div className="mobile-only">
+            <CustomImage src={logomarkPng} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
+          </div>
         </div>
       </section>
 

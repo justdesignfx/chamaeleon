@@ -62,7 +62,7 @@
     transform: rotate(-12deg);
 
     @include mobile {
-      @include position(absolute, auto, auto, mobile-vw(-75px), 50%);
+      @include position(absolute, auto, auto, mobile-vw(-90px), 50%);
       @include dims(mobile-vw(225px));
       transform: translateX(-50%) rotate(-12deg);
     }

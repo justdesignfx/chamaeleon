@@ -2,13 +2,14 @@ import { ReactNode } from "react"
 
 import cn from "clsx"
 import { useRouter } from "next/router"
+import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import { Seo } from "@/types"
-import { useIsomorphicLayoutEffect } from "usehooks-ts"
+import { useLenisStore } from "@/lib/store/lenis"
 
 type Props = {
   children: ReactNode
@@ -18,10 +19,10 @@ type Props = {
 
 const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
   const router = useRouter()
-  // const lenisStore = useLenisStore()
+  const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
-    // lenisStore.setReset(true)
+    lenisStore.setReset(true)
   }, [])
 
   return (

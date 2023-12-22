@@ -16,8 +16,6 @@ import { ScrollTrigger } from "@/lib/gsap"
 const queryClient = new QueryClient()
 
 if (typeof window !== "undefined") {
-  console.log("manual")
-
   ScrollTrigger.clearScrollMemory()
   window.history.scrollRestoration = "manual"
 }

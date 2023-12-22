@@ -30,6 +30,7 @@ import logomark from "@/public/img/chamaeleon-c.webp"
 import logomarkPng from "@/public/img/chamaeleon-c.png"
 import { useMediaQuery } from "usehooks-ts"
 import { breakpoints } from "@/lib/utils"
+import { ClientOnly } from "@/hocs/isomorphic"
 
 type Props = {
   companies: CompanyBoxProps[]
@@ -37,8 +38,6 @@ type Props = {
 
 export default function Home({ companies }: Props) {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
-
-  console.log(isMobile)
 
   return (
     <DefaultLayout seo={{ ...routes.home.seo }}>
@@ -70,18 +69,13 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          {isMobile ? (
-            <CustomImage src={logomarkPng} alt="Chamaeleon Logo" style={{ objectFit: "contain" }} priority={true} />
-          ) : (
-            <CustomImage
-              src={logomark}
-              alt="Chamaeleon Logomark"
-              style={{ objectFit: "contain" }}
-              priority={true}
-              placeholder="blur"
-              blurDataURL="/img/chamaeleon-c.png"
-            />
-          )}
+          <ClientOnly>
+            {isMobile ? (
+              <CustomImage src={logomarkPng} alt="Chamaeleon Logo" style={{ objectFit: "contain" }} priority={true} />
+            ) : (
+              <CustomImage src={logomark} alt="Chamaeleon Logomark" style={{ objectFit: "contain" }} priority={true} />
+            )}
+          </ClientOnly>
         </div>
       </section>
 

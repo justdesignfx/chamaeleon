@@ -28,12 +28,18 @@ import rocket from "@/public/img/rocket.png"
 
 import logomark from "@/public/img/chamaeleon-c.webp"
 import logomarkPng from "@/public/img/chamaeleon-c.png"
+import { useMediaQuery } from "usehooks-ts"
+import { breakpoints } from "@/lib/utils"
 
 type Props = {
   companies: CompanyBoxProps[]
 }
 
 export default function Home({ companies }: Props) {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile}px)`)
+
+  console.log(isMobile)
+
   return (
     <DefaultLayout seo={{ ...routes.home.seo }}>
       <section className={s.intro}>
@@ -64,7 +70,9 @@ export default function Home({ companies }: Props) {
           />
         </div>
         <div className={s.imgC}>
-          <div className="desktop-only">
+          {isMobile ? (
+            <CustomImage src={logomarkPng} alt="Chamaeleon Logo" style={{ objectFit: "contain" }} priority={true} />
+          ) : (
             <CustomImage
               src={logomark}
               alt="Chamaeleon Logomark"
@@ -73,10 +81,7 @@ export default function Home({ companies }: Props) {
               placeholder="blur"
               blurDataURL="/img/chamaeleon-c.png"
             />
-          </div>
-          <div className="mobile-only">
-            <CustomImage src={logomarkPng} alt="Chamaeleon Logo" style={{ objectFit: "contain" }} priority={true} />
-          </div>
+          )}
         </div>
       </section>
 

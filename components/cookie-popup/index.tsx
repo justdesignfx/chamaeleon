@@ -32,7 +32,7 @@ const ModalContent = () => {
         </p>
         <div className={s.buttons}>
           <Button text="ACCEPT" size="sm" color="var(--forested-juniper)" onClick={() => handleCookie(true)} />
-          <Button text="DECLINE" size="sm" color="var(--medium-grey-green)" onClick={() => handleCookie(false)} />
+          <Button text="DECLINE" size="sm" color="var(--forested-juniper)" onClick={() => handleCookie(false)} />
         </div>
         <div className={s.imgC}>
           <CustomImage src="/img/cookie.png" alt="Cookie Doodle" height={237} width={239} />

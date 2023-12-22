@@ -283,7 +283,7 @@
       @include position(absolute, calc(100% + mobile-vw(25px)), auto, auto, 50%);
     }
 
-    h5 {
+    p {
       color: var(--nightly-woods);
       font-family: var(--font-first-aid-kit-f);
       font-size: desktop-vw(150px);

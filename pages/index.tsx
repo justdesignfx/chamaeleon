@@ -152,10 +152,10 @@ export default function Home({ companies }: Props) {
         <div className={s.marquee}>
           <Marquee duration={40}>
             <>
-              <h5>A UNIQUE SUPERPOWER</h5>
-              <h5>A UNIQUE SUPERPOWER</h5>
-              <h5>A UNIQUE SUPERPOWER</h5>
-              <h5>A UNIQUE SUPERPOWER</h5>
+              <p>A UNIQUE SUPERPOWER</p>
+              <p>A UNIQUE SUPERPOWER</p>
+              <p>A UNIQUE SUPERPOWER</p>
+              <p>A UNIQUE SUPERPOWER</p>
             </>
           </Marquee>
         </div>

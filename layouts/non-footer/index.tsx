@@ -6,7 +6,6 @@ import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 import { CustomHead } from "@/components/custom-head"
 
-import { useLenisStore } from "@/lib/store/lenis"
 import { Seo } from "@/types"
 
 type Props = {
@@ -17,10 +16,10 @@ type Props = {
 
 const NonFooterLayout = ({ children, theme = "main", seo }: Props) => {
   const router = useRouter()
-  const lenisStore = useLenisStore()
+  // const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
-    lenisStore.setReset(true)
+    // lenisStore.setReset(true)
   }, [])
 
   return (

@@ -3,7 +3,7 @@ import { forwardRef, useMemo } from "react"
 
 const SHALLOW_URLS = ["?demo=true"]
 
-export const CustomLink = forwardRef(({ href, children, className, scroll = false, shallow, ...props }: any, ref) => {
+export const CustomLink = forwardRef(({ href, children, className, scroll = true, shallow, ...props }: any, ref) => {
   const attributes = {
     ref,
     className,

@@ -8,7 +8,6 @@ import { ResponsiveFooter } from "@/components/responsive-footer"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import { Seo } from "@/types"
-import { useLenisStore } from "@/lib/store/lenis"
 import { useIsomorphicLayoutEffect } from "usehooks-ts"
 
 type Props = {
@@ -19,10 +18,10 @@ type Props = {
 
 const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
   const router = useRouter()
-  const lenisStore = useLenisStore()
+  // const lenisStore = useLenisStore()
 
   useIsomorphicLayoutEffect(() => {
-    lenisStore.setReset(true)
+    // lenisStore.setReset(true)
   }, [])
 
   return (

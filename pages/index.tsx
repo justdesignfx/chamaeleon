@@ -1,6 +1,7 @@
 import s from "./home/home.module.scss"
 
 import cn from "clsx"
+import { useMediaQuery } from "usehooks-ts"
 
 import { MaskedScale } from "@/components/animations/masked-scale"
 import { Parallax } from "@/components/animations/parallax"
@@ -26,11 +27,10 @@ import logoMantis from "@/public/img/logo-mantis.png"
 import moneybox from "@/public/img/moneybox.gif"
 import rocket from "@/public/img/rocket.png"
 
-import logomark from "@/public/img/chamaeleon-c.webp"
-import logomarkPng from "@/public/img/chamaeleon-c.png"
-import { useMediaQuery } from "usehooks-ts"
-import { breakpoints } from "@/lib/utils"
 import { ClientOnly } from "@/hocs/isomorphic"
+import { breakpoints } from "@/lib/utils"
+import logomarkPng from "@/public/img/chamaeleon-c.png"
+import logomark from "@/public/img/chamaeleon-c.webp"
 
 type Props = {
   companies: CompanyBoxProps[]
@@ -95,7 +95,12 @@ export default function Home({ companies }: Props) {
             collaborated as investors, operators and entrepreneurs that will focus on investing in truly transformative
             companies.
           </p>
-          <Button text="SEE MORE" path={`/${routes.manifestoAndValues.path}`} size="md" />
+          <Button
+            text="SEE MORE"
+            path={`/${routes.manifestoAndValues.path}`}
+            size="md"
+            ariaLabel={routes.manifestoAndValues.ariaLabel}
+          />
         </div>
       </section>
 
@@ -131,7 +136,12 @@ export default function Home({ companies }: Props) {
           WE'RE HERE TO BOOST YOU.
         </h3>
 
-        <Button text="OUR PORTFOLIO" path={`/${routes.portfolio.path}`} size="md" />
+        <Button
+          text="OUR PORTFOLIO"
+          path={`/${routes.portfolio.path}`}
+          size="md"
+          ariaLabel={routes.portfolio.ariaLabel}
+        />
 
         <div className={s.imgC}>
           <MaskedScale>
@@ -175,7 +185,12 @@ export default function Home({ companies }: Props) {
             Chamaeleon's investment strategy is powered by our proprietary AI and quantitative engine, which analyzes
             millions of companies across thousands of data points per company.
           </p>
-          <Button text="SEE MORE" path={`/${routes.superpower.path}`} size="md" />
+          <Button
+            text="SEE MORE"
+            path={`/${routes.superpower.path}`}
+            size="md"
+            ariaLabel={routes.superpower.ariaLabel}
+          />
         </div>
       </section>
 
@@ -191,7 +206,7 @@ export default function Home({ companies }: Props) {
               with us, and believe that entrepreneurship can create massive opportunities and impact for everyone. They
               are part of our family... they are <strong>KIN</strong>.
             </p>
-            <Button text="MEET OUR COMMUNITY" path={`/${routes.kin.path}`} size="md" />
+            <Button text="MEET OUR COMMUNITY" path={`/${routes.kin.path}`} size="md" ariaLabel={routes.kin.ariaLabel} />
           </div>
 
           <div className={s.imgs}>

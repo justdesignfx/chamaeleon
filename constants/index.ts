@@ -1,5 +1,6 @@
 export const routes = {
   home: {
+    ariaLabel: "Homepage",
     name: "home",
     path: "",
     ui: "HOME",
@@ -9,6 +10,7 @@ export const routes = {
     },
   },
   manifestoAndValues: {
+    ariaLabel: "Our Manifesto and Values",
     name: "manifesto-and-values",
     path: "manifesto-and-values",
     ui: "MANIFESTO & VALUES",
@@ -19,6 +21,7 @@ export const routes = {
     },
   },
   team: {
+    ariaLabel: "Our Team",
     name: "team",
     path: "team",
     ui: "TEAM",
@@ -28,6 +31,7 @@ export const routes = {
     },
   },
   approach: {
+    ariaLabel: "Our Approach",
     name: "approach",
     path: "approach",
     ui: "APPROACH",
@@ -37,6 +41,7 @@ export const routes = {
     },
   },
   superpower: {
+    ariaLabel: "Our Superpower: Mantis",
     name: "superpower",
     path: "superpower",
     ui: "SUPERPOWER",
@@ -47,6 +52,7 @@ export const routes = {
     },
   },
   portfolio: {
+    ariaLabel: "Our Portfolio",
     name: "portfolio",
     path: "portfolio",
     ui: "PORTFOLIO",
@@ -56,6 +62,7 @@ export const routes = {
     },
   },
   kin: {
+    ariaLabel: "Kin",
     name: "kin",
     path: "kin",
     ui: "KIN",
@@ -65,8 +72,8 @@ export const routes = {
         "We partner with exceptional individuals who share our values, have worked with us, or have done business alongside us.",
     },
   },
-
   newsAndEvents: {
+    ariaLabel: "News and Events",
     name: "news-and-events",
     path: "news-and-events",
     ui: "NEWS & EVENTS",
@@ -76,6 +83,7 @@ export const routes = {
     },
   },
   contact: {
+    ariaLabel: "Contact Us",
     name: "contact",
     path: "contact",
     ui: "CONTACT US",

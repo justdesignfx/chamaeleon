@@ -32,7 +32,11 @@ const Footer = () => {
                 }
                 return (
                   <li key={value.name}>
-                    <CustomLink className={cn(s.navItem, "cursor-pointer")} href={`/${value.path}`}>
+                    <CustomLink
+                      className={cn(s.navItem, "cursor-pointer")}
+                      href={`/${value.path}`}
+                      ariaLabel={value.ariaLabel}
+                    >
                       {value.name === "kin" ? value.ui : capitalize(value.ui)}
                     </CustomLink>
                   </li>
@@ -41,7 +45,7 @@ const Footer = () => {
             </ul>
           </nav>
           <div className={s.copyright}>
-            <CustomLink className={s.navItem} href="/terms-and-conditions">
+            <CustomLink className={s.navItem} href="/terms-and-conditions" ariaLabel="Terms and Conditions">
               Terms & Conditions
             </CustomLink>
             <small className={s.navItem}>All rights reserved © Chamaeleon LLC 2024</small>
@@ -49,9 +53,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <h6 className={s.punch}>
+      <h5 className={s.punch}>
         LOOKING FOR INVESTMENT<span>?</span>
-      </h6>
+      </h5>
 
       <div className={s.social}>
         {social &&

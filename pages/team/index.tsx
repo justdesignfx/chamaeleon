@@ -111,7 +111,12 @@ const Team = ({ team: members }: Props) => {
         </div>
       </section>
 
-      <CallToPage text="Discover our investment style" btnText="APPROACH" href={routes.approach.path} />
+      <CallToPage
+        text="Discover our investment style"
+        btnText="APPROACH"
+        href={routes.approach.path}
+        ariaLabel={routes.approach.ariaLabel}
+      />
     </DefaultLayout>
   )
 }

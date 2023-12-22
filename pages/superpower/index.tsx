@@ -102,7 +102,12 @@ const Superpower = () => {
           sourcing to portfolio management, as well as sharing those advantages with our portfolio companies and
           investors.
         </p>
-        <CallToPage text="Learn about our approach" btnText="APPROACH" href={routes.approach.path} />
+        <CallToPage
+          text="Learn about our approach"
+          btnText="APPROACH"
+          href={routes.approach.path}
+          ariaLabel={routes.approach.ariaLabel}
+        />
       </section>
     </DefaultLayout>
   )

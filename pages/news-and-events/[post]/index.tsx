@@ -109,6 +109,7 @@ const Post = (props: Props) => {
         className={cn(s.marquee, "cursor-pointer", cursorStore.type !== "default" && "cursor-none")}
         onMouseEnter={() => cursorStore.setCursor("click")}
         onMouseLeave={() => cursorStore.setCursor("default")}
+        ariaLabel={"Continue to the Next Post"}
       >
         <Marquee duration={30} repeat={2} inverted>
           <>

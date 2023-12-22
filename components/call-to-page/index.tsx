@@ -9,6 +9,7 @@ type Props = {
   text: string
   btnText: string
   href: string
+  ariaLabel: string
 }
 
 const CallToPage = (props: Props) => {
@@ -20,7 +21,7 @@ const CallToPage = (props: Props) => {
           <IconCurvedArrow fill="var(--nightly-woods)" />
         </span>
       </small>
-      <Button text={props.btnText} path={props.href} size="lg" />
+      <Button text={props.btnText} path={props.href} size="lg" ariaLabel={props.ariaLabel} />
     </div>
   )
 }

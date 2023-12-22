@@ -6,6 +6,7 @@ import { CustomLink } from "@/components/custom-link"
 import { useCursorStore } from "@/lib/store/cursor"
 
 type Props = {
+  ariaLabel?: string
   color?: string
   text: string
   path?: string
@@ -16,6 +17,7 @@ type Props = {
 }
 
 const Button = ({
+  ariaLabel,
   color = "var(--nightly-woods)",
   text,
   path,
@@ -37,6 +39,7 @@ const Button = ({
       })}
       style={{ color: color, "--btn-theme-color": color }}
       disabled={disabled}
+      ariaLabel={ariaLabel}
     >
       {text}
     </CustomLink>

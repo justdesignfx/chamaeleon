@@ -116,7 +116,11 @@ const Header = () => {
 
   return (
     <header className={s.header} ref={ref}>
-      <CustomLink href={`/${routes.home.path}`} className={cn(s.logoC, "cursor-pointer")}>
+      <CustomLink
+        href={`/${routes.home.path}`}
+        className={cn(s.logoC, "cursor-pointer")}
+        ariaLabel={routes.home.ariaLabel}
+      >
         <LogoChamaeleon fill="var(--forestial)" />
       </CustomLink>
 
@@ -151,6 +155,7 @@ const Header = () => {
                     onMouseLeave={() => {
                       cursorStore.setCursor("menu")
                     }}
+                    ariaLabel={value.ariaLabel}
                   >
                     <span className={s.circle}></span>
                     {value.ui}

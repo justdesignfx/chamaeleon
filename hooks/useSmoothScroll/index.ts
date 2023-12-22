@@ -12,7 +12,6 @@ const useSmoothScroll = () => {
 
   function scrollToTop() {
     lenis?.scrollTo(0, { immediate: true })
-    console.log("to top")
   }
 
   useIsomorphicLayoutEffect(() => {

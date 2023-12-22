@@ -89,7 +89,7 @@ const Contact = () => {
           <div className={s.end}>
             <small>We will reach out to you soon!</small>
             <p>THANK YOU.</p>
-            <Button text="MAIN PAGE" size="sm" path={`/${routes.home.path}`} />
+            <Button text="MAIN PAGE" size="sm" path={`/${routes.home.path}`} ariaLabel={routes.home.ariaLabel} />
           </div>
         )}
       </>

@@ -105,7 +105,12 @@ const Portfolio = ({ companies }: Props) => {
         <div className={cn(s.imgC, s.right)}>
           <CustomImage src={face} alt="Chamaeleon Face" style={{ objectFit: "contain" }} />
         </div>
-        <CallToPage text="Get to know about us" btnText="TEAM" href={routes.team.path} />
+        <CallToPage
+          text="Get to know about us"
+          btnText="TEAM"
+          href={routes.team.path}
+          ariaLabel={routes.team.ariaLabel}
+        />
       </section>
     </DefaultLayout>
   )

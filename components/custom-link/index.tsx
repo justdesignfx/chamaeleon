@@ -3,47 +3,50 @@ import { forwardRef, useMemo } from "react"
 
 const SHALLOW_URLS = ["?demo=true"]
 
-export const CustomLink = forwardRef(({ href, children, className, scroll = true, shallow, ...props }: any, ref) => {
-  const attributes = {
-    ref,
-    className,
-    ...props,
-  }
+export const CustomLink = forwardRef(
+  ({ href, children, className, scroll = true, shallow, ariaLabel = "go to page", ...props }: any, ref) => {
+    const attributes = {
+      ref,
+      className,
+      ...props,
+    }
 
-  const isProtocol = useMemo(() => href?.startsWith("mailto:") || href?.startsWith("tel:"), [href])
+    const isProtocol = useMemo(() => href?.startsWith("mailto:") || href?.startsWith("tel:"), [href])
 
-  const needsShallow = useMemo(() => !!SHALLOW_URLS.find((url) => href?.includes(url)), [href])
+    const needsShallow = useMemo(() => !!SHALLOW_URLS.find((url) => href?.includes(url)), [href])
 
-  const isAnchor = useMemo(() => href?.startsWith("#"), [href])
-  const isExternal = useMemo(() => href?.startsWith("http"), [href])
+    const isAnchor = useMemo(() => href?.startsWith("#"), [href])
+    const isExternal = useMemo(() => href?.startsWith("http"), [href])
 
-  if (typeof href !== "string") {
+    if (typeof href !== "string") {
+      return (
+        <button type="button" {...attributes}>
+          {children}
+        </button>
+      )
+    }
+
+    if (isProtocol || isExternal) {
+      return (
+        <a {...attributes} href={href} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      )
+    }
+
     return (
-      <button type="button" {...attributes}>
+      <NextLink
+        aria-label={ariaLabel}
+        href={href}
+        passHref={isAnchor}
+        scroll={scroll}
+        {...attributes}
+        {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+      >
         {children}
-      </button>
+      </NextLink>
     )
   }
-
-  if (isProtocol || isExternal) {
-    return (
-      <a {...attributes} href={href} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    )
-  }
-
-  return (
-    <NextLink
-      href={href}
-      passHref={isAnchor}
-      scroll={scroll}
-      {...attributes}
-      {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
-    >
-      {children}
-    </NextLink>
-  )
-})
+)
 
 CustomLink.displayName = "CustomLink"

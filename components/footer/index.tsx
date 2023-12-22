@@ -20,7 +20,7 @@ const Footer = () => {
         <div>
           <small className={s.navItem}>
             Headquarters in San Francisco + Silicon Valley <br />
-            Offices in Europe
+            Offices in Europe.
           </small>
         </div>
         <div>

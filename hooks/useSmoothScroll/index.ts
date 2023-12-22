@@ -10,6 +10,11 @@ const useSmoothScroll = () => {
   const lenisStore = useLenisStore()
   const reqIdRef = useRef<ReturnType<typeof requestAnimationFrame>>()
 
+  function scrollToTop() {
+    lenis?.scrollTo(0, { immediate: true })
+    console.log("to top")
+  }
+
   useIsomorphicLayoutEffect(() => {
     const animate = (time: DOMHighResTimeStamp) => {
       lenis?.raf(time)
@@ -49,7 +54,7 @@ const useSmoothScroll = () => {
 
   useIsomorphicLayoutEffect(() => {
     if (lenisStore.reset) {
-      lenis?.scrollTo(0, { immediate: true })
+      scrollToTop()
     }
 
     lenisStore.setReset(false)

@@ -83,7 +83,7 @@ const Header = () => {
 
     const ctx = gsap.context(() => {
       lenisStore.lenis?.on("scroll", (e: any) => {
-        if (e.direction === 1) {
+        if (e.direction === 1 && lenisStore.lenis?.animatedScroll >= 100) {
           if (gsap.getProperty(ref.current, "opacity") === 1) {
             gsap.to(ref.current, {
               opacity: 0,

@@ -15,9 +15,10 @@ type Props = {
   children: ReactNode
   theme?: "main" | "mantis"
   seo: Seo
+  footer: boolean
 }
 
-const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
+const DefaultLayout = ({ children, theme = "main", seo, footer = true }: Props) => {
   const router = useRouter()
   const lenisStore = useLenisStore()
 
@@ -43,9 +44,11 @@ const DefaultLayout = ({ children, theme = "main", seo }: Props) => {
           }))}
       />
       <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-      <ClientOnly>
-        <ResponsiveFooter />
-      </ClientOnly>
+      {footer && (
+        <ClientOnly>
+          <ResponsiveFooter />
+        </ClientOnly>
+      )}
     </>
   )
 }

@@ -12,9 +12,9 @@ import IconCurvedArrow from "@/components/icons/icon-curved-arrow"
 
 import { useContactForm } from "@/api/mutations"
 import { routes } from "@/constants"
-import { NonFooterLayout } from "@/layouts/non-footer"
 import { useCursorStore } from "@/lib/store/cursor"
 
+import { DefaultLayout } from "@/layouts/default"
 import chamaeleon from "@/public/img/chamaeleon-hole.png"
 
 enum Screen {
@@ -97,11 +97,11 @@ const Contact = () => {
   }
 
   return (
-    <NonFooterLayout seo={{ ...routes.contact.seo }}>
+    <DefaultLayout seo={{ ...routes.contact.seo }} footer={false}>
       <div className={cn(s.form, "flex-center")} ref={ref}>
         {screens[currentScreen]}
       </div>
-    </NonFooterLayout>
+    </DefaultLayout>
   )
 }
 

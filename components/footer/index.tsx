@@ -68,7 +68,6 @@ const Footer = () => {
                   style={{ objectFit: "contain" }}
                   height={30}
                   width={30}
-                  loading="lazy"
                 />
               </CustomLink>
             )
@@ -76,7 +75,7 @@ const Footer = () => {
       </div>
 
       <div className={s.imgC}>
-        <CustomImage src={coins} alt="Coin Stack" style={{ objectFit: "contain" }} loading="lazy" />
+        <CustomImage src={coins} alt="Coin Stack" style={{ objectFit: "contain" }} />
       </div>
     </footer>
   )

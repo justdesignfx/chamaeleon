@@ -8,19 +8,23 @@ import { CustomHead } from "@/components/custom-head"
 import { ResponsiveFooter } from "@/components/responsive-footer"
 
 import { ClientOnly } from "@/hocs/isomorphic"
-import { Seo } from "@/types"
 import { useLenisStore } from "@/lib/store/lenis"
+import { Seo } from "@/types"
+import { usePageTransitionState } from "@madeinhaus/nextjs-page-transition"
 
 type Props = {
   children: ReactNode
   theme?: "main" | "mantis"
   seo: Seo
-  footer: boolean
+  footer?: boolean
 }
 
 const DefaultLayout = ({ children, theme = "main", seo, footer = true }: Props) => {
   const router = useRouter()
   const lenisStore = useLenisStore()
+  const { phase } = usePageTransitionState()
+
+  console.log(phase)
 
   useIsomorphicLayoutEffect(() => {
     lenisStore.setReset(true)
@@ -43,6 +47,7 @@ const DefaultLayout = ({ children, theme = "main", seo, footer = true }: Props) 
             ],
           }))}
       />
+
       <main className={cn("layout", `theme-${theme}`)}>{children}</main>
       {footer && (
         <ClientOnly>

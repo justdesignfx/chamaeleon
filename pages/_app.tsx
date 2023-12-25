@@ -12,8 +12,7 @@ import { Modal } from "@/components/modal"
 import { ClientOnly } from "@/hocs/isomorphic"
 import { SmoothLayout } from "@/layouts/smooth"
 import { ScrollTrigger } from "@/lib/gsap"
-import PageTransition, { useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
-import "@madeinhaus/nextjs-page-transition/dist/index.css"
+import { PageTransitionLayout } from "@/layouts/page-transition"
 
 const queryClient = new QueryClient()
 
@@ -23,8 +22,6 @@ if (typeof window !== "undefined") {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-  const key = useAsPathWithoutHash()
-
   return (
     <>
       <CustomHead
@@ -48,11 +45,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <SmoothLayout>
           <Header />
-          <PageTransition>
-            <Component {...pageProps} key={key} />
-          </PageTransition>
+          <PageTransitionLayout Component={Component} pageProps={pageProps} />
         </SmoothLayout>
-
         <CookiePopup />
         <Modal />
         <ClientOnly>

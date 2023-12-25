@@ -4,7 +4,7 @@ import { forwardRef, useMemo } from "react"
 const SHALLOW_URLS = ["?demo=true"]
 
 export const CustomLink = forwardRef(
-  ({ href, children, className, scroll = true, shallow, ariaLabel = "go to page", ...props }: any, ref) => {
+  ({ href, children, className, scroll = false, shallow, ariaLabel = "go to page", ...props }: any, ref) => {
     const attributes = {
       ref,
       className,

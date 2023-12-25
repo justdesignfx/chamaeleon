@@ -1,5 +1,6 @@
-import type { AppProps } from "next/app"
 import "../styles/global.scss"
+
+import type { AppProps } from "next/app"
 
 import { QueryClient, QueryClientProvider } from "react-query"
 
@@ -11,15 +12,15 @@ import { Modal } from "@/components/modal"
 
 import { ClientOnly } from "@/hocs/isomorphic"
 import { SmoothLayout } from "@/layouts/smooth"
-import { ScrollTrigger } from "@/lib/gsap"
+// import { ScrollTrigger } from "@/lib/gsap"
 import { PageTransitionLayout } from "@/layouts/page-transition"
 
 const queryClient = new QueryClient()
 
-if (typeof window !== "undefined") {
-  ScrollTrigger.clearScrollMemory()
-  window.history.scrollRestoration = "manual"
-}
+// if (typeof window !== "undefined") {
+//   ScrollTrigger.clearScrollMemory()
+//   window.history.scrollRestoration = "manual"
+// }
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -43,10 +44,11 @@ export default function App({ Component, pageProps }: AppProps) {
       />
 
       <QueryClientProvider client={queryClient}>
+        <Header />
         <SmoothLayout>
-          <Header />
           <PageTransitionLayout Component={Component} pageProps={pageProps} />
         </SmoothLayout>
+        {/* on top */}
         <CookiePopup />
         <Modal />
         <ClientOnly>

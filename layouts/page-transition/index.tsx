@@ -1,8 +1,7 @@
-import { PageTransitionPhaseHandler } from "@/hocs/page-transition-phase-handler"
+import "@madeinhaus/nextjs-page-transition/dist/index.css"
+
 import PageTransition, { PageTransitionContext, useAsPathWithoutHash } from "@madeinhaus/nextjs-page-transition"
 import { NextComponentType, NextPageContext } from "next"
-
-import "@madeinhaus/nextjs-page-transition/dist/index.css"
 
 type Props = {
   Component: NextComponentType<NextPageContext, any, any>
@@ -14,7 +13,7 @@ const PageTransitionLayout = ({ Component, pageProps }: Props) => {
 
   return (
     <PageTransitionContext>
-      <PageTransition>
+      <PageTransition as="div">
         <Component {...pageProps} key={key} />
       </PageTransition>
     </PageTransitionContext>

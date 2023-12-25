@@ -7,7 +7,7 @@
   }
 
   > .marquee {
-    margin-bottom: desktop-vw(150px);
+    margin-bottom: desktop-vw(100px);
 
     @include mobile {
       margin-bottom: mobile-vw(50px);

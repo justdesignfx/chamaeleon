@@ -10,7 +10,7 @@ import { ResponsiveFooter } from "@/components/responsive-footer"
 import { ClientOnly } from "@/hocs/isomorphic"
 import { useLenisStore } from "@/lib/store/lenis"
 import { Seo } from "@/types"
-import { usePageTransitionState } from "@madeinhaus/nextjs-page-transition"
+import { PageTransitionPhaseHandler } from "@/hocs/page-transition-phase-handler"
 
 type Props = {
   children: ReactNode
@@ -22,9 +22,6 @@ type Props = {
 const DefaultLayout = ({ children, theme = "main", seo, footer = true }: Props) => {
   const router = useRouter()
   const lenisStore = useLenisStore()
-  const { phase } = usePageTransitionState()
-
-  console.log(phase)
 
   useIsomorphicLayoutEffect(() => {
     lenisStore.setReset(true)
@@ -47,13 +44,14 @@ const DefaultLayout = ({ children, theme = "main", seo, footer = true }: Props) 
             ],
           }))}
       />
-
-      <main className={cn("layout", `theme-${theme}`)}>{children}</main>
-      {footer && (
-        <ClientOnly>
-          <ResponsiveFooter />
-        </ClientOnly>
-      )}
+      <PageTransitionPhaseHandler>
+        <main className={cn("layout", `theme-${theme}`)}>{children}</main>
+        {footer && (
+          <ClientOnly>
+            <ResponsiveFooter />
+          </ClientOnly>
+        )}
+      </PageTransitionPhaseHandler>
     </>
   )
 }

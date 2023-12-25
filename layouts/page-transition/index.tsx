@@ -14,7 +14,7 @@ const PageTransitionLayout = ({ Component, pageProps }: Props) => {
 
   return (
     <PageTransitionContext>
-      <PageTransition inPhaseDuration={800} outPhaseDuration={800}>
+      <PageTransition>
         <Component {...pageProps} key={key} />
       </PageTransition>
     </PageTransitionContext>

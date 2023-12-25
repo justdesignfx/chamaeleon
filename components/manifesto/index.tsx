@@ -206,14 +206,13 @@ const Manifesto = () => {
         <div className={s.marquee}>
           <Marquee duration={30} repeat={3}>
             <>
-              <h5>MANIFESTO</h5>
-              <h5>MANIFESTO</h5>
-              <h5>MANIFESTO</h5>
-              <h5>MANIFESTO</h5>
+              <p>MANIFESTO</p>
+              <p>MANIFESTO</p>
+              <p>MANIFESTO</p>
+              <p>MANIFESTO</p>
             </>
           </Marquee>
         </div>
-        <h3>Today, we announce the creation of Chamaeleon and the launch of its first fund.</h3>
         {manifestoView[currentManifestoView]}
       </div>
 

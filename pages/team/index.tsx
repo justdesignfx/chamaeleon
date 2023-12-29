@@ -102,13 +102,15 @@ const Team = ({ team: members }: Props) => {
           </div>
         </div>
 
-        <div className={s.imgC}>
-          <Parallax speedX={0} directionY={-1} speedY={0.25}>
-            <div>
-              <CustomImage src={bale} alt="Dollar Bale Illustration" />
-            </div>
-          </Parallax>
-        </div>
+        <ClientOnly>
+          <div className={s.imgC}>
+            <Parallax speedX={0} directionY={-1} speedY={0.25}>
+              <div>
+                <CustomImage src={bale} alt="Dollar Bale Illustration" />
+              </div>
+            </Parallax>
+          </div>
+        </ClientOnly>
       </section>
 
       <CallToPage

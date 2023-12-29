@@ -143,12 +143,12 @@
   }
 
   .imgC {
-    @include position(absolute, auto, desktop-vw(50px), desktop-vw(-150px), auto);
-    @include dims(desktop-vw(400px), auto);
+    @include position(absolute, auto, desktop-vw(50px), desktop-vw(-50px), auto);
+    @include dims(desktop-vw(300px), auto);
 
     @include mobile {
       @include position(absolute, auto, 0, mobile-vw(-100px), auto);
-      @include dims(mobile-vw(200px), auto);
+      @include dims(mobile-vw(160px), auto);
     }
   }
 }

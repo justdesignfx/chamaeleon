@@ -45,7 +45,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/our-values",
+        source: "/our-manifesto",
         destination: "/manifesto-and-values",
         permanent: true,
       },

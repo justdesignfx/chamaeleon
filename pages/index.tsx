@@ -107,13 +107,15 @@ export default function Home({ companies }: Props) {
       <section className={s.investments}>
         <Marquee duration={40} repeat={2}>
           <>
-            {companies.map((item, i) => {
-              return (
-                <CustomLink href={item.url} className={s.logoC} key={i}>
-                  <CompanyBox {...item} />
-                </CustomLink>
-              )
-            })}
+            {Array.isArray(companies) &&
+              companies &&
+              companies.map((item, i) => {
+                return (
+                  <CustomLink href={item.url} className={s.logoC} key={i}>
+                    <CompanyBox {...item} />
+                  </CustomLink>
+                )
+              })}
           </>
         </Marquee>
       </section>

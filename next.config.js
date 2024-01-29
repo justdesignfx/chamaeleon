@@ -7,7 +7,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "jd-admin.chamaeleon.vc",
+        //  hostname: "jd-admin.chamaeleon.vc",
+        hostname: "chamaeleon.justdesignfx.com",
         pathname: "**",
       },
     ],

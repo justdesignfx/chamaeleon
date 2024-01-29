@@ -58,7 +58,8 @@ const Footer = () => {
       </p>
 
       <div className={s.social}>
-        {social &&
+        {Array.isArray(social) &&
+          social &&
           social.map((item, i) => {
             return (
               <CustomLink className={cn(s.iconC, "cursor-pointer", "flex-center")} href={item.url} key={i}>

@@ -14,9 +14,13 @@ import { Pixels } from "@/components/pixels"
 
 import { all } from "@/api/queries/home-portfolio"
 import { routes } from "@/constants"
+import { ClientOnly } from "@/hocs/isomorphic"
 import { DefaultLayout } from "@/layouts/default"
+import { breakpoints } from "@/lib/utils"
 import { CompanyBoxProps } from "@/types"
 
+import logomarkPng from "@/public/img/chamaeleon-c.png"
+import logomark from "@/public/img/chamaeleon-c.webp"
 import chamaeleonOnHill from "@/public/img/chamaeleon-on-hill.jpg"
 import cowboyHat from "@/public/img/cowboy-hat.png"
 import kinCurtain from "@/public/img/kin-curtain.jpg"
@@ -26,11 +30,6 @@ import logoKin from "@/public/img/logo-kin-community.png"
 import logoMantis from "@/public/img/logo-mantis.png"
 import moneybox from "@/public/img/moneybox.gif"
 import rocket from "@/public/img/rocket.png"
-
-import { ClientOnly } from "@/hocs/isomorphic"
-import { breakpoints } from "@/lib/utils"
-import logomarkPng from "@/public/img/chamaeleon-c.png"
-import logomark from "@/public/img/chamaeleon-c.webp"
 
 type Props = {
   companies: CompanyBoxProps[]

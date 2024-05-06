@@ -84,26 +84,53 @@
     }
 
     .desc {
-      @include dims(desktop-vw(350px), desktop-vw(150px));
+      @include dims(desktop-vw(350px), auto);
       color: var(--greening);
       display: flex;
       font-family: var(--font-helvetica-neue);
       font-size: desktop-vw(16px);
       font-weight: 400;
       line-height: 1.5;
-      margin-bottom: desktop-vw(20px);
       overflow-y: scroll;
+
+      @include mobile {
+        @include dims(auto);
+        font-size: mobile-vw(14px);
+        line-height: 2;
+        text-align: center;
+      }
 
       span {
         display: block;
         padding-right: desktop-vw(20px);
+
+        @include mobile {
+          padding-right: 0;
+        }
       }
+    }
+
+    .status {
+      @include dims(desktop-vw(350px), auto);
+      color: var(--greening);
+      font-family: var(--font-helvetica-neue);
+      font-size: desktop-vw(15px);
+      line-height: 1.5;
+      margin-top: desktop-vw(20px);
 
       @include mobile {
-        @include dims(auto, mobile-vw(200px));
+        @include dims(auto);
         font-size: mobile-vw(14px);
-        line-height: 2;
+        margin-top: mobile-vw(20px);
         text-align: center;
+      }
+    }
+
+    .btnC {
+      margin-top: desktop-vw(30px);
+
+      @include mobile {
+        margin-top: mobile-vw(30px);
       }
     }
 

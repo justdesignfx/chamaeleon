@@ -20,7 +20,7 @@
     transition: $ease;
 
     @include mobile {
-      @include dims(100%, mobile-vw(100px));
+      @include dims(100%, mobile-vw(120px));
       border-radius: mobile-vw(10px);
     }
 

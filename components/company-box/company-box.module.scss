@@ -8,4 +8,19 @@
       @include dims(mobile-vw(100px), mobile-vw(50px));
     }
   }
+
+  .status {
+    font-family: var(--font-helvetica-neue);
+    font-size: desktop-vw(14px);
+    line-height: 1.25;
+    margin-top: desktop-vw(16px);
+    padding: 0 desktop-vw(16px);
+    text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(12px);
+      margin-top: mobile-vw(16px);
+      padding: 0 mobile-vw(16px);
+    }
+  }
 }

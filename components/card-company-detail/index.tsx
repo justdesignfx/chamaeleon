@@ -3,7 +3,6 @@ import s from "./card-company-detail.module.scss"
 import cn from "clsx"
 
 import IconClose from "@/components/icons/icon-close"
-import { ScrollableBox } from "@/components/scrollable-box"
 import { CustomImage } from "@/components/custom-image"
 import { Button } from "@/components/button"
 
@@ -29,14 +28,18 @@ const CardCompanyDetail = (props: Props) => {
       <div className={s.info}>
         {/* <p className={s.title}>{props.name}</p> */}
         <div className={s.desc}>
-          <ScrollableBox>
-            <p>
-              <span>{props.description}</span>
-            </p>
-          </ScrollableBox>
+          {/* <ScrollableBox> */}
+          <p>
+            <span>{props.description}</span>
+          </p>
+          {/* </ScrollableBox> */}
         </div>
 
-        <Button path={props.url} color="var(--greening)" text="GO TO WEBSITE" size="xs" />
+        {props.companyStatus && <p className={s.status}>{props.companyStatus}</p>}
+
+        <div className={s.btnC}>
+          <Button path={props.url} color="var(--greening)" text="GO TO WEBSITE" size="xs" />
+        </div>
       </div>
     </div>
   )

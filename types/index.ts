@@ -6,6 +6,7 @@ export interface CompanyBoxProps {
   name: string
   logo: string
   url?: string
+  companyStatus?: string
 }
 
 export interface CardPersonProps {

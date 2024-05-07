@@ -111,7 +111,7 @@ export default function Home({ companies }: Props) {
               companies.map((item, i) => {
                 return (
                   <CustomLink href={item.url} className={s.logoC} key={i}>
-                    <CompanyBox {...item} />
+                    <CompanyBox {...item} type="logo" />
                   </CustomLink>
                 )
               })}

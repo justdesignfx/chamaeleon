@@ -70,9 +70,7 @@ const Portfolio = ({ companies }: Props) => {
                 onMouseEnter={() => cursorStore.setCursor("click")}
                 onMouseLeave={() => cursorStore.setCursor("default")}
               >
-                <div>
-                  <CompanyBox {...item} />
-                </div>
+                <CompanyBox {...item} type="portfolio" />
               </div>
             )
           })}
@@ -90,9 +88,7 @@ const Portfolio = ({ companies }: Props) => {
                 onMouseEnter={() => cursorStore.setCursor("click")}
                 onMouseLeave={() => cursorStore.setCursor("default")}
               >
-                <div>
-                  <CompanyBox key={i} {...item} />
-                </div>
+                <CompanyBox key={i} {...item} type="portfolio" />
               </div>
             )
           })}

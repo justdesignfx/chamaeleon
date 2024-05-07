@@ -7,6 +7,7 @@ export interface CompanyBoxProps {
   logo: string
   url?: string
   companyStatus?: string
+  type: "logo" | "portfolio"
 }
 
 export interface CardPersonProps {

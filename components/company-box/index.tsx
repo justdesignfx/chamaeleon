@@ -10,7 +10,7 @@ type Props = CompanyBoxProps
 
 const CompanyBox = (props: Props) => {
   return (
-    <div className={cn(s.companyBox, "flex-center-y")}>
+    <div className={cn(s.companyBox, { [s.flexStart]: props.type === "portfolio" })}>
       <div className={s.imgC}>
         <CustomImage src={props.logo} alt={props.name} height={200} width={200} style={{ objectFit: "contain" }} />
       </div>

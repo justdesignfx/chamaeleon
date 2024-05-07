@@ -1,5 +1,15 @@
 .companyBox {
-  @include dims(inherit);
+  @include dims(100%);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &.flexStart {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
 
   .imgC {
     @include dims(desktop-vw(130px), desktop-vw(50px));
@@ -20,7 +30,7 @@
 
     @include mobile {
       font-size: mobile-vw(12px);
-      margin-top: mobile-vw(16px);
+      margin-top: mobile-vw(14px);
       padding: 0 mobile-vw(16px);
     }
   }

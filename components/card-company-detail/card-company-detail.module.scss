@@ -84,7 +84,7 @@
     }
 
     .desc {
-      @include dims(desktop-vw(350px), auto);
+      @include dims(desktop-vw(330px), auto);
       color: var(--greening);
       display: flex;
       font-family: var(--font-helvetica-neue);
@@ -102,11 +102,11 @@
 
       span {
         display: block;
-        padding-right: desktop-vw(20px);
+        // padding-right: desktop-vw(20px);
 
-        @include mobile {
-          padding-right: 0;
-        }
+        // @include mobile {
+        //   padding-right: 0;
+        // }
       }
     }
 

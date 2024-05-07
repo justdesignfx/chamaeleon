@@ -25,13 +25,13 @@
     font-weight: 700;
     line-height: 1.25;
     margin-top: desktop-vw(16px);
-    padding: 0 desktop-vw(16px);
+    padding: 0;
     text-align: center;
 
     @include mobile {
       font-size: mobile-vw(12px);
       margin-top: mobile-vw(14px);
-      padding: 0 mobile-vw(16px);
+      padding: 0;
     }
   }
 }

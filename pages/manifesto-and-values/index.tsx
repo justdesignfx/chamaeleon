@@ -18,8 +18,8 @@ const ManifestoAndValues = () => {
       <section className={s.intro}>
         <h1>
           <span>
-            <strong>Chamaeleon</strong> is a new early-stage venture capital firm that brings together partners that
-            have long collaborated as investors, operators and entrepreneurs that will focus on investing in truly
+            <strong>Chamaeleon</strong> is an early-stage venture capital firm that brings together partners that have
+            long collaborated as investors, operators and entrepreneurs that will focus on investing in truly
             transformative companies.
           </span>
           <span>

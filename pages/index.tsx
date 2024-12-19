@@ -90,7 +90,7 @@ export default function Home({ companies }: Props) {
           <h2>MANIFESTO & VALUES</h2>
           <h3>WE ARE AN EARLY-STAGE VC FIRM BASED IN SILICON VALLEY, INVESTING GLOBALLY.</h3>
           <p>
-            Chamaeleon is a new early-stage venture capital firm that brings together 3 partners that have long
+            Chamaeleon is an early-stage venture capital firm that brings together 3 partners that have long
             collaborated as investors, operators and entrepreneurs that will focus on investing in truly transformative
             companies.
           </p>

@@ -17,7 +17,7 @@ export const routes = {
     seo: {
       title: "Chamaeleon | Manifesto & Values",
       description:
-        "Chamaeleon is a new early-stage venture capital firm that brings together partners that have long collaborated as investors, operators and entrepreneurs that will focus on investing in truly transformative companies.",
+        "Chamaeleon is an early-stage venture capital firm that brings together partners that have long collaborated as investors, operators and entrepreneurs that will focus on investing in truly transformative companies.",
     },
   },
   team: {

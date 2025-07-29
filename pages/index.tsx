@@ -231,7 +231,7 @@ export default function Home({ companies }: Props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const companies = await all()
   return { props: { companies } }
 }

@@ -61,7 +61,7 @@ const Team = ({ team: members }: Props) => {
   return (
     <DefaultLayout seo={{ ...routes.team.seo }}>
       <section className={s.intro}>
-        <h1>LEADERSHIP TEAM</h1>
+        <h1>LEADERSHIP</h1>
       </section>
 
       <section className={s.members}>

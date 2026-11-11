@@ -50,6 +50,11 @@ const nextConfig = {
         destination: "/manifesto-and-values",
         permanent: true,
       },
+      {
+        source: "/team",
+        destination: "/leadership",
+        permanent: true,
+      },
     ]
   },
 }

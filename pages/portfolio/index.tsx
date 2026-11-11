@@ -103,7 +103,7 @@ const Portfolio = ({ companies }: Props) => {
         </div>
         <CallToPage
           text="Get to know about us"
-          btnText="TEAM"
+          btnText="LEADERSHIP"
           href={routes.team.path}
           ariaLabel={routes.team.ariaLabel}
         />

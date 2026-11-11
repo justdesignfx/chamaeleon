@@ -21,12 +21,12 @@ export const routes = {
     },
   },
   team: {
-    ariaLabel: "Our Team",
-    name: "team",
-    path: "team",
-    ui: "TEAM",
+    ariaLabel: "Our Leadership",
+    name: "leadership",
+    path: "leadership",
+    ui: "LEADERSHIP",
     seo: {
-      title: "Chamaeleon | Team",
+      title: "Chamaeleon | Leadership",
       description: "We are an early-stage VC firm based in Silicon Valley, investing globally.",
     },
   },

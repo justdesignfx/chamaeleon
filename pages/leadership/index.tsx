@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 
-import s from "./team.module.scss"
+import s from "./leadership.module.scss"
 
 import { useMediaQuery } from "usehooks-ts"
 
